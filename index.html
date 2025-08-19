@@ -12,11 +12,13 @@
             --usf-gold: #CFC493;
             --dark-bg: #1a1a1a;
             --card-bg: #2d2d2d;
+            --light-gray: #f8f9fa;
+            --medium-gray: #e9ecef;
         }
         
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
             min-height: 100vh;
         }
         
@@ -38,13 +40,15 @@
             border-radius: 10px;
             padding: 1.5rem;
             margin-bottom: 1.5rem;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.08);
             transition: transform 0.3s, box-shadow 0.3s;
+            border: 1px solid rgba(0,103,71,0.1);
         }
         
         .week-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 15px rgba(0,0,0,0.2);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 12px rgba(0,103,71,0.15);
+            border-color: var(--usf-green);
         }
         
         .week-header {
@@ -53,15 +57,16 @@
             align-items: center;
             margin-bottom: 1rem;
             padding-bottom: 0.5rem;
-            border-bottom: 2px solid var(--usf-gold);
+            border-bottom: 2px solid var(--medium-gray);
         }
         
         .week-number {
-            background: var(--usf-green);
+            background: linear-gradient(135deg, var(--usf-green) 0%, #00875a 100%);
             color: white;
             padding: 0.25rem 0.75rem;
             border-radius: 20px;
             font-weight: bold;
+            box-shadow: 0 2px 4px rgba(0,103,71,0.2);
         }
         
         .materials-grid {
@@ -79,12 +84,14 @@
             border-radius: 8px;
             text-decoration: none;
             color: #333;
-            transition: background 0.3s;
+            transition: all 0.3s;
+            border: 1px solid transparent;
         }
         
         .material-link:hover {
-            background: var(--usf-gold);
+            background: rgba(0,103,71,0.05);
             color: var(--usf-green);
+            border-color: var(--usf-green);
         }
         
         .material-icon {
@@ -93,8 +100,8 @@
         }
         
         .alert-custom {
-            background: #fff3cd;
-            border-left: 4px solid #ffc107;
+            background: rgba(207,196,147,0.15);
+            border-left: 4px solid var(--usf-green);
             border-radius: 8px;
             padding: 1rem;
             margin-bottom: 2rem;
@@ -106,11 +113,17 @@
             margin: 0 0.25rem;
             border-radius: 20px;
             transition: all 0.3s;
+            border: 2px solid var(--usf-green);
+        }
+        
+        .nav-pills .nav-link:hover {
+            background: rgba(0,103,71,0.05);
         }
         
         .nav-pills .nav-link.active {
             background: var(--usf-green);
             color: white;
+            border-color: var(--usf-green);
         }
         
         .syllabus-section {
@@ -135,13 +148,15 @@
         }
         
         .status-available {
-            background: #d4edda;
-            color: #155724;
+            background: rgba(0,103,71,0.1);
+            color: var(--usf-green);
+            border: 1px solid var(--usf-green);
         }
         
         .status-upcoming {
-            background: #f8d7da;
-            color: #721c24;
+            background: rgba(207,196,147,0.2);
+            color: #8b7355;
+            border: 1px solid var(--usf-gold);
         }
     </style>
 </head>
