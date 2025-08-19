@@ -1,0 +1,23 @@
+# GitHub Pages Configuration for ISM4641 Course Website
+
+# Site settings
+title: ISM4641 - Python for Business Analytics
+description: Course materials for Python for Business Analytics at USF
+author: Dr. Tim Smith
+email: smith515@usf.edu
+
+# Build settings
+theme: null  # We're using custom HTML/CSS
+
+# Exclude files from processing
+exclude:
+  - README.md
+  - generate-public-site.sh
+  - "*.qmd"
+
+# GitHub Pages settings
+baseurl: "/ism4641-web"  # the subpath of your site
+url: "https://prof-tcsmith.github.io"  # base hostname
+
+# Plugins (if needed)
+plugins: []

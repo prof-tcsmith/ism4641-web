@@ -1,0 +1,1012 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.7.31">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Dr.&nbsp;Smith">
+<meta name="dcterms.date" content="2024-01-13">
+
+<title>ISM4641 Lecture 1: Python Foundations</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="Week01-lecture-notes_files/libs/clipboard/clipboard.min.js"></script>
+<script src="Week01-lecture-notes_files/libs/quarto-html/quarto.js" type="module"></script>
+<script src="Week01-lecture-notes_files/libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="Week01-lecture-notes_files/libs/quarto-html/popper.min.js"></script>
+<script src="Week01-lecture-notes_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="Week01-lecture-notes_files/libs/quarto-html/anchor.min.js"></script>
+<link href="Week01-lecture-notes_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="Week01-lecture-notes_files/libs/quarto-html/quarto-syntax-highlighting-af5ec82acda093b5ee751184164e9432.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="Week01-lecture-notes_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="Week01-lecture-notes_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="Week01-lecture-notes_files/libs/bootstrap/bootstrap-1f8043d50c91bbeffefd1c1c1743f768.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+
+
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body class="quarto-light">
+
+<div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
+<div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+<div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="../../lecture-notes.html"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></div>
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">ISM4641 Lecture 1: Python Foundations</h1>
+<p class="subtitle lead">Introduction to Pythong for business anlaytics</p>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Dr.&nbsp;Smith </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">January 13, 2024</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="class-1-introduction-to-python-for-business" class="level2">
+<h2 class="anchored" data-anchor-id="class-1-introduction-to-python-for-business">Class 1: Introduction to Python for Business</h2>
+<section id="welcome-to-the-world-of-data-driven-decision-making" class="level3">
+<h3 class="anchored" data-anchor-id="welcome-to-the-world-of-data-driven-decision-making">Welcome to the World of Data-Driven Decision Making!</h3>
+<p>Welcome to ISM4641: Python for Business Analytics! In this course, you’re embarking on a journey to learn a skill that is transforming the business world: <strong>data analysis with Python</strong>. You might be wondering, “Why should a business student learn to code?” The answer is simple: <strong>data is everywhere, and the ability to understand and use it is no longer optional, it’s essential.</strong></p>
+<p>Think about the decisions businesses make every day:</p>
+<ul>
+<li><strong>Marketing:</strong> Which advertising campaign is most effective? Which customer segments should we target? How can we personalize the customer experience to drive engagement and loyalty?</li>
+<li><strong>Finance:</strong> How can we forecast sales for the next quarter with greater accuracy? What are the key risk factors for this investment, and how can we optimize our portfolio to maximize returns?</li>
+<li><strong>Operations:</strong> How can we optimize our supply chain to reduce costs and improve delivery times? Where are the bottlenecks in our production process, and how can we use predictive maintenance to minimize downtime?</li>
+<li><strong>Human Resources:</strong> How can we identify top talent during the recruitment process? What factors contribute to employee retention, and how can we build a more diverse and inclusive workforce?</li>
+</ul>
+<p>In the past, these decisions were often based on intuition or limited information. Today, businesses have access to vast amounts of data, but they need people who can unlock its insights. <strong>That’s where you come in</strong>. This course will equip you with the power of Python to analyze data, uncover hidden patterns, and make informed, data-driven recommendations that can give businesses a real competitive edge.</p>
+<ol type="1">
+<li><strong>Data is the New Oil, and Python is the Refinery:</strong> Think about it. Every industry, from healthcare to finance to entertainment, is drowning in data. Knowing how to extract meaning from that data – that’s the new gold. Python, with its libraries like Pandas and Scikit-learn, is the most efficient and versatile tool for doing just that. It’s how you turn raw information into actionable insights, and that is invaluable.</li>
+<li><strong>Competitiveness Demands More Than Just Spreadsheets:</strong> Gone are the days when basic spreadsheet skills were enough. To stand out, you need to be able to ask the right questions of your data, and then answer them with sophisticated analyses. Python, coupled with skills in data visualization and statistical modeling, gives you that edge. You become the problem-solver, the strategist, the one who can see beyond the surface.</li>
+<li><strong>Industry Trends Point to One Thing:</strong> Automation and AI: The future of work is increasingly automated, powered by machine learning and artificial intelligence. Guess what language is at the heart of most of these advancements? You got it – Python. By learning it now, you’re not just preparing for today’s jobs, you’re future-proofing your career. You’re positioning yourself to be a leader in the next wave of innovation.</li>
+<li><strong>Competitive Advantage:</strong> Speak the Language of the Future: Ultimately, knowing Python and how to work with data gives you a decisive competitive advantage. You’ll not only be highly sought-after by employers, but you’ll also have the skills to potentially launch your own ventures. You become fluent in the language of the future, a language that opens doors to opportunities you can’t even imagine yet.</li>
+</ol>
+</section>
+<section id="todays-objectives" class="level3">
+<h3 class="anchored" data-anchor-id="todays-objectives">Today’s Objectives</h3>
+<ul>
+<li>Understand why Python is a crucial tool for modern business analytics.</li>
+<li>Get comfortable with Google Colab, our cloud-based coding environment, including notebook cells and basic Markdown formatting.</li>
+<li>Learn how to make Notebooks looks great using Markdown</li>
+<li>Grasp the fundamental building blocks of Python: variables, data types, operators, and type conversion.</li>
+<li>Write your first lines of Python code and experience the thrill of telling a computer what to do!</li>
+</ul>
+</section>
+</section>
+<section id="why-python-the-power-tool-for-business-analytics" class="level2">
+<h2 class="anchored" data-anchor-id="why-python-the-power-tool-for-business-analytics">1. Why Python? The Power Tool for Business Analytics</h2>
+<p>Imagine you have a toolbox filled with different tools. You wouldn’t use a hammer to screw in a bolt, right? Similarly, in the world of data analysis, different programming languages have different strengths. So, why is Python the perfect tool for business analytics?</p>
+<ul>
+<li><strong>It’s Like a Swiss Army Knife:</strong> Python is incredibly <strong>versatile</strong>. It can handle a wide range of tasks, from cleaning messy data to building sophisticated predictive models and even automating business processes. This means you can use it throughout the entire analytical process, making you a more efficient and valuable asset.</li>
+<li><strong>Easy to Learn, Even for Beginners:</strong> Python’s syntax (the way you write the code) is designed to be <strong>readable and intuitive</strong>. It reads almost like plain English, which makes it easier to pick up compared to many other programming languages. You don’t need a computer science degree to become proficient in Python; your business acumen combined with Python’s simplicity will enable you to quickly apply it to real-world business problems.</li>
+<li><strong>A Treasure Chest of Tools (Libraries):</strong> Python has a vast collection of <strong>libraries</strong>, which are like pre-built modules of code that you can use to perform specific tasks. Think of them as shortcuts. For data analysis, libraries like Pandas and NumPy provide powerful tools for manipulating and analyzing data without having to write everything from scratch. For instance, with just a few lines of code, Pandas can help you calculate key business metrics like customer lifetime value or market share. We will cover these in detail in later classes.</li>
+<li><strong>Everyone’s Using It (Large Community):</strong> Python has a massive and active <strong>community</strong> of users. This means that if you ever get stuck, there are tons of resources, tutorials, and helpful people online who can assist you. It also means that Python is constantly being improved and updated, ensuring you’re always working with a cutting-edge tool.</li>
+<li><strong>Employers Love It (Industry Standard):</strong> Because of its power and versatility, Python has become the <strong>industry standard</strong> for data analysis in many sectors. Leading companies across finance, marketing, technology, and consulting rely on Python for their analytical needs. Knowing Python will make you a highly sought-after candidate in the job market, opening doors to exciting career opportunities in areas like data analytics, business intelligence, and strategic consulting.</li>
+</ul>
+</section>
+<section id="your-cloud-based-coding-playground-google-colab" class="level2">
+<h2 class="anchored" data-anchor-id="your-cloud-based-coding-playground-google-colab">2. Your Cloud-Based Coding Playground: Google Colab</h2>
+<p>For this course, we’ll be using <strong>Google Colab</strong>, a fantastic tool that makes learning and using Python a breeze. Think of Colab as your cloud-based coding playground. Here’s why it’s so great:</p>
+<ul>
+<li><strong>Zero Setup Hassle:</strong> Forget about complicated installations and configurations. Colab runs entirely in your web browser. As long as you have an internet connection, you’re good to go. This means you can focus on learning Python, not wrestling with technical setup issues.</li>
+<li><strong>Free Power at Your Fingertips:</strong> Google provides you with free access to powerful computing resources, including GPUs (which are like super-fast processors). This is a huge advantage when working with large datasets, as it can significantly speed up your analyses, allowing you to process and derive insights from millions of data points in minutes.</li>
+<li><strong>Teamwork Made Easy:</strong> Colab allows you to easily share your code with others and collaborate on projects in real time. This is perfect for group assignments and learning from your peers. You can work together on the same notebook, making it ideal for collaborative projects that simulate real-world business scenarios.</li>
+<li><strong>Everything in One Place:</strong> Colab uses <strong>Jupyter Notebooks</strong>, which are interactive documents that combine your code, the output of your code, and any text explanations you want to add. It’s like having your notes, your code editor, and your results all in one neat package. This makes it perfect for documenting your analytical process, explaining your reasoning, and presenting your findings in a clear, compelling way.</li>
+</ul>
+<section id="getting-started-with-colab" class="level3">
+<h3 class="anchored" data-anchor-id="getting-started-with-colab">Getting Started with Colab</h3>
+<ol type="1">
+<li><strong>Open Colab:</strong> Go to <a href="https://colab.research.google.com/">https://colab.research.google.com/</a> in your web browser.</li>
+<li><strong>Sign In:</strong> Use your Google account to sign in.</li>
+<li><strong>Create a New Notebook:</strong> Click the “New notebook” button (usually in the bottom right corner).</li>
+</ol>
+</section>
+<section id="navigating-the-colab-interface-and-using-notebooks" class="level3">
+<h3 class="anchored" data-anchor-id="navigating-the-colab-interface-and-using-notebooks">Navigating the Colab Interface and Using Notebooks</h3>
+<ul>
+<li><strong>Notebook Cells:</strong> Colab notebooks are made up of cells. There are two main types:
+<ul>
+<li><strong>Code Cells:</strong> These are the boxes where you’ll write and execute your Python code.</li>
+<li><strong>Text Cells:</strong> These are used for adding explanations, notes, headings, and documentation using a simple formatting language called <strong>Markdown</strong>.</li>
+</ul></li>
+<li><strong>Running Your Code:</strong> To execute the code in a code cell, click the “Play” button that appears on the left side of the cell or press <code>Shift + Enter</code>.</li>
+<li><strong>Adding More Cells:</strong> Use the “+ Code” and “+ Text” buttons in the toolbar to add new code or text cells, respectively.</li>
+</ul>
+<div style="page-break-after: always;"></div>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 56%">
+<col style="width: 44%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Common Shortcuts</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>- Run cell (<strong>Ctrl + Enter</strong>)</td>
+<td>- add a cell above (<strong>Ctrl + M + A</strong>)</td>
+</tr>
+<tr class="even">
+<td>- Run cell and add new cell below (<strong>Alt + Enter</strong>)</td>
+<td>- Add a cell below (<strong>Ctrl + M + B</strong>)</td>
+</tr>
+<tr class="odd">
+<td>- Run cell and goto the next cell below (<strong>Shift + Enter</strong>)</td>
+<td>- Change cell to code (<strong>Ctrl + M + Y</strong>)</td>
+</tr>
+<tr class="even">
+<td>- Comment current line (<strong>Ctrl + /</strong>)</td>
+<td>- Change cell to markdown (<strong>Ctrl + M + M</strong>)</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="markdown-making-your-notebooks-look-good" class="level3">
+<h3 class="anchored" data-anchor-id="markdown-making-your-notebooks-look-good">Markdown: Making Your Notebooks Look Good</h3>
+<p>Markdown is a lightweight markup language that you can use in text cells to format your text, create headings, add lists, insert links, and more. It’s designed to be easy to read and write, and it allows you to create well-structured and visually appealing documentation for your code.</p>
+<p>Here are some basic Markdown elements you should know:</p>
+<ul>
+<li><p><strong>Headings:</strong> Create headings of different levels using <code>#</code>, <code>##</code>, <code>###</code>, and so on. The more <code>#</code> symbols, the smaller the heading.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu"># Main Heading (Largest)</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">## Subheading</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">### Smaller Subheading</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<li><p><strong>Emphasis:</strong></p>
+<ul>
+<li><em>Italic</em>: Surround text with single asterisks (<code>*</code>) or underscores (<code>_</code>).</li>
+</ul>
+<div class="sourceCode" id="cb2"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>*This text will be italic.*</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>_This will also be italic._</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ul>
+<li><strong>Bold:</strong> Surround text with double asterisks (<code>**</code>) or double underscores (<code>__</code>).</li>
+</ul>
+<div class="sourceCode" id="cb3"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>**This text will be bold.**</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>__This will also be bold.__</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<li><p><strong>Lists:</strong></p>
+<ul>
+<li><strong>Unordered Lists:</strong> Create bulleted lists using asterisks (<code>*</code>), plus signs (<code>+</code>), or hyphens (<code>-</code>).</li>
+</ul>
+<div class="sourceCode" id="cb4"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Item 1</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Item 2</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="ss">* </span>Item 3</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ul>
+<li><strong>Ordered Lists:</strong> Create numbered lists by simply using numbers followed by periods.</li>
+</ul>
+<div class="sourceCode" id="cb5"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>First item</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>Second item</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>Third item</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<li><p><strong>Links:</strong> Create links using square brackets <code>[]</code> for the link text and parentheses <code>()</code> for the URL.</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">Link to Google</span><span class="co">](https://www.google.com)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<li><p><strong>Code:</strong></p>
+<ul>
+<li><strong>Inline Code:</strong> To highlight a short piece of code within a sentence, use single backticks (`). For example, `print(“Hello”)` will render as <code>print("Hello")</code>.</li>
+<li><strong>Code Blocks:</strong> To display a block of code (like you would in a code cell), use triple backticks (```). You can optionally specify the programming language after the opening backticks for syntax highlighting.</li>
+</ul>
+<p><strong>Example:</strong></p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="in">```python</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> my_function(x):</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> x <span class="op">*</span> <span class="dv">2</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>will render as:</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> my_function(x):</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> x <span class="op">*</span> <span class="dv">2</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+</ul>
+<section id="why-use-markdown" class="level4">
+<h4 class="anchored" data-anchor-id="why-use-markdown">Why Use Markdown?</h4>
+<ul>
+<li><strong>Organization:</strong> It helps you structure your notebooks logically, making them easier to follow.</li>
+<li><strong>Documentation:</strong> You can clearly explain the purpose of your code, the steps you’re taking, and the results you’re getting. This is crucial in business, where you’ll often need to justify your analyses and recommendations to stakeholders.</li>
+<li><strong>Presentation:</strong> Markdown makes your notebooks visually appealing and professional-looking. Think of it as a way to create compelling reports that combine code, analysis, and narrative, allowing you to present your findings in a way that is both informative and engaging.</li>
+</ul>
+<p><strong>Don’t be afraid to experiment in Colab!</strong> It’s a safe space to try things out, make mistakes, and learn from them.</p>
+</section>
+<section id="further-exploration" class="level4">
+<h4 class="anchored" data-anchor-id="further-exploration">Further Exploration</h4>
+<ul>
+<li><strong>Colab Welcome Guide:</strong> <a href="https://colab.research.google.com/notebooks/welcome.ipynb">https://colab.research.google.com/notebooks/welcome.ipynb</a></li>
+<li><strong>Markdown Guide:</strong> <a href="https://www.markdownguide.org/">https://www.markdownguide.org/</a></li>
+</ul>
+</section>
+</section>
+</section>
+<section id="the-building-blocks-of-python-variables-data-types-and-operators" class="level2">
+<h2 class="anchored" data-anchor-id="the-building-blocks-of-python-variables-data-types-and-operators">3. The Building Blocks of Python: Variables, Data Types, and Operators</h2>
+<p>Now that you’re familiar with Colab, let’s start with the fundamental elements of the Python language. Think of these as the ABCs of coding.</p>
+<section id="variables-giving-names-to-your-data" class="level3">
+<h3 class="anchored" data-anchor-id="variables-giving-names-to-your-data">3.1 Variables: Giving Names to Your Data</h3>
+<p>In programming, a <strong>variable</strong> is like a labeled container that holds a piece of information. It’s a way to store data that you want to use later in your program. You get to choose the name of the variable, and it’s good practice to pick names that are descriptive and meaningful. Think of them as labels for your business data.</p>
+<p><strong>Example:</strong></p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Assigning values to variables</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>company_name <span class="op">=</span> <span class="st">"TechCorp Inc."</span>  <span class="co"># We're storing the text "TechCorp Inc." in the variable named company_name, representing the company we're analyzing.</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>number_of_employees <span class="op">=</span> <span class="dv">500</span>      <span class="co"># Storing the number 500 in the variable number_of_employees, perhaps for workforce analysis.</span></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>revenue <span class="op">=</span> <span class="fl">25.5</span>                 <span class="co"># Storing the number 25.5 in the variable revenue, which could represent annual revenue in millions.</span></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>is_profitable <span class="op">=</span> <span class="va">True</span>           <span class="co"># Storing the value True in the variable is_profitable, indicating the company's profitability status.</span></span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Printing the values stored in the variables</span></span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(company_name)</span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(number_of_employees)</span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(revenue)</span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(is_profitable)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>Explanation:</strong></p>
+<ul>
+<li>We use the <strong>assignment operator</strong> (<code>=</code>) to assign a value to a variable.</li>
+<li>On the left side of the <code>=</code>, you have the variable name.</li>
+<li>On the right side of the <code>=</code>, you have the value you want to store.</li>
+</ul>
+<section id="why-are-variables-useful" class="level4">
+<h4 class="anchored" data-anchor-id="why-are-variables-useful">Why are variables useful?</h4>
+<ul>
+<li><strong>Organization:</strong> They make your code easier to read and understand by giving meaningful names to data. For instance, <code>customer_age</code> is more informative than just <code>x</code>.</li>
+<li><strong>Reusability:</strong> You can refer to the value stored in a variable multiple times throughout your code without having to type it out each time. This is especially useful for values you use frequently, like a discount rate or a sales target.</li>
+<li><strong>Flexibility:</strong> You can easily change the value of a variable later in your program. This allows you to update your analysis with new data or different parameters, such as a revised sales forecast or a change in market share.</li>
+</ul>
+</section>
+<section id="rules-for-naming-variables" class="level4">
+<h4 class="anchored" data-anchor-id="rules-for-naming-variables">Rules for Naming Variables</h4>
+<ul>
+<li><strong>Start with a Letter or Underscore:</strong> Variable names must begin with a letter (a-z, A-Z) or an underscore (_).</li>
+<li><strong>The Rest Can Be Letters, Underscores, or Numbers:</strong> After the first character, you can use letters, underscores, or digits (0-9).</li>
+<li><strong>Case-Sensitive:</strong> Python distinguishes between uppercase and lowercase letters. So, <code>myVariable</code> and <code>myvariable</code> are considered different variables.</li>
+<li><strong>No Python Keywords:</strong> You cannot use reserved words in Python (like <code>if</code>, <code>else</code>, <code>for</code>, <code>while</code>, <code>print</code>, <code>import</code>) as variable names because they have special meanings in the language.</li>
+</ul>
+</section>
+</section>
+<section id="data-types-what-kind-of-information-are-you-storing" class="level3">
+<h3 class="anchored" data-anchor-id="data-types-what-kind-of-information-are-you-storing">3.2 Data Types: What Kind of Information Are You Storing?</h3>
+<p>A <strong>data type</strong> tells Python what kind of value a variable is holding. It’s like specifying whether a container is meant for liquids, solids, or something else. Here are some of the most common data types you’ll encounter:</p>
+<ul>
+<li><strong>String (<code>str</code>):</strong> Used for representing text. Strings are always enclosed in either single quotes (’ ’) or double quotes (” “).
+<ul>
+<li><strong>Example:</strong> <code>"Hello, world!"</code>, <code>'Python is fun'</code>, <code>'Revenue Report 2023'</code></li>
+</ul></li>
+<li><strong>Integer (<code>int</code>):</strong> Used for whole numbers, both positive and negative, without any decimal point.
+<ul>
+<li><strong>Example:</strong> <code>10</code>, <code>-5</code>, <code>0</code>, <code>100000</code>, <code>2024</code> (e.g., number of units sold)</li>
+</ul></li>
+<li><strong>Float (<code>float</code>):</strong> Used for numbers that have a decimal point.
+<ul>
+<li><strong>Example:</strong> <code>3.14</code>, <code>-2.7</code>, <code>0.0</code>, <code>99.99</code>, <code>125000.50</code> (e.g., stock price, revenue in millions)</li>
+</ul></li>
+<li><strong>Boolean (<code>bool</code>):</strong> Used for representing logical values, which can be either <code>True</code> or <code>False</code>. These are essential for making decisions in your code, such as whether a customer is eligible for a discount or if a product is in stock.
+<ul>
+<li><strong>Example:</strong> <code>True</code>, <code>False</code></li>
+</ul></li>
+</ul>
+<p><strong>Example:</strong></p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>product_name <span class="op">=</span> <span class="st">"Laptop"</span>          <span class="co"># String - the name of a product</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>quantity_in_stock <span class="op">=</span> <span class="dv">100</span>         <span class="co"># Integer - how many units are in stock</span></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>price_per_unit <span class="op">=</span> <span class="fl">999.99</span>        <span class="co"># Float - the price of a single laptop</span></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>is_in_stock <span class="op">=</span> <span class="va">True</span>             <span class="co"># Boolean - whether the product is currently available</span></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Checking the data type of each variable using the type() function</span></span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="bu">type</span>(product_name))</span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="bu">type</span>(quantity_in_stock))</span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="bu">type</span>(price_per_unit))</span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="bu">type</span>(is_in_stock))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<section id="why-are-data-types-important" class="level4">
+<h4 class="anchored" data-anchor-id="why-are-data-types-important">Why are data types important?</h4>
+<ul>
+<li><strong>Correct Operations:</strong> Python needs to know the data type to perform the correct operations. For example, you can add two numbers, but you can’t add a number to a string directly. You can multiply a string by an integer, which will result in the string repeated.</li>
+<li><strong>Memory Management:</strong> Different data types require different amounts of memory to store.</li>
+<li><strong>Data Integrity:</strong> Using the right data type helps ensure that your data is stored and processed accurately. For instance, storing a customer’s age as an integer prevents accidental entries like “thirty” or “30.5”.</li>
+</ul>
+</section>
+</section>
+<section id="operators-doing-things-with-data" class="level3">
+<h3 class="anchored" data-anchor-id="operators-doing-things-with-data">3.3 Operators: Doing Things with Data</h3>
+<p><strong>Operators</strong> are special symbols that allow you to perform operations on variables and values. They are like the action verbs of programming, allowing you to manipulate data and derive meaningful insights.</p>
+<section id="arithmetic-operators-math-time" class="level4">
+<h4 class="anchored" data-anchor-id="arithmetic-operators-math-time">3.3.1 Arithmetic Operators: Math Time!</h4>
+<p>These operators are used for performing mathematical calculations.</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> <span class="dv">10</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> <span class="dv">3</span></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>addition <span class="op">=</span> x <span class="op">+</span> y        <span class="co"># 13  (Adds x and y)</span></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>subtraction <span class="op">=</span> x <span class="op">-</span> y     <span class="co"># 7   (Subtracts y from x)</span></span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>multiplication <span class="op">=</span> x <span class="op">*</span> y  <span class="co"># 30  (Multiplies x and y)</span></span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>division <span class="op">=</span> x <span class="op">/</span> y        <span class="co"># 3.3333... (Divides x by y)</span></span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>floor_division <span class="op">=</span> x <span class="op">//</span> y <span class="co"># 3   (Divides x by y and rounds down to the nearest whole number)</span></span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a>modulus <span class="op">=</span> x <span class="op">%</span> y        <span class="co"># 1   (Gives the remainder when x is divided by y)</span></span>
+<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a>exponentiation <span class="op">=</span> x <span class="op">**</span> y <span class="co"># 1000 (Raises x to the power of y, e.g., calculating compound interest)</span></span>
+<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-12"><a href="#cb11-12" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(addition, subtraction, multiplication, division, floor_division, modulus, exponentiation)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="comparison-operators-is-it-true-or-false" class="level4">
+<h4 class="anchored" data-anchor-id="comparison-operators-is-it-true-or-false">3.3.2 Comparison Operators: Is It True or False?</h4>
+<p>These operators are used to compare values. They always return a Boolean value (<code>True</code> or <code>False</code>). These are crucial for decision-making in your code.</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>a <span class="op">=</span> <span class="dv">5</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>b <span class="op">=</span> <span class="dv">2</span></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>equal_to <span class="op">=</span> a <span class="op">==</span> b                 <span class="co"># False (Checks if a is equal to b)</span></span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>not_equal_to <span class="op">=</span> a <span class="op">!=</span> b             <span class="co"># True  (Checks if a is not equal to b)</span></span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>greater_than <span class="op">=</span> a <span class="op">&gt;</span> b              <span class="co"># True  (Checks if a is greater than b)</span></span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>less_than <span class="op">=</span> a <span class="op">&lt;</span> b                 <span class="co"># False (Checks if a is less than b)</span></span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a>greater_than_or_equal_to <span class="op">=</span> a <span class="op">&gt;=</span> b <span class="co"># True  (Checks if a is greater than or equal to b)</span></span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a>less_than_or_equal_to <span class="op">=</span> a <span class="op">&lt;=</span> b    <span class="co"># False (Checks if a is less than or equal to b)</span></span>
+<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(equal_to, not_equal_to, greater_than, less_than, greater_than_or_equal_to, less_than_or_equal_to)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="logical-operators-combining-conditions" class="level4">
+<h4 class="anchored" data-anchor-id="logical-operators-combining-conditions">3.3.3 Logical Operators: Combining Conditions</h4>
+<p>These operators are used to combine Boolean values (<code>True</code> or <code>False</code>) and create more complex logical expressions. They are essential for building sophisticated business logic into your code.</p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>p <span class="op">=</span> <span class="va">True</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>q <span class="op">=</span> <span class="va">False</span></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>logical_and <span class="op">=</span> p <span class="kw">and</span> q    <span class="co"># False (Returns True only if both p and q are True)</span></span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>logical_or <span class="op">=</span> p <span class="kw">or</span> q     <span class="co"># True  (Returns True if at least one of p or q is True)</span></span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>logical_not <span class="op">=</span> <span class="kw">not</span> p    <span class="co"># False (Reverses the logical state of p. If p is True, it becomes False, and vice-versa)</span></span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(logical_and, logical_or, logical_not)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<section id="example-business-scenario" class="level5">
+<h5 class="anchored" data-anchor-id="example-business-scenario">Example: Business Scenario</h5>
+<p>Let’s say you want to determine if a customer is eligible for a discount. You might have these conditions:</p>
+<ul>
+<li>The customer’s order total must be greater than $100.</li>
+<li>The customer must be a loyalty program member.</li>
+</ul>
+<p>You could use logical operators to combine these conditions:</p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>order_total <span class="op">=</span> <span class="dv">120</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>is_member <span class="op">=</span> <span class="va">True</span></span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>is_eligible_for_discount <span class="op">=</span> order_total <span class="op">&gt;</span> <span class="dv">100</span> <span class="kw">and</span> is_member</span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(is_eligible_for_discount)  <span class="co"># Output: True</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>In this example, <code>is_eligible_for_discount</code> will only be <code>True</code> if <strong>both</strong> conditions are met. This is how you can use logical operators to implement complex business rules and automate decision-making.</p>
+</section>
+</section>
+</section>
+<section id="type-conversion-changing-data-types" class="level3">
+<h3 class="anchored" data-anchor-id="type-conversion-changing-data-types">3.4 Type Conversion: Changing Data Types</h3>
+<p>Sometimes, you’ll need to convert a value from one data type to another. This is called <strong>type conversion</strong> or <strong>type casting</strong>. Python provides built-in functions to do this:</p>
+<ul>
+<li><code>int()</code>: Converts a value to an integer.</li>
+<li><code>float()</code>: Converts a value to a floating-point number.</li>
+<li><code>str()</code>: Converts a value to a string.</li>
+</ul>
+<p><strong>Example:</strong></p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Converting a string to an integer</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>quantity_string <span class="op">=</span> <span class="st">"5"</span></span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>quantity_int <span class="op">=</span> <span class="bu">int</span>(quantity_string)</span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(quantity_int, <span class="bu">type</span>(quantity_int))</span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Converting an integer to a float</span></span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a>price_int <span class="op">=</span> <span class="dv">10</span></span>
+<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a>price_float <span class="op">=</span> <span class="bu">float</span>(price_int)</span>
+<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(price_float, <span class="bu">type</span>(price_float))</span>
+<span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-11"><a href="#cb15-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Converting a number to a string</span></span>
+<span id="cb15-12"><a href="#cb15-12" aria-hidden="true" tabindex="-1"></a>total_cost <span class="op">=</span> <span class="fl">99.99</span></span>
+<span id="cb15-13"><a href="#cb15-13" aria-hidden="true" tabindex="-1"></a>total_cost_string <span class="op">=</span> <span class="bu">str</span>(total_cost)</span>
+<span id="cb15-14"><a href="#cb15-14" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(total_cost_string, <span class="bu">type</span>(total_cost_string))</span>
+<span id="cb15-15"><a href="#cb15-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-16"><a href="#cb15-16" aria-hidden="true" tabindex="-1"></a><span class="co"># Example where type conversion is necessary:</span></span>
+<span id="cb15-17"><a href="#cb15-17" aria-hidden="true" tabindex="-1"></a><span class="co"># You cannot directly add a string and an integer</span></span>
+<span id="cb15-18"><a href="#cb15-18" aria-hidden="true" tabindex="-1"></a><span class="co"># price = 25</span></span>
+<span id="cb15-19"><a href="#cb15-19" aria-hidden="true" tabindex="-1"></a><span class="co"># quantity_str = "2"</span></span>
+<span id="cb15-20"><a href="#cb15-20" aria-hidden="true" tabindex="-1"></a><span class="co"># total = price + quantity_str # This will cause an error</span></span>
+<span id="cb15-21"><a href="#cb15-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-22"><a href="#cb15-22" aria-hidden="true" tabindex="-1"></a><span class="co"># Correct way: convert the string to an integer first</span></span>
+<span id="cb15-23"><a href="#cb15-23" aria-hidden="true" tabindex="-1"></a>price <span class="op">=</span> <span class="dv">25</span></span>
+<span id="cb15-24"><a href="#cb15-24" aria-hidden="true" tabindex="-1"></a>quantity_str <span class="op">=</span> <span class="st">"2"</span></span>
+<span id="cb15-25"><a href="#cb15-25" aria-hidden="true" tabindex="-1"></a>total <span class="op">=</span> price <span class="op">+</span> <span class="bu">int</span>(quantity_str)</span>
+<span id="cb15-26"><a href="#cb15-26" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(total)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<section id="why-is-type-conversion-important" class="level4">
+<h4 class="anchored" data-anchor-id="why-is-type-conversion-important">Why is type conversion important?</h4>
+<ul>
+<li><strong>Performing Operations:</strong> As mentioned before, you can’t perform arithmetic operations between strings and numbers directly. Type conversion allows you to combine values of different types correctly, enabling calculations like total cost, revenue projections, and profit margins.</li>
+<li><strong>Data Input:</strong> When you get input from users (e.g., using the <code>input()</code> function, which we’ll see later), it often comes in as strings. If you want to treat that input as numbers for calculations, you’ll need to convert it.</li>
+<li><strong>Data Compatibility:</strong> Sometimes, different parts of your program or external libraries might require data in specific formats. Type conversion helps ensure compatibility, allowing you to seamlessly integrate data from various sources.</li>
+</ul>
+</section>
+</section>
+<section id="comments-explaining-your-code-to-humans" class="level3">
+<h3 class="anchored" data-anchor-id="comments-explaining-your-code-to-humans">3.5 Comments: Explaining Your Code to Humans</h3>
+<p><strong>Comments</strong> are lines of text in your code that are ignored by the Python interpreter. They are there for humans to read and understand what your code is doing. Think of them as notes to yourself and others who might read your code, including your future self!</p>
+<div class="sourceCode" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># This is a single-line comment. It starts with a hash symbol (#).</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a><span class="co">"""</span></span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a><span class="co">This is a</span></span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a><span class="co">multi-line</span></span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a><span class="co">comment.</span></span>
+<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a><span class="co">It's enclosed in triple quotes.</span></span>
+<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a><span class="co">"""</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<section id="why-are-comments-important" class="level4">
+<h4 class="anchored" data-anchor-id="why-are-comments-important">Why are comments important?</h4>
+<ul>
+<li><strong>Clarity:</strong> They make your code easier to understand, especially when you come back to it later or when others are trying to read it. In a business setting, this is crucial for collaboration and knowledge transfer.</li>
+<li><strong>Debugging:</strong> Comments can help you track down errors by explaining the logic behind your code.</li>
+<li><strong>Collaboration:</strong> Comments are essential when working in teams, as they help everyone understand each other’s code and ensure consistency across projects. Well-commented code promotes maintainability and reduces the risk of errors when modifications are made.</li>
+</ul>
+</section>
+</section>
+</section>
+<section id="your-turn-practice-exercises-hands-on-time" class="level2">
+<h2 class="anchored" data-anchor-id="your-turn-practice-exercises-hands-on-time">4. Your Turn: Practice Exercises (Hands-On Time!)</h2>
+<p>Now it’s time to put your knowledge into practice! Open a new notebook in Google Colab and try to solve these exercises:</p>
+<section id="exercise-1-customer-profile" class="level3">
+<h3 class="anchored" data-anchor-id="exercise-1-customer-profile">Exercise 1: Customer Profile</h3>
+<p>Create variables to store the following information about a customer:</p>
+<ul>
+<li>Name: “Alice Smith”</li>
+<li>Age: 30</li>
+<li>City: “New York”</li>
+<li>Is a member: True</li>
+</ul>
+<p>Print the values of these variables along with their data types.</p>
+</section>
+<section id="exercise-2-order-calculation" class="level3">
+<h3 class="anchored" data-anchor-id="exercise-2-order-calculation">Exercise 2: Order Calculation</h3>
+<p>Calculate the total cost of an order with the following details:</p>
+<ul>
+<li>Price per item: $25.50</li>
+<li>Quantity: 5</li>
+<li>Discount: 10% (0.10)</li>
+</ul>
+<p>Print the total cost after applying the discount.</p>
+</section>
+<section id="exercise-3-shipping-eligibility" class="level3">
+<h3 class="anchored" data-anchor-id="exercise-3-shipping-eligibility">Exercise 3: Shipping Eligibility</h3>
+<p>Determine if a customer is eligible for free shipping based on the following criteria:</p>
+<ul>
+<li>Order total is greater than $50</li>
+<li>Customer is a member</li>
+</ul>
+<p>Use variables and logical operators to print <code>True</code> if eligible, <code>False</code> otherwise.</p>
+</section>
+<section id="exercise-4-markdown-practice" class="level3">
+<h3 class="anchored" data-anchor-id="exercise-4-markdown-practice">Exercise 4: Markdown Practice</h3>
+<p>In a new Google Colab notebook, create a text cell and use Markdown to create the following:</p>
+<ul>
+<li>A main heading called “My Business Analytics Notes”</li>
+<li>A subheading called “Class 1: Introduction to Python”</li>
+<li>A bulleted list with the following items:
+<ul>
+<li>Variables</li>
+<li>Data Types</li>
+<li>Operators</li>
+</ul></li>
+<li>A bolded sentence: “<strong>Python is essential for data analysis.</strong>”</li>
+<li>An italicized sentence: <em>Data drives business decisions.</em></li>
+</ul>
+</section>
+<section id="exercise-5-type-conversion" class="level3">
+<h3 class="anchored" data-anchor-id="exercise-5-type-conversion">Exercise 5: Type Conversion</h3>
+<p>A customer’s purchase total is stored as a string variable: <code>purchase_total_str = "125.75"</code>.</p>
+<ul>
+<li>Convert this string to a float and store it in a new variable called <code>purchase_total_float</code>.</li>
+<li>Add a shipping cost of $5.99 to <code>purchase_total_float</code>.</li>
+<li>Print the final total, including shipping.</li>
+</ul>
+</section>
+<section id="solutions-to-practice-exercises-try-to-solve-them-on-your-own-first" class="level3">
+<h3 class="anchored" data-anchor-id="solutions-to-practice-exercises-try-to-solve-them-on-your-own-first">Solutions to Practice Exercises (Try to solve them on your own first):</h3>
+<div class="sourceCode" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Exercise 1: Customer Profile</span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>customer_name <span class="op">=</span> <span class="st">"Alice Smith"</span></span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>customer_age <span class="op">=</span> <span class="dv">30</span></span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>customer_city <span class="op">=</span> <span class="st">"New York"</span></span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>is_member <span class="op">=</span> <span class="va">True</span></span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(customer_name, <span class="bu">type</span>(customer_name))</span>
+<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(customer_age, <span class="bu">type</span>(customer_age))</span>
+<span id="cb17-9"><a href="#cb17-9" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(customer_city, <span class="bu">type</span>(customer_city))</span>
+<span id="cb17-10"><a href="#cb17-10" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(is_member, <span class="bu">type</span>(is_member))</span>
+<span id="cb17-11"><a href="#cb17-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-12"><a href="#cb17-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Exercise 2: Order Calculation</span></span>
+<span id="cb17-13"><a href="#cb17-13" aria-hidden="true" tabindex="-1"></a>price_per_item <span class="op">=</span> <span class="fl">25.50</span></span>
+<span id="cb17-14"><a href="#cb17-14" aria-hidden="true" tabindex="-1"></a>quantity <span class="op">=</span> <span class="dv">5</span></span>
+<span id="cb17-15"><a href="#cb17-15" aria-hidden="true" tabindex="-1"></a>discount <span class="op">=</span> <span class="fl">0.10</span></span>
+<span id="cb17-16"><a href="#cb17-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-17"><a href="#cb17-17" aria-hidden="true" tabindex="-1"></a>subtotal <span class="op">=</span> price_per_item <span class="op">*</span> quantity</span>
+<span id="cb17-18"><a href="#cb17-18" aria-hidden="true" tabindex="-1"></a>discount_amount <span class="op">=</span> subtotal <span class="op">*</span> discount</span>
+<span id="cb17-19"><a href="#cb17-19" aria-hidden="true" tabindex="-1"></a>total_cost <span class="op">=</span> subtotal <span class="op">-</span> discount_amount</span>
+<span id="cb17-20"><a href="#cb17-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-21"><a href="#cb17-21" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(total_cost)</span>
+<span id="cb17-22"><a href="#cb17-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-23"><a href="#cb17-23" aria-hidden="true" tabindex="-1"></a><span class="co"># Exercise 3: Shipping Eligibility</span></span>
+<span id="cb17-24"><a href="#cb17-24" aria-hidden="true" tabindex="-1"></a>order_total <span class="op">=</span> <span class="dv">60</span>  <span class="co"># Example value</span></span>
+<span id="cb17-25"><a href="#cb17-25" aria-hidden="true" tabindex="-1"></a>is_member <span class="op">=</span> <span class="va">True</span>  <span class="co"># Example value</span></span>
+<span id="cb17-26"><a href="#cb17-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-27"><a href="#cb17-27" aria-hidden="true" tabindex="-1"></a>is_eligible <span class="op">=</span> order_total <span class="op">&gt;</span> <span class="dv">50</span> <span class="kw">and</span> is_member</span>
+<span id="cb17-28"><a href="#cb17-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-29"><a href="#cb17-29" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(is_eligible)</span>
+<span id="cb17-30"><a href="#cb17-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-31"><a href="#cb17-31" aria-hidden="true" tabindex="-1"></a><span class="co"># Exercise 4: Markdown Practice</span></span>
+<span id="cb17-32"><a href="#cb17-32" aria-hidden="true" tabindex="-1"></a><span class="co"># Refer to the Markdown section above for how to format this in a text cell.</span></span>
+<span id="cb17-33"><a href="#cb17-33" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-34"><a href="#cb17-34" aria-hidden="true" tabindex="-1"></a><span class="co"># Exercise 5: Type Conversion</span></span>
+<span id="cb17-35"><a href="#cb17-35" aria-hidden="true" tabindex="-1"></a>purchase_total_str <span class="op">=</span> <span class="st">"125.75"</span></span>
+<span id="cb17-36"><a href="#cb17-36" aria-hidden="true" tabindex="-1"></a>purchase_total_float <span class="op">=</span> <span class="bu">float</span>(purchase_total_str)</span>
+<span id="cb17-37"><a href="#cb17-37" aria-hidden="true" tabindex="-1"></a>shipping_cost <span class="op">=</span> <span class="fl">5.99</span></span>
+<span id="cb17-38"><a href="#cb17-38" aria-hidden="true" tabindex="-1"></a>final_total <span class="op">=</span> purchase_total_float <span class="op">+</span> shipping_cost</span>
+<span id="cb17-39"><a href="#cb17-39" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-40"><a href="#cb17-40" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(final_total)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+</section>
+<section id="conclusion-youre-on-your-way" class="level2">
+<h2 class="anchored" data-anchor-id="conclusion-youre-on-your-way">5. Conclusion: You’re on Your Way!</h2>
+<p>Congratulations! You’ve taken your first steps into the exciting world of Python for business analytics. Today, we covered the very basics of Python: variables, data types, operators, comments and type conversion, all within the user-friendly environment of Google Colab.</p>
+<p>Remember, learning to code is like learning a new language. It takes practice and patience. Don’t be afraid to experiment, make mistakes, and ask questions. The more you practice, the more natural it will become. In the next class, we’ll build on these foundations and explore how to control the flow of your programs using conditional statements and loops. Get ready to unlock the power of data and make a real impact in the world of business!</p>
+</section>
+
+</main>
+<!-- /main column -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+        const codeEl = trigger.previousElementSibling.cloneNode(true);
+        for (const childEl of codeEl.children) {
+          if (isCodeAnnotation(childEl)) {
+            childEl.remove();
+          }
+        }
+        return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>
