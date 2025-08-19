@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Week 13: Course Review and Advanced Topics</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            min-height: 100vh;
+            padding: 2rem;
+        }
+        .container {
+            max-width: 900px;
+            background: white;
+            padding: 3rem;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        h1, h2, h3 {
+            color: #006747;
+        }
+        h1 {
+            margin-bottom: 1rem;
+        }
+        h2 {
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+        }
+        .alert-info {
+            background-color: rgba(0, 103, 71, 0.05);
+            border-color: #006747;
+            color: #333;
+        }
+        .topic-card {
+            background: #f8f9fa;
+            padding: 1rem;
+            margin-bottom: 1rem;
+            border-radius: 5px;
+            border-left: 4px solid #006747;
+        }
+        pre {
+            background-color: #f8f9fa;
+            padding: 1rem;
+            border-radius: 5px;
+            overflow-x: auto;
+        }
+        code {
+            color: #e83e8c;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Week 13: Model Evaluation and Comprehensive Review</h1>
+        
+        <div class="alert alert-info">
+            <p><strong>Overview:</strong> This week we review all course concepts, explore model evaluation techniques, and prepare for the final exam and project presentations.</p>
+        </div>
+
+        <h2>Part 1: Comprehensive Course Review</h2>
+
+        <div class="topic-card">
+            <h3>Python Fundamentals (Weeks 1-4)</h3>
+            <ul>
+                <li><strong>Variables and Data Types:</strong> int, float, string, boolean</li>
+                <li><strong>Control Flow:</strong> if/else, loops (for, while)</li>
+                <li><strong>Data Structures:</strong> lists, dictionaries, tuples, sets</li>
+                <li><strong>Functions:</strong> definition, parameters, return values, lambda functions</li>
+                <li><strong>Modules:</strong> importing, creating, standard library</li>
+            </ul>
+        </div>
+
+        <div class="topic-card">
+            <h3>Data Analysis Libraries (Weeks 5-8)</h3>
+            <ul>
+                <li><strong>NumPy:</strong> arrays, vectorized operations, broadcasting</li>
+                <li><strong>Pandas:</strong> DataFrames, data cleaning, groupby, merge/join</li>
+                <li><strong>Matplotlib:</strong> line plots, bar charts, scatter plots, customization</li>
+                <li><strong>Data Manipulation:</strong> filtering, sorting, aggregation</li>
+            </ul>
+        </div>
+
+        <div class="topic-card">
+            <h3>Statistical Analysis (Weeks 9-10)</h3>
+            <ul>
+                <li><strong>Descriptive Statistics:</strong> mean, median, mode, standard deviation</li>
+                <li><strong>Distributions:</strong> normal, binomial, understanding distributions</li>
+                <li><strong>Inferential Statistics:</strong> hypothesis testing, confidence intervals</li>
+                <li><strong>Statistical Tests:</strong> t-tests, chi-square, ANOVA</li>
+            </ul>
+        </div>
+
+        <div class="topic-card">
+            <h3>Machine Learning Basics (Weeks 11-12)</h3>
+            <ul>
+                <li><strong>Linear Regression:</strong> simple and multiple regression</li>
+                <li><strong>Model Evaluation:</strong> R-squared, MSE, RMSE</li>
+                <li><strong>Logistic Regression:</strong> binary classification</li>
+                <li><strong>Metrics:</strong> accuracy, precision, recall, confusion matrix</li>
+            </ul>
+        </div>
+
+        <h2>Part 2: Model Evaluation Deep Dive</h2>
+
+        <h3>Cross-Validation</h3>
+        <pre><code>from sklearn.model_selection import cross_val_score
+from sklearn.linear_model import LinearRegression
+
+# 5-fold cross-validation
+model = LinearRegression()
+scores = cross_val_score(model, X, y, cv=5, 
+                         scoring='neg_mean_squared_error')
+print(f"CV MSE: {-scores.mean():.2f} (+/- {scores.std() * 2:.2f})")</code></pre>
+
+        <h3>Train-Test Split Best Practices</h3>
+        <pre><code>from sklearn.model_selection import train_test_split
+
+# Always use random_state for reproducibility
+X_train, X_test, y_train, y_test = train_test_split(
+    X, y, test_size=0.2, random_state=42
+)</code></pre>
+
+        <h3>Feature Scaling</h3>
+        <pre><code>from sklearn.preprocessing import StandardScaler
+
+scaler = StandardScaler()
+X_train_scaled = scaler.fit_transform(X_train)
+X_test_scaled = scaler.transform(X_test)  # Use transform, not fit_transform!</code></pre>
+
+        <h2>Part 3: Advanced Topics</h2>
+
+        <h3>1. Feature Engineering</h3>
+        <ul>
+            <li>Creating polynomial features</li>
+            <li>Interaction terms</li>
+            <li>Binning continuous variables</li>
+            <li>One-hot encoding categorical variables</li>
+        </ul>
+
+        <h3>2. Handling Missing Data</h3>
+        <pre><code># Different strategies for missing data
+df.dropna()  # Remove rows with missing values
+df.fillna(df.mean())  # Fill with mean
+df.interpolate()  # Interpolation
+from sklearn.impute import SimpleImputer</code></pre>
+
+        <h3>3. Model Selection</h3>
+        <ul>
+            <li>Overfitting vs. Underfitting</li>
+            <li>Bias-Variance Tradeoff</li>
+            <li>Regularization (L1/L2)</li>
+            <li>Grid Search for hyperparameter tuning</li>
+        </ul>
+
+        <h2>Final Exam Preparation</h2>
+
+        <h3>Key Topics to Review:</h3>
+        <ol>
+            <li><strong>Python Syntax:</strong> Be comfortable writing functions, loops, and working with data structures</li>
+            <li><strong>Data Manipulation:</strong> Practice pandas operations (groupby, merge, pivot)</li>
+            <li><strong>Visualization:</strong> Know how to create and interpret various plot types</li>
+            <li><strong>Statistics:</strong> Understand when to use different statistical tests</li>
+            <li><strong>Machine Learning:</strong> Know the difference between regression and classification</li>
+            <li><strong>Model Evaluation:</strong> Understand different metrics and when to use them</li>
+        </ol>
+
+        <h3>Practice Problems Focus Areas:</h3>
+        <ul>
+            <li>Data cleaning and preprocessing</li>
+            <li>Exploratory data analysis (EDA)</li>
+            <li>Building and evaluating models</li>
+            <li>Interpreting results in business context</li>
+        </ul>
+
+        <h2>Project Presentation Tips</h2>
+        <ol>
+            <li><strong>Problem Statement:</strong> Clearly define the business problem</li>
+            <li><strong>Data Description:</strong> Explain your data sources and features</li>
+            <li><strong>Methodology:</strong> Walk through your analysis approach</li>
+            <li><strong>Results:</strong> Present findings with clear visualizations</li>
+            <li><strong>Business Impact:</strong> Translate technical results to business value</li>
+            <li><strong>Future Work:</strong> Discuss limitations and next steps</li>
+        </ol>
+
+        <div class="alert alert-info mt-4">
+            <h4>Important Reminders:</h4>
+            <ul>
+                <li>Final exam covers all course material with emphasis on Weeks 7-12</li>
+                <li>Project presentations are in Week 15</li>
+                <li>Practice with real datasets to solidify concepts</li>
+                <li>Review all assignments and their solutions</li>
+            </ul>
+        </div>
+
+        <h3>Additional Resources:</h3>
+        <ul>
+            <li><a href="lecture-slides.html">Week 13 Lecture Slides</a></li>
+            <li><a href="advanced-concepts.html">Advanced Concepts Guide</a></li>
+            <li><a href="practice-exam.html">Practice Final Exam</a></li>
+        </ul>
+
+        <div class="mt-5">
+            <a href="../index.html" class="btn btn-success">← Back to Course Home</a>
+        </div>
+    </div>
+</body>
+</html>
