@@ -1,0 +1,217 @@
+/* Custom CSS for Scrollable Reveal.js Slides */
+/* This ensures content that overflows is scrollable rather than hidden */
+
+/* Make slide content scrollable */
+.reveal .slides section {
+    overflow-y: auto !important;
+    overflow-x: hidden !important;
+    max-height: 100vh !important;
+    height: 100vh !important;
+    top: 0 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: flex-start !important;
+}
+
+/* Create a scrollable container within each slide */
+.reveal .slide-content {
+    overflow-y: auto;
+    max-height: calc(100vh - 80px);
+    padding: 20px;
+    width: 100%;
+}
+
+/* Ensure code blocks are scrollable */
+.reveal pre {
+    max-height: 400px;
+    overflow-y: auto;
+    overflow-x: auto;
+    font-size: 0.55em;
+    line-height: 1.2em;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.15);
+}
+
+/* Make sure code doesn't overflow horizontally */
+.reveal pre code {
+    max-height: none;
+    white-space: pre;
+    word-wrap: normal;
+    overflow-x: auto;
+}
+
+/* Adjust font sizes for better fit */
+.reveal h1 {
+    font-size: 2.2em;
+}
+
+.reveal h2 {
+    font-size: 1.8em;
+    margin-bottom: 0.5em;
+}
+
+.reveal h3 {
+    font-size: 1.3em;
+}
+
+.reveal .slides section.smaller {
+    font-size: 0.85em;
+}
+
+/* Improve list spacing */
+.reveal ul, .reveal ol {
+    display: block;
+    margin-left: 1em;
+    margin-top: 0.5em;
+}
+
+.reveal li {
+    margin-bottom: 0.3em;
+}
+
+/* Handle columns layout better */
+.reveal .columns {
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+}
+
+.reveal .column {
+    flex: 1;
+    min-width: 0;
+}
+
+/* Scrollbar styling for better visibility */
+.reveal .slides section::-webkit-scrollbar,
+.reveal pre::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+}
+
+.reveal .slides section::-webkit-scrollbar-track,
+.reveal pre::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 10px;
+}
+
+.reveal .slides section::-webkit-scrollbar-thumb,
+.reveal pre::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 10px;
+}
+
+.reveal .slides section::-webkit-scrollbar-thumb:hover,
+.reveal pre::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+/* Image handling */
+.reveal section img {
+    max-width: 100%;
+    max-height: 60vh;
+    object-fit: contain;
+}
+
+/* Table improvements */
+.reveal table {
+    font-size: 0.8em;
+    max-width: 100%;
+    margin: auto;
+}
+
+.reveal table th,
+.reveal table td {
+    padding: 0.3em 0.5em;
+}
+
+/* Callout boxes */
+.reveal .callout {
+    margin: 1em 0;
+    padding: 1em;
+    border-left: 4px solid #006747;
+    background: rgba(0, 103, 71, 0.05);
+    border-radius: 4px;
+}
+
+.reveal .callout-note {
+    border-left-color: #17a2b8;
+    background: rgba(23, 162, 184, 0.05);
+}
+
+.reveal .callout-warning {
+    border-left-color: #ffc107;
+    background: rgba(255, 193, 7, 0.05);
+}
+
+.reveal .callout-important {
+    border-left-color: #dc3545;
+    background: rgba(220, 53, 69, 0.05);
+}
+
+/* Fix for incremental reveals */
+.reveal .fragment {
+    opacity: 0.3;
+}
+
+.reveal .fragment.visible {
+    opacity: 1;
+}
+
+/* Progress bar styling */
+.reveal .progress {
+    color: #006747;
+    height: 4px;
+}
+
+/* Slide number styling */
+.reveal .slide-number {
+    background: rgba(0, 103, 71, 0.8);
+    color: white;
+    padding: 5px 10px;
+    font-size: 0.8em;
+    border-radius: 3px;
+}
+
+/* Footer styling */
+.reveal .footer {
+    position: fixed;
+    bottom: 10px;
+    width: 100%;
+    text-align: center;
+    font-size: 0.6em;
+    color: #666;
+    z-index: 1;
+}
+
+/* USF Branding colors */
+:root {
+    --usf-green: #006747;
+    --usf-gold: #CFC493;
+}
+
+.reveal {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+.reveal .slides section h1,
+.reveal .slides section h2 {
+    color: var(--usf-green);
+}
+
+/* Responsive adjustments */
+@media screen and (max-width: 768px) {
+    .reveal .slides section {
+        font-size: 0.8em;
+    }
+    
+    .reveal pre {
+        font-size: 0.5em;
+    }
+    
+    .reveal h1 {
+        font-size: 1.8em;
+    }
+    
+    .reveal h2 {
+        font-size: 1.4em;
+    }
+}
