@@ -1,38 +1,124 @@
-/* Simple Scrollable Reveal.js Slides CSS */
+/* Enhanced Scrollable Reveal.js Slides CSS */
+/* This ensures ALL content is accessible via scrolling */
 
-/* The key is to make slides scrollable WITHOUT breaking Reveal.js */
-.reveal .slides > section,
+/* Critical: Make the reveal container scrollable */
+.reveal {
+    overflow: hidden !important;
+}
+
+/* Make each slide scrollable */
+.reveal .slides {
+    overflow: visible !important;
+    height: 100% !important;
+    top: 0 !important;
+    margin-top: 0 !important;
+}
+
+.reveal .slides > section {
+    overflow-y: auto !important;
+    overflow-x: hidden !important;
+    height: 100vh !important;
+    display: block !important;
+    position: relative !important;
+    top: 0 !important;
+}
+
 .reveal .slides > section > section {
     overflow-y: auto !important;
     overflow-x: hidden !important;
-    height: 700px !important;  /* Match Reveal's viewport */
-    box-sizing: border-box !important;
+    height: 100vh !important;
+    display: block !important;
 }
 
-/* Add padding so content doesn't touch edges */
+/* Ensure content starts at the top */
 .reveal .slides section {
     padding: 20px !important;
-    padding-bottom: 50px !important; /* Space for footer */
+    box-sizing: border-box !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: flex-start !important;
+    align-items: center !important;
 }
 
-/* Make code blocks independently scrollable if too long */
+/* Make code blocks scrollable independently */
 .reveal pre {
     max-height: 400px !important;
-    overflow: auto !important;
+    overflow-y: auto !important;
+    overflow-x: auto !important;
+    margin: 1em auto !important;
+    width: 95% !important;
+    font-size: 0.55em !important;
+    line-height: 1.2em !important;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.15) !important;
 }
 
-/* Better scrollbar visibility */
+.reveal pre code {
+    max-height: none !important;
+    display: block !important;
+    padding: 10px !important;
+    overflow: visible !important;
+}
+
+/* Improve list readability */
+.reveal ul, .reveal ol {
+    display: block !important;
+    margin-left: 1em !important;
+    max-width: 90% !important;
+}
+
+.reveal li {
+    margin-bottom: 0.5em !important;
+}
+
+/* Adjust font sizes for better fit */
+.reveal h1 {
+    font-size: 2.2em !important;
+}
+
+.reveal h2 {
+    font-size: 1.8em !important;
+    margin-bottom: 0.5em !important;
+}
+
+.reveal h3 {
+    font-size: 1.4em !important;
+}
+
+.reveal .slides section {
+    font-size: 0.9em !important;
+}
+
+/* Handle images properly */
+.reveal section img {
+    max-width: 90% !important;
+    max-height: 60vh !important;
+    object-fit: contain !important;
+}
+
+/* Tables should be scrollable */
+.reveal table {
+    font-size: 0.8em !important;
+    max-width: 95% !important;
+    margin: auto !important;
+    display: block !important;
+    overflow-x: auto !important;
+}
+
+/* Custom scrollbar styling for better visibility */
 .reveal .slides section::-webkit-scrollbar {
     width: 12px !important;
+    height: 12px !important;
 }
 
 .reveal .slides section::-webkit-scrollbar-track {
     background: rgba(0, 0, 0, 0.1) !important;
+    border-radius: 10px !important;
 }
 
 .reveal .slides section::-webkit-scrollbar-thumb {
-    background: rgba(0, 103, 71, 0.6) !important;
-    border-radius: 6px !important;
+    background: rgba(0, 103, 71, 0.5) !important;
+    border-radius: 10px !important;
+    border: 2px solid rgba(255, 255, 255, 0.3) !important;
 }
 
 .reveal .slides section::-webkit-scrollbar-thumb:hover {
@@ -42,11 +128,108 @@
 /* Firefox scrollbar */
 .reveal .slides section {
     scrollbar-width: thin !important;
-    scrollbar-color: rgba(0, 103, 71, 0.6) rgba(0, 0, 0, 0.1) !important;
+    scrollbar-color: rgba(0, 103, 71, 0.5) rgba(0, 0, 0, 0.1) !important;
 }
 
-/* USF Colors */
+/* Ensure reveal controls don't interfere */
+.reveal .controls {
+    z-index: 30 !important;
+}
+
+.reveal .progress {
+    z-index: 35 !important;
+}
+
+.reveal .slide-number {
+    z-index: 31 !important;
+}
+
+/* Visual indicator that slide is scrollable */
+.reveal .slides section.has-overflow::after {
+    content: "↓ Scroll for more ↓";
+    position: fixed;
+    bottom: 60px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(0, 103, 71, 0.9);
+    color: white;
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-size: 0.7em;
+    z-index: 40;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 0.7; }
+    50% { opacity: 1; }
+}
+
+/* Add JavaScript to detect overflow */
+.reveal .slides section.scrollable-slide {
+    position: relative !important;
+}
+
+/* Responsive adjustments */
+@media screen and (max-width: 768px) {
+    .reveal .slides section {
+        font-size: 0.8em !important;
+        padding: 10px !important;
+    }
+    
+    .reveal pre {
+        font-size: 0.5em !important;
+        max-height: 300px !important;
+    }
+    
+    .reveal h1 {
+        font-size: 1.8em !important;
+    }
+    
+    .reveal h2 {
+        font-size: 1.4em !important;
+    }
+}
+
+/* USF Branding */
 :root {
     --usf-green: #006747;
     --usf-gold: #CFC493;
+}
+
+.reveal .slides section h1,
+.reveal .slides section h2 {
+    color: var(--usf-green);
+}
+
+/* Fix for columns layout */
+.reveal .columns {
+    display: flex !important;
+    gap: 20px !important;
+    align-items: flex-start !important;
+    width: 100% !important;
+}
+
+.reveal .column {
+    flex: 1 !important;
+    min-width: 0 !important;
+    overflow-x: auto !important;
+}
+
+/* Important: Override any conflicting styles */
+.reveal.reveal .slides section {
+    overflow-y: auto !important;
+    overflow-x: hidden !important;
+    height: 100vh !important;
+}
+
+/* Ensure fragment animations don't break scrolling */
+.reveal .slides section .fragment {
+    will-change: opacity !important;
+}
+
+/* Fix for nested sections */
+.reveal .slides > section > section {
+    height: 100vh !important;
+    overflow-y: auto !important;
 }
