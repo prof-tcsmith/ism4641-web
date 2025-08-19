@@ -1,235 +1,194 @@
-/* Enhanced Scrollable Reveal.js Slides CSS */
-/* This ensures ALL content is accessible via scrolling */
+/* Reveal.js Scrollable Slides CSS - WORKING VERSION */
 
-/* Critical: Make the reveal container scrollable */
-.reveal {
-    overflow: hidden !important;
-}
-
-/* Make each slide scrollable */
-.reveal .slides {
-    overflow: visible !important;
-    height: 100% !important;
-    top: 0 !important;
-    margin-top: 0 !important;
-}
-
-.reveal .slides > section {
-    overflow-y: auto !important;
-    overflow-x: hidden !important;
-    height: 100vh !important;
-    display: block !important;
-    position: relative !important;
-    top: 0 !important;
-}
-
-.reveal .slides > section > section {
-    overflow-y: auto !important;
-    overflow-x: hidden !important;
-    height: 100vh !important;
-    display: block !important;
-}
-
-/* Ensure content starts at the top */
+/* Make slides scrollable when content overflows */
 .reveal .slides section {
-    padding: 20px !important;
+    height: 100vh !important;
+    overflow-y: auto !important;
+    overflow-x: hidden !important;
+    display: block !important;
+    top: 0 !important;
+    padding: 40px !important;
     box-sizing: border-box !important;
-    display: flex !important;
-    flex-direction: column !important;
-    justify-content: flex-start !important;
-    align-items: center !important;
 }
 
-/* Make code blocks scrollable independently */
+/* Remove centering that causes issues */
+.reveal .slides {
+    text-align: left !important;
+}
+
+.reveal .slides section {
+    text-align: left !important;
+    display: block !important;
+}
+
+/* Headers can be centered */
+.reveal h1, .reveal h2, .reveal h3 {
+    text-align: center !important;
+}
+
+/* Code blocks should be scrollable too */
 .reveal pre {
-    max-height: 400px !important;
-    overflow-y: auto !important;
-    overflow-x: auto !important;
-    margin: 1em auto !important;
-    width: 95% !important;
-    font-size: 0.55em !important;
-    line-height: 1.2em !important;
-    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.15) !important;
+    max-height: 500px;
+    overflow-y: auto;
+    overflow-x: auto;
+    width: 100%;
+    font-size: 0.55em;
 }
 
 .reveal pre code {
-    max-height: none !important;
-    display: block !important;
-    padding: 10px !important;
-    overflow: visible !important;
+    max-height: none;
+    padding: 5px;
 }
 
-/* Improve list readability */
+/* Better list spacing */
 .reveal ul, .reveal ol {
-    display: block !important;
-    margin-left: 1em !important;
-    max-width: 90% !important;
+    display: block;
+    margin-left: 1em;
+    line-height: 1.5;
 }
 
 .reveal li {
-    margin-bottom: 0.5em !important;
+    margin-bottom: 0.5em;
 }
 
-/* Adjust font sizes for better fit */
+/* Font sizes for readability */
+.reveal {
+    font-size: 36px;
+}
+
 .reveal h1 {
-    font-size: 2.2em !important;
+    font-size: 2.5em;
 }
 
 .reveal h2 {
-    font-size: 1.8em !important;
-    margin-bottom: 0.5em !important;
+    font-size: 1.6em;
+    margin-bottom: 0.8em;
 }
 
 .reveal h3 {
-    font-size: 1.4em !important;
+    font-size: 1.3em;
 }
 
-.reveal .slides section {
-    font-size: 0.9em !important;
+.reveal .slides section.smaller {
+    font-size: 0.85em;
 }
 
-/* Handle images properly */
-.reveal section img {
-    max-width: 90% !important;
-    max-height: 60vh !important;
-    object-fit: contain !important;
-}
-
-/* Tables should be scrollable */
-.reveal table {
-    font-size: 0.8em !important;
-    max-width: 95% !important;
-    margin: auto !important;
-    display: block !important;
-    overflow-x: auto !important;
-}
-
-/* Custom scrollbar styling for better visibility */
+/* Custom scrollbar */
 .reveal .slides section::-webkit-scrollbar {
-    width: 12px !important;
-    height: 12px !important;
+    width: 10px;
 }
 
 .reveal .slides section::-webkit-scrollbar-track {
-    background: rgba(0, 0, 0, 0.1) !important;
-    border-radius: 10px !important;
+    background: #f1f1f1;
+    border-radius: 10px;
 }
 
 .reveal .slides section::-webkit-scrollbar-thumb {
-    background: rgba(0, 103, 71, 0.5) !important;
-    border-radius: 10px !important;
-    border: 2px solid rgba(255, 255, 255, 0.3) !important;
+    background: #006747;
+    border-radius: 10px;
 }
 
 .reveal .slides section::-webkit-scrollbar-thumb:hover {
-    background: rgba(0, 103, 71, 0.8) !important;
+    background: #004d34;
 }
 
 /* Firefox scrollbar */
 .reveal .slides section {
-    scrollbar-width: thin !important;
-    scrollbar-color: rgba(0, 103, 71, 0.5) rgba(0, 0, 0, 0.1) !important;
+    scrollbar-width: thin;
+    scrollbar-color: #006747 #f1f1f1;
 }
 
-/* Ensure reveal controls don't interfere */
-.reveal .controls {
-    z-index: 30 !important;
-}
-
-.reveal .progress {
-    z-index: 35 !important;
-}
-
-.reveal .slide-number {
-    z-index: 31 !important;
-}
-
-/* Visual indicator that slide is scrollable */
-.reveal .slides section.has-overflow::after {
-    content: "↓ Scroll for more ↓";
+/* Footer positioning fix */
+.reveal .footer {
     position: fixed;
-    bottom: 60px;
-    left: 50%;
-    transform: translateX(-50%);
-    background: rgba(0, 103, 71, 0.9);
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 40px;
+    z-index: 20;
+    background-color: rgba(0, 103, 71, 0.9);
     color: white;
-    padding: 5px 15px;
-    border-radius: 20px;
-    font-size: 0.7em;
-    z-index: 40;
-    animation: pulse 2s infinite;
+    padding: 10px;
+    text-align: center;
+    font-size: 0.8em;
 }
 
-@keyframes pulse {
-    0%, 100% { opacity: 0.7; }
-    50% { opacity: 1; }
+/* Make sure content doesn't go under footer */
+.reveal .slides section {
+    padding-bottom: 60px !important;
 }
 
-/* Add JavaScript to detect overflow */
-.reveal .slides section.scrollable-slide {
-    position: relative !important;
+/* Fix slide positioning */
+.reveal .slides > section,
+.reveal .slides > section > section {
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100vh;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: stretch;
 }
 
-/* Responsive adjustments */
-@media screen and (max-width: 768px) {
-    .reveal .slides section {
-        font-size: 0.8em !important;
-        padding: 10px !important;
-    }
-    
-    .reveal pre {
-        font-size: 0.5em !important;
-        max-height: 300px !important;
-    }
-    
-    .reveal h1 {
-        font-size: 1.8em !important;
-    }
-    
-    .reveal h2 {
-        font-size: 1.4em !important;
-    }
+/* When slide is present (visible) */
+.reveal .slides > section.present,
+.reveal .slides > section > section.present {
+    display: flex !important;
 }
 
-/* USF Branding */
+/* Tables */
+.reveal table {
+    margin: auto;
+    border-collapse: collapse;
+    border-spacing: 0;
+    font-size: 0.8em;
+}
+
+/* Images */
+.reveal section img {
+    max-width: 95%;
+    max-height: 70vh;
+    display: block;
+    margin: auto;
+}
+
+/* USF Colors */
 :root {
     --usf-green: #006747;
     --usf-gold: #CFC493;
 }
 
-.reveal .slides section h1,
-.reveal .slides section h2 {
+.reveal h1, .reveal h2 {
     color: var(--usf-green);
 }
 
-/* Fix for columns layout */
-.reveal .columns {
-    display: flex !important;
-    gap: 20px !important;
-    align-items: flex-start !important;
-    width: 100% !important;
+/* Columns support */
+.columns {
+    display: flex;
+    gap: 20px;
 }
 
-.reveal .column {
-    flex: 1 !important;
-    min-width: 0 !important;
-    overflow-x: auto !important;
+.column {
+    flex: 1;
+    min-width: 0;
 }
 
-/* Important: Override any conflicting styles */
+/* Important override for scrollable */
 .reveal.reveal .slides section {
     overflow-y: auto !important;
-    overflow-x: hidden !important;
-    height: 100vh !important;
 }
 
-/* Ensure fragment animations don't break scrolling */
-.reveal .slides section .fragment {
-    will-change: opacity !important;
+/* Progress bar and controls positioning */
+.reveal .progress {
+    z-index: 25;
 }
 
-/* Fix for nested sections */
-.reveal .slides > section > section {
-    height: 100vh !important;
-    overflow-y: auto !important;
+.reveal .controls {
+    z-index: 25;
+}
+
+.reveal .slide-number {
+    z-index: 25;
 }
