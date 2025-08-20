@@ -6,10 +6,8 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Dr.&nbsp;Tim Smith">
-<meta name="dcterms.date" content="2025-02-15">
 
-<title>ISM4641: Python for Business Analytics</title>
+<title>week03-lecture-notes</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -67,54 +65,134 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="Week03-lecture-notes_files/libs/quarto-html/tippy.umd.min.js"></script>
 <script src="Week03-lecture-notes_files/libs/quarto-html/anchor.min.js"></script>
 <link href="Week03-lecture-notes_files/libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="Week03-lecture-notes_files/libs/quarto-html/quarto-syntax-highlighting-af5ec82acda093b5ee751184164e9432.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="Week03-lecture-notes_files/libs/quarto-html/quarto-syntax-highlighting-e1a5c8363afafaef2c763b6775fbf3ca.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="Week03-lecture-notes_files/libs/bootstrap/bootstrap.min.js"></script>
 <link href="Week03-lecture-notes_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="Week03-lecture-notes_files/libs/bootstrap/bootstrap-1f8043d50c91bbeffefd1c1c1743f768.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="Week03-lecture-notes_files/libs/bootstrap/bootstrap-bc29b7a494c55474c6a8d56f75b3cb06.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 
 
-<link rel="stylesheet" href="style.css">
 </head>
 
-<body class="quarto-light">
+<body class="fullcontent quarto-light">
 
 <div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
-<div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-<div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="../../lecture-notes.html"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></div>
+
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title">
-<h1 class="title">ISM4641: Python for Business Analytics</h1>
-<p class="subtitle lead">Lecture 3: Data Structures and Functions</p>
-</div>
 
 
 
-<div class="quarto-title-meta">
-
-    <div>
-    <div class="quarto-title-meta-heading">Author</div>
-    <div class="quarto-title-meta-contents">
-             <p>Dr.&nbsp;Tim Smith </p>
-          </div>
-  </div>
-    
-    <div>
-    <div class="quarto-title-meta-heading">Published</div>
-    <div class="quarto-title-meta-contents">
-      <p class="date">February 15, 2025</p>
-    </div>
-  </div>
-  
-    
-  </div>
-  
-
-
-</header>
-
-
+<hr>
+<p>title: “ISM4641: Python for Business Analytics” subtitle: “Lecture 3: Data Structures and Functions” author: “Dr.&nbsp;Tim Smith” institution: “University of South Florida” date: “2025-02-15” date-format: long footer: “ISM4641 Python for Business Analytics” header: “Dr.&nbsp;Tim C. Smith ©️2025”</p>
+<p>css: style.css highlight-style: tango # arrow, pygments, tango, espresso, zenburn, kate, monochrome, breezedark, haddock, atom-one, ayu, breeze, dracula, github, gruvbox, monokai, nord, oblivion, printing, radical, solarized, and vim</p>
+<p>execute: echo: true format: html: embed-resources: true page-layout: full grid: body-width: 1400px sidebar-width: 250px margin-width: 0px gutter-width: 1.5rem toc: true toc-location: left toc-depth: 2 number-sections: false highlight-style: github code-fold: false code-tools: false code-block-bg: “#f5f5f5” code-block-border-left: “#31BAE9” code-block-line-numbers: false code-overflow: scroll code-link: false theme: light: flatly dark: darkly callout-appearance: simple self-contained: true code-line-numbers: true —</p>
+<style>
+/* Canvas iframe optimization */
+@media screen {
+  body.in-iframe {
+    margin: 0;
+    padding: 15px;
+    max-width: 100%;
+  }
+  .in-iframe .quarto-container {
+    max-width: 100%;
+    padding: 0 15px;
+  }
+  .in-iframe #quarto-content {
+    max-width: 100%;
+  }
+  .in-iframe .page-layout-article {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .in-iframe .page-layout-full {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .in-iframe .sidebar {
+    width: 200px !important;
+    font-size: 0.9em;
+  }
+  .in-iframe .sidebar.toc-left {
+    width: 200px !important;
+    margin-right: 15px;
+  }
+  .in-iframe .column-body {
+    grid-column: 1;
+    max-width: 100%;
+  }
+  .in-iframe #quarto-document-content {
+    max-width: calc(100% - 220px);
+    padding: 0 15px;
+  }
+  .in-iframe pre {
+    overflow-x: auto;
+    max-width: 100%;
+    font-size: 0.9em;
+  }
+  .in-iframe code {
+    font-size: 0.9em;
+  }
+  .in-iframe table {
+    display: block;
+    overflow-x: auto;
+    max-width: 100%;
+    font-size: 0.9em;
+  }
+  .in-iframe img {
+    max-width: 100%;
+    height: auto;
+  }
+  .in-iframe .callout {
+    margin: 1em 0;
+    padding: 0.5em 1em;
+  }
+  .in-iframe .sourceCode {
+    max-width: 100%;
+    overflow-x: auto;
+  }
+  .in-iframe .cell {
+    max-width: 100%;
+  }
+  .in-iframe body {
+    font-size: 15px;
+  }
+  .in-iframe h1 {
+    font-size: 1.8em;
+  }
+  .in-iframe h2 {
+    font-size: 1.5em;
+  }
+  .in-iframe h3 {
+    font-size: 1.3em;
+  }
+  .in-iframe h4 {
+    font-size: 1.1em;
+  }
+  .in-iframe #quarto-margin-sidebar {
+    display: none !important;
+  }
+  .in-iframe .margin-sidebar {
+    display: none !important;
+  }
+}
+@media screen and (max-width: 768px) {
+  .in-iframe .sidebar {
+    display: none !important;
+  }
+  .in-iframe #quarto-document-content {
+    max-width: 100%;
+  }
+  .in-iframe body {
+    font-size: 14px;
+  }
+}
+</style>
+<script>
+if (window.self !== window.top) {
+  document.addEventListener("DOMContentLoaded", function() {
+    document.body.classList.add("in-iframe");
+  });
+}
+</script>
 <div style="page-break-after: always;"></div>
 <section id="review-control-flow-and-data-structures" class="level1">
 <h1>Review: Control Flow and Data Structures</h1>
@@ -135,7 +213,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </ul>
 <div style="font-size: 0.8em;">
 <p><strong>Example: Filtering Customers for a Promotion</strong></p>
-<div id="e78f6b19" class="cell" data-execution_count="1">
+<div id="e45975a8" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>customers <span class="op">=</span> {</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>    <span class="st">"C001"</span>: {<span class="st">"name"</span>: <span class="st">"Alice"</span>, <span class="st">"city"</span>: <span class="st">"New York"</span>, <span class="st">"spent"</span>: <span class="dv">120</span>},</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>    <span class="st">"C002"</span>: {<span class="st">"name"</span>: <span class="st">"Bob"</span>, <span class="st">"city"</span>: <span class="st">"Los Angeles"</span>, <span class="st">"spent"</span>: <span class="dv">80</span>},</span>
@@ -204,7 +282,7 @@ Promotion Offer for Charlie (C003)</code></pre>
 <li><strong>Mutable</strong> means that the contents of the data structure can be changed after it’s created. You can add, remove, or modify elements.</li>
 </ul></li>
 </ul>
-<div id="c3a70045" class="cell" data-execution_count="2">
+<div id="bbbcfe36" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Example with a list (mutable)</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>my_list <span class="op">=</span> [<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>]</span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>my_list.append(<span class="dv">4</span>)  <span class="co"># Add an element</span></span>
@@ -228,7 +306,7 @@ Promotion Offer for Charlie (C003)</code></pre>
 <li><strong>Immutable</strong> means that once the data structure is created, its contents <strong>cannot</strong> be changed. You cannot add, remove, or modify elements.</li>
 </ul></li>
 </ul>
-<div id="b2d8c8c0" class="cell" data-execution_count="3">
+<div id="cbaddf2c" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Example with a tuple (immutable)</span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>my_tuple <span class="op">=</span> (<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>)</span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="co"># my_tuple.append(4)  # This would raise an AttributeError</span></span>
@@ -245,7 +323,7 @@ Promotion Offer for Charlie (C003)</code></pre>
 <li>Use parentheses <code>()</code> to create tuples.</li>
 <li>Elements can be of different data types.</li>
 </ul>
-<div id="1618e960" class="cell" data-execution_count="4">
+<div id="ed5c34b5" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># A tuple representing a product</span></span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>product <span class="op">=</span> (<span class="st">"Laptop"</span>, <span class="st">"P001"</span>, <span class="fl">999.99</span>, <span class="va">True</span>)</span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -262,7 +340,7 @@ Promotion Offer for Charlie (C003)</code></pre>
 <li>Access elements using their index (starting from 0).</li>
 <li>Similar to lists, but you cannot modify elements after creation.</li>
 </ul>
-<div id="71bc9ca5" class="cell" data-execution_count="5">
+<div id="c3e2ad1f" class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>product_name <span class="op">=</span> product[<span class="dv">0</span>]  <span class="co"># Access the first element ("Laptop")</span></span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>product_price <span class="op">=</span> product[<span class="dv">2</span>] <span class="co"># Access the third element (999.99)</span></span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -285,7 +363,7 @@ Promotion Offer for Charlie (C003)</code></pre>
 <li>Allows tuples to be used as dictionary keys (because they are hashable).</li>
 </ul></li>
 </ul>
-<div id="80adaeea" class="cell" data-execution_count="6">
+<div id="11b67116" class="cell" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Trying to modify a tuple will result in an error</span></span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>product[<span class="dv">1</span>] <span class="op">=</span> <span class="st">"P002"</span>  <span class="co"># TypeError: 'tuple' object does not support item assignment</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
@@ -296,7 +374,7 @@ Promotion Offer for Charlie (C003)</code></pre>
 <li><strong>Packing:</strong> Creating a tuple from individual values.</li>
 <li><strong>Unpacking:</strong> Assigning tuple elements to individual variables.</li>
 </ul>
-<div id="477630d1" class="cell" data-execution_count="7">
+<div id="ec533f1f" class="cell" data-execution_count="7">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Packing</span></span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>employee <span class="op">=</span> (<span class="st">"John Doe"</span>, <span class="dv">35</span>, <span class="st">"Sales Manager"</span>)</span>
 <span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -329,7 +407,7 @@ Sales Manager</code></pre>
 <li><code>count(x)</code>: Returns the number of times <code>x</code> appears in the tuple.</li>
 <li><code>index(x)</code>: Returns the index of the first occurrence of <code>x</code>.</li>
 </ul>
-<div id="5e8b9a13" class="cell" data-execution_count="8">
+<div id="c515f980" class="cell" data-execution_count="8">
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>numbers <span class="op">=</span> (<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">2</span>, <span class="dv">4</span>, <span class="dv">2</span>)</span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>count_of_twos <span class="op">=</span> numbers.count(<span class="dv">2</span>)  <span class="co"># 3</span></span>
 <span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>index_of_three <span class="op">=</span> numbers.index(<span class="dv">3</span>) <span class="co"># 2</span></span>
@@ -363,7 +441,7 @@ Sales Manager</code></pre>
 <ul>
 <li>Use curly braces <code>{}</code> or the <code>set()</code> function.</li>
 </ul>
-<div id="f6f60701" class="cell" data-execution_count="9">
+<div id="831dced5" class="cell" data-execution_count="9">
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Creating sets using curly braces</span></span>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>fruits <span class="op">=</span> {<span class="st">"apple"</span>, <span class="st">"banana"</span>, <span class="st">"orange"</span>, <span class="st">"apple"</span>}  <span class="co"># Duplicates are automatically removed</span></span>
 <span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(fruits) <span class="co"># Note: Order may vary</span></span>
@@ -372,8 +450,8 @@ Sales Manager</code></pre>
 <span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>colors <span class="op">=</span> <span class="bu">set</span>([<span class="st">"red"</span>, <span class="st">"green"</span>, <span class="st">"blue"</span>, <span class="st">"red"</span>])</span>
 <span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(colors)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>{'apple', 'banana', 'orange'}
-{'red', 'green', 'blue'}</code></pre>
+<pre><code>{'banana', 'orange', 'apple'}
+{'blue', 'red', 'green'}</code></pre>
 </div>
 </div>
 </section>
@@ -386,14 +464,14 @@ Sales Manager</code></pre>
 <li><code>pop()</code>: Removes and returns an arbitrary element.</li>
 <li><code>clear()</code>: Removes all elements.</li>
 </ul>
-<div id="f0b3a55e" class="cell" data-execution_count="10">
+<div id="c895f976" class="cell" data-execution_count="10">
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>fruits.add(<span class="st">"grape"</span>)</span>
 <span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>fruits.remove(<span class="st">"banana"</span>)</span>
 <span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>fruits.discard(<span class="st">"kiwi"</span>)  <span class="co"># No error even if "kiwi" is not present</span></span>
 <span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(fruits)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>{'apple', 'grape', 'orange'}</code></pre>
+<pre><code>{'grape', 'orange', 'apple'}</code></pre>
 </div>
 </div>
 </section>
@@ -405,7 +483,7 @@ Sales Manager</code></pre>
 <li><strong>Difference (-):</strong> Returns elements in the first set but not in the second.</li>
 <li><strong>Symmetric Difference (^):</strong> Returns elements that are in either set, but not both.</li>
 </ul>
-<div id="9905aa8e" class="cell" data-execution_count="11">
+<div id="735ba189" class="cell" data-execution_count="11">
 <div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>set1 <span class="op">=</span> {<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>}</span>
 <span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>set2 <span class="op">=</span> {<span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>}</span>
 <span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -461,7 +539,7 @@ Sym. Diff.: {1, 2, 4, 5}</code></pre>
 <li>Use the <code>def</code> keyword followed by the function name, parentheses <code>()</code>, and a colon <code>:</code>.</li>
 <li>Indent the function body (the code that belongs to the function).</li>
 </ul>
-<div id="b538cd35" class="cell" data-execution_count="12">
+<div id="87dafe4d" class="cell" data-execution_count="12">
 <div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> greet(name):</span>
 <span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>  <span class="co">"""This function greets the person passed in as a parameter."""</span></span>
 <span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>  <span class="bu">print</span>(<span class="ss">f"Hello, </span><span class="sc">{</span>name<span class="sc">}</span><span class="ss">!"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -473,7 +551,7 @@ Sym. Diff.: {1, 2, 4, 5}</code></pre>
 <li>Use the function name followed by parentheses <code>()</code>.</li>
 <li>Pass any required arguments (inputs) inside the parentheses.</li>
 </ul>
-<div id="7de32027" class="cell" data-execution_count="13">
+<div id="0915f98d" class="cell" data-execution_count="13">
 <div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>greet(<span class="st">"Alice"</span>)  <span class="co"># Output: Hello, Alice!</span></span>
 <span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>greet(<span class="st">"Bob"</span>)    <span class="co"># Output: Hello, Bob!</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -489,7 +567,7 @@ Hello, Bob!</code></pre>
 <li>Placeholders for values that will be used inside the function.</li>
 <li>Can have multiple arguments separated by commas.</li>
 </ul>
-<div id="632bf785" class="cell" data-execution_count="14">
+<div id="8d4b9ed3" class="cell" data-execution_count="14">
 <div class="sourceCode cell-code" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> add_numbers(x, y):</span>
 <span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>  <span class="co">"""This function adds two numbers."""</span></span>
 <span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>  <span class="bu">sum</span> <span class="op">=</span> x <span class="op">+</span> y</span>
@@ -508,7 +586,7 @@ Hello, Bob!</code></pre>
 <li>Use the <code>return</code> keyword to specify the value to be returned.</li>
 <li>A function can return only one value, but that value can be a collection (e.g., a list or tuple).</li>
 </ul>
-<div id="51192875" class="cell" data-execution_count="15">
+<div id="9d461582" class="cell" data-execution_count="15">
 <div class="sourceCode cell-code" id="cb26"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> multiply_numbers(x, y):</span>
 <span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>  <span class="co">"""This function multiplies two numbers and returns the result."""</span></span>
 <span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>  result <span class="op">=</span> x <span class="op">*</span> y</span>
@@ -527,7 +605,7 @@ Hello, Bob!</code></pre>
 <li>Assign default values to arguments in the function definition.</li>
 <li>Makes the arguments optional when calling the function.</li>
 </ul>
-<div id="3aedd04a" class="cell" data-execution_count="16">
+<div id="3c1d6337" class="cell" data-execution_count="16">
 <div class="sourceCode cell-code" id="cb28"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> greet(name, greeting<span class="op">=</span><span class="st">"Hello"</span>):</span>
 <span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>  <span class="co">"""Greets a person with an optional custom greeting."""</span></span>
 <span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a>  <span class="bu">print</span>(<span class="ss">f"</span><span class="sc">{</span>greeting<span class="sc">}</span><span class="ss">, </span><span class="sc">{</span>name<span class="sc">}</span><span class="ss">!"</span>)</span>
@@ -546,7 +624,7 @@ Good morning, Bob!</code></pre>
 <li>Pass arguments using the argument name and the assignment operator <code>=</code>.</li>
 <li>Allows you to pass arguments in any order.</li>
 </ul>
-<div id="ac27d6be" class="cell" data-execution_count="17">
+<div id="f72d8446" class="cell" data-execution_count="17">
 <div class="sourceCode cell-code" id="cb30"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> describe_product(name, price, category<span class="op">=</span><span class="st">"Electronics"</span>):</span>
 <span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>  <span class="co">"""Describes a product with its name, price, and category."""</span></span>
 <span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a>  <span class="bu">print</span>(<span class="ss">f"Product: </span><span class="sc">{</span>name<span class="sc">}</span><span class="ss">, Price: $</span><span class="sc">{</span>price<span class="sc">}</span><span class="ss">, Category: </span><span class="sc">{</span>category<span class="sc">}</span><span class="ss">"</span>)</span>
@@ -562,7 +640,7 @@ Product: Mouse, Price: $29.99, Category: Accessories</code></pre>
 <section id="business-scenario-calculating-discounts" class="level2">
 <h2 class="anchored" data-anchor-id="business-scenario-calculating-discounts">Business Scenario: Calculating Discounts</h2>
 <p>Let’s create a function to calculate the final price of an item after applying a discount:</p>
-<div id="bdaf86c5" class="cell" data-execution_count="18">
+<div id="219c9220" class="cell" data-execution_count="18">
 <div class="sourceCode cell-code" id="cb32"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> calculate_discounted_price(price, discount_percentage):</span>
 <span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a>  <span class="co">"""Calculates the final price after applying a discount."""</span></span>
 <span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a>  discount_amount <span class="op">=</span> price <span class="op">*</span> (discount_percentage <span class="op">/</span> <span class="dv">100</span>)</span>
@@ -592,7 +670,7 @@ Product: Mouse, Price: $29.99, Category: Accessories</code></pre>
 <li>Variables defined inside a function have local scope.</li>
 <li>They are created when the function is called and destroyed when the function finishes.</li>
 </ul>
-<div id="9278695f" class="cell" data-execution_count="19">
+<div id="c1ca36e2" class="cell" data-execution_count="19">
 <div class="sourceCode cell-code" id="cb34"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> my_function():</span>
 <span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a>  local_var <span class="op">=</span> <span class="dv">10</span>  <span class="co"># local_var has local scope</span></span>
 <span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a>  <span class="bu">print</span>(local_var)</span>
@@ -610,7 +688,7 @@ Product: Mouse, Price: $29.99, Category: Accessories</code></pre>
 <li>Variables defined outside any function have global scope.</li>
 <li>They can be accessed from anywhere in the program, including inside functions.</li>
 </ul>
-<div id="70cffcda" class="cell" data-execution_count="20">
+<div id="e3d0a2a5" class="cell" data-execution_count="20">
 <div class="sourceCode cell-code" id="cb36"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a>global_var <span class="op">=</span> <span class="dv">20</span>  <span class="co"># global_var has global scope</span></span>
 <span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb36-3"><a href="#cb36-3" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> another_function():</span>
@@ -629,7 +707,7 @@ Product: Mouse, Price: $29.99, Category: Accessories</code></pre>
 <ul>
 <li>Use the <code>global</code> keyword to indicate that you want to modify a global variable from within a function.</li>
 </ul>
-<div id="fb9bca6c" class="cell" data-execution_count="21">
+<div id="4fc11a71" class="cell" data-execution_count="21">
 <div class="sourceCode cell-code" id="cb38"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a>counter <span class="op">=</span> <span class="dv">0</span></span>
 <span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb38-3"><a href="#cb38-3" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> increment_counter():</span>
@@ -666,7 +744,7 @@ Product: Mouse, Price: $29.99, Category: Accessories</code></pre>
 </section>
 <section id="lambda-function-examples" class="level2">
 <h2 class="anchored" data-anchor-id="lambda-function-examples">Lambda Function Examples</h2>
-<div id="04c2b4e8" class="cell" data-execution_count="22">
+<div id="cef9ded9" class="cell" data-execution_count="22">
 <div class="sourceCode cell-code" id="cb40"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="co"># A lambda function to square a number</span></span>
 <span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a>square <span class="op">=</span> <span class="kw">lambda</span> x: x <span class="op">*</span> x</span>
 <span id="cb40-3"><a href="#cb40-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(square(<span class="dv">5</span>))  <span class="co"># Output: 25</span></span>
@@ -693,7 +771,7 @@ False</code></pre>
 <li><code>map()</code> applies a function to each item in an iterable (e.g., a list).</li>
 <li>Lambda functions are often used as the function to be applied.</li>
 </ul>
-<div id="e7fa5f55" class="cell" data-execution_count="23">
+<div id="0b68ce28" class="cell" data-execution_count="23">
 <div class="sourceCode cell-code" id="cb42"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a>numbers <span class="op">=</span> [<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>]</span>
 <span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb42-3"><a href="#cb42-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Square each number in the list using a lambda function and map()</span></span>
@@ -711,7 +789,7 @@ False</code></pre>
 <li><code>filter()</code> creates a new iterable with elements that satisfy a given condition.</li>
 <li>Lambda functions are often used to define the condition.</li>
 </ul>
-<div id="2212000f" class="cell" data-execution_count="24">
+<div id="62c5573e" class="cell" data-execution_count="24">
 <div class="sourceCode cell-code" id="cb44"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a>numbers <span class="op">=</span> [<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>, <span class="dv">7</span>, <span class="dv">8</span>, <span class="dv">9</span>, <span class="dv">10</span>]</span>
 <span id="cb44-2"><a href="#cb44-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb44-3"><a href="#cb44-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Get only the even numbers using a lambda function and filter()</span></span>
@@ -775,7 +853,7 @@ False</code></pre>
 <ul>
 <li>Analyze the following code and predict the output:</li>
 </ul>
-<div id="302ee62a" class="cell" data-execution_count="25">
+<div id="da1c46f6" class="cell" data-execution_count="25">
 <div class="sourceCode cell-code" id="cb46"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> <span class="dv">10</span></span>
 <span id="cb46-2"><a href="#cb46-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb46-3"><a href="#cb46-3" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> my_function():</span>
