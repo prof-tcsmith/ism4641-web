@@ -1,0 +1,52 @@
+/* Simple Scrollable Reveal.js Slides CSS */
+
+/* The key is to make slides scrollable WITHOUT breaking Reveal.js */
+.reveal .slides > section,
+.reveal .slides > section > section {
+    overflow-y: auto !important;
+    overflow-x: hidden !important;
+    height: 700px !important;  /* Match Reveal's viewport */
+    box-sizing: border-box !important;
+}
+
+/* Add padding so content doesn't touch edges */
+.reveal .slides section {
+    padding: 20px !important;
+    padding-bottom: 50px !important; /* Space for footer */
+}
+
+/* Make code blocks independently scrollable if too long */
+.reveal pre {
+    max-height: 400px !important;
+    overflow: auto !important;
+}
+
+/* Better scrollbar visibility */
+.reveal .slides section::-webkit-scrollbar {
+    width: 12px !important;
+}
+
+.reveal .slides section::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.1) !important;
+}
+
+.reveal .slides section::-webkit-scrollbar-thumb {
+    background: rgba(0, 103, 71, 0.6) !important;
+    border-radius: 6px !important;
+}
+
+.reveal .slides section::-webkit-scrollbar-thumb:hover {
+    background: rgba(0, 103, 71, 0.8) !important;
+}
+
+/* Firefox scrollbar */
+.reveal .slides section {
+    scrollbar-width: thin !important;
+    scrollbar-color: rgba(0, 103, 71, 0.6) rgba(0, 0, 0, 0.1) !important;
+}
+
+/* USF Colors */
+:root {
+    --usf-green: #006747;
+    --usf-gold: #CFC493;
+}
