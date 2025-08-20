@@ -2395,17 +2395,30 @@ vertical-align: -.125em;
 <style>
 
 .quarto-container {
-max-width: 1200px !important;
-}
-main.content {
-max-width: 100% !important;
-}
-#quarto-content {
-max-width: 1100px !important;
+max-width: 90% !important;
 margin: 0 auto;
 }
-.page-layout-article #quarto-content>* {
-max-width: 100% !important;
+#quarto-content {
+max-width: none !important;
+}
+main.content {
+max-width: none !important;
+}
+.content-block {
+max-width: none !important;
+}
+
+.sidebar {
+margin-right: 2em;
+}
+@media (min-width: 992px) {
+body .page-columns {
+grid-column-gap: 2em;
+}
+.page-columns .content {
+grid-column: page-start / page-end !important;
+max-width: none !important;
+}
 }
 </style>
 <section id="class-1-introduction-to-python-for-business" class="level2">
