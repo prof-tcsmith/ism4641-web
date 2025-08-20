@@ -10,7 +10,7 @@
   <meta name="generator" content="quarto-1.7.31">
 
   <meta name="author" content="Dr.&nbsp;Smith">
-  <meta name="dcterms.date" content="2025-03-15">
+  <meta name="dcterms.date" content="2025-01-01">
   <title>ISM4641: Python for Business Analytics</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -207,7 +207,7 @@ Dr.&nbsp;Smith
 </div>
 </div>
 
-  <p class="date">March 15, 2025</p>
+  <p class="date">2025-01-01</p>
 </section>
 <section>
 <section id="welcome-to-week-7" class="title-slide slide level1 smaller center">
@@ -259,7 +259,7 @@ Dr.&nbsp;Smith
 </section>
 <section id="series-one-dimensional-data" class="slide level2">
 <h2>Series: One-Dimensional Data</h2>
-<div id="ae8b0323" class="cell" data-execution_count="1">
+<div id="d88ea27d" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href=""></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb1-2"><a href=""></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb1-3"><a href=""></a></span>
@@ -341,7 +341,7 @@ Highest Satisfaction: East (4.7)</code></pre>
 </section>
 <section id="dataframes-two-dimensional-data" class="slide level2 smaller">
 <h2>DataFrames: Two-Dimensional Data</h2>
-<div id="8f2c8461" class="cell" data-execution_count="2">
+<div id="728c284c" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href=""></a><span class="co"># Create DataFrame from dictionary - Product portfolio</span></span>
 <span id="cb3-2"><a href=""></a>products_data <span class="op">=</span> {</span>
 <span id="cb3-3"><a href=""></a>    <span class="st">'Product'</span>: [<span class="st">'Laptop Pro'</span>, <span class="st">'Tablet Plus'</span>, <span class="st">'Smartphone X'</span>, <span class="st">'Headphones'</span>, <span class="st">'Smart Watch'</span>],</span>
@@ -437,7 +437,7 @@ Top Revenue Generators:
 </section>
 <section id="column-and-row-selection" class="slide level2">
 <h2>Column and Row Selection</h2>
-<div id="18a3751c" class="cell" data-execution_count="3">
+<div id="752ab2f1" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href=""></a><span class="co"># Create sample employee dataset</span></span>
 <span id="cb5-2"><a href=""></a>employees_data <span class="op">=</span> {</span>
 <span id="cb5-3"><a href=""></a>    <span class="st">'Employee_ID'</span>: [<span class="st">'E001'</span>, <span class="st">'E002'</span>, <span class="st">'E003'</span>, <span class="st">'E004'</span>, <span class="st">'E005'</span>, <span class="st">'E006'</span>],</span>
@@ -554,7 +554,7 @@ Experienced Marketing Staff (&gt;= 4 years in Marketing):
 </section>
 <section id="advanced-filtering-techniques" class="slide level2 smaller">
 <h2>Advanced Filtering Techniques</h2>
-<div id="cdd55c50" class="cell" data-execution_count="4">
+<div id="f639e863" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href=""></a><span class="co"># Sales performance dataset</span></span>
 <span id="cb7-2"><a href=""></a>sales_data <span class="op">=</span> {</span>
 <span id="cb7-3"><a href=""></a>    <span class="st">'Region'</span>: [<span class="st">'North'</span>, <span class="st">'South'</span>, <span class="st">'East'</span>, <span class="st">'West'</span>, <span class="st">'North'</span>, <span class="st">'South'</span>, <span class="st">'East'</span>, <span class="st">'West'</span>],</span>
@@ -660,7 +660,7 @@ Using Query Method - Q1 Sales &gt; 200K:
 </section>
 <section id="handling-missing-data" class="slide level2">
 <h2>Handling Missing Data</h2>
-<div id="c5f0ba7d" class="cell" data-execution_count="5">
+<div id="d8644c28" class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href=""></a><span class="co"># Create customer data with missing values</span></span>
 <span id="cb9-2"><a href=""></a>customer_data <span class="op">=</span> {</span>
 <span id="cb9-3"><a href=""></a>    <span class="st">'Customer_ID'</span>: [<span class="st">'C001'</span>, <span class="st">'C002'</span>, <span class="st">'C003'</span>, <span class="st">'C004'</span>, <span class="st">'C005'</span>, <span class="st">'C006'</span>],</span>
@@ -776,7 +776,7 @@ Data Recovery: 120.0%</code></pre>
 </section>
 <section id="data-transformation" class="slide level2 smaller">
 <h2>Data Transformation</h2>
-<div id="a285931c" class="cell" data-execution_count="6">
+<div id="5cd4cfa7" class="cell" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href=""></a><span class="co"># Product sales dataset for transformation</span></span>
 <span id="cb11-2"><a href=""></a>product_sales <span class="op">=</span> pd.DataFrame({</span>
 <span id="cb11-3"><a href=""></a>    <span class="st">'Product'</span>: [<span class="st">'laptop'</span>, <span class="st">'TABLET'</span>, <span class="st">'smartphone'</span>, <span class="st">'Headphones'</span>, <span class="st">'SMARTWATCH'</span>],</span>
@@ -892,7 +892,7 @@ Top Revenue Potential Products:
 </section>
 <section id="groupby-operations" class="slide level2">
 <h2>GroupBy Operations</h2>
-<div id="6e255f13" class="cell" data-execution_count="7">
+<div id="20e042c0" class="cell" data-execution_count="7">
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href=""></a><span class="co"># Comprehensive sales dataset</span></span>
 <span id="cb13-2"><a href=""></a>sales_detail <span class="op">=</span> pd.DataFrame({</span>
 <span id="cb13-3"><a href=""></a>    <span class="st">'Date'</span>: pd.date_range(<span class="st">'2024-01-01'</span>, periods<span class="op">=</span><span class="dv">200</span>, freq<span class="op">=</span><span class="st">'D'</span>),</span>
@@ -956,12 +956,12 @@ Top Revenue Potential Products:
 <pre><code>GROUPBY OPERATIONS ANALYSIS
 ===================================
 Sample Data (200 records):
-        Date Region Product Sales_Rep      Revenue  Units_Sold    Month  \
-0 2024-01-01  North  Tablet     David  4260.399455          12  January   
-1 2024-01-02  North  Tablet     Carol  5170.079470          13  January   
-2 2024-01-03   East   Phone     Alice  4558.712986          10  January   
-3 2024-01-04  South  Tablet     Carol  5024.913650           7  January   
-4 2024-01-05   West  Tablet     Alice  8040.094530          13  January   
+        Date Region      Product Sales_Rep      Revenue  Units_Sold    Month  \
+0 2024-01-01  South       Tablet     David  2820.372031           9  January   
+1 2024-01-02   West       Tablet     Carol  6239.367114          10  January   
+2 2024-01-03   West        Phone       Bob  4460.883301          15  January   
+3 2024-01-04  South  Accessories     Alice  4884.310369          11  January   
+4 2024-01-05  North        Phone       Eve  4517.381313          14  January   
 
    Quarter  
 0        1  
@@ -973,51 +973,51 @@ Sample Data (200 records):
 Revenue by Region:
         Total_Revenue  Avg_Revenue  Transactions
 Region                                          
-East        271018.41      5113.55            53
-North       255294.49      5005.77            51
-South       285378.33      5096.04            56
-West        208480.36      5212.01            40
+East        249013.48      4882.62            51
+North       273058.58      4964.70            55
+South       231886.48      4933.75            47
+West        231515.67      4925.87            47
 
 Revenue by Region and Product:
-   Region      Product        Revenue
-6   North        Phone  100463.635547
-10  South        Phone   85266.327455
-9   South       Laptop   78492.293624
-0    East  Accessories   76009.017791
-15   West       Tablet   73493.412056
-11  South       Tablet   71973.011651
-1    East       Laptop   68866.320708
-2    East        Phone   66404.524980
-7   North       Tablet   63409.559825
-13   West       Laptop   60536.372332
+   Region      Product       Revenue
+12   West  Accessories  99541.210162
+6   North        Phone  78640.056581
+8   South  Accessories  72888.434866
+4   North  Accessories  71947.996982
+3    East       Tablet  71160.378818
+5   North       Laptop  70533.235372
+2    East        Phone  67184.701997
+1    East       Laptop  62640.375449
+14   West        Phone  62055.990870
+9   South       Laptop  56492.354788
 
 Sales Rep Performance Analysis:
            Total_Revenue  Avg_Revenue  Revenue_Std  Total_Units  Avg_Units  \
 Sales_Rep                                                                    
-Alice          193674.62      4966.02      1407.31          420      10.77   
-Bob            180129.33      5146.55      1759.02          346       9.89   
-Carol          215419.54      5129.04      1833.88          465      11.07   
-David          210684.98      5267.12      1342.81          465      11.62   
-Eve            220263.13      5005.98      1211.50          478      10.86   
+Alice          223976.85      5090.38      1227.54          455      10.34   
+Bob            173186.82      4948.19      1313.79          373      10.66   
+Carol          169458.60      4841.67      1924.03          414      11.83   
+David          196242.25      4906.06      1153.94          431      10.78   
+Eve            222609.69      4839.34      1557.43          509      11.07   
 
            Transactions  
 Sales_Rep                
-Alice                39  
+Alice                44  
 Bob                  35  
-Carol                42  
+Carol                35  
 David                40  
-Eve                  44  
+Eve                  46  
 
 Top 3 Sales Reps by Total Revenue:
-  Eve: $220,263.13 total, $5,005.98 avg, 0.24 consistency ratio
-  Carol: $215,419.54 total, $5,129.04 avg, 0.36 consistency ratio
-  David: $210,684.98 total, $5,267.12 avg, 0.25 consistency ratio</code></pre>
+  Alice: $223,976.85 total, $5,090.38 avg, 0.24 consistency ratio
+  Eve: $222,609.69 total, $4,839.34 avg, 0.32 consistency ratio
+  David: $196,242.25 total, $4,906.06 avg, 0.24 consistency ratio</code></pre>
 </div>
 </div>
 </section>
 <section id="advanced-aggregations" class="slide level2 smaller">
 <h2>Advanced Aggregations</h2>
-<div id="0dead7a7" class="cell" data-execution_count="8">
+<div id="63c9ab12" class="cell" data-execution_count="8">
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href=""></a><span class="co"># Monthly and quarterly analysis</span></span>
 <span id="cb15-2"><a href=""></a><span class="bu">print</span>(<span class="ss">f"ADVANCED BUSINESS AGGREGATIONS"</span>)</span>
 <span id="cb15-3"><a href=""></a><span class="bu">print</span>(<span class="st">"="</span> <span class="op">*</span> <span class="dv">35</span>)</span>
@@ -1091,62 +1091,62 @@ Top 3 Sales Reps by Total Revenue:
 ===================================
 Monthly Regional Performance:
       Month Region       Revenue  Units_Sold
-0     April   East  40640.517396          82
-1     April  North  25810.895168          84
-2     April  South  41740.340483         102
-3     April   West  43959.522997          80
-4  February   East  47260.649621         108
-5  February  North  55678.552046         112
-6  February  South  15026.304240          42
-7  February   West  27477.803903          68
-8   January   East  33495.620067          62
-9   January  North  45703.484549         103
+0     April   East  19373.305734          40
+1     April  North  45780.128746         119
+2     April  South  32801.854837          68
+3     April   West  44947.880173         101
+4  February   East  28473.156956          65
+5  February  North  27168.125555          44
+6  February  South  39868.689469          95
+7  February   West  43302.354653         130
+8   January   East  58999.240629         152
+9   January  North  39310.933383          81
 
 Monthly Revenue Pivot Table:
 Region        East     North     South      West
 Month                                           
-April     40640.52  25810.90  41740.34  43959.52
-February  47260.65  55678.55  15026.30  27477.80
-January   33495.62  45703.48  65271.21  17613.25
-July      20156.22  27723.57  26358.09  14027.17
-June      32505.44  40473.63  46159.20  38689.57
-March     39341.57  29804.96  45798.09  47931.35
-May       57618.39  30099.41  45025.10  18781.69
+April     19373.31  45780.13  32801.85  44947.88
+February  28473.16  27168.13  39868.69  43302.35
+January   58999.24  39310.93  30145.67  23945.09
+July      22531.90  42356.23  13087.17   4253.92
+June      33084.28  39524.46  45263.67  35722.07
+March     30544.48  37334.49  43521.56  41341.86
+May       56007.11  41584.22  27197.88  38002.49
 
 Regional Market Share:
-  East: 26.6%
-  North: 25.0%
-  South: 28.0%
-  West: 20.4%
+  East: 25.3%
+  North: 27.7%
+  South: 23.5%
+  West: 23.5%
 
 Product Performance Metrics:
              Total_Revenue  Avg_Transaction  Transaction_Count  Total_Units  \
 Product                                                                       
-Accessories      201102.74          4904.94                 41          450   
-Laptop           249364.58          5195.10                 48          522   
-Phone            301089.75          5103.22                 59          612   
-Tablet           268614.53          5165.66                 52          590   
+Accessories      292405.66          5041.48                 58          640   
+Laptop           220195.55          4786.86                 46          475   
+Phone            263862.48          4978.54                 53          566   
+Tablet           209010.51          4860.71                 43          501   
 
              Revenue_per_Unit  
 Product                        
-Accessories            446.89  
-Laptop                 477.71  
-Phone                  491.98  
-Tablet                 455.28  
+Accessories            456.88  
+Laptop                 463.57  
+Phone                  466.19  
+Tablet                 417.19  
 
 Custom Revenue Variability Analysis:
         Revenue_Range  Revenue_StdDev      IQR
 Region                                        
-East          6582.81         1487.37  2094.66
-North         8260.83         1550.28  1749.73
-South         7783.37         1425.15  1298.58
-West          6157.64         1650.34  1776.19
+East          8181.87         1697.77  2382.64
+North         5161.13         1252.78  1407.19
+South         5049.47         1313.53  1792.39
+West          6959.67         1502.34  1786.21
 
 Key Business Insights:
-  Best Performing Region: South
-  Most Consistent Sales Rep: Eve
-  Top Product by Revenue: Phone
-  Overall Daily Average: $5,100.86</code></pre>
+  Best Performing Region: North
+  Most Consistent Sales Rep: David
+  Top Product by Revenue: Accessories
+  Overall Daily Average: $4,927.37</code></pre>
 </div>
 </div>
 </section>
@@ -1160,7 +1160,7 @@ Key Business Insights:
 </section>
 <section id="merging-dataframes" class="slide level2">
 <h2>Merging DataFrames</h2>
-<div id="a0d4d1e8" class="cell" data-execution_count="9">
+<div id="e112889c" class="cell" data-execution_count="9">
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href=""></a><span class="co"># Customer information</span></span>
 <span id="cb17-2"><a href=""></a>customers <span class="op">=</span> pd.DataFrame({</span>
 <span id="cb17-3"><a href=""></a>    <span class="st">'Customer_ID'</span>: [<span class="st">'C001'</span>, <span class="st">'C002'</span>, <span class="st">'C003'</span>, <span class="st">'C004'</span>, <span class="st">'C005'</span>],</span>
@@ -1335,7 +1335,7 @@ Name: Quantity, dtype: int64</code></pre>
 </section>
 <section id="reading-and-writing-data" class="slide level2">
 <h2>Reading and Writing Data</h2>
-<div id="85b3edef" class="cell" data-execution_count="10">
+<div id="e770fdde" class="cell" data-execution_count="10">
 <div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href=""></a><span class="co"># Create sample business data for file operations</span></span>
 <span id="cb19-2"><a href=""></a>business_data <span class="op">=</span> pd.DataFrame({</span>
 <span id="cb19-3"><a href=""></a>    <span class="st">'Date'</span>: pd.date_range(<span class="st">'2024-01-01'</span>, periods<span class="op">=</span><span class="dv">50</span>, freq<span class="op">=</span><span class="st">'D'</span>),</span>
@@ -1418,16 +1418,16 @@ Name: Quantity, dtype: int64</code></pre>
 ====================
 Sample Business Data:
         Date Region    Product     Sales  Units  Customer_Satisfaction
-0 2024-01-01   East  Product_A   9111.29     41                   4.88
-1 2024-01-02   West  Product_A   7311.05     49                   4.35
-2 2024-01-03  South  Product_C  10750.22     61                   4.82
-3 2024-01-04  South  Product_B  10855.13     49                   4.41
-4 2024-01-05   West  Product_C  10518.01     52                   3.69
-5 2024-01-06   West  Product_A  13523.91     50                   4.46
-6 2024-01-07  North  Product_A   8329.48     46                   4.83
-7 2024-01-08   West  Product_A  12836.73     48                   3.94
-8 2024-01-09  North  Product_C   9646.53     50                   3.58
-9 2024-01-10   East  Product_B  11139.93     55                   3.49
+0 2024-01-01  North  Product_C  12538.81     48                   4.34
+1 2024-01-02  North  Product_A   6520.80     40                   4.77
+2 2024-01-03  North  Product_B   9002.32     45                   3.02
+3 2024-01-04  South  Product_B   9608.32     47                   3.65
+4 2024-01-05   West  Product_B  10400.69     55                   3.11
+5 2024-01-06   West  Product_B  10914.06     44                   3.44
+6 2024-01-07   East  Product_A   9717.42     58                   3.38
+7 2024-01-08   East  Product_B  10354.94     52                   3.28
+8 2024-01-09  South  Product_B   9909.34     48                   4.68
+9 2024-01-10  South  Product_C  11144.94     52                   4.97
 
 File Export Options:
 1. CSV Export:
@@ -1444,10 +1444,10 @@ File Export Options:
 Summary Data for Export:
         Total_Sales  Avg_Sales  Sales_StdDev  Total_Units  Avg_Satisfaction
 Region                                                                     
-East       73591.49   10513.07       1924.91          367              3.82
-North     127388.83   10615.74       2002.30          581              4.30
-South     129107.61    9931.35       1874.20          637              4.00
-West      189166.89   10509.27       1768.22          953              4.16
+East      163386.22   10211.64       2305.29          896              3.60
+North     134802.99    9628.78       2886.20          699              3.97
+South      87567.30    9729.70       1135.33          434              4.07
+West      110640.53   10058.23       1234.66          556              3.93
 
 File Import Options:
 1. CSV Import:
@@ -1465,28 +1465,28 @@ File Import Options:
 
 PRACTICAL EXAMPLE: Monthly Report Generation
 Monthly Report by Region:
-                    Sales  Units  Customer_Satisfaction
-Date    Region                                         
-2024-01 East     53785.60    250                   4.01
-        North    72112.01    324                   4.28
-        South    59120.48    322                   3.91
-        West    141855.74    688                   4.21
-2024-02 East     19805.89    117                   3.36
-        North    55276.82    257                   4.34
-        South    69987.13    315                   4.07
-        West     47311.15    265                   4.03
+                   Sales  Units  Customer_Satisfaction
+Date    Region                                        
+2024-01 East    94475.41    545                   3.64
+        North   76148.75    444                   4.05
+        South   50403.91    240                   3.93
+        West    68459.26    369                   3.79
+2024-02 East    68910.81    351                   3.55
+        North   58654.24    255                   3.84
+        South   37163.39    194                   4.23
+        West    42181.27    187                   4.18
 
 Formatted for Business Presentation:
-                      Sales  Units Customer_Satisfaction
-Date    Region                                          
-2024-01 East     $53,785.60    250              4.01/5.0
-        North    $72,112.01    324              4.28/5.0
-        South    $59,120.48    322              3.91/5.0
-        West    $141,855.74    688              4.21/5.0
-2024-02 East     $19,805.89    117              3.36/5.0
-        North    $55,276.82    257              4.34/5.0
-        South    $69,987.13    315              4.07/5.0
-        West     $47,311.15    265              4.03/5.0</code></pre>
+                     Sales  Units Customer_Satisfaction
+Date    Region                                         
+2024-01 East    $94,475.41    545              3.64/5.0
+        North   $76,148.75    444              4.05/5.0
+        South   $50,403.91    240              3.93/5.0
+        West    $68,459.26    369              3.79/5.0
+2024-02 East    $68,910.81    351              3.55/5.0
+        North   $58,654.24    255              3.84/5.0
+        South   $37,163.39    194              4.23/5.0
+        West    $42,181.27    187              4.18/5.0</code></pre>
 </div>
 </div>
 </section>
@@ -1500,7 +1500,7 @@ Date    Region
 </section>
 <section id="complete-customer-analytics-pipeline" class="slide level2">
 <h2>Complete Customer Analytics Pipeline</h2>
-<div id="74f8b425" class="cell" data-execution_count="11">
+<div id="8403dbf5" class="cell" data-execution_count="11">
 <div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href=""></a><span class="co"># Simulate a complete business analytics workflow</span></span>
 <span id="cb21-2"><a href=""></a>np.random.seed(<span class="dv">42</span>)  <span class="co"># For reproducible results</span></span>
 <span id="cb21-3"><a href=""></a></span>

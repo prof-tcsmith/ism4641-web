@@ -10,7 +10,7 @@
   <meta name="generator" content="quarto-1.7.31">
 
   <meta name="author" content="Dr.&nbsp;Smith">
-  <meta name="dcterms.date" content="2025-02-15">
+  <meta name="dcterms.date" content="2025-01-01">
   <title>ISM4641: Python for Business Analytics</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -207,7 +207,7 @@ Dr.&nbsp;Smith
 </div>
 </div>
 
-  <p class="date">February 15, 2025</p>
+  <p class="date">2025-01-01</p>
 </section>
 <section>
 <section id="welcome-to-week-3" class="title-slide slide level1 smaller center">
@@ -264,7 +264,7 @@ Dr.&nbsp;Smith
 <li class="fragment"><strong>Hashable</strong>: Can be used as dictionary keys</li>
 <li class="fragment"><strong>Parentheses</strong>: Created using () or comma separation</li>
 </ul>
-<div id="398bf517" class="cell" data-execution_count="1">
+<div id="53c2b58a" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href=""></a><span class="co"># Creating tuples</span></span>
 <span id="cb1-2"><a href=""></a>empty_tuple <span class="op">=</span> ()</span>
 <span id="cb1-3"><a href=""></a>product_info <span class="op">=</span> (<span class="st">"Laptop"</span>, <span class="st">"Dell XPS 13"</span>, <span class="fl">999.99</span>, <span class="va">True</span>)</span>
@@ -282,7 +282,7 @@ NYC Coordinates: (40.7128, -74.006)</code></pre>
 <section id="tuple-operations" class="slide level2 smaller">
 <h2>Tuple Operations</h2>
 <h3 id="indexing-and-slicing">Indexing and Slicing</h3>
-<div id="45e84194" class="cell" data-execution_count="2">
+<div id="b41a36d8" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href=""></a><span class="co"># Business container data</span></span>
 <span id="cb3-2"><a href=""></a>container_data <span class="op">=</span> (<span class="st">"CONT001"</span>, <span class="st">"Miami"</span>, <span class="st">"New York"</span>, <span class="fl">15000.50</span>, <span class="st">"Electronics"</span>)</span>
 <span id="cb3-3"><a href=""></a></span>
@@ -308,7 +308,7 @@ Route: ('Miami', 'New York')</code></pre>
 <section id="tuple-unpacking" class="slide level2 smaller">
 <h2>Tuple Unpacking</h2>
 <h3 id="elegant-variable-assignment">Elegant Variable Assignment</h3>
-<div id="76d9a20e" class="cell" data-execution_count="3">
+<div id="4514055d" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href=""></a><span class="co"># Employee record</span></span>
 <span id="cb5-2"><a href=""></a>employee <span class="op">=</span> (<span class="st">"Alice Johnson"</span>, <span class="st">"Marketing"</span>, <span class="dv">65000</span>, <span class="dv">3</span>)</span>
 <span id="cb5-3"><a href=""></a></span>
@@ -334,7 +334,7 @@ Alice Johnson earns $65,000</code></pre>
 </section>
 <section id="tuple-methods" class="slide level2 smaller">
 <h2>Tuple Methods</h2>
-<div id="37ef1a0b" class="cell" data-execution_count="4">
+<div id="b5e5f1ae" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href=""></a><span class="co"># Customer transaction history</span></span>
 <span id="cb7-2"><a href=""></a>transactions <span class="op">=</span> (<span class="fl">250.00</span>, <span class="fl">89.99</span>, <span class="fl">250.00</span>, <span class="fl">134.50</span>, <span class="fl">250.00</span>, <span class="fl">76.25</span>)</span>
 <span id="cb7-3"><a href=""></a></span>
@@ -364,7 +364,7 @@ Average Transaction: $175.12</code></pre>
 <section id="business-applications-of-tuples" class="slide level2 smaller">
 <h2>Business Applications of Tuples</h2>
 <h3 id="fixed-data-records">Fixed Data Records</h3>
-<div id="17bd94d4" class="cell" data-execution_count="5">
+<div id="018dc654" class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href=""></a><span class="co"># Product catalog - data that shouldn't change</span></span>
 <span id="cb9-2"><a href=""></a>products <span class="op">=</span> [</span>
 <span id="cb9-3"><a href=""></a>    (<span class="st">"SKU001"</span>, <span class="st">"Wireless Headphones"</span>, <span class="fl">149.99</span>, <span class="st">"Electronics"</span>, <span class="va">True</span>),</span>
@@ -405,7 +405,7 @@ SKU004: Desk Lamp            $ 89.99 [Office] ✓</code></pre>
 <li class="fragment"><strong>Mutable</strong>: Can add/remove elements</li>
 <li class="fragment"><strong>Fast Lookups</strong>: O(1) average case for membership testing</li>
 </ul>
-<div id="282fdf95" class="cell" data-execution_count="6">
+<div id="28a4d800" class="cell" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href=""></a><span class="co"># Creating sets</span></span>
 <span id="cb11-2"><a href=""></a>empty_set <span class="op">=</span> <span class="bu">set</span>()  <span class="co"># Note: {} creates a dict, not a set</span></span>
 <span id="cb11-3"><a href=""></a>customer_ids <span class="op">=</span> {<span class="dv">101</span>, <span class="dv">102</span>, <span class="dv">103</span>, <span class="dv">104</span>, <span class="dv">105</span>}</span>
@@ -419,14 +419,14 @@ SKU004: Desk Lamp            $ 89.99 [Office] ✓</code></pre>
 <span id="cb11-11"><a href=""></a><span class="bu">print</span>(<span class="ss">f"Unique sales reps: </span><span class="sc">{</span>unique_reps<span class="sc">}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Sales reps with duplicates: ['Alice', 'Bob', 'Charlie', 'Alice', 'Diana', 'Bob']
-Unique sales reps: {'Charlie', 'Diana', 'Bob', 'Alice'}</code></pre>
+Unique sales reps: {'Charlie', 'Bob', 'Alice', 'Diana'}</code></pre>
 </div>
 </div>
 </section>
 <section id="set-operations" class="slide level2 smaller">
 <h2>Set Operations</h2>
 <h3 id="mathematical-set-operations">Mathematical Set Operations</h3>
-<div id="44468818" class="cell" data-execution_count="7">
+<div id="f51d7509" class="cell" data-execution_count="7">
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href=""></a><span class="co"># Marketing campaign audiences</span></span>
 <span id="cb13-2"><a href=""></a>email_subscribers <span class="op">=</span> {<span class="st">"Alice"</span>, <span class="st">"Bob"</span>, <span class="st">"Charlie"</span>, <span class="st">"Diana"</span>, <span class="st">"Eve"</span>, <span class="st">"Frank"</span>}</span>
 <span id="cb13-3"><a href=""></a>social_media_followers <span class="op">=</span> {<span class="st">"Bob"</span>, <span class="st">"Charlie"</span>, <span class="st">"Grace"</span>, <span class="st">"Henry"</span>, <span class="st">"Alice"</span>, <span class="st">"Ivan"</span>}</span>
@@ -446,10 +446,10 @@ Unique sales reps: {'Charlie', 'Diana', 'Bob', 'Alice'}</code></pre>
 <span id="cb13-17"><a href=""></a><span class="bu">print</span>(<span class="ss">f"Highly engaged customers: </span><span class="sc">{</span>engaged_customers<span class="sc">}</span><span class="ss">"</span>)</span>
 <span id="cb13-18"><a href=""></a><span class="bu">print</span>(<span class="ss">f"Cross-platform engagement: </span><span class="sc">{</span><span class="bu">len</span>(engaged_customers)<span class="sc">}</span><span class="ss"> customers"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Email subscribers: {'Diana', 'Bob', 'Frank', 'Charlie', 'Alice', 'Eve'}
-Social media followers: {'Grace', 'Bob', 'Henry', 'Alice', 'Charlie', 'Ivan'}
+<pre><code>Email subscribers: {'Bob', 'Diana', 'Eve', 'Frank', 'Charlie', 'Alice'}
+Social media followers: {'Henry', 'Bob', 'Grace', 'Charlie', 'Ivan', 'Alice'}
 
-All customers: {'Ivan', 'Henry', 'Eve', 'Diana', 'Bob', 'Frank', 'Charlie', 'Alice', 'Grace'}
+All customers: {'Bob', 'Eve', 'Grace', 'Charlie', 'Henry', 'Diana', 'Frank', 'Ivan', 'Alice'}
 Total reach: 9 customers
 
 Highly engaged customers: {'Charlie', 'Bob', 'Alice'}
@@ -459,7 +459,7 @@ Cross-platform engagement: 3 customers</code></pre>
 </section>
 <section id="set-operations-continued" class="slide level2 smaller">
 <h2>Set Operations (continued)</h2>
-<div id="fe3faf69" class="cell" data-execution_count="8">
+<div id="3d1b7d89" class="cell" data-execution_count="8">
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href=""></a><span class="co"># Difference - customers only on email list</span></span>
 <span id="cb15-2"><a href=""></a>email_only <span class="op">=</span> email_subscribers <span class="op">-</span> social_media_followers</span>
 <span id="cb15-3"><a href=""></a><span class="bu">print</span>(<span class="ss">f"Email-only customers: </span><span class="sc">{</span>email_only<span class="sc">}</span><span class="ss">"</span>)</span>
@@ -472,8 +472,8 @@ Cross-platform engagement: 3 customers</code></pre>
 <span id="cb15-10"><a href=""></a>engagement_rate <span class="op">=</span> <span class="bu">len</span>(engaged_customers) <span class="op">/</span> <span class="bu">len</span>(all_customers) <span class="op">*</span> <span class="dv">100</span></span>
 <span id="cb15-11"><a href=""></a><span class="bu">print</span>(<span class="ss">f"</span><span class="ch">\n</span><span class="ss">Cross-platform engagement rate: </span><span class="sc">{</span>engagement_rate<span class="sc">:.1f}</span><span class="ss">%"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Email-only customers: {'Diana', 'Eve', 'Frank'}
-Single platform customers: {'Ivan', 'Henry', 'Eve', 'Diana', 'Frank', 'Grace'}
+<pre><code>Email-only customers: {'Diana', 'Frank', 'Eve'}
+Single platform customers: {'Henry', 'Diana', 'Frank', 'Eve', 'Grace', 'Ivan'}
 
 Cross-platform engagement rate: 33.3%</code></pre>
 </div>
@@ -482,7 +482,7 @@ Cross-platform engagement rate: 33.3%</code></pre>
 <section id="set-methods" class="slide level2 smaller">
 <h2>Set Methods</h2>
 <h3 id="adding-and-removing-elements">Adding and Removing Elements</h3>
-<div id="40f64237" class="cell" data-execution_count="9">
+<div id="350dbd91" class="cell" data-execution_count="9">
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href=""></a><span class="co"># Active customer tracking</span></span>
 <span id="cb17-2"><a href=""></a>active_customers <span class="op">=</span> {<span class="st">"C001"</span>, <span class="st">"C002"</span>, <span class="st">"C003"</span>}</span>
 <span id="cb17-3"><a href=""></a><span class="bu">print</span>(<span class="ss">f"Initially active: </span><span class="sc">{</span>active_customers<span class="sc">}</span><span class="ss">"</span>)</span>
@@ -506,19 +506,19 @@ Cross-platform engagement rate: 33.3%</code></pre>
 <span id="cb17-21"><a href=""></a><span class="bu">print</span>(<span class="ss">f"Random departure: </span><span class="sc">{</span>departed<span class="sc">}</span><span class="ss">"</span>)</span>
 <span id="cb17-22"><a href=""></a><span class="bu">print</span>(<span class="ss">f"Remaining customers: </span><span class="sc">{</span>active_customers<span class="sc">}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Initially active: {'C001', 'C003', 'C002'}
-After adding C004: {'C004', 'C001', 'C003', 'C002'}
-After bulk update: {'C007', 'C005', 'C004', 'C003', 'C001', 'C006', 'C002'}
-After removals: {'C007', 'C005', 'C004', 'C003', 'C001', 'C006'}
-Random departure: C007
-Remaining customers: {'C005', 'C004', 'C003', 'C001', 'C006'}</code></pre>
+<pre><code>Initially active: {'C003', 'C002', 'C001'}
+After adding C004: {'C003', 'C002', 'C004', 'C001'}
+After bulk update: {'C003', 'C002', 'C005', 'C004', 'C001', 'C006', 'C007'}
+After removals: {'C003', 'C005', 'C004', 'C001', 'C006', 'C007'}
+Random departure: C003
+Remaining customers: {'C005', 'C004', 'C001', 'C006', 'C007'}</code></pre>
 </div>
 </div>
 </section>
 <section id="business-set-applications" class="slide level2 smaller">
 <h2>Business Set Applications</h2>
 <h3 id="customer-analysis">Customer Analysis</h3>
-<div id="0f8aa94f" class="cell" data-execution_count="10">
+<div id="5db1976d" class="cell" data-execution_count="10">
 <div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href=""></a><span class="co"># Customer segmentation analysis</span></span>
 <span id="cb19-2"><a href=""></a>q1_customers <span class="op">=</span> {<span class="st">"A101"</span>, <span class="st">"A102"</span>, <span class="st">"A103"</span>, <span class="st">"A104"</span>, <span class="st">"A105"</span>, <span class="st">"A106"</span>}</span>
 <span id="cb19-3"><a href=""></a>q2_customers <span class="op">=</span> {<span class="st">"A102"</span>, <span class="st">"A104"</span>, <span class="st">"A107"</span>, <span class="st">"A108"</span>, <span class="st">"A109"</span>, <span class="st">"A110"</span>}</span>
@@ -545,10 +545,10 @@ Remaining customers: {'C005', 'C004', 'C003', 'C001', 'C006'}</code></pre>
 <div class="cell-output cell-output-stdout">
 <pre><code>Customer Analysis Report
 ==============================
-Loyal customers (Q1 &amp; Q2): {'A102', 'A104'}
+Loyal customers (Q1 &amp; Q2): {'A104', 'A102'}
 Loyalty rate: 2 / 10 customers
-New acquisitions in Q2: {'A109', 'A107', 'A108', 'A110'}
-Churned customers: {'A103', 'A101', 'A106', 'A105'}
+New acquisitions in Q2: {'A109', 'A108', 'A107', 'A110'}
+Churned customers: {'A105', 'A101', 'A103', 'A106'}
 Premium customers still active: 3/4</code></pre>
 </div>
 </div>
@@ -584,7 +584,7 @@ Premium customers still active: 3/4</code></pre>
 <section id="function-basics" class="slide level2 smaller">
 <h2>Function Basics</h2>
 <h3 id="defining-and-calling-functions">Defining and Calling Functions</h3>
-<div id="ad073090" class="cell" data-execution_count="11">
+<div id="4156fd95" class="cell" data-execution_count="11">
 <div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href=""></a><span class="co"># Simple function without parameters</span></span>
 <span id="cb21-2"><a href=""></a><span class="kw">def</span> greet_customer():</span>
 <span id="cb21-3"><a href=""></a>    <span class="co">"""Display a welcome message for customers."""</span></span>
@@ -598,7 +598,7 @@ Premium customers still active: 3/4</code></pre>
 We're here to help with your data needs.</code></pre>
 </div>
 </div>
-<div id="dbf30854" class="cell" data-execution_count="12">
+<div id="c25c4ac0" class="cell" data-execution_count="12">
 <div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href=""></a><span class="co"># Function with parameters</span></span>
 <span id="cb23-2"><a href=""></a><span class="kw">def</span> calculate_discount(price, discount_rate):</span>
 <span id="cb23-3"><a href=""></a>    <span class="co">"""Calculate discounted price for a product.</span></span>
@@ -631,7 +631,7 @@ You saved: $15.00</code></pre>
 <section id="function-parameters" class="slide level2 smaller">
 <h2>Function Parameters</h2>
 <h3 id="default-parameters">Default Parameters</h3>
-<div id="8397d2b2" class="cell" data-execution_count="13">
+<div id="b84a40c9" class="cell" data-execution_count="13">
 <div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href=""></a><span class="kw">def</span> calculate_loan_payment(principal, annual_rate<span class="op">=</span><span class="fl">0.05</span>, years<span class="op">=</span><span class="dv">30</span>):</span>
 <span id="cb25-2"><a href=""></a>    <span class="co">"""Calculate monthly loan payment using standard formula.</span></span>
 <span id="cb25-3"><a href=""></a><span class="co">    </span></span>
@@ -678,7 +678,7 @@ You saved: $15.00</code></pre>
 <section id="return-values" class="slide level2 smaller">
 <h2>Return Values</h2>
 <h3 id="single-and-multiple-returns">Single and Multiple Returns</h3>
-<div id="4a76064f" class="cell" data-execution_count="14">
+<div id="d806ec1e" class="cell" data-execution_count="14">
 <div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href=""></a><span class="kw">def</span> analyze_sales_performance(monthly_sales):</span>
 <span id="cb27-2"><a href=""></a>    <span class="co">"""Analyze monthly sales data and return key metrics.</span></span>
 <span id="cb27-3"><a href=""></a><span class="co">    </span></span>
@@ -721,7 +721,7 @@ Performance Range: $27,000.00</code></pre>
 <section id="variable-scope" class="slide level2 smaller">
 <h2>Variable Scope</h2>
 <h3 id="local-vs-global-variables">Local vs Global Variables</h3>
-<div id="3bc70ef5" class="cell" data-execution_count="15">
+<div id="c607e9f5" class="cell" data-execution_count="15">
 <div class="sourceCode cell-code" id="cb29"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href=""></a><span class="co"># Global variables</span></span>
 <span id="cb29-2"><a href=""></a>company_name <span class="op">=</span> <span class="st">"TechCorps Analytics"</span></span>
 <span id="cb29-3"><a href=""></a>tax_rate <span class="op">=</span> <span class="fl">0.08</span></span>
@@ -781,7 +781,7 @@ Total: $1198.77</code></pre>
 <section id="lambda-functions" class="slide level2 smaller">
 <h2>Lambda Functions</h2>
 <h3 id="concise-anonymous-functions">Concise Anonymous Functions</h3>
-<div id="f0dc58f6" class="cell" data-execution_count="16">
+<div id="aec909ec" class="cell" data-execution_count="16">
 <div class="sourceCode cell-code" id="cb31"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href=""></a><span class="co"># Traditional function</span></span>
 <span id="cb31-2"><a href=""></a><span class="kw">def</span> calculate_commission(sales):</span>
 <span id="cb31-3"><a href=""></a>    <span class="cf">return</span> sales <span class="op">*</span> <span class="fl">0.05</span></span>
@@ -834,7 +834,7 @@ Ranking by sales: ['$22,000', '$18,000', '$15,000', '$12,000', '$9,500', '$8,000
 </section>
 <section id="customer-loyalty-program-system" class="slide level2">
 <h2>Customer Loyalty Program System</h2>
-<div id="0a8ce24f" class="cell" data-execution_count="17">
+<div id="e782ce7c" class="cell" data-execution_count="17">
 <div class="sourceCode cell-code" id="cb33"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a href=""></a><span class="kw">def</span> determine_loyalty_tier(total_spent, years_active):</span>
 <span id="cb33-2"><a href=""></a>    <span class="co">"""Determine customer loyalty tier based on spending and tenure.</span></span>
 <span id="cb33-3"><a href=""></a><span class="co">    </span></span>
@@ -935,7 +935,7 @@ Customer C005: Silver Tier
 </section>
 <section id="summit-exports-container-system" class="slide level2">
 <h2>Summit Exports Container System</h2>
-<div id="55844981" class="cell" data-execution_count="18">
+<div id="478bcf9c" class="cell" data-execution_count="18">
 <div class="sourceCode cell-code" id="cb35"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a href=""></a><span class="kw">def</span> create_container_record(container_id, route, cargo_value):</span>
 <span id="cb35-2"><a href=""></a>    <span class="co">"""Create immutable container record using tuple."""</span></span>
 <span id="cb35-3"><a href=""></a>    origin, destination <span class="op">=</span> route  <span class="co"># Tuple unpacking</span></span>
