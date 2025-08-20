@@ -8,7 +8,7 @@
 
 <meta name="author" content="Dr. Smith">
 
-<title>Module 5: Introduction to NumPy</title>
+<title>Module 5: Practice Problems - NumPy</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -2393,53 +2393,40 @@ if (window.self !== window.top) {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul class="collapse">
-  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">Introduction</a></li>
-  <li><a href="#situating-numpy-among-built-in-data-structures" id="toc-situating-numpy-among-built-in-data-structures" class="nav-link" data-scroll-target="#situating-numpy-among-built-in-data-structures">Situating NumPy Among Built-In Data Structures</a></li>
-  <li><a href="#installing-and-setting-up-numpy" id="toc-installing-and-setting-up-numpy" class="nav-link" data-scroll-target="#installing-and-setting-up-numpy">Installing and Setting Up NumPy</a>
+  <li><a href="#practice-questions" id="toc-practice-questions" class="nav-link active" data-scroll-target="#practice-questions">Practice Questions</a></li>
+  <li><a href="#appendix-detailed-solutions" id="toc-appendix-detailed-solutions" class="nav-link" data-scroll-target="#appendix-detailed-solutions">Appendix: Detailed Solutions</a>
   <ul class="collapse">
-  <li><a href="#installing-numpy-locally" id="toc-installing-numpy-locally" class="nav-link" data-scroll-target="#installing-numpy-locally">Installing NumPy Locally</a></li>
-  <li><a href="#using-numpy-in-google-colab" id="toc-using-numpy-in-google-colab" class="nav-link" data-scroll-target="#using-numpy-in-google-colab">Using NumPy in Google Colab</a></li>
-  <li><a href="#importing-numpy-in-your-notebooks" id="toc-importing-numpy-in-your-notebooks" class="nav-link" data-scroll-target="#importing-numpy-in-your-notebooks">Importing NumPy in Your Notebooks</a></li>
+  <li><a href="#creating-arrays-from-lists" id="toc-creating-arrays-from-lists" class="nav-link" data-scroll-target="#creating-arrays-from-lists">1. Creating Arrays from Lists</a></li>
+  <li><a href="#creating-arrays-from-tuples" id="toc-creating-arrays-from-tuples" class="nav-link" data-scroll-target="#creating-arrays-from-tuples">2. Creating Arrays from Tuples</a></li>
+  <li><a href="#using-np.arange" id="toc-using-np.arange" class="nav-link" data-scroll-target="#using-np.arange">3. Using <code>np.arange</code></a></li>
+  <li><a href="#using-np.linspace" id="toc-using-np.linspace" class="nav-link" data-scroll-target="#using-np.linspace">4. Using <code>np.linspace</code></a></li>
+  <li><a href="#advanced-slicing-in-1d-arrays" id="toc-advanced-slicing-in-1d-arrays" class="nav-link" data-scroll-target="#advanced-slicing-in-1d-arrays">5. Advanced Slicing in 1D Arrays</a></li>
+  <li><a href="#advanced-slicing-in-2d-arrays" id="toc-advanced-slicing-in-2d-arrays" class="nav-link" data-scroll-target="#advanced-slicing-in-2d-arrays">6. Advanced Slicing in 2D Arrays</a></li>
+  <li><a href="#indexing-in-1d-arrays" id="toc-indexing-in-1d-arrays" class="nav-link" data-scroll-target="#indexing-in-1d-arrays">7. Indexing in 1D Arrays</a></li>
+  <li><a href="#slicing-in-1d-arrays" id="toc-slicing-in-1d-arrays" class="nav-link" data-scroll-target="#slicing-in-1d-arrays">8. Slicing in 1D Arrays</a></li>
+  <li><a href="#negative-indexing-in-1d-arrays" id="toc-negative-indexing-in-1d-arrays" class="nav-link" data-scroll-target="#negative-indexing-in-1d-arrays">9. Negative Indexing in 1D Arrays</a></li>
+  <li><a href="#indexing-in-2d-arrays" id="toc-indexing-in-2d-arrays" class="nav-link" data-scroll-target="#indexing-in-2d-arrays">10. Indexing in 2D Arrays</a></li>
+  <li><a href="#slicing-rows-in-2d-arrays" id="toc-slicing-rows-in-2d-arrays" class="nav-link" data-scroll-target="#slicing-rows-in-2d-arrays">11. Slicing Rows in 2D Arrays</a></li>
+  <li><a href="#extracting-a-column-from-a-2d-array" id="toc-extracting-a-column-from-a-2d-array" class="nav-link" data-scroll-target="#extracting-a-column-from-a-2d-array">12. Extracting a Column from a 2D Array</a></li>
+  <li><a href="#vectorized-operations-multiplication" id="toc-vectorized-operations-multiplication" class="nav-link" data-scroll-target="#vectorized-operations-multiplication">13. Vectorized Operations – Multiplication</a></li>
+  <li><a href="#vectorized-operations-addition" id="toc-vectorized-operations-addition" class="nav-link" data-scroll-target="#vectorized-operations-addition">14. Vectorized Operations – Addition</a></li>
+  <li><a href="#looping-through-a-1d-array-with-a-for-loop" id="toc-looping-through-a-1d-array-with-a-for-loop" class="nav-link" data-scroll-target="#looping-through-a-1d-array-with-a-for-loop">15. Looping Through a 1D Array with a For Loop</a></li>
+  <li><a href="#looping-with-np.nditer" id="toc-looping-with-np.nditer" class="nav-link" data-scroll-target="#looping-with-np.nditer">16. Looping with <code>np.nditer</code></a></li>
+  <li><a href="#using-np.vectorize-with-a-lambda-function" id="toc-using-np.vectorize-with-a-lambda-function" class="nav-link" data-scroll-target="#using-np.vectorize-with-a-lambda-function">17. Using <code>np.vectorize</code> with a Lambda Function</a></li>
+  <li><a href="#using-np.apply_along_axis" id="toc-using-np.apply_along_axis" class="nav-link" data-scroll-target="#using-np.apply_along_axis">18. Using <code>np.apply_along_axis</code></a></li>
+  <li><a href="#filtering-with-boolean-indexing-single-condition" id="toc-filtering-with-boolean-indexing-single-condition" class="nav-link" data-scroll-target="#filtering-with-boolean-indexing-single-condition">19. Filtering with Boolean Indexing (Single Condition)</a></li>
+  <li><a href="#filtering-with-boolean-indexing-range-condition" id="toc-filtering-with-boolean-indexing-range-condition" class="nav-link" data-scroll-target="#filtering-with-boolean-indexing-range-condition">20. Filtering with Boolean Indexing (Range Condition)</a></li>
+  <li><a href="#filtering-with-np.logical_or" id="toc-filtering-with-np.logical_or" class="nav-link" data-scroll-target="#filtering-with-np.logical_or">21. Filtering with <code>np.logical_or</code></a></li>
+  <li><a href="#filtering-with-np.where" id="toc-filtering-with-np.where" class="nav-link" data-scroll-target="#filtering-with-np.where">22. Filtering with <code>np.where</code></a></li>
+  <li><a href="#filtering-with-np.extract" id="toc-filtering-with-np.extract" class="nav-link" data-scroll-target="#filtering-with-np.extract">23. Filtering with <code>np.extract</code></a></li>
+  <li><a href="#aggregation-sum" id="toc-aggregation-sum" class="nav-link" data-scroll-target="#aggregation-sum">24. Aggregation – Sum</a></li>
+  <li><a href="#aggregation-mean-and-standard-deviation" id="toc-aggregation-mean-and-standard-deviation" class="nav-link" data-scroll-target="#aggregation-mean-and-standard-deviation">25. Aggregation – Mean and Standard Deviation</a></li>
+  <li><a href="#aggregation-min-max-and-median" id="toc-aggregation-min-max-and-median" class="nav-link" data-scroll-target="#aggregation-min-max-and-median">26. Aggregation – Min, Max, and Median</a></li>
+  <li><a href="#aggregation-product" id="toc-aggregation-product" class="nav-link" data-scroll-target="#aggregation-product">27. Aggregation – Product</a></li>
+  <li><a href="#difference-calculation-with-np.diff" id="toc-difference-calculation-with-np.diff" class="nav-link" data-scroll-target="#difference-calculation-with-np.diff">28. Difference Calculation with <code>np.diff</code></a></li>
+  <li><a href="#cumulative-sum-with-np.cumsum" id="toc-cumulative-sum-with-np.cumsum" class="nav-link" data-scroll-target="#cumulative-sum-with-np.cumsum">29. Cumulative Sum with <code>np.cumsum</code></a></li>
+  <li><a href="#sorting-arrays-with-np.sort" id="toc-sorting-arrays-with-np.sort" class="nav-link" data-scroll-target="#sorting-arrays-with-np.sort">30. Sorting Arrays with <code>np.sort</code></a></li>
   </ul></li>
-  <li><a href="#creating-numpy-data-structures" id="toc-creating-numpy-data-structures" class="nav-link" data-scroll-target="#creating-numpy-data-structures">Creating NumPy Data Structures</a>
-  <ul class="collapse">
-  <li><a href="#creating-arrays-from-lists-or-tuples" id="toc-creating-arrays-from-lists-or-tuples" class="nav-link" data-scroll-target="#creating-arrays-from-lists-or-tuples">Creating Arrays from Lists or Tuples</a></li>
-  <li><a href="#generating-arrays-with-built-in-functions" id="toc-generating-arrays-with-built-in-functions" class="nav-link" data-scroll-target="#generating-arrays-with-built-in-functions">Generating Arrays with Built-In Functions</a></li>
-  </ul></li>
-  <li><a href="#accessing-elements-in-numpy-arrays" id="toc-accessing-elements-in-numpy-arrays" class="nav-link" data-scroll-target="#accessing-elements-in-numpy-arrays">Accessing Elements in NumPy Arrays</a>
-  <ul class="collapse">
-  <li><a href="#indexing-and-slicing-in-one-dimensional-arrays" id="toc-indexing-and-slicing-in-one-dimensional-arrays" class="nav-link" data-scroll-target="#indexing-and-slicing-in-one-dimensional-arrays">Indexing and Slicing in One-Dimensional Arrays</a></li>
-  <li><a href="#multi-dimensional-array-indexing" id="toc-multi-dimensional-array-indexing" class="nav-link" data-scroll-target="#multi-dimensional-array-indexing">Multi-Dimensional Array Indexing</a></li>
-  </ul></li>
-  <li><a href="#processing-data-in-numpy-arrays" id="toc-processing-data-in-numpy-arrays" class="nav-link" data-scroll-target="#processing-data-in-numpy-arrays">Processing Data in NumPy Arrays</a>
-  <ul class="collapse">
-  <li><a href="#vectorized-operations" id="toc-vectorized-operations" class="nav-link" data-scroll-target="#vectorized-operations">Vectorized Operations</a></li>
-  <li><a href="#using-loops-with-numpy-arrays" id="toc-using-loops-with-numpy-arrays" class="nav-link" data-scroll-target="#using-loops-with-numpy-arrays">Using Loops with NumPy Arrays</a></li>
-  <li><a href="#applying-lambda-functions-and-np.vectorize" id="toc-applying-lambda-functions-and-np.vectorize" class="nav-link" data-scroll-target="#applying-lambda-functions-and-np.vectorize">Applying Lambda Functions and <code>np.vectorize</code></a></li>
-  <li><a href="#mapping-filtering-and-reducing-data" id="toc-mapping-filtering-and-reducing-data" class="nav-link" data-scroll-target="#mapping-filtering-and-reducing-data">Mapping, Filtering, and Reducing Data</a></li>
-  </ul></li>
-  <li><a href="#important-numpy-methods-for-business-analytics" id="toc-important-numpy-methods-for-business-analytics" class="nav-link" data-scroll-target="#important-numpy-methods-for-business-analytics">Important NumPy Methods for Business Analytics</a>
-  <ul class="collapse">
-  <li><a href="#aggregation-functions" id="toc-aggregation-functions" class="nav-link" data-scroll-target="#aggregation-functions"><strong>Aggregation Functions:</strong></a></li>
-  <li><a href="#cumulative-operations" id="toc-cumulative-operations" class="nav-link" data-scroll-target="#cumulative-operations"><strong>Cumulative Operations:</strong></a></li>
-  <li><a href="#difference-calculations" id="toc-difference-calculations" class="nav-link" data-scroll-target="#difference-calculations"><strong>Difference Calculations:</strong></a></li>
-  <li><a href="#reshaping-arrays" id="toc-reshaping-arrays" class="nav-link" data-scroll-target="#reshaping-arrays"><strong>Reshaping Arrays:</strong></a></li>
-  <li><a href="#sorting-data" id="toc-sorting-data" class="nav-link" data-scroll-target="#sorting-data"><strong>Sorting Data:</strong></a></li>
-  <li><a href="#dot-product-and-matrix-multiplication" id="toc-dot-product-and-matrix-multiplication" class="nav-link" data-scroll-target="#dot-product-and-matrix-multiplication"><strong>Dot Product and Matrix Multiplication:</strong></a></li>
-  </ul></li>
-  <li><a href="#data-persistence-in-numpy-and-beyond" id="toc-data-persistence-in-numpy-and-beyond" class="nav-link" data-scroll-target="#data-persistence-in-numpy-and-beyond">Data Persistence in NumPy and Beyond</a>
-  <ul class="collapse">
-  <li><a href="#saving-and-loading-with-numpys-native-formats" id="toc-saving-and-loading-with-numpys-native-formats" class="nav-link" data-scroll-target="#saving-and-loading-with-numpys-native-formats">Saving and Loading with NumPy’s Native Formats</a></li>
-  <li><a href="#saving-and-loading-csv-files" id="toc-saving-and-loading-csv-files" class="nav-link" data-scroll-target="#saving-and-loading-csv-files">Saving and Loading CSV Files</a></li>
-  <li><a href="#working-with-ms-excel-spreadsheets" id="toc-working-with-ms-excel-spreadsheets" class="nav-link" data-scroll-target="#working-with-ms-excel-spreadsheets">Working with MS Excel Spreadsheets</a></li>
-  </ul></li>
-  <li><a href="#real-world-applications-in-business-analytics" id="toc-real-world-applications-in-business-analytics" class="nav-link" data-scroll-target="#real-world-applications-in-business-analytics">Real-World Applications in Business Analytics</a>
-  <ul class="collapse">
-  <li><a href="#sales-and-revenue-analysis" id="toc-sales-and-revenue-analysis" class="nav-link" data-scroll-target="#sales-and-revenue-analysis">Sales and Revenue Analysis</a></li>
-  <li><a href="#inventory-management" id="toc-inventory-management" class="nav-link" data-scroll-target="#inventory-management">Inventory Management</a></li>
-  <li><a href="#financial-modeling" id="toc-financial-modeling" class="nav-link" data-scroll-target="#financial-modeling">Financial Modeling</a></li>
-  </ul></li>
-  <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion">Conclusion</a></li>
   </ul>
 </nav>
 </div>
@@ -2450,7 +2437,7 @@ if (window.self !== window.top) {
 
 <div class="quarto-title-block default">
   <div class="quarto-title">
-    <h1 class="title">Module 5: Introduction to NumPy</h1>
+    <h1 class="title">Module 5: Practice Problems - NumPy</h1>
       </div>
   
   <div class="quarto-title-meta column-page-right">
@@ -2590,180 +2577,159 @@ padding: 0.5rem 1rem;
 
 
 <div style="page-break-after: always;"></div>
-<section id="introduction" class="level1">
-<h1>Introduction</h1>
-<p>Welcome, students. In today’s lecture, we will embark on a comprehensive exploration of <strong>NumPy</strong>—a foundational library in Python for numerical computing. Up to now, you have become comfortable with basic Python data structures such as lists, tuples, dictionaries, and sets, as well as control flows, functions, and variables. While these built-in data structures are versatile and well-suited for general programming tasks, they have limitations when it comes to efficiently handling large-scale numerical data and performing complex mathematical operations. This is where NumPy comes in, offering enhanced performance, memory efficiency, and a rich collection of functions designed specifically for numerical operations.</p>
+<section id="practice-questions" class="level1">
+<h1>Practice Questions</h1>
+<p>Below are 30 practice questions covering key topics related to NumPy data structures, accessing elements, processing data, filtering, slicing, mapping, reducing, and more. Try to answer each question by writing and executing the appropriate Python code.</p>
+<ol type="1">
+<li><p><strong>Creating Arrays from Lists:</strong><br>
+Convert the list <code>[1, 2, 3, 4, 5]</code> into a NumPy array and print both the array and its data type.</p></li>
+<li><p><strong>Creating Arrays from Tuples:</strong><br>
+Convert the tuple <code>(10, 20, 30, 40)</code> into a NumPy array and print the sum of its elements.</p></li>
+<li><p><strong>Using <code>np.arange</code>:</strong><br>
+Use <code>np.arange</code> to create an array of numbers from 0 up to 19 with a step of 2, and display the array.</p></li>
+<li><p><strong>Using <code>np.linspace</code>:</strong><br>
+Generate an array of 15 values evenly spaced between 5 and 100 using <code>np.linspace</code>, and display the result.</p></li>
+<li><p><strong>Advanced Slicing in 1D Arrays:</strong><br>
+Given the array <code>arr = np.array([10, 20, 30, 40, 50, 60])</code>, slice the array to obtain every second element (i.e., indices 0, 2, 4) and print the result.</p></li>
+<li><p><strong>Advanced Slicing in 2D Arrays:</strong><br>
+Given the 2D array</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a>A <span class="op">=</span> np.array([</span>
+<span id="cb1-2"><a href="#cb1-2"></a>  [<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>],</span>
+<span id="cb1-3"><a href="#cb1-3"></a>  [<span class="dv">5</span>, <span class="dv">6</span>, <span class="dv">7</span>, <span class="dv">8</span>],</span>
+<span id="cb1-4"><a href="#cb1-4"></a>  [<span class="dv">9</span>, <span class="dv">10</span>, <span class="dv">11</span>, <span class="dv">12</span>]</span>
+<span id="cb1-5"><a href="#cb1-5"></a>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>extract the submatrix consisting of the first two rows and the last two columns, then print the resulting submatrix.</p></li>
+<li><p><strong>Indexing in 1D Arrays:</strong><br>
+Given <code>arr = np.array([10, 20, 30, 40, 50])</code>, print the first element using indexing.</p></li>
+<li><p><strong>Slicing in 1D Arrays:</strong><br>
+For <code>arr = np.array([5, 15, 25, 35, 45, 55])</code>, use slicing to print the elements from index 2 to 4.</p></li>
+<li><p><strong>Negative Indexing in 1D Arrays:</strong><br>
+Using <code>arr = np.array([3, 6, 9, 12, 15])</code>, print the last element using negative indexing.</p></li>
+<li><p><strong>Indexing in 2D Arrays:</strong><br>
+For <code>matrix = np.array([[1, 2, 3], [4, 5, 6], [7, 8, 9]])</code>, print the element in the second row and third column.</p></li>
+<li><p><strong>Slicing Rows in 2D Arrays:</strong><br>
+From the same <code>matrix</code>, extract and print the first two rows in their entirety.</p></li>
+<li><p><strong>Extracting a Column from a 2D Array:</strong><br>
+From <code>matrix = np.array([[1, 2, 3], [4, 5, 6], [7, 8, 9]])</code>, extract the second column as a one-dimensional array and print it.</p></li>
+<li><p><strong>Vectorized Operations – Multiplication:</strong><br>
+Given <code>sales = np.array([100, 150, 200, 250, 300])</code>, multiply every element by 0.90 (apply a 10% discount) using vectorized operations and print the result.</p></li>
+<li><p><strong>Vectorized Operations – Addition:</strong><br>
+Add two arrays element-wise: <code>a = np.array([1, 2, 3])</code> and <code>b = np.array([4, 5, 6])</code>. Print the resulting array.</p></li>
+<li><p><strong>Looping Through a 1D Array with a For Loop:</strong><br>
+Write a loop that iterates through <code>sales = np.array([10, 20, 30, 40, 50])</code>, adds 5 to each element, and stores the results in a new array. Print the new array.</p></li>
+<li><p><strong>Looping with <code>np.nditer</code>:</strong><br>
+Use <code>np.nditer</code> to traverse the array <code>sales = np.array([100, 200, 300])</code> and print each element on a new line.</p></li>
+<li><p><strong>Using <code>np.vectorize</code> with a Lambda Function:</strong><br>
+Define a lambda function that squares its input, then use <code>np.vectorize</code> to apply it to the array <code>[2, 3, 4, 5]</code>. Print the output.</p></li>
+<li><p><strong>Using <code>np.apply_along_axis</code>:</strong><br>
+Given the 2D array<br>
+<code>python     regional_sales = np.array([       [100, 200, 150],       [250, 300, 350],       [400, 450, 500]     ])</code><br>
+use <code>np.apply_along_axis</code> with a lambda function to compute the range (max − min) for each row, and print the resulting array.</p></li>
+<li><p><strong>Filtering with Boolean Indexing (Single Condition):</strong><br>
+For <code>sales = np.array([100, 150, 200, 250, 300, 350, 400])</code>, filter and print the sales values that are greater than 200.</p></li>
+<li><p><strong>Filtering with Boolean Indexing (Range Condition):</strong><br>
+Filter and print the sales values that are between 150 and 350 (inclusive) from the same sales array.</p></li>
+<li><p><strong>Filtering with <code>np.logical_or</code>:</strong><br>
+Use <code>np.logical_or</code> to filter the sales array for values that are either less than 150 or greater than 350, and print the filtered array.</p></li>
+<li><p><strong>Filtering with <code>np.where</code>:</strong><br>
+Use <code>np.where</code> to find the indices of sales values greater than 250, then print both the indices and the corresponding sales values.</p></li>
+<li><p><strong>Filtering with <code>np.extract</code>:</strong><br>
+Use <code>np.extract</code> to obtain and print all sales values greater than 250 from <code>sales = np.array([100, 150, 200, 250, 300, 350, 400])</code>.</p></li>
+<li><p><strong>Aggregation – Sum:</strong><br>
+Compute and print the sum of the array <code>[5, 10, 15, 20, 25]</code> using <code>np.sum</code>.</p></li>
+<li><p><strong>Aggregation – Mean and Standard Deviation:</strong><br>
+Compute and print the mean and standard deviation of the array <code>[2, 4, 6, 8, 10]</code> using <code>np.mean</code> and <code>np.std</code>.</p></li>
+<li><p><strong>Aggregation – Min, Max, and Median:</strong><br>
+Compute and print the minimum, maximum, and median of the array <code>[1, 3, 5, 7, 9]</code> using <code>np.min</code>, <code>np.max</code>, and <code>np.median</code>.</p></li>
+<li><p><strong>Aggregation – Product:</strong><br>
+For the array <code>[2, 4, 6, 8, 10]</code>, compute and print the product of its elements using <code>np.prod</code>.</p></li>
+<li><p><strong>Difference Calculation:</strong><br>
+Use <code>np.diff</code> to compute and print the differences between consecutive elements of the array <code>[10, 15, 20, 25, 30]</code>.</p></li>
+<li><p><strong>Cumulative Sum:</strong><br>
+Compute and print the cumulative sum of the array <code>[10, 15, 20, 25, 30]</code> using <code>np.cumsum</code>.</p></li>
+<li><p><strong>Sorting Arrays:</strong><br>
+Sort the array <code>[3, 1, 4, 1, 5, 9, 2]</code> using <code>np.sort</code> and print the sorted array.</p></li>
+</ol>
 </section>
-<section id="situating-numpy-among-built-in-data-structures" class="level1">
-<h1>Situating NumPy Among Built-In Data Structures</h1>
-<p>Before delving into NumPy, let us briefly revisit the Python data structures you are already familiar with:</p>
-<ul>
-<li><p><strong>Lists and Tuples:</strong><br>
-These are ordered collections that can store items of different data types. However, they are not optimized for numerical computations, particularly when working with large datasets.</p></li>
-<li><p><strong>Dictionaries:</strong><br>
-While extremely useful for mapping keys to values, dictionaries are not designed for element-wise arithmetic operations or handling multi-dimensional data.</p></li>
-<li><p><strong>Sets:</strong><br>
-Sets are useful for storing unique items, but they lack ordering and do not support indexed operations, which are critical in numerical analysis.</p></li>
-</ul>
-<p>In contrast, <strong>NumPy arrays</strong> are designed with the following advantages:</p>
-<ul>
-<li><p><strong>Homogeneous Data Types:</strong><br>
-Unlike lists or tuples, NumPy arrays require that all elements be of the same type. This homogeneity allows for optimized memory usage and faster computations.</p></li>
-<li><p><strong>Vectorized Operations:</strong><br>
-NumPy supports operations on entire arrays without the need for explicit loops. This feature, known as vectorization, leads to significant performance improvements.</p></li>
-<li><p><strong>Multi-dimensional Arrays:</strong><br>
-NumPy naturally handles arrays of two or more dimensions, making it ideal for representing matrices and tensors that frequently appear in business analytics and data science.</p></li>
-<li><p><strong>Broad Functionality:</strong><br>
-From statistical computations to linear algebra, NumPy provides an extensive suite of mathematical tools essential for robust data analysis.</p></li>
-</ul>
-</section>
-<section id="installing-and-setting-up-numpy" class="level1">
-<h1>Installing and Setting Up NumPy</h1>
-<section id="installing-numpy-locally" class="level2">
-<h2 class="anchored" data-anchor-id="installing-numpy-locally">Installing NumPy Locally</h2>
-<p>If you are working on your local machine, you can install NumPy via pip:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1"></a><span class="ex">pip</span> install numpy</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Ensure that you are using the appropriate Python environment where your projects are maintained.</p>
-</section>
-<section id="using-numpy-in-google-colab" class="level2">
-<h2 class="anchored" data-anchor-id="using-numpy-in-google-colab">Using NumPy in Google Colab</h2>
-<p>Google Colab is a convenient platform for running Python notebooks, and it comes with NumPy pre-installed. To verify your NumPy installation in Colab, simply execute:</p>
-<div id="b2d7f2d9" class="cell" data-execution_count="1">
+<section id="appendix-detailed-solutions" class="level1">
+<h1>Appendix: Detailed Solutions</h1>
+<p>Below are detailed, step-by-step solutions for each of the 30 practice questions, including the Python code. Each solution is provided in an executable Python block.</p>
+<hr>
+<section id="creating-arrays-from-lists" class="level2">
+<h2 class="anchored" data-anchor-id="creating-arrays-from-lists">1. Creating Arrays from Lists</h2>
+<div id="4f036c5f" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
-<span id="cb2-2"><a href="#cb2-2"></a><span class="bu">print</span>(<span class="st">&quot;NumPy version:&quot;</span>, np.__version__)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb2-2"><a href="#cb2-2"></a></span>
+<span id="cb2-3"><a href="#cb2-3"></a><span class="co"># Convert a list to a NumPy array and print the array and its type.</span></span>
+<span id="cb2-4"><a href="#cb2-4"></a>lst <span class="op">=</span> [<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>]</span>
+<span id="cb2-5"><a href="#cb2-5"></a>arr_from_list <span class="op">=</span> np.array(lst)</span>
+<span id="cb2-6"><a href="#cb2-6"></a><span class="bu">print</span>(<span class="st">&quot;Array from list:&quot;</span>, arr_from_list)</span>
+<span id="cb2-7"><a href="#cb2-7"></a><span class="bu">print</span>(<span class="st">&quot;Data type:&quot;</span>, <span class="bu">type</span>(arr_from_list))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>NumPy version: 2.3.1</code></pre>
+<pre><code>Array from list: [1 2 3 4 5]
+Data type: &lt;class &#39;numpy.ndarray&#39;&gt;</code></pre>
 </div>
 </div>
-<p>This command will display the version of NumPy installed on the platform.</p>
 </section>
-<section id="importing-numpy-in-your-notebooks" class="level2">
-<h2 class="anchored" data-anchor-id="importing-numpy-in-your-notebooks">Importing NumPy in Your Notebooks</h2>
-<p>Regardless of the environment, begin your notebooks by importing NumPy with the commonly used alias <code>np</code>:</p>
-<div id="1e15fb45" class="cell" data-execution_count="2">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>This aliasing not only saves time but also improves code readability, particularly when using NumPy’s extensive functionality.</p>
-</section>
-</section>
-<section id="creating-numpy-data-structures" class="level1">
-<h1>Creating NumPy Data Structures</h1>
-<p>NumPy offers several methods for creating arrays, each catering to different needs.</p>
-<section id="creating-arrays-from-lists-or-tuples" class="level2">
-<h2 class="anchored" data-anchor-id="creating-arrays-from-lists-or-tuples">Creating Arrays from Lists or Tuples</h2>
-<p>You can convert Python lists or tuples directly into NumPy arrays:</p>
-<div id="7656c20c" class="cell" data-execution_count="3">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1"></a><span class="co"># From a list</span></span>
-<span id="cb5-2"><a href="#cb5-2"></a>sales_list <span class="op">=</span> [<span class="dv">250</span>, <span class="dv">300</span>, <span class="dv">450</span>, <span class="dv">500</span>, <span class="dv">350</span>]</span>
-<span id="cb5-3"><a href="#cb5-3"></a>sales_array <span class="op">=</span> np.array(sales_list)</span>
-<span id="cb5-4"><a href="#cb5-4"></a><span class="bu">print</span>(<span class="st">&quot;Sales Array:&quot;</span>, sales_array)</span>
-<span id="cb5-5"><a href="#cb5-5"></a></span>
-<span id="cb5-6"><a href="#cb5-6"></a><span class="co"># From a tuple</span></span>
-<span id="cb5-7"><a href="#cb5-7"></a>inventory_tuple <span class="op">=</span> (<span class="dv">10</span>, <span class="dv">15</span>, <span class="dv">20</span>)</span>
-<span id="cb5-8"><a href="#cb5-8"></a>inventory_array <span class="op">=</span> np.array(inventory_tuple)</span>
-<span id="cb5-9"><a href="#cb5-9"></a><span class="bu">print</span>(<span class="st">&quot;Inventory Array:&quot;</span>, inventory_array)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<section id="creating-arrays-from-tuples" class="level2">
+<h2 class="anchored" data-anchor-id="creating-arrays-from-tuples">2. Creating Arrays from Tuples</h2>
+<div id="fe65743e" class="cell" data-execution_count="2">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1"></a>tup <span class="op">=</span> (<span class="dv">10</span>, <span class="dv">20</span>, <span class="dv">30</span>, <span class="dv">40</span>)</span>
+<span id="cb4-2"><a href="#cb4-2"></a>arr_from_tuple <span class="op">=</span> np.array(tup)</span>
+<span id="cb4-3"><a href="#cb4-3"></a><span class="bu">print</span>(<span class="st">&quot;Array from tuple:&quot;</span>, arr_from_tuple)</span>
+<span id="cb4-4"><a href="#cb4-4"></a><span class="bu">print</span>(<span class="st">&quot;Sum of elements:&quot;</span>, np.<span class="bu">sum</span>(arr_from_tuple))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Sales Array: [250 300 450 500 350]
-Inventory Array: [10 15 20]</code></pre>
+<pre><code>Array from tuple: [10 20 30 40]
+Sum of elements: 100</code></pre>
 </div>
 </div>
 </section>
-<section id="generating-arrays-with-built-in-functions" class="level2">
-<h2 class="anchored" data-anchor-id="generating-arrays-with-built-in-functions">Generating Arrays with Built-In Functions</h2>
-<p>NumPy provides functions to generate arrays without needing pre-existing data:</p>
-<ul>
-<li><p><strong><code>np.arange(start, stop, step)</code></strong><br>
-Creates arrays with evenly spaced values.</p>
-<div id="6a6f8001" class="cell" data-execution_count="4">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1"></a>days <span class="op">=</span> np.arange(<span class="dv">1</span>, <span class="dv">8</span>)  <span class="co"># Days 1 to 7</span></span>
-<span id="cb7-2"><a href="#cb7-2"></a><span class="bu">print</span>(<span class="st">&quot;Days:&quot;</span>, days)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<section id="using-np.arange" class="level2">
+<h2 class="anchored" data-anchor-id="using-np.arange">3. Using <code>np.arange</code></h2>
+<div id="fcbff5ec" class="cell" data-execution_count="3">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1"></a>arr_arange <span class="op">=</span> np.arange(<span class="dv">0</span>, <span class="dv">20</span>, <span class="dv">2</span>)</span>
+<span id="cb6-2"><a href="#cb6-2"></a><span class="bu">print</span>(<span class="st">&quot;np.arange result:&quot;</span>, arr_arange)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Days: [1 2 3 4 5 6 7]</code></pre>
+<pre><code>np.arange result: [ 0  2  4  6  8 10 12 14 16 18]</code></pre>
 </div>
-</div></li>
-<li><p><strong><code>np.linspace(start, stop, num)</code></strong><br>
-Creates arrays with a specified number of evenly spaced values between two numbers.</p>
-<div id="7d558c5f" class="cell" data-execution_count="5">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1"></a>prices <span class="op">=</span> np.linspace(<span class="dv">10</span>, <span class="dv">100</span>, <span class="dv">10</span>)  <span class="co"># 10 prices from 10 to 100</span></span>
-<span id="cb9-2"><a href="#cb9-2"></a><span class="bu">print</span>(<span class="st">&quot;Prices:&quot;</span>, prices)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>Prices: [ 10.  20.  30.  40.  50.  60.  70.  80.  90. 100.]</code></pre>
 </div>
-</div></li>
-</ul>
-<!--
-*The following examples using np.zeros and np.eye were in the original notes but have been replaced by advanced slicing topics per the updated practice questions.
--->
 </section>
-</section>
-<section id="accessing-elements-in-numpy-arrays" class="level1">
-<h1>Accessing Elements in NumPy Arrays</h1>
-<p>Once you have created an array, accessing its elements is both intuitive and efficient.</p>
-<section id="indexing-and-slicing-in-one-dimensional-arrays" class="level2">
-<h2 class="anchored" data-anchor-id="indexing-and-slicing-in-one-dimensional-arrays">Indexing and Slicing in One-Dimensional Arrays</h2>
-<div id="319147f5" class="cell" data-execution_count="6">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1"></a>data <span class="op">=</span> np.array([<span class="dv">10</span>, <span class="dv">20</span>, <span class="dv">30</span>, <span class="dv">40</span>, <span class="dv">50</span>])</span>
-<span id="cb11-2"><a href="#cb11-2"></a><span class="co"># Accessing individual elements</span></span>
-<span id="cb11-3"><a href="#cb11-3"></a><span class="bu">print</span>(<span class="st">&quot;First element:&quot;</span>, data[<span class="dv">0</span>])</span>
-<span id="cb11-4"><a href="#cb11-4"></a><span class="bu">print</span>(<span class="st">&quot;Last element:&quot;</span>, data[<span class="op">-</span><span class="dv">1</span>])</span>
-<span id="cb11-5"><a href="#cb11-5"></a></span>
-<span id="cb11-6"><a href="#cb11-6"></a><span class="co"># Slicing: extracting sub-arrays</span></span>
-<span id="cb11-7"><a href="#cb11-7"></a><span class="bu">print</span>(<span class="st">&quot;Elements from index 1 to 3:&quot;</span>, data[<span class="dv">1</span>:<span class="dv">4</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<section id="using-np.linspace" class="level2">
+<h2 class="anchored" data-anchor-id="using-np.linspace">4. Using <code>np.linspace</code></h2>
+<div id="00e21268" class="cell" data-execution_count="4">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1"></a>arr_linspace <span class="op">=</span> np.linspace(<span class="dv">5</span>, <span class="dv">100</span>, <span class="dv">15</span>)</span>
+<span id="cb8-2"><a href="#cb8-2"></a><span class="bu">print</span>(<span class="st">&quot;np.linspace result:&quot;</span>, arr_linspace)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>First element: 10
-Last element: 50
-Elements from index 1 to 3: [20 30 40]</code></pre>
+<pre><code>np.linspace result: [  5.          11.78571429  18.57142857  25.35714286  32.14285714
+  38.92857143  45.71428571  52.5         59.28571429  66.07142857
+  72.85714286  79.64285714  86.42857143  93.21428571 100.        ]</code></pre>
 </div>
 </div>
-<section id="advanced-slicing-in-1d-arrays-using-step-values" class="level3">
-<h3 class="anchored" data-anchor-id="advanced-slicing-in-1d-arrays-using-step-values">Advanced Slicing in 1D Arrays (Using Step Values)</h3>
-<p>Advanced slicing allows you to extract elements using a step parameter. For example:</p>
-<div id="512f9d48" class="cell" data-execution_count="7">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1"></a><span class="co"># Given a 1D array, extract every second element.</span></span>
-<span id="cb13-2"><a href="#cb13-2"></a>arr <span class="op">=</span> np.array([<span class="dv">10</span>, <span class="dv">20</span>, <span class="dv">30</span>, <span class="dv">40</span>, <span class="dv">50</span>, <span class="dv">60</span>])</span>
-<span id="cb13-3"><a href="#cb13-3"></a><span class="co"># Use the slicing syntax arr[start:stop:step]</span></span>
-<span id="cb13-4"><a href="#cb13-4"></a><span class="bu">print</span>(<span class="st">&quot;Every second element:&quot;</span>, arr[::<span class="dv">2</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="advanced-slicing-in-1d-arrays" class="level2">
+<h2 class="anchored" data-anchor-id="advanced-slicing-in-1d-arrays">5. Advanced Slicing in 1D Arrays</h2>
+<div id="3c0b46c9" class="cell" data-execution_count="5">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1"></a><span class="co"># Given a 1D array, extract every second element.</span></span>
+<span id="cb10-2"><a href="#cb10-2"></a>arr <span class="op">=</span> np.array([<span class="dv">10</span>, <span class="dv">20</span>, <span class="dv">30</span>, <span class="dv">40</span>, <span class="dv">50</span>, <span class="dv">60</span>])</span>
+<span id="cb10-3"><a href="#cb10-3"></a>sliced_arr <span class="op">=</span> arr[::<span class="dv">2</span>]  <span class="co"># starting at index 0, take every second element</span></span>
+<span id="cb10-4"><a href="#cb10-4"></a><span class="bu">print</span>(<span class="st">&quot;Every second element:&quot;</span>, sliced_arr)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Every second element: [10 30 50]</code></pre>
 </div>
 </div>
 </section>
-</section>
-<section id="multi-dimensional-array-indexing" class="level2">
-<h2 class="anchored" data-anchor-id="multi-dimensional-array-indexing">Multi-Dimensional Array Indexing</h2>
-<p>For two-dimensional or higher arrays, indexing follows a similar pattern:</p>
-<div id="a187c112" class="cell" data-execution_count="8">
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1"></a>matrix <span class="op">=</span> np.array([[<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>],</span>
-<span id="cb15-2"><a href="#cb15-2"></a>                   [<span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>],</span>
-<span id="cb15-3"><a href="#cb15-3"></a>                   [<span class="dv">7</span>, <span class="dv">8</span>, <span class="dv">9</span>]])</span>
-<span id="cb15-4"><a href="#cb15-4"></a><span class="co"># Accessing an element (row 2, column 3)</span></span>
-<span id="cb15-5"><a href="#cb15-5"></a><span class="bu">print</span>(<span class="st">&quot;Element at row 2, column 3:&quot;</span>, matrix[<span class="dv">1</span>, <span class="dv">2</span>])</span>
-<span id="cb15-6"><a href="#cb15-6"></a></span>
-<span id="cb15-7"><a href="#cb15-7"></a><span class="co"># Slicing rows and columns</span></span>
-<span id="cb15-8"><a href="#cb15-8"></a><span class="bu">print</span>(<span class="st">&quot;First two rows:</span><span class="ch">\n</span><span class="st">&quot;</span>, matrix[:<span class="dv">2</span>, :])</span>
-<span id="cb15-9"><a href="#cb15-9"></a><span class="bu">print</span>(<span class="st">&quot;Second column:</span><span class="ch">\n</span><span class="st">&quot;</span>, matrix[:, <span class="dv">1</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>Element at row 2, column 3: 6
-First two rows:
- [[1 2 3]
- [4 5 6]]
-Second column:
- [2 5 8]</code></pre>
-</div>
-</div>
-<section id="advanced-slicing-in-2d-arrays-extracting-submatrices" class="level3">
-<h3 class="anchored" data-anchor-id="advanced-slicing-in-2d-arrays-extracting-submatrices">Advanced Slicing in 2D Arrays (Extracting Submatrices)</h3>
-<p>In addition to basic indexing, you can extract submatrices by combining row and column slicing. For example:</p>
-<div id="d1038dc4" class="cell" data-execution_count="9">
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1"></a><span class="co"># Given a 2D array A, extract the submatrix consisting of the first two rows and the last two columns.</span></span>
-<span id="cb17-2"><a href="#cb17-2"></a>A <span class="op">=</span> np.array([</span>
-<span id="cb17-3"><a href="#cb17-3"></a>    [<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>],</span>
-<span id="cb17-4"><a href="#cb17-4"></a>    [<span class="dv">5</span>, <span class="dv">6</span>, <span class="dv">7</span>, <span class="dv">8</span>],</span>
-<span id="cb17-5"><a href="#cb17-5"></a>    [<span class="dv">9</span>, <span class="dv">10</span>, <span class="dv">11</span>, <span class="dv">12</span>]</span>
-<span id="cb17-6"><a href="#cb17-6"></a>])</span>
-<span id="cb17-7"><a href="#cb17-7"></a><span class="co"># Use combined slicing: rows 0 and 1, and the last two columns.</span></span>
-<span id="cb17-8"><a href="#cb17-8"></a>submatrix <span class="op">=</span> A[:<span class="dv">2</span>, <span class="op">-</span><span class="dv">2</span>:]</span>
-<span id="cb17-9"><a href="#cb17-9"></a><span class="bu">print</span>(<span class="st">&quot;Submatrix (first two rows, last two columns):</span><span class="ch">\n</span><span class="st">&quot;</span>, submatrix)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<section id="advanced-slicing-in-2d-arrays" class="level2">
+<h2 class="anchored" data-anchor-id="advanced-slicing-in-2d-arrays">6. Advanced Slicing in 2D Arrays</h2>
+<div id="fd9e40ff" class="cell" data-execution_count="6">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1"></a><span class="co"># Given a 2D array, extract a submatrix.</span></span>
+<span id="cb12-2"><a href="#cb12-2"></a>A <span class="op">=</span> np.array([</span>
+<span id="cb12-3"><a href="#cb12-3"></a>    [<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>],</span>
+<span id="cb12-4"><a href="#cb12-4"></a>    [<span class="dv">5</span>, <span class="dv">6</span>, <span class="dv">7</span>, <span class="dv">8</span>],</span>
+<span id="cb12-5"><a href="#cb12-5"></a>    [<span class="dv">9</span>, <span class="dv">10</span>, <span class="dv">11</span>, <span class="dv">12</span>]</span>
+<span id="cb12-6"><a href="#cb12-6"></a>])</span>
+<span id="cb12-7"><a href="#cb12-7"></a><span class="co"># Extract the first two rows and the last two columns.</span></span>
+<span id="cb12-8"><a href="#cb12-8"></a>submatrix <span class="op">=</span> A[:<span class="dv">2</span>, <span class="op">-</span><span class="dv">2</span>:]</span>
+<span id="cb12-9"><a href="#cb12-9"></a><span class="bu">print</span>(<span class="st">&quot;Submatrix (first two rows, last two columns):</span><span class="ch">\n</span><span class="st">&quot;</span>, submatrix)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Submatrix (first two rows, last two columns):
  [[3 4]
@@ -2771,553 +2737,287 @@ Second column:
 </div>
 </div>
 </section>
-</section>
-</section>
-<section id="processing-data-in-numpy-arrays" class="level1">
-<h1>Processing Data in NumPy Arrays</h1>
-<p>One of the major advantages of NumPy is its ability to process data efficiently.</p>
-<section id="vectorized-operations" class="level2">
-<h2 class="anchored" data-anchor-id="vectorized-operations">Vectorized Operations</h2>
-<p>Vectorized operations allow you to perform element-wise arithmetic without explicit loops:</p>
-<div id="029c3b0d" class="cell" data-execution_count="10">
-<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1"></a><span class="co"># Suppose we have an array of sales figures</span></span>
-<span id="cb19-2"><a href="#cb19-2"></a>sales <span class="op">=</span> np.array([<span class="dv">100</span>, <span class="dv">150</span>, <span class="dv">200</span>, <span class="dv">250</span>, <span class="dv">300</span>])</span>
-<span id="cb19-3"><a href="#cb19-3"></a><span class="co"># Applying a 10% discount using vectorized multiplication</span></span>
-<span id="cb19-4"><a href="#cb19-4"></a>discounted_sales <span class="op">=</span> sales <span class="op">*</span> <span class="fl">0.90</span></span>
-<span id="cb19-5"><a href="#cb19-5"></a><span class="bu">print</span>(<span class="st">&quot;Discounted Sales:&quot;</span>, discounted_sales)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<section id="indexing-in-1d-arrays" class="level2">
+<h2 class="anchored" data-anchor-id="indexing-in-1d-arrays">7. Indexing in 1D Arrays</h2>
+<div id="c7734db5" class="cell" data-execution_count="7">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1"></a>arr <span class="op">=</span> np.array([<span class="dv">10</span>, <span class="dv">20</span>, <span class="dv">30</span>, <span class="dv">40</span>, <span class="dv">50</span>])</span>
+<span id="cb14-2"><a href="#cb14-2"></a><span class="bu">print</span>(<span class="st">&quot;First element:&quot;</span>, arr[<span class="dv">0</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Discounted Sales: [ 90. 135. 180. 225. 270.]</code></pre>
+<pre><code>First element: 10</code></pre>
 </div>
 </div>
 </section>
-<section id="using-loops-with-numpy-arrays" class="level2">
-<h2 class="anchored" data-anchor-id="using-loops-with-numpy-arrays">Using Loops with NumPy Arrays</h2>
-<p>Although vectorized operations are preferred, you can still use loops for more complex logic. Note, however, that loops tend to be less efficient:</p>
-<div id="be23e823" class="cell" data-execution_count="11">
-<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1"></a><span class="co"># Increment each element by 5 using a loop</span></span>
-<span id="cb21-2"><a href="#cb21-2"></a>incremented_sales <span class="op">=</span> np.empty_like(sales)</span>
-<span id="cb21-3"><a href="#cb21-3"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="bu">len</span>(sales)):</span>
-<span id="cb21-4"><a href="#cb21-4"></a>    incremented_sales[i] <span class="op">=</span> sales[i] <span class="op">+</span> <span class="dv">5</span></span>
-<span id="cb21-5"><a href="#cb21-5"></a><span class="bu">print</span>(<span class="st">&quot;Incremented Sales:&quot;</span>, incremented_sales)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<section id="slicing-in-1d-arrays" class="level2">
+<h2 class="anchored" data-anchor-id="slicing-in-1d-arrays">8. Slicing in 1D Arrays</h2>
+<div id="f4389034" class="cell" data-execution_count="8">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1"></a>arr <span class="op">=</span> np.array([<span class="dv">5</span>, <span class="dv">15</span>, <span class="dv">25</span>, <span class="dv">35</span>, <span class="dv">45</span>, <span class="dv">55</span>])</span>
+<span id="cb16-2"><a href="#cb16-2"></a><span class="bu">print</span>(<span class="st">&quot;Elements from index 2 to 4:&quot;</span>, arr[<span class="dv">2</span>:<span class="dv">5</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Incremented Sales: [105 155 205 255 305]</code></pre>
+<pre><code>Elements from index 2 to 4: [25 35 45]</code></pre>
 </div>
 </div>
 </section>
-<section id="applying-lambda-functions-and-np.vectorize" class="level2">
-<h2 class="anchored" data-anchor-id="applying-lambda-functions-and-np.vectorize">Applying Lambda Functions and <code>np.vectorize</code></h2>
-<p>You can use lambda functions to define custom operations. NumPy’s <code>np.vectorize</code> can then apply these functions to each element:</p>
-<div id="5d60cd95" class="cell" data-execution_count="12">
-<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1"></a><span class="co"># Define a lambda function to convert sales to revenue (assume price = $19.99)</span></span>
-<span id="cb23-2"><a href="#cb23-2"></a>convert_to_revenue <span class="op">=</span> <span class="kw">lambda</span> x: x <span class="op">*</span> <span class="fl">19.99</span></span>
-<span id="cb23-3"><a href="#cb23-3"></a>vectorized_conversion <span class="op">=</span> np.vectorize(convert_to_revenue)</span>
-<span id="cb23-4"><a href="#cb23-4"></a>revenues <span class="op">=</span> vectorized_conversion(sales)</span>
-<span id="cb23-5"><a href="#cb23-5"></a><span class="bu">print</span>(<span class="st">&quot;Revenues:&quot;</span>, revenues)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<section id="negative-indexing-in-1d-arrays" class="level2">
+<h2 class="anchored" data-anchor-id="negative-indexing-in-1d-arrays">9. Negative Indexing in 1D Arrays</h2>
+<div id="f25ca845" class="cell" data-execution_count="9">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1"></a>arr <span class="op">=</span> np.array([<span class="dv">3</span>, <span class="dv">6</span>, <span class="dv">9</span>, <span class="dv">12</span>, <span class="dv">15</span>])</span>
+<span id="cb18-2"><a href="#cb18-2"></a><span class="bu">print</span>(<span class="st">&quot;Last element (using negative indexing):&quot;</span>, arr[<span class="op">-</span><span class="dv">1</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Revenues: [1999.  2998.5 3998.  4997.5 5997. ]</code></pre>
+<pre><code>Last element (using negative indexing): 15</code></pre>
 </div>
 </div>
 </section>
-<section id="mapping-filtering-and-reducing-data" class="level2">
-<h2 class="anchored" data-anchor-id="mapping-filtering-and-reducing-data">Mapping, Filtering, and Reducing Data</h2>
-<section id="filtering-with-boolean-indexing" class="level3">
-<h3 class="anchored" data-anchor-id="filtering-with-boolean-indexing">Filtering with Boolean Indexing</h3>
-<p>Boolean indexing is an extremely powerful tool in NumPy that enables you to filter arrays based on one or more conditions. For example:</p>
-<div id="b2d55a29" class="cell" data-execution_count="13">
-<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1"></a><span class="co"># Sample array of sales figures</span></span>
-<span id="cb25-2"><a href="#cb25-2"></a>sales <span class="op">=</span> np.array([<span class="dv">100</span>, <span class="dv">150</span>, <span class="dv">200</span>, <span class="dv">250</span>, <span class="dv">300</span>, <span class="dv">350</span>, <span class="dv">400</span>])</span>
-<span id="cb25-3"><a href="#cb25-3"></a></span>
-<span id="cb25-4"><a href="#cb25-4"></a><span class="co"># Filter sales greater than 200</span></span>
-<span id="cb25-5"><a href="#cb25-5"></a>high_sales <span class="op">=</span> sales[sales <span class="op">&gt;</span> <span class="dv">200</span>]</span>
-<span id="cb25-6"><a href="#cb25-6"></a><span class="bu">print</span>(<span class="st">&quot;High Sales (greater than 200):&quot;</span>, high_sales)</span>
-<span id="cb25-7"><a href="#cb25-7"></a></span>
-<span id="cb25-8"><a href="#cb25-8"></a><span class="co"># Filter sales between 150 and 350 (inclusive)</span></span>
-<span id="cb25-9"><a href="#cb25-9"></a>sales_between <span class="op">=</span> sales[(sales <span class="op">&gt;=</span> <span class="dv">150</span>) <span class="op">&amp;</span> (sales <span class="op">&lt;=</span> <span class="dv">350</span>)]</span>
-<span id="cb25-10"><a href="#cb25-10"></a><span class="bu">print</span>(<span class="st">&quot;Sales between 150 and 350:&quot;</span>, sales_between)</span>
-<span id="cb25-11"><a href="#cb25-11"></a></span>
-<span id="cb25-12"><a href="#cb25-12"></a><span class="co"># Filter sales that are either less than 150 or greater than 350 using np.logical_or</span></span>
-<span id="cb25-13"><a href="#cb25-13"></a>extreme_sales <span class="op">=</span> sales[np.logical_or(sales <span class="op">&lt;</span> <span class="dv">150</span>, sales <span class="op">&gt;</span> <span class="dv">350</span>)]</span>
-<span id="cb25-14"><a href="#cb25-14"></a><span class="bu">print</span>(<span class="st">&quot;Sales less than 150 or greater than 350:&quot;</span>, extreme_sales)</span>
-<span id="cb25-15"><a href="#cb25-15"></a></span>
-<span id="cb25-16"><a href="#cb25-16"></a><span class="co"># Using np.where to obtain the indices of sales greater than 250</span></span>
-<span id="cb25-17"><a href="#cb25-17"></a>indices <span class="op">=</span> np.where(sales <span class="op">&gt;</span> <span class="dv">250</span>)</span>
-<span id="cb25-18"><a href="#cb25-18"></a><span class="bu">print</span>(<span class="st">&quot;Indices where sales are greater than 250:&quot;</span>, indices)</span>
-<span id="cb25-19"><a href="#cb25-19"></a><span class="bu">print</span>(<span class="st">&quot;Sales values at these indices:&quot;</span>, sales[indices])</span>
-<span id="cb25-20"><a href="#cb25-20"></a></span>
-<span id="cb25-21"><a href="#cb25-21"></a><span class="co"># Filter sales using np.extract (similar to np.where but directly returns values)</span></span>
-<span id="cb25-22"><a href="#cb25-22"></a>extracted_sales <span class="op">=</span> np.extract(sales <span class="op">&gt;</span> <span class="dv">250</span>, sales)</span>
-<span id="cb25-23"><a href="#cb25-23"></a><span class="bu">print</span>(<span class="st">&quot;Extracted sales (greater than 250):&quot;</span>, extracted_sales)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<section id="indexing-in-2d-arrays" class="level2">
+<h2 class="anchored" data-anchor-id="indexing-in-2d-arrays">10. Indexing in 2D Arrays</h2>
+<div id="8adde3c0" class="cell" data-execution_count="10">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1"></a>matrix <span class="op">=</span> np.array([[<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>],</span>
+<span id="cb20-2"><a href="#cb20-2"></a>                   [<span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>],</span>
+<span id="cb20-3"><a href="#cb20-3"></a>                   [<span class="dv">7</span>, <span class="dv">8</span>, <span class="dv">9</span>]])</span>
+<span id="cb20-4"><a href="#cb20-4"></a><span class="bu">print</span>(<span class="st">&quot;Element at row 2, column 3:&quot;</span>, matrix[<span class="dv">1</span>, <span class="dv">2</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>High Sales (greater than 200): [250 300 350 400]
-Sales between 150 and 350: [150 200 250 300 350]
-Sales less than 150 or greater than 350: [100 400]
-Indices where sales are greater than 250: (array([4, 5, 6]),)
-Sales values at these indices: [300 350 400]
-Extracted sales (greater than 250): [300 350 400]</code></pre>
+<pre><code>Element at row 2, column 3: 6</code></pre>
 </div>
 </div>
 </section>
-<section id="traversing-data-using-loops-and-lambda-functions" class="level3">
-<h3 class="anchored" data-anchor-id="traversing-data-using-loops-and-lambda-functions">Traversing Data Using Loops and Lambda Functions</h3>
-<p>Traversing a NumPy array can be done with simple loops or with lambda functions in conjunction with vectorized operations.</p>
-<section id="using-loops-and-iterators" class="level4">
-<h4 class="anchored" data-anchor-id="using-loops-and-iterators">Using Loops and Iterators</h4>
-<div id="292536a0" class="cell" data-execution_count="14">
-<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1"></a><span class="co"># Traversing using np.nditer</span></span>
-<span id="cb27-2"><a href="#cb27-2"></a><span class="bu">print</span>(<span class="st">&quot;Traversing sales using np.nditer:&quot;</span>)</span>
-<span id="cb27-3"><a href="#cb27-3"></a><span class="cf">for</span> value <span class="kw">in</span> np.nditer(sales):</span>
-<span id="cb27-4"><a href="#cb27-4"></a>    <span class="bu">print</span>(<span class="st">&quot;Sales value:&quot;</span>, value)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<section id="slicing-rows-in-2d-arrays" class="level2">
+<h2 class="anchored" data-anchor-id="slicing-rows-in-2d-arrays">11. Slicing Rows in 2D Arrays</h2>
+<div id="2c99a549" class="cell" data-execution_count="11">
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1"></a><span class="bu">print</span>(<span class="st">&quot;First two rows of the matrix:</span><span class="ch">\n</span><span class="st">&quot;</span>, matrix[:<span class="dv">2</span>, :])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>First two rows of the matrix:
+ [[1 2 3]
+ [4 5 6]]</code></pre>
+</div>
+</div>
+</section>
+<section id="extracting-a-column-from-a-2d-array" class="level2">
+<h2 class="anchored" data-anchor-id="extracting-a-column-from-a-2d-array">12. Extracting a Column from a 2D Array</h2>
+<div id="6dffde1a" class="cell" data-execution_count="12">
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1"></a>second_column <span class="op">=</span> matrix[:, <span class="dv">1</span>]</span>
+<span id="cb24-2"><a href="#cb24-2"></a><span class="bu">print</span>(<span class="st">&quot;Extracted second column as 1D array:&quot;</span>, second_column)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Extracted second column as 1D array: [2 5 8]</code></pre>
+</div>
+</div>
+</section>
+<section id="vectorized-operations-multiplication" class="level2">
+<h2 class="anchored" data-anchor-id="vectorized-operations-multiplication">13. Vectorized Operations – Multiplication</h2>
+<div id="4b0804eb" class="cell" data-execution_count="13">
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1"></a>sales <span class="op">=</span> np.array([<span class="dv">100</span>, <span class="dv">150</span>, <span class="dv">200</span>, <span class="dv">250</span>, <span class="dv">300</span>])</span>
+<span id="cb26-2"><a href="#cb26-2"></a>discounted_sales <span class="op">=</span> sales <span class="op">*</span> <span class="fl">0.90</span></span>
+<span id="cb26-3"><a href="#cb26-3"></a><span class="bu">print</span>(<span class="st">&quot;Sales after 10</span><span class="sc">% d</span><span class="st">iscount:&quot;</span>, discounted_sales)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Sales after 10% discount: [ 90. 135. 180. 225. 270.]</code></pre>
+</div>
+</div>
+</section>
+<section id="vectorized-operations-addition" class="level2">
+<h2 class="anchored" data-anchor-id="vectorized-operations-addition">14. Vectorized Operations – Addition</h2>
+<div id="23f9cd70" class="cell" data-execution_count="14">
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1"></a>a <span class="op">=</span> np.array([<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>])</span>
+<span id="cb28-2"><a href="#cb28-2"></a>b <span class="op">=</span> np.array([<span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>])</span>
+<span id="cb28-3"><a href="#cb28-3"></a>sum_array <span class="op">=</span> a <span class="op">+</span> b</span>
+<span id="cb28-4"><a href="#cb28-4"></a><span class="bu">print</span>(<span class="st">&quot;Element-wise sum of a and b:&quot;</span>, sum_array)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Element-wise sum of a and b: [5 7 9]</code></pre>
+</div>
+</div>
+</section>
+<section id="looping-through-a-1d-array-with-a-for-loop" class="level2">
+<h2 class="anchored" data-anchor-id="looping-through-a-1d-array-with-a-for-loop">15. Looping Through a 1D Array with a For Loop</h2>
+<div id="0927620c" class="cell" data-execution_count="15">
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1"></a>sales <span class="op">=</span> np.array([<span class="dv">10</span>, <span class="dv">20</span>, <span class="dv">30</span>, <span class="dv">40</span>, <span class="dv">50</span>])</span>
+<span id="cb30-2"><a href="#cb30-2"></a>new_sales <span class="op">=</span> np.empty_like(sales)</span>
+<span id="cb30-3"><a href="#cb30-3"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="bu">len</span>(sales)):</span>
+<span id="cb30-4"><a href="#cb30-4"></a>    new_sales[i] <span class="op">=</span> sales[i] <span class="op">+</span> <span class="dv">5</span></span>
+<span id="cb30-5"><a href="#cb30-5"></a><span class="bu">print</span>(<span class="st">&quot;Sales after adding 5 using a loop:&quot;</span>, new_sales)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Sales after adding 5 using a loop: [15 25 35 45 55]</code></pre>
+</div>
+</div>
+</section>
+<section id="looping-with-np.nditer" class="level2">
+<h2 class="anchored" data-anchor-id="looping-with-np.nditer">16. Looping with <code>np.nditer</code></h2>
+<div id="240e086a" class="cell" data-execution_count="16">
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1"></a>sales_small <span class="op">=</span> np.array([<span class="dv">100</span>, <span class="dv">200</span>, <span class="dv">300</span>])</span>
+<span id="cb32-2"><a href="#cb32-2"></a><span class="bu">print</span>(<span class="st">&quot;Traversing sales using np.nditer:&quot;</span>)</span>
+<span id="cb32-3"><a href="#cb32-3"></a><span class="cf">for</span> val <span class="kw">in</span> np.nditer(sales_small):</span>
+<span id="cb32-4"><a href="#cb32-4"></a>    <span class="bu">print</span>(val)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Traversing sales using np.nditer:
-Sales value: 100
-Sales value: 150
-Sales value: 200
-Sales value: 250
-Sales value: 300
-Sales value: 350
-Sales value: 400</code></pre>
+100
+200
+300</code></pre>
 </div>
 </div>
 </section>
-<section id="using-lambda-functions" class="level4">
-<h4 class="anchored" data-anchor-id="using-lambda-functions">Using Lambda Functions</h4>
-<p>While lambda functions are not typically used for traversing arrays element-by-element (as vectorized operations are preferred), you can still apply them using functions such as <code>np.vectorize</code> or <code>np.apply_along_axis</code>.</p>
-<p><strong>Example 1: Using np.vectorize to apply a lambda function element-wise</strong></p>
-<div id="8f0340ea" class="cell" data-execution_count="15">
-<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1"></a><span class="co"># Define a lambda function to add a fixed commission (e.g., $10) to each sale</span></span>
-<span id="cb29-2"><a href="#cb29-2"></a>add_commission <span class="op">=</span> <span class="kw">lambda</span> x: x <span class="op">+</span> <span class="dv">10</span></span>
-<span id="cb29-3"><a href="#cb29-3"></a></span>
-<span id="cb29-4"><a href="#cb29-4"></a><span class="co"># Vectorize the lambda function to apply it to each element of the array</span></span>
-<span id="cb29-5"><a href="#cb29-5"></a>vectorized_add <span class="op">=</span> np.vectorize(add_commission)</span>
-<span id="cb29-6"><a href="#cb29-6"></a>commissioned_sales <span class="op">=</span> vectorized_add(sales)</span>
-<span id="cb29-7"><a href="#cb29-7"></a><span class="bu">print</span>(<span class="st">&quot;Sales after adding commission:&quot;</span>, commissioned_sales)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<section id="using-np.vectorize-with-a-lambda-function" class="level2">
+<h2 class="anchored" data-anchor-id="using-np.vectorize-with-a-lambda-function">17. Using <code>np.vectorize</code> with a Lambda Function</h2>
+<div id="070df3f3" class="cell" data-execution_count="17">
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1"></a>square <span class="op">=</span> <span class="kw">lambda</span> x: x <span class="op">**</span> <span class="dv">2</span></span>
+<span id="cb34-2"><a href="#cb34-2"></a>vectorized_square <span class="op">=</span> np.vectorize(square)</span>
+<span id="cb34-3"><a href="#cb34-3"></a>result <span class="op">=</span> vectorized_square(np.array([<span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>]))</span>
+<span id="cb34-4"><a href="#cb34-4"></a><span class="bu">print</span>(<span class="st">&quot;Squared values:&quot;</span>, result)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Sales after adding commission: [110 160 210 260 310 360 410]</code></pre>
+<pre><code>Squared values: [ 4  9 16 25]</code></pre>
 </div>
 </div>
-<p><strong>Example 2: Using np.apply_along_axis to traverse a multi-dimensional array</strong></p>
-<div id="38eecb76" class="cell" data-execution_count="16">
-<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1"></a><span class="co"># Create a 2D array representing sales in different regions (rows) over several days (columns)</span></span>
-<span id="cb31-2"><a href="#cb31-2"></a>regional_sales <span class="op">=</span> np.array([</span>
-<span id="cb31-3"><a href="#cb31-3"></a>    [<span class="dv">100</span>, <span class="dv">200</span>, <span class="dv">150</span>],</span>
-<span id="cb31-4"><a href="#cb31-4"></a>    [<span class="dv">250</span>, <span class="dv">300</span>, <span class="dv">350</span>],</span>
-<span id="cb31-5"><a href="#cb31-5"></a>    [<span class="dv">400</span>, <span class="dv">450</span>, <span class="dv">500</span>]</span>
-<span id="cb31-6"><a href="#cb31-6"></a>])</span>
-<span id="cb31-7"><a href="#cb31-7"></a></span>
-<span id="cb31-8"><a href="#cb31-8"></a><span class="co"># Define a lambda function that calculates the range (max - min) for each row</span></span>
-<span id="cb31-9"><a href="#cb31-9"></a>range_func <span class="op">=</span> <span class="kw">lambda</span> row: np.<span class="bu">max</span>(row) <span class="op">-</span> np.<span class="bu">min</span>(row)</span>
-<span id="cb31-10"><a href="#cb31-10"></a></span>
-<span id="cb31-11"><a href="#cb31-11"></a><span class="co"># Apply the lambda function along axis 1 (each row)</span></span>
-<span id="cb31-12"><a href="#cb31-12"></a>sales_range <span class="op">=</span> np.apply_along_axis(range_func, <span class="dv">1</span>, regional_sales)</span>
-<span id="cb31-13"><a href="#cb31-13"></a><span class="bu">print</span>(<span class="st">&quot;Sales range for each region:&quot;</span>, sales_range)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="using-np.apply_along_axis" class="level2">
+<h2 class="anchored" data-anchor-id="using-np.apply_along_axis">18. Using <code>np.apply_along_axis</code></h2>
+<div id="1459671c" class="cell" data-execution_count="18">
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a href="#cb36-1"></a>regional_sales <span class="op">=</span> np.array([</span>
+<span id="cb36-2"><a href="#cb36-2"></a>    [<span class="dv">100</span>, <span class="dv">200</span>, <span class="dv">150</span>],</span>
+<span id="cb36-3"><a href="#cb36-3"></a>    [<span class="dv">250</span>, <span class="dv">300</span>, <span class="dv">350</span>],</span>
+<span id="cb36-4"><a href="#cb36-4"></a>    [<span class="dv">400</span>, <span class="dv">450</span>, <span class="dv">500</span>]</span>
+<span id="cb36-5"><a href="#cb36-5"></a>])</span>
+<span id="cb36-6"><a href="#cb36-6"></a>row_range <span class="op">=</span> <span class="kw">lambda</span> row: np.<span class="bu">max</span>(row) <span class="op">-</span> np.<span class="bu">min</span>(row)</span>
+<span id="cb36-7"><a href="#cb36-7"></a>ranges <span class="op">=</span> np.apply_along_axis(row_range, <span class="dv">1</span>, regional_sales)</span>
+<span id="cb36-8"><a href="#cb36-8"></a><span class="bu">print</span>(<span class="st">&quot;Range for each region:&quot;</span>, ranges)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Sales range for each region: [100 100 100]</code></pre>
+<pre><code>Range for each region: [100 100 100]</code></pre>
 </div>
 </div>
 </section>
-</section>
-<section id="reducing-data" class="level3">
-<h3 class="anchored" data-anchor-id="reducing-data">Reducing Data</h3>
-<p>Reduction operations in NumPy aggregate data along an axis. Here are several examples beyond the standard sum, mean, and standard deviation:</p>
-<div id="1293b419" class="cell" data-execution_count="17">
-<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1"></a><span class="co"># Compute the total, mean, and standard deviation of sales</span></span>
-<span id="cb33-2"><a href="#cb33-2"></a>total_sales <span class="op">=</span> np.<span class="bu">sum</span>(sales)</span>
-<span id="cb33-3"><a href="#cb33-3"></a>mean_sales <span class="op">=</span> np.mean(sales)</span>
-<span id="cb33-4"><a href="#cb33-4"></a>std_sales <span class="op">=</span> np.std(sales)</span>
-<span id="cb33-5"><a href="#cb33-5"></a><span class="bu">print</span>(<span class="st">&quot;Total Sales:&quot;</span>, total_sales)</span>
-<span id="cb33-6"><a href="#cb33-6"></a><span class="bu">print</span>(<span class="st">&quot;Mean Sales:&quot;</span>, mean_sales)</span>
-<span id="cb33-7"><a href="#cb33-7"></a><span class="bu">print</span>(<span class="st">&quot;Standard Deviation of Sales:&quot;</span>, std_sales)</span>
-<span id="cb33-8"><a href="#cb33-8"></a></span>
-<span id="cb33-9"><a href="#cb33-9"></a><span class="co"># Additional reduction examples:</span></span>
-<span id="cb33-10"><a href="#cb33-10"></a></span>
-<span id="cb33-11"><a href="#cb33-11"></a><span class="co"># 1. Compute the product of all sales values</span></span>
-<span id="cb33-12"><a href="#cb33-12"></a>product_sales <span class="op">=</span> np.prod(sales)</span>
-<span id="cb33-13"><a href="#cb33-13"></a><span class="bu">print</span>(<span class="st">&quot;Product of Sales:&quot;</span>, product_sales)</span>
-<span id="cb33-14"><a href="#cb33-14"></a></span>
-<span id="cb33-15"><a href="#cb33-15"></a><span class="co"># 2. Find the minimum and maximum sales values</span></span>
-<span id="cb33-16"><a href="#cb33-16"></a>min_sales <span class="op">=</span> np.<span class="bu">min</span>(sales)</span>
-<span id="cb33-17"><a href="#cb33-17"></a>max_sales <span class="op">=</span> np.<span class="bu">max</span>(sales)</span>
-<span id="cb33-18"><a href="#cb33-18"></a><span class="bu">print</span>(<span class="st">&quot;Minimum Sales:&quot;</span>, min_sales)</span>
-<span id="cb33-19"><a href="#cb33-19"></a><span class="bu">print</span>(<span class="st">&quot;Maximum Sales:&quot;</span>, max_sales)</span>
-<span id="cb33-20"><a href="#cb33-20"></a></span>
-<span id="cb33-21"><a href="#cb33-21"></a><span class="co"># 3. Compute the median sales value</span></span>
-<span id="cb33-22"><a href="#cb33-22"></a>median_sales <span class="op">=</span> np.median(sales)</span>
-<span id="cb33-23"><a href="#cb33-23"></a><span class="bu">print</span>(<span class="st">&quot;Median Sales:&quot;</span>, median_sales)</span>
-<span id="cb33-24"><a href="#cb33-24"></a></span>
-<span id="cb33-25"><a href="#cb33-25"></a><span class="co"># 4. Compute the cumulative sum and cumulative product of sales</span></span>
-<span id="cb33-26"><a href="#cb33-26"></a>cumulative_sales <span class="op">=</span> np.cumsum(sales)</span>
-<span id="cb33-27"><a href="#cb33-27"></a>cumulative_product <span class="op">=</span> np.cumprod(sales)</span>
-<span id="cb33-28"><a href="#cb33-28"></a><span class="bu">print</span>(<span class="st">&quot;Cumulative Sales:&quot;</span>, cumulative_sales)</span>
-<span id="cb33-29"><a href="#cb33-29"></a><span class="bu">print</span>(<span class="st">&quot;Cumulative Product of Sales:&quot;</span>, cumulative_product)</span>
-<span id="cb33-30"><a href="#cb33-30"></a></span>
-<span id="cb33-31"><a href="#cb33-31"></a><span class="co"># 5. Compute the range of sales (difference between max and min)</span></span>
-<span id="cb33-32"><a href="#cb33-32"></a>range_sales <span class="op">=</span> max_sales <span class="op">-</span> min_sales</span>
-<span id="cb33-33"><a href="#cb33-33"></a><span class="bu">print</span>(<span class="st">&quot;Range of Sales:&quot;</span>, range_sales)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<section id="filtering-with-boolean-indexing-single-condition" class="level2">
+<h2 class="anchored" data-anchor-id="filtering-with-boolean-indexing-single-condition">19. Filtering with Boolean Indexing (Single Condition)</h2>
+<div id="260093ba" class="cell" data-execution_count="19">
+<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb38-1"><a href="#cb38-1"></a>sales <span class="op">=</span> np.array([<span class="dv">100</span>, <span class="dv">150</span>, <span class="dv">200</span>, <span class="dv">250</span>, <span class="dv">300</span>, <span class="dv">350</span>, <span class="dv">400</span>])</span>
+<span id="cb38-2"><a href="#cb38-2"></a>high_sales <span class="op">=</span> sales[sales <span class="op">&gt;</span> <span class="dv">200</span>]</span>
+<span id="cb38-3"><a href="#cb38-3"></a><span class="bu">print</span>(<span class="st">&quot;Sales greater than 200:&quot;</span>, high_sales)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Total Sales: 1750
-Mean Sales: 250.0
-Standard Deviation of Sales: 100.0
-Product of Sales: 31500000000000000
-Minimum Sales: 100
-Maximum Sales: 400
-Median Sales: 250.0
-Cumulative Sales: [ 100  250  450  700 1000 1350 1750]
-Cumulative Product of Sales: [              100             15000           3000000         750000000
-      225000000000    78750000000000 31500000000000000]
-Range of Sales: 300</code></pre>
+<pre><code>Sales greater than 200: [250 300 350 400]</code></pre>
 </div>
 </div>
 </section>
-</section>
-</section>
-<section id="important-numpy-methods-for-business-analytics" class="level1">
-<h1>Important NumPy Methods for Business Analytics</h1>
-<p>NumPy’s comprehensive suite of methods is invaluable in business analytics. Below are some methods and their potential applications:</p>
-<section id="aggregation-functions" class="level2">
-<h2 class="anchored" data-anchor-id="aggregation-functions"><strong>Aggregation Functions:</strong></h2>
-<p>The following NumPy methods are used to aggregate a NumPy array into a single value: - <code>np.sum()</code> - <code>np.mean()</code> - <code>np.std()</code> - <code>np.min()</code> - <code>np.max()</code> - <code>np.median()</code></p>
-</section>
-<section id="cumulative-operations" class="level2">
-<h2 class="anchored" data-anchor-id="cumulative-operations"><strong>Cumulative Operations:</strong></h2>
-<p><code>np.cumsum()</code> computes the cumulative sum, which can be useful in tracking progressive sales or inventory levels.</p>
-<div id="8fa29d47" class="cell" data-execution_count="18">
-<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a href="#cb35-1"></a>cumulative_sales <span class="op">=</span> np.cumsum(sales)</span>
-<span id="cb35-2"><a href="#cb35-2"></a><span class="bu">print</span>(<span class="st">&quot;Cumulative Sales:&quot;</span>, cumulative_sales)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<section id="filtering-with-boolean-indexing-range-condition" class="level2">
+<h2 class="anchored" data-anchor-id="filtering-with-boolean-indexing-range-condition">20. Filtering with Boolean Indexing (Range Condition)</h2>
+<div id="7b0dbb6e" class="cell" data-execution_count="20">
+<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb40-1"><a href="#cb40-1"></a>sales_range <span class="op">=</span> sales[(sales <span class="op">&gt;=</span> <span class="dv">150</span>) <span class="op">&amp;</span> (sales <span class="op">&lt;=</span> <span class="dv">350</span>)]</span>
+<span id="cb40-2"><a href="#cb40-2"></a><span class="bu">print</span>(<span class="st">&quot;Sales between 150 and 350:&quot;</span>, sales_range)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Cumulative Sales: [ 100  250  450  700 1000 1350 1750]</code></pre>
+<pre><code>Sales between 150 and 350: [150 200 250 300 350]</code></pre>
 </div>
 </div>
 </section>
-<section id="difference-calculations" class="level2">
-<h2 class="anchored" data-anchor-id="difference-calculations"><strong>Difference Calculations:</strong></h2>
-<p><code>np.diff()</code> computes the difference between consecutive elements, aiding in trend analysis.</p>
-<div id="38b7419a" class="cell" data-execution_count="19">
-<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb37-1"><a href="#cb37-1"></a>sales_diff <span class="op">=</span> np.diff(sales)</span>
-<span id="cb37-2"><a href="#cb37-2"></a><span class="bu">print</span>(<span class="st">&quot;Sales Differences:&quot;</span>, sales_diff)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<section id="filtering-with-np.logical_or" class="level2">
+<h2 class="anchored" data-anchor-id="filtering-with-np.logical_or">21. Filtering with <code>np.logical_or</code></h2>
+<div id="b75e7bb9" class="cell" data-execution_count="21">
+<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb42-1"><a href="#cb42-1"></a>extreme_sales <span class="op">=</span> sales[np.logical_or(sales <span class="op">&lt;</span> <span class="dv">150</span>, sales <span class="op">&gt;</span> <span class="dv">350</span>)]</span>
+<span id="cb42-2"><a href="#cb42-2"></a><span class="bu">print</span>(<span class="st">&quot;Sales less than 150 or greater than 350:&quot;</span>, extreme_sales)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Sales Differences: [50 50 50 50 50 50]</code></pre>
+<pre><code>Sales less than 150 or greater than 350: [100 400]</code></pre>
 </div>
 </div>
 </section>
-<section id="reshaping-arrays" class="level2">
-<h2 class="anchored" data-anchor-id="reshaping-arrays"><strong>Reshaping Arrays:</strong></h2>
-<p>Below we demonstrate reshaping operations, including converting a 1D array into a 2D column array and extracting specific columns from a 2D array.</p>
-<div id="9be37c01" class="cell" data-execution_count="20">
-<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb39-1"><a href="#cb39-1"></a><span class="co"># Assume &#39;sales&#39; is a one-dimensional array of sales figures.</span></span>
-<span id="cb39-2"><a href="#cb39-2"></a>sales <span class="op">=</span> np.array([<span class="dv">100</span>, <span class="dv">150</span>, <span class="dv">200</span>, <span class="dv">250</span>, <span class="dv">300</span>])</span>
-<span id="cb39-3"><a href="#cb39-3"></a><span class="bu">print</span>(<span class="st">&quot;Original Sales (1D array):</span><span class="ch">\n</span><span class="st">&quot;</span>, sales)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<section id="filtering-with-np.where" class="level2">
+<h2 class="anchored" data-anchor-id="filtering-with-np.where">22. Filtering with <code>np.where</code></h2>
+<div id="38f10f3f" class="cell" data-execution_count="22">
+<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb44-1"><a href="#cb44-1"></a>indices <span class="op">=</span> np.where(sales <span class="op">&gt;</span> <span class="dv">250</span>)</span>
+<span id="cb44-2"><a href="#cb44-2"></a><span class="bu">print</span>(<span class="st">&quot;Indices where sales &gt; 250:&quot;</span>, indices)</span>
+<span id="cb44-3"><a href="#cb44-3"></a><span class="bu">print</span>(<span class="st">&quot;Sales values at these indices:&quot;</span>, sales[indices])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Original Sales (1D array):
- [100 150 200 250 300]</code></pre>
+<pre><code>Indices where sales &gt; 250: (array([4, 5, 6]),)
+Sales values at these indices: [300 350 400]</code></pre>
 </div>
 </div>
-<div id="1e2d1498" class="cell" data-execution_count="21">
-<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb41-1"><a href="#cb41-1"></a><span class="co"># Reshape the one-dimensional array into a two-dimensional column array.</span></span>
-<span id="cb41-2"><a href="#cb41-2"></a>reshaped_sales <span class="op">=</span> sales.reshape(<span class="dv">5</span>, <span class="dv">1</span>)</span>
-<span id="cb41-3"><a href="#cb41-3"></a><span class="bu">print</span>(<span class="st">&quot;Reshaped Sales (2D column array):</span><span class="ch">\n</span><span class="st">&quot;</span>, reshaped_sales)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="filtering-with-np.extract" class="level2">
+<h2 class="anchored" data-anchor-id="filtering-with-np.extract">23. Filtering with <code>np.extract</code></h2>
+<div id="18110397" class="cell" data-execution_count="23">
+<div class="sourceCode cell-code" id="cb46"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb46-1"><a href="#cb46-1"></a>extracted_sales <span class="op">=</span> np.extract(sales <span class="op">&gt;</span> <span class="dv">250</span>, sales)</span>
+<span id="cb46-2"><a href="#cb46-2"></a><span class="bu">print</span>(<span class="st">&quot;Extracted sales (values &gt; 250):&quot;</span>, extracted_sales)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Reshaped Sales (2D column array):
- [[100]
- [150]
- [200]
- [250]
- [300]]</code></pre>
+<pre><code>Extracted sales (values &gt; 250): [300 350 400]</code></pre>
 </div>
 </div>
-<div id="511d26e7" class="cell" data-execution_count="22">
-<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb43-1"><a href="#cb43-1"></a><span class="co"># -------------------------------------------------------</span></span>
-<span id="cb43-2"><a href="#cb43-2"></a><span class="co"># Consider a 2D array with two columns.</span></span>
-<span id="cb43-3"><a href="#cb43-3"></a><span class="co"># For example, an array where each row contains a sales figure and a corresponding discount value.</span></span>
-<span id="cb43-4"><a href="#cb43-4"></a>data <span class="op">=</span> np.array([</span>
-<span id="cb43-5"><a href="#cb43-5"></a>    [<span class="dv">100</span>, <span class="dv">10</span>],</span>
-<span id="cb43-6"><a href="#cb43-6"></a>    [<span class="dv">150</span>, <span class="dv">15</span>],</span>
-<span id="cb43-7"><a href="#cb43-7"></a>    [<span class="dv">200</span>, <span class="dv">20</span>],</span>
-<span id="cb43-8"><a href="#cb43-8"></a>    [<span class="dv">250</span>, <span class="dv">25</span>],</span>
-<span id="cb43-9"><a href="#cb43-9"></a>    [<span class="dv">300</span>, <span class="dv">30</span>]</span>
-<span id="cb43-10"><a href="#cb43-10"></a>])</span>
-<span id="cb43-11"><a href="#cb43-11"></a><span class="bu">print</span>(<span class="st">&quot;Original Data (2D array):</span><span class="ch">\n</span><span class="st">&quot;</span>, data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="aggregation-sum" class="level2">
+<h2 class="anchored" data-anchor-id="aggregation-sum">24. Aggregation – Sum</h2>
+<div id="7439145b" class="cell" data-execution_count="24">
+<div class="sourceCode cell-code" id="cb48"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb48-1"><a href="#cb48-1"></a>arr_sum <span class="op">=</span> np.array([<span class="dv">5</span>, <span class="dv">10</span>, <span class="dv">15</span>, <span class="dv">20</span>, <span class="dv">25</span>])</span>
+<span id="cb48-2"><a href="#cb48-2"></a>total <span class="op">=</span> np.<span class="bu">sum</span>(arr_sum)</span>
+<span id="cb48-3"><a href="#cb48-3"></a><span class="bu">print</span>(<span class="st">&quot;Sum of array elements:&quot;</span>, total)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Original Data (2D array):
- [[100  10]
- [150  15]
- [200  20]
- [250  25]
- [300  30]]</code></pre>
+<pre><code>Sum of array elements: 75</code></pre>
 </div>
 </div>
-<div id="c95a55d9" class="cell" data-execution_count="23">
-<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb45-1"><a href="#cb45-1"></a><span class="co"># Extract just the first column (sales) as a one-dimensional array.</span></span>
-<span id="cb45-2"><a href="#cb45-2"></a>sales_column <span class="op">=</span> data[:, <span class="dv">0</span>]  <span class="co"># The &#39;:&#39; selects all rows; &#39;0&#39; selects the first column.</span></span>
-<span id="cb45-3"><a href="#cb45-3"></a><span class="bu">print</span>(<span class="st">&quot;Extracted Sales Column (1D array):</span><span class="ch">\n</span><span class="st">&quot;</span>, sales_column)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="aggregation-mean-and-standard-deviation" class="level2">
+<h2 class="anchored" data-anchor-id="aggregation-mean-and-standard-deviation">25. Aggregation – Mean and Standard Deviation</h2>
+<div id="5a2d2866" class="cell" data-execution_count="25">
+<div class="sourceCode cell-code" id="cb50"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb50-1"><a href="#cb50-1"></a>arr_stats <span class="op">=</span> np.array([<span class="dv">2</span>, <span class="dv">4</span>, <span class="dv">6</span>, <span class="dv">8</span>, <span class="dv">10</span>])</span>
+<span id="cb50-2"><a href="#cb50-2"></a>mean_val <span class="op">=</span> np.mean(arr_stats)</span>
+<span id="cb50-3"><a href="#cb50-3"></a>std_val <span class="op">=</span> np.std(arr_stats)</span>
+<span id="cb50-4"><a href="#cb50-4"></a><span class="bu">print</span>(<span class="st">&quot;Mean:&quot;</span>, mean_val, <span class="st">&quot;Standard Deviation:&quot;</span>, std_val)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Extracted Sales Column (1D array):
- [100 150 200 250 300]</code></pre>
+<pre><code>Mean: 6.0 Standard Deviation: 2.8284271247461903</code></pre>
 </div>
 </div>
-<div id="4c69f9ba" class="cell" data-execution_count="24">
-<div class="sourceCode cell-code" id="cb47"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb47-1"><a href="#cb47-1"></a><span class="co"># Similarly, extract the second column (discounts) as a one-dimensional array.</span></span>
-<span id="cb47-2"><a href="#cb47-2"></a>discounts_column <span class="op">=</span> data[:, <span class="dv">1</span>]</span>
-<span id="cb47-3"><a href="#cb47-3"></a><span class="bu">print</span>(<span class="st">&quot;Extracted Discounts Column (1D array):</span><span class="ch">\n</span><span class="st">&quot;</span>, discounts_column)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="aggregation-min-max-and-median" class="level2">
+<h2 class="anchored" data-anchor-id="aggregation-min-max-and-median">26. Aggregation – Min, Max, and Median</h2>
+<div id="03bac192" class="cell" data-execution_count="26">
+<div class="sourceCode cell-code" id="cb52"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb52-1"><a href="#cb52-1"></a>arr_agg <span class="op">=</span> np.array([<span class="dv">1</span>, <span class="dv">3</span>, <span class="dv">5</span>, <span class="dv">7</span>, <span class="dv">9</span>])</span>
+<span id="cb52-2"><a href="#cb52-2"></a><span class="bu">print</span>(<span class="st">&quot;Minimum:&quot;</span>, np.<span class="bu">min</span>(arr_agg))</span>
+<span id="cb52-3"><a href="#cb52-3"></a><span class="bu">print</span>(<span class="st">&quot;Maximum:&quot;</span>, np.<span class="bu">max</span>(arr_agg))</span>
+<span id="cb52-4"><a href="#cb52-4"></a><span class="bu">print</span>(<span class="st">&quot;Median:&quot;</span>, np.median(arr_agg))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Extracted Discounts Column (1D array):
- [10 15 20 25 30]</code></pre>
+<pre><code>Minimum: 1
+Maximum: 9
+Median: 5.0</code></pre>
 </div>
 </div>
 </section>
-<section id="sorting-data" class="level2">
-<h2 class="anchored" data-anchor-id="sorting-data"><strong>Sorting Data:</strong></h2>
-<p><code>np.sort()</code> can sort arrays, which is useful in identifying outliers or preparing data for further analysis.</p>
-<div id="42f4b8d7" class="cell" data-execution_count="25">
-<div class="sourceCode cell-code" id="cb49"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb49-1"><a href="#cb49-1"></a>sorted_sales <span class="op">=</span> np.sort(sales)</span>
-<span id="cb49-2"><a href="#cb49-2"></a><span class="bu">print</span>(<span class="st">&quot;Sorted Sales:&quot;</span>, sorted_sales)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<section id="aggregation-product" class="level2">
+<h2 class="anchored" data-anchor-id="aggregation-product">27. Aggregation – Product</h2>
+<div id="426cc426" class="cell" data-execution_count="27">
+<div class="sourceCode cell-code" id="cb54"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb54-1"><a href="#cb54-1"></a>arr_prod <span class="op">=</span> np.array([<span class="dv">2</span>, <span class="dv">4</span>, <span class="dv">6</span>, <span class="dv">8</span>, <span class="dv">10</span>])</span>
+<span id="cb54-2"><a href="#cb54-2"></a>product <span class="op">=</span> np.prod(arr_prod)</span>
+<span id="cb54-3"><a href="#cb54-3"></a><span class="bu">print</span>(<span class="st">&quot;Product of array elements:&quot;</span>, product)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Sorted Sales: [100 150 200 250 300]</code></pre>
+<pre><code>Product of array elements: 3840</code></pre>
 </div>
 </div>
 </section>
-<section id="dot-product-and-matrix-multiplication" class="level2">
-<h2 class="anchored" data-anchor-id="dot-product-and-matrix-multiplication"><strong>Dot Product and Matrix Multiplication:</strong></h2>
-<p>For financial modeling and other analytical tasks, <code>np.dot()</code> and methods in <code>numpy.linalg</code> (such as <code>np.linalg.inv()</code> and <code>np.linalg.eig()</code>) are essential.</p>
-<div id="d41f9ca6" class="cell" data-execution_count="26">
-<div class="sourceCode cell-code" id="cb51"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb51-1"><a href="#cb51-1"></a><span class="co"># Example of dot product between two arrays</span></span>
-<span id="cb51-2"><a href="#cb51-2"></a>vector_a <span class="op">=</span> np.array([<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>])</span>
-<span id="cb51-3"><a href="#cb51-3"></a>vector_b <span class="op">=</span> np.array([<span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>])</span>
-<span id="cb51-4"><a href="#cb51-4"></a>dot_product <span class="op">=</span> np.dot(vector_a, vector_b)</span>
-<span id="cb51-5"><a href="#cb51-5"></a><span class="bu">print</span>(<span class="st">&quot;Dot Product:&quot;</span>, dot_product)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<section id="difference-calculation-with-np.diff" class="level2">
+<h2 class="anchored" data-anchor-id="difference-calculation-with-np.diff">28. Difference Calculation with <code>np.diff</code></h2>
+<div id="5560e412" class="cell" data-execution_count="28">
+<div class="sourceCode cell-code" id="cb56"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb56-1"><a href="#cb56-1"></a>arr_diff <span class="op">=</span> np.array([<span class="dv">10</span>, <span class="dv">15</span>, <span class="dv">20</span>, <span class="dv">25</span>, <span class="dv">30</span>])</span>
+<span id="cb56-2"><a href="#cb56-2"></a>differences <span class="op">=</span> np.diff(arr_diff)</span>
+<span id="cb56-3"><a href="#cb56-3"></a><span class="bu">print</span>(<span class="st">&quot;Differences between consecutive elements:&quot;</span>, differences)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Dot Product: 32</code></pre>
+<pre><code>Differences between consecutive elements: [5 5 5 5]</code></pre>
 </div>
 </div>
 </section>
-</section>
-<section id="data-persistence-in-numpy-and-beyond" class="level1">
-<h1>Data Persistence in NumPy and Beyond</h1>
-<p>In business analytics, it is essential not only to process and analyze data but also to <strong>persist</strong> (i.e., save and later reload) your data for further processing, sharing, or archival purposes. In this section, we will explore three primary methods for data persistence:</p>
-<ol type="1">
-<li><p><strong>NumPy’s Native Binary Formats:</strong><br>
-Utilizing NumPy’s own functions to save arrays in a binary format (.npy and .npz).</p></li>
-<li><p><strong>CSV Files:</strong><br>
-Saving to and loading from comma-separated values (CSV) files, which are human-readable and widely used for data exchange.</p></li>
-<li><p><strong>MS Excel Spreadsheets:</strong><br>
-Although NumPy does not directly support Excel formats, you can integrate with the pandas library to handle Excel files.</p></li>
-</ol>
-<p>Each method has its advantages and is appropriate for different scenarios.</p>
-<hr>
-<section id="saving-and-loading-with-numpys-native-formats" class="level2">
-<h2 class="anchored" data-anchor-id="saving-and-loading-with-numpys-native-formats">Saving and Loading with NumPy’s Native Formats</h2>
-<p>NumPy provides functions to efficiently save and load arrays in binary formats. These formats are highly efficient and preserve data type and shape information.</p>
-<section id="saving-a-single-array-.npy" class="level3">
-<h3 class="anchored" data-anchor-id="saving-a-single-array-.npy">Saving a Single Array (.npy)</h3>
-<div id="bdcae840" class="cell" data-execution_count="27">
-<div class="sourceCode cell-code" id="cb53"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb53-1"><a href="#cb53-1"></a><span class="co"># Create a sample array</span></span>
-<span id="cb53-2"><a href="#cb53-2"></a>sales <span class="op">=</span> np.array([<span class="dv">100</span>, <span class="dv">150</span>, <span class="dv">200</span>, <span class="dv">250</span>, <span class="dv">300</span>, <span class="dv">225</span>, <span class="dv">310</span>, <span class="dv">485</span>, <span class="dv">320</span>, <span class="dv">190</span>, <span class="dv">320</span>, <span class="dv">276</span>, <span class="dv">312</span>, <span class="dv">378</span>])</span>
-<span id="cb53-3"><a href="#cb53-3"></a></span>
-<span id="cb53-4"><a href="#cb53-4"></a><span class="co"># Save the array to a binary file</span></span>
-<span id="cb53-5"><a href="#cb53-5"></a>np.save(<span class="st">&quot;sales.npy&quot;</span>, sales)</span>
-<span id="cb53-6"><a href="#cb53-6"></a><span class="bu">print</span>(<span class="st">&quot;Sales array saved to &#39;sales.npy&#39;.&quot;</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<section id="cumulative-sum-with-np.cumsum" class="level2">
+<h2 class="anchored" data-anchor-id="cumulative-sum-with-np.cumsum">29. Cumulative Sum with <code>np.cumsum</code></h2>
+<div id="e618329f" class="cell" data-execution_count="29">
+<div class="sourceCode cell-code" id="cb58"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb58-1"><a href="#cb58-1"></a>arr_cumsum <span class="op">=</span> np.array([<span class="dv">10</span>, <span class="dv">15</span>, <span class="dv">20</span>, <span class="dv">25</span>, <span class="dv">30</span>])</span>
+<span id="cb58-2"><a href="#cb58-2"></a>cumulative <span class="op">=</span> np.cumsum(arr_cumsum)</span>
+<span id="cb58-3"><a href="#cb58-3"></a><span class="bu">print</span>(<span class="st">&quot;Cumulative sum of array:&quot;</span>, cumulative)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Sales array saved to &#39;sales.npy&#39;.</code></pre>
+<pre><code>Cumulative sum of array: [ 10  25  45  70 100]</code></pre>
 </div>
 </div>
 </section>
-<section id="loading-a-single-array-.npy" class="level3">
-<h3 class="anchored" data-anchor-id="loading-a-single-array-.npy">Loading a Single Array (.npy)</h3>
-<div id="4581ce9b" class="cell" data-execution_count="28">
-<div class="sourceCode cell-code" id="cb55"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb55-1"><a href="#cb55-1"></a><span class="co"># Load the array from the binary file</span></span>
-<span id="cb55-2"><a href="#cb55-2"></a>loaded_sales <span class="op">=</span> np.load(<span class="st">&quot;sales.npy&quot;</span>)</span>
-<span id="cb55-3"><a href="#cb55-3"></a><span class="bu">print</span>(<span class="st">&quot;Loaded Sales:&quot;</span>, loaded_sales)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<section id="sorting-arrays-with-np.sort" class="level2">
+<h2 class="anchored" data-anchor-id="sorting-arrays-with-np.sort">30. Sorting Arrays with <code>np.sort</code></h2>
+<div id="7a7c153e" class="cell" data-execution_count="30">
+<div class="sourceCode cell-code" id="cb60"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb60-1"><a href="#cb60-1"></a>unsorted <span class="op">=</span> np.array([<span class="dv">3</span>, <span class="dv">1</span>, <span class="dv">4</span>, <span class="dv">1</span>, <span class="dv">5</span>, <span class="dv">9</span>, <span class="dv">2</span>])</span>
+<span id="cb60-2"><a href="#cb60-2"></a>sorted_arr <span class="op">=</span> np.sort(unsorted)</span>
+<span id="cb60-3"><a href="#cb60-3"></a><span class="bu">print</span>(<span class="st">&quot;Sorted array:&quot;</span>, sorted_arr)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Loaded Sales: [100 150 200 250 300 225 310 485 320 190 320 276 312 378]</code></pre>
+<pre><code>Sorted array: [1 1 2 3 4 5 9]</code></pre>
 </div>
 </div>
-</section>
-<section id="saving-multiple-arrays-.npz" class="level3">
-<h3 class="anchored" data-anchor-id="saving-multiple-arrays-.npz">Saving Multiple Arrays (.npz)</h3>
-<p>When you have multiple arrays, you can store them together in a compressed file using the <code>.npz</code> format.</p>
-<div id="8a387b3b" class="cell" data-execution_count="29">
-<div class="sourceCode cell-code" id="cb57"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb57-1"><a href="#cb57-1"></a><span class="co"># Create multiple arrays</span></span>
-<span id="cb57-2"><a href="#cb57-2"></a>inventory <span class="op">=</span> np.array([[<span class="dv">10</span>, <span class="dv">15</span>, <span class="dv">20</span>],</span>
-<span id="cb57-3"><a href="#cb57-3"></a>                      [<span class="dv">12</span>, <span class="dv">18</span>, <span class="dv">25</span>],</span>
-<span id="cb57-4"><a href="#cb57-4"></a>                      [<span class="dv">14</span>, <span class="dv">20</span>, <span class="dv">30</span>]])</span>
-<span id="cb57-5"><a href="#cb57-5"></a>prices <span class="op">=</span> np.array([<span class="fl">19.99</span>, <span class="fl">29.99</span>, <span class="fl">39.99</span>])</span>
-<span id="cb57-6"><a href="#cb57-6"></a></span>
-<span id="cb57-7"><a href="#cb57-7"></a><span class="co"># Save both arrays into a single .npz file</span></span>
-<span id="cb57-8"><a href="#cb57-8"></a>np.savez(<span class="st">&quot;data.npz&quot;</span>, inventory<span class="op">=</span>inventory, prices<span class="op">=</span>prices)</span>
-<span id="cb57-9"><a href="#cb57-9"></a><span class="bu">print</span>(<span class="st">&quot;Inventory and prices arrays saved to &#39;data.npz&#39;.&quot;</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>Inventory and prices arrays saved to &#39;data.npz&#39;.</code></pre>
-</div>
-</div>
-</section>
-<section id="loading-multiple-arrays-from-a-.npz-file" class="level3">
-<h3 class="anchored" data-anchor-id="loading-multiple-arrays-from-a-.npz-file">Loading Multiple Arrays from a .npz File</h3>
-<div id="00b100f3" class="cell" data-execution_count="30">
-<div class="sourceCode cell-code" id="cb59"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb59-1"><a href="#cb59-1"></a><span class="co"># Load the data from the .npz file</span></span>
-<span id="cb59-2"><a href="#cb59-2"></a>data <span class="op">=</span> np.load(<span class="st">&quot;data.npz&quot;</span>)</span>
-<span id="cb59-3"><a href="#cb59-3"></a>loaded_inventory <span class="op">=</span> data[<span class="st">&quot;inventory&quot;</span>]</span>
-<span id="cb59-4"><a href="#cb59-4"></a>loaded_prices <span class="op">=</span> data[<span class="st">&quot;prices&quot;</span>]</span>
-<span id="cb59-5"><a href="#cb59-5"></a></span>
-<span id="cb59-6"><a href="#cb59-6"></a><span class="bu">print</span>(<span class="st">&quot;Loaded Inventory:</span><span class="ch">\n</span><span class="st">&quot;</span>, loaded_inventory)</span>
-<span id="cb59-7"><a href="#cb59-7"></a><span class="bu">print</span>(<span class="st">&quot;Loaded Prices:&quot;</span>, loaded_prices)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>Loaded Inventory:
- [[10 15 20]
- [12 18 25]
- [14 20 30]]
-Loaded Prices: [19.99 29.99 39.99]</code></pre>
-</div>
-</div>
-<hr>
-</section>
-</section>
-<section id="saving-and-loading-csv-files" class="level2">
-<h2 class="anchored" data-anchor-id="saving-and-loading-csv-files">Saving and Loading CSV Files</h2>
-<p>CSV files are text-based and widely used for data sharing and interoperability with other applications. While CSV files are not as efficient as binary formats, they are human-readable and easily editable.</p>
-<section id="saving-an-array-to-a-csv-file" class="level3">
-<h3 class="anchored" data-anchor-id="saving-an-array-to-a-csv-file">Saving an Array to a CSV File</h3>
-<div id="835ac298" class="cell" data-execution_count="31">
-<div class="sourceCode cell-code" id="cb61"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb61-1"><a href="#cb61-1"></a><span class="co"># Save the sales array to a CSV file</span></span>
-<span id="cb61-2"><a href="#cb61-2"></a><span class="co"># Here, we include a header and use commas as delimiters.</span></span>
-<span id="cb61-3"><a href="#cb61-3"></a>np.savetxt(<span class="st">&quot;sales.csv&quot;</span>, sales, fmt<span class="op">=</span><span class="st">&quot;</span><span class="sc">%d</span><span class="st">&quot;</span>, delimiter<span class="op">=</span><span class="st">&quot;,&quot;</span>, header<span class="op">=</span><span class="st">&quot;Sales Data&quot;</span>, comments<span class="op">=</span><span class="st">&quot;&quot;</span>)</span>
-<span id="cb61-4"><a href="#cb61-4"></a><span class="bu">print</span>(<span class="st">&quot;Sales array saved to &#39;sales.csv&#39;.&quot;</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>Sales array saved to &#39;sales.csv&#39;.</code></pre>
-</div>
-</div>
-</section>
-<section id="loading-an-array-from-a-csv-file" class="level3">
-<h3 class="anchored" data-anchor-id="loading-an-array-from-a-csv-file">Loading an Array from a CSV File</h3>
-<div id="681b1049" class="cell" data-execution_count="32">
-<div class="sourceCode cell-code" id="cb63"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb63-1"><a href="#cb63-1"></a><span class="co"># Load the sales array from the CSV file</span></span>
-<span id="cb63-2"><a href="#cb63-2"></a><span class="co"># The header row is skipped using the skiprows parameter.</span></span>
-<span id="cb63-3"><a href="#cb63-3"></a>loaded_sales_csv <span class="op">=</span> np.loadtxt(<span class="st">&quot;sales.csv&quot;</span>, delimiter<span class="op">=</span><span class="st">&quot;,&quot;</span>, skiprows<span class="op">=</span><span class="dv">1</span>)</span>
-<span id="cb63-4"><a href="#cb63-4"></a><span class="bu">print</span>(<span class="st">&quot;Loaded Sales from CSV:&quot;</span>, loaded_sales_csv)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>Loaded Sales from CSV: [100. 150. 200. 250. 300. 225. 310. 485. 320. 190. 320. 276. 312. 378.]</code></pre>
-</div>
-</div>
-<hr>
-</section>
-</section>
-<section id="working-with-ms-excel-spreadsheets" class="level2">
-<h2 class="anchored" data-anchor-id="working-with-ms-excel-spreadsheets">Working with MS Excel Spreadsheets</h2>
-<p>While NumPy does not have built-in support for Excel files, the <strong>pandas</strong> library offers robust functionality for reading from and writing to Excel spreadsheets. Once the data is loaded into a pandas DataFrame, you can convert it to a NumPy array if needed.</p>
-<section id="saving-data-to-an-excel-file-using-pandas" class="level3">
-<h3 class="anchored" data-anchor-id="saving-data-to-an-excel-file-using-pandas">Saving Data to an Excel File using pandas</h3>
-<div id="e9f7f448" class="cell" data-execution_count="33">
-<div class="sourceCode cell-code" id="cb65"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb65-1"><a href="#cb65-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
-<span id="cb65-2"><a href="#cb65-2"></a></span>
-<span id="cb65-3"><a href="#cb65-3"></a><span class="co"># Create a pandas DataFrame from the sales array</span></span>
-<span id="cb65-4"><a href="#cb65-4"></a>sales_df <span class="op">=</span> pd.DataFrame(sales, columns<span class="op">=</span>[<span class="st">&quot;Sales&quot;</span>])</span>
-<span id="cb65-5"><a href="#cb65-5"></a><span class="co"># Write the DataFrame to an Excel file (requires openpyxl: pip install openpyxl)</span></span>
-<span id="cb65-6"><a href="#cb65-6"></a>sales_df.to_excel(<span class="st">&quot;sales.xlsx&quot;</span>, index<span class="op">=</span><span class="va">False</span>, sheet_name<span class="op">=</span><span class="st">&quot;SalesData&quot;</span>)</span>
-<span id="cb65-7"><a href="#cb65-7"></a><span class="bu">print</span>(<span class="st">&quot;Sales data saved to &#39;sales.xlsx&#39;.&quot;</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>Sales data saved to &#39;sales.xlsx&#39;.</code></pre>
-</div>
-</div>
-</section>
-<section id="loading-data-from-an-excel-file-using-pandas" class="level3">
-<h3 class="anchored" data-anchor-id="loading-data-from-an-excel-file-using-pandas">Loading Data from an Excel File using pandas</h3>
-<div id="06aa09ea" class="cell" data-execution_count="34">
-<div class="sourceCode cell-code" id="cb67"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb67-1"><a href="#cb67-1"></a><span class="co"># Read the Excel file into a DataFrame</span></span>
-<span id="cb67-2"><a href="#cb67-2"></a>df <span class="op">=</span> pd.read_excel(<span class="st">&quot;sales.xlsx&quot;</span>, sheet_name<span class="op">=</span><span class="st">&quot;SalesData&quot;</span>)</span>
-<span id="cb67-3"><a href="#cb67-3"></a><span class="co"># Convert the DataFrame to a NumPy array if necessary</span></span>
-<span id="cb67-4"><a href="#cb67-4"></a>sales_from_excel <span class="op">=</span> df.to_numpy()</span>
-<span id="cb67-5"><a href="#cb67-5"></a><span class="bu">print</span>(<span class="st">&quot;Sales data loaded from Excel:</span><span class="ch">\n</span><span class="st">&quot;</span>, sales_from_excel)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>Sales data loaded from Excel:
- [[100]
- [150]
- [200]
- [250]
- [300]
- [225]
- [310]
- [485]
- [320]
- [190]
- [320]
- [276]
- [312]
- [378]]</code></pre>
-</div>
-</div>
-<hr>
-</section>
-</section>
-</section>
-<section id="real-world-applications-in-business-analytics" class="level1">
-<h1>Real-World Applications in Business Analytics</h1>
-<p>To consolidate the concepts learned today, consider the following business cases where NumPy plays a critical role.</p>
-<section id="sales-and-revenue-analysis" class="level2">
-<h2 class="anchored" data-anchor-id="sales-and-revenue-analysis">Sales and Revenue Analysis</h2>
-<p>Imagine a retail company analyzing daily sales data:</p>
-<div id="6525a5f1" class="cell" data-execution_count="35">
-<div class="sourceCode cell-code" id="cb69"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb69-1"><a href="#cb69-1"></a><span class="co"># Daily units sold over one week</span></span>
-<span id="cb69-2"><a href="#cb69-2"></a>daily_units <span class="op">=</span> np.array([<span class="dv">120</span>, <span class="dv">135</span>, <span class="dv">150</span>, <span class="dv">145</span>, <span class="dv">160</span>, <span class="dv">155</span>, <span class="dv">170</span>])</span>
-<span id="cb69-3"><a href="#cb69-3"></a>price_per_unit <span class="op">=</span> <span class="fl">19.99</span></span>
-<span id="cb69-4"><a href="#cb69-4"></a></span>
-<span id="cb69-5"><a href="#cb69-5"></a><span class="co"># Calculate daily revenue using vectorized multiplication</span></span>
-<span id="cb69-6"><a href="#cb69-6"></a>daily_revenue <span class="op">=</span> daily_units <span class="op">*</span> price_per_unit</span>
-<span id="cb69-7"><a href="#cb69-7"></a><span class="bu">print</span>(<span class="st">&quot;Daily Revenue:&quot;</span>, daily_revenue)</span>
-<span id="cb69-8"><a href="#cb69-8"></a></span>
-<span id="cb69-9"><a href="#cb69-9"></a><span class="co"># Total revenue over the week</span></span>
-<span id="cb69-10"><a href="#cb69-10"></a>weekly_revenue <span class="op">=</span> np.<span class="bu">sum</span>(daily_revenue)</span>
-<span id="cb69-11"><a href="#cb69-11"></a><span class="bu">print</span>(<span class="st">&quot;Weekly Revenue:&quot;</span>, weekly_revenue)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>Daily Revenue: [2398.8  2698.65 2998.5  2898.55 3198.4  3098.45 3398.3 ]
-Weekly Revenue: 20689.649999999998</code></pre>
-</div>
-</div>
-</section>
-<section id="inventory-management" class="level2">
-<h2 class="anchored" data-anchor-id="inventory-management">Inventory Management</h2>
-<p>For multi-store inventory management, NumPy aids in aggregating and analyzing inventory levels:</p>
-<div id="3f092072" class="cell" data-execution_count="36">
-<div class="sourceCode cell-code" id="cb71"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb71-1"><a href="#cb71-1"></a><span class="co"># Inventory levels for three stores and three product categories</span></span>
-<span id="cb71-2"><a href="#cb71-2"></a>inventory_levels <span class="op">=</span> np.array([[<span class="dv">100</span>, <span class="dv">150</span>, <span class="dv">200</span>],</span>
-<span id="cb71-3"><a href="#cb71-3"></a>                             [<span class="dv">120</span>, <span class="dv">130</span>, <span class="dv">210</span>],</span>
-<span id="cb71-4"><a href="#cb71-4"></a>                             [<span class="dv">110</span>, <span class="dv">160</span>, <span class="dv">190</span>]])</span>
-<span id="cb71-5"><a href="#cb71-5"></a></span>
-<span id="cb71-6"><a href="#cb71-6"></a><span class="co"># Total inventory per store (summing along columns)</span></span>
-<span id="cb71-7"><a href="#cb71-7"></a>store_totals <span class="op">=</span> np.<span class="bu">sum</span>(inventory_levels, axis<span class="op">=</span><span class="dv">1</span>)</span>
-<span id="cb71-8"><a href="#cb71-8"></a><span class="bu">print</span>(<span class="st">&quot;Inventory Totals per Store:&quot;</span>, store_totals)</span>
-<span id="cb71-9"><a href="#cb71-9"></a></span>
-<span id="cb71-10"><a href="#cb71-10"></a><span class="co"># Total inventory per product category (summing along rows)</span></span>
-<span id="cb71-11"><a href="#cb71-11"></a>category_totals <span class="op">=</span> np.<span class="bu">sum</span>(inventory_levels, axis<span class="op">=</span><span class="dv">0</span>)</span>
-<span id="cb71-12"><a href="#cb71-12"></a><span class="bu">print</span>(<span class="st">&quot;Inventory Totals per Category:&quot;</span>, category_totals)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>Inventory Totals per Store: [450 460 460]
-Inventory Totals per Category: [330 440 600]</code></pre>
-</div>
-</div>
-</section>
-<section id="financial-modeling" class="level2">
-<h2 class="anchored" data-anchor-id="financial-modeling">Financial Modeling</h2>
-<p>Consider a scenario where you analyze asset returns to compute a covariance matrix—an essential component in portfolio risk analysis:</p>
-<div id="8bcd5d67" class="cell" data-execution_count="37">
-<div class="sourceCode cell-code" id="cb73"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb73-1"><a href="#cb73-1"></a><span class="co"># Returns of two assets over several periods</span></span>
-<span id="cb73-2"><a href="#cb73-2"></a>returns <span class="op">=</span> np.array([[<span class="fl">0.05</span>, <span class="fl">0.07</span>, <span class="fl">0.06</span>, <span class="fl">0.04</span>],</span>
-<span id="cb73-3"><a href="#cb73-3"></a>                    [<span class="fl">0.02</span>, <span class="fl">0.03</span>, <span class="fl">0.025</span>, <span class="fl">0.035</span>]])</span>
-<span id="cb73-4"><a href="#cb73-4"></a>covariance_matrix <span class="op">=</span> np.cov(returns)</span>
-<span id="cb73-5"><a href="#cb73-5"></a><span class="bu">print</span>(<span class="st">&quot;Covariance Matrix:</span><span class="ch">\n</span><span class="st">&quot;</span>, covariance_matrix)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>Covariance Matrix:
- [[ 1.66666667e-04 -1.66666667e-05]
- [-1.66666667e-05  4.16666667e-05]]</code></pre>
-</div>
-</div>
-</section>
-</section>
-<section id="conclusion" class="level1">
-<h1>Conclusion</h1>
-<p>Today’s lecture provided a detailed introduction to NumPy, underscoring its importance in the realm of business analytics and data science. We began by comparing NumPy arrays with standard Python data structures, highlighting the need for efficiency and advanced operations. We then covered practical aspects such as installation (both locally and on Google Colab), importing the library, and various methods for creating, accessing, and processing data with NumPy. In addition, we explored techniques for mapping, filtering, and reducing data, and discussed several key functions essential for business analytics.</p>
-<p>Furthermore, we introduced methods for persisting your work by loading and saving NumPy arrays using both binary and CSV file formats. Although NumPy does not directly support MS Excel spreadsheets, you can easily handle Excel data with the help of pandas.</p>
-<p>I encourage you to experiment with these techniques and explore further how NumPy integrates with other libraries (such as pandas and scikit-learn) to create a powerful analytics toolkit. For additional reading and practice, please consult the <a href="https://numpy.org/doc/">NumPy Official Documentation</a> and other recommended resources.</p>
 <hr>
 <p><em>Dr. Tim C. Smith ©️2025</em><br>
-<em>University of South Florida, ISM4641 Python for Business Analytics</em> —</p>
+<em>University of South Florida, ISM4641 Python for Business Analytics</em></p>
+<hr>
+<p>This Quarto file now includes 30 practice questions—with the zeros/ones and identity matrix questions replaced by advanced filtering and slicing examples—and an Appendix with detailed step-by-step solutions. Students can work through the questions independently and then refer to the Appendix for guidance and verification.</p>
+</section>
 </section>
 
 </main>
