@@ -10,7 +10,7 @@
   <meta name="generator" content="quarto-1.7.31">
 
   <meta name="author" content="Dr.&nbsp;Smith">
-  <meta name="dcterms.date" content="2025-01-01">
+  <meta name="dcterms.date" content="2025-08-25">
   <title>ISM4641: Python for Business Analytics</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -207,7 +207,7 @@ Dr.&nbsp;Smith
 </div>
 </div>
 
-  <p class="date">2025-01-01</p>
+  <p class="date">2025-08-25</p>
 </section>
 <section>
 <section id="introduction" class="title-slide slide level1 center">
@@ -383,7 +383,7 @@ Dr.&nbsp;Smith
 </section>
 <section id="variables-giving-names-to-your-data" class="slide level2">
 <h2>Variables: Giving Names to Your Data</h2>
-<div id="95f24f5f" class="cell" data-execution_count="1">
+<div id="7e97209f" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href=""></a>company_name <span class="op">=</span> <span class="st">"TechCorp Inc."</span>  </span>
 <span id="cb1-2"><a href=""></a>number_of_employees <span class="op">=</span> <span class="dv">500</span>      </span>
 <span id="cb1-3"><a href=""></a>revenue <span class="op">=</span> <span class="fl">25.5</span>                 </span>
@@ -397,7 +397,7 @@ Dr.&nbsp;Smith
 <section class="slide level2">
 
 <p>Once a variable is defined, you can use it later in your program. Here we use the print function to display the contents of each variable.</p>
-<div id="119308fb" class="cell" data-execution_count="2">
+<div id="b34555dd" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href=""></a><span class="bu">print</span>(company_name, number_of_employees, revenue, is_profitable)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>TechCorp Inc. 500 25.5 True</code></pre>
@@ -405,7 +405,7 @@ Dr.&nbsp;Smith
 </div>
 <div class="fragment">
 <p>We will see the print function being used more in later classes. For now, note that you can provide not only variables, but text.</p>
-<div id="0d9d51c7" class="cell" data-execution_count="3">
+<div id="32c49851" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href=""></a><span class="bu">print</span>(<span class="st">"Company Name ="</span>, company_name, <span class="st">": Number of Empoyees ="</span>, number_of_employees, <span class="st">": Total Revenue ="</span>, revenue, <span class="st">": Is Profitable is"</span>, is_profitable)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Company Name = TechCorp Inc. : Number of Empoyees = 500 : Total Revenue = 25.5 : Is Profitable is True</code></pre>
@@ -414,7 +414,7 @@ Dr.&nbsp;Smith
 </div>
 <div class="fragment">
 <p>For very long lines of code, we can specify to continue on the next line as folllows:</p>
-<div id="3fb219fb" class="cell columns column-output-location" data-execution_count="4">
+<div id="3c17708d" class="cell columns column-output-location" data-execution_count="4">
 <div class="column">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href=""></a><span class="bu">print</span>(<span class="st">"Company Name ="</span>, <span class="op">\</span></span>
 <span id="cb6-2"><a href=""></a>    company_name, <span class="op">\</span></span>
@@ -459,7 +459,7 @@ Dr.&nbsp;Smith
 <li><strong>Boolean (<code>bool</code>):</strong> <code>True</code> or <code>False</code>.</li>
 </ul>
 <div class="fragment">
-<div id="f819e5a7" class="cell" data-execution_count="5">
+<div id="4923ae4f" class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href=""></a>product_name <span class="op">=</span> <span class="st">"Laptop"</span>     <span class="co"># String</span></span>
 <span id="cb8-2"><a href=""></a>quantity_in_stock <span class="op">=</span> <span class="dv">100</span>     <span class="co"># Integer</span></span>
 <span id="cb8-3"><a href=""></a>price_per_unit <span class="op">=</span> <span class="fl">999.99</span>     <span class="co"># Float</span></span>
@@ -472,7 +472,7 @@ Dr.&nbsp;Smith
 <h3 id="checking-data-types">Checking Data Types</h3>
 <p>Python has a built-in function called type that we can use to identify the data type of a variable.</p>
 <p>. . .</p>
-<div id="a86166b3" class="cell" data-execution_count="6">
+<div id="2653855a" class="cell" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href=""></a><span class="bu">print</span>(<span class="bu">type</span>(product_name))</span>
 <span id="cb9-2"><a href=""></a><span class="bu">print</span>(<span class="bu">type</span>(quantity_in_stock))</span>
 <span id="cb9-3"><a href=""></a><span class="bu">print</span>(<span class="bu">type</span>(price_per_unit))</span>
@@ -505,7 +505,7 @@ Dr.&nbsp;Smith
 <section class="slide level2">
 
 <h3 id="arithmetic-operators">Arithmetic Operators</h3>
-<div id="ad131ae5" class="cell" data-execution_count="7">
+<div id="5a8884cb" class="cell" data-execution_count="7">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href=""></a>x <span class="op">=</span> <span class="dv">10</span></span>
 <span id="cb11-2"><a href=""></a>y <span class="op">=</span> <span class="dv">3</span></span>
 <span id="cb11-3"><a href=""></a></span>
@@ -521,7 +521,7 @@ Dr.&nbsp;Smith
 <section class="slide level2">
 
 <h3 id="comparison-operators">Comparison Operators</h3>
-<div id="521f5d84" class="cell" data-execution_count="8">
+<div id="c395b144" class="cell" data-execution_count="8">
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href=""></a>a <span class="op">=</span> <span class="dv">5</span></span>
 <span id="cb12-2"><a href=""></a>b <span class="op">=</span> <span class="dv">2</span></span>
 <span id="cb12-3"><a href=""></a></span>
@@ -533,7 +533,7 @@ Dr.&nbsp;Smith
 <span id="cb12-9"><a href=""></a>less_than_or_equal_to <span class="op">=</span> a <span class="op">&lt;=</span> b    <span class="co"># False</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <h3 id="logical-operators">Logical Operators</h3>
-<div id="0bc5c0f1" class="cell" data-execution_count="9">
+<div id="af47e1c3" class="cell" data-execution_count="9">
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href=""></a>p <span class="op">=</span> <span class="va">True</span></span>
 <span id="cb13-2"><a href=""></a>q <span class="op">=</span> <span class="va">False</span></span>
 <span id="cb13-3"><a href=""></a></span>
@@ -542,7 +542,7 @@ Dr.&nbsp;Smith
 <span id="cb13-6"><a href=""></a>logical_not <span class="op">=</span> <span class="kw">not</span> p    <span class="co"># False</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <h3 id="business-scenario-discount-eligibility">Business Scenario: Discount Eligibility</h3>
-<div id="3a4d4ae2" class="cell" data-execution_count="10">
+<div id="eed9a231" class="cell" data-execution_count="10">
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href=""></a>order_total <span class="op">=</span> <span class="dv">120</span></span>
 <span id="cb14-2"><a href=""></a>is_member <span class="op">=</span> <span class="va">True</span></span>
 <span id="cb14-3"><a href=""></a></span>
@@ -562,7 +562,7 @@ Dr.&nbsp;Smith
 <li><code>str()</code>: Converts to a string.</li>
 </ul>
 <div class="fragment">
-<div id="5e66f405" class="cell" data-execution_count="11">
+<div id="668c13c1" class="cell" data-execution_count="11">
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href=""></a>quantity_string <span class="op">=</span> <span class="st">"5"</span></span>
 <span id="cb16-2"><a href=""></a>quantity_int <span class="op">=</span> <span class="bu">int</span>(quantity_string)</span>
 <span id="cb16-3"><a href=""></a></span>
@@ -590,7 +590,7 @@ Dr.&nbsp;Smith
 <li>Multi-line comments:</li>
 </ul>
 <div class="fragment">
-<div id="6ee9bd36" class="cell" data-execution_count="12">
+<div id="c0d60f6b" class="cell" data-execution_count="12">
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href=""></a><span class="co">"""</span></span>
 <span id="cb17-2"><a href=""></a><span class="co">This is a</span></span>
 <span id="cb17-3"><a href=""></a><span class="co">multi-line</span></span>
