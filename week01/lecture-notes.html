@@ -2396,32 +2396,44 @@ vertical-align: -.125em;
 
 @media screen {
 
-.page-columns {
-grid-template-columns: [screen-start] 1fr [page-start] minmax(0, 1200px) [page-end] 1fr [screen-end] !important;
-}
+@media (max-width: 1200px) {
 #quarto-content {
-max-width: 1400px !important;
+width: 100% !important;
+max-width: 100% !important;
+padding: 0 10px !important;
+}
+#quarto-document-content {
+max-width: calc(100% - 250px) !important;
+}
+.sidebar.toc-left {
+width: 200px !important;
+font-size: 0.9em !important;
+}
+
+#quarto-margin-sidebar {
+display: none !important;
+}
+}
+
+@media (min-width: 1201px) and (max-width: 1600px) {
+#quarto-content {
+max-width: 1100px !important;
 width: 95% !important;
 margin: 0 auto !important;
 }
 #quarto-document-content {
-max-width: 1200px !important;
-margin: 0 auto !important;
+max-width: 900px !important;
 }
-main.content {
-max-width: none !important;
 }
 
-@media (max-width: 1600px) {
+@media (min-width: 1601px) {
 #quarto-content {
-width: 98% !important;
-padding: 0 1% !important;
-}
-.sidebar {
-width: 200px !important;
+max-width: 1400px !important;
+width: 90% !important;
+margin: 0 auto !important;
 }
 #quarto-document-content {
-max-width: calc(100% - 220px) !important;
+max-width: 1000px !important;
 }
 }
 }
@@ -2432,6 +2444,11 @@ max-width: 100% !important;
 pre {
 max-width: 100% !important;
 overflow-x: auto;
+}
+table {
+max-width: 100% !important;
+overflow-x: auto;
+display: block;
 }
 </style>
 <section id="class-1-introduction-to-python-for-business" class="level2">
