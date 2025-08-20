@@ -1,0 +1,1515 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.7.29">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Dr.&nbsp;Smith">
+<meta name="dcterms.date" content="2025-04-21">
+
+<title>Binary Classification Model-Selection Scenarios</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="confusion_matrices_files/libs/clipboard/clipboard.min.js"></script>
+<script src="confusion_matrices_files/libs/quarto-html/quarto.js" type="module"></script>
+<script src="confusion_matrices_files/libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="confusion_matrices_files/libs/quarto-html/popper.min.js"></script>
+<script src="confusion_matrices_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="confusion_matrices_files/libs/quarto-html/anchor.min.js"></script>
+<link href="confusion_matrices_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="confusion_matrices_files/libs/quarto-html/quarto-syntax-highlighting-0815c480559380816a4d1ea211a47e91.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="confusion_matrices_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="confusion_matrices_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="confusion_matrices_files/libs/bootstrap/bootstrap-a8e73f22efd979bb154e7611d03b7b03.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+
+
+</head>
+
+<body class="quarto-light">
+
+<div id="quarto-content" class="page-columns page-rows-contents page-layout-article toc-left">
+<div id="quarto-sidebar-toc-left" class="sidebar toc-left">
+  <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#scenario-1-credit-card-fraud-detection" id="toc-scenario-1-credit-card-fraud-detection" class="nav-link active" data-scroll-target="#scenario-1-credit-card-fraud-detection">Scenario 1 – Credit-Card Fraud Detection</a></li>
+  <li><a href="#scenario-2-enterprise-e-mail-spam-filter" id="toc-scenario-2-enterprise-e-mail-spam-filter" class="nav-link" data-scroll-target="#scenario-2-enterprise-e-mail-spam-filter">Scenario 2 – Enterprise E-mail Spam Filter</a></li>
+  <li><a href="#scenario-3-early-stage-cancer-screening" id="toc-scenario-3-early-stage-cancer-screening" class="nav-link" data-scroll-target="#scenario-3-early-stage-cancer-screening">Scenario 3 – Early-Stage Cancer Screening</a></li>
+  <li><a href="#scenario-4-instant-loan-approval" id="toc-scenario-4-instant-loan-approval" class="nav-link" data-scroll-target="#scenario-4-instant-loan-approval">Scenario 4 – Instant-Loan Approval</a></li>
+  <li><a href="#scenario-5-subscription-customer-churn" id="toc-scenario-5-subscription-customer-churn" class="nav-link" data-scroll-target="#scenario-5-subscription-customer-churn">Scenario 5 – Subscription-Customer Churn</a></li>
+  <li><a href="#scenario-6-predictive-maintenance" id="toc-scenario-6-predictive-maintenance" class="nav-link" data-scroll-target="#scenario-6-predictive-maintenance">Scenario 6 – Predictive Maintenance</a></li>
+  <li><a href="#scenario-7-targeted-advertising-click-prediction" id="toc-scenario-7-targeted-advertising-click-prediction" class="nav-link" data-scroll-target="#scenario-7-targeted-advertising-click-prediction">Scenario 7 – Targeted-Advertising Click Prediction</a></li>
+  <li><a href="#scenario-8-airport-security-threat-detection" id="toc-scenario-8-airport-security-threat-detection" class="nav-link" data-scroll-target="#scenario-8-airport-security-threat-detection">Scenario 8 – Airport Security Threat Detection</a></li>
+  <li><a href="#scenario-9-defective-product-identification" id="toc-scenario-9-defective-product-identification" class="nav-link" data-scroll-target="#scenario-9-defective-product-identification">Scenario 9 – Defective-Product Identification</a></li>
+  <li><a href="#scenario-10-two-factor-authentication-fraud-alert" id="toc-scenario-10-two-factor-authentication-fraud-alert" class="nav-link" data-scroll-target="#scenario-10-two-factor-authentication-fraud-alert">Scenario 10 – Two-Factor Authentication Fraud Alert</a></li>
+  <li><a href="#appendix-suggested-answers-detailed-rationale" id="toc-appendix-suggested-answers-detailed-rationale" class="nav-link" data-scroll-target="#appendix-suggested-answers-detailed-rationale">Appendix – Suggested Answers &amp; Detailed Rationale</a>
+  <ul class="collapse">
+  <li><a href="#scenario-1-fraud-detection" id="toc-scenario-1-fraud-detection" class="nav-link" data-scroll-target="#scenario-1-fraud-detection">Scenario 1 – Fraud Detection</a></li>
+  <li><a href="#scenario-2-spam-filter" id="toc-scenario-2-spam-filter" class="nav-link" data-scroll-target="#scenario-2-spam-filter">Scenario 2 – Spam Filter</a></li>
+  <li><a href="#scenario-3-cancer-screening" id="toc-scenario-3-cancer-screening" class="nav-link" data-scroll-target="#scenario-3-cancer-screening">Scenario 3 – Cancer Screening</a></li>
+  <li><a href="#scenario-4-instant-loan" id="toc-scenario-4-instant-loan" class="nav-link" data-scroll-target="#scenario-4-instant-loan">Scenario 4 – Instant-Loan</a></li>
+  <li><a href="#scenario-5-churn-incentives" id="toc-scenario-5-churn-incentives" class="nav-link" data-scroll-target="#scenario-5-churn-incentives">Scenario 5 – Churn Incentives</a></li>
+  <li><a href="#scenario-6-predictive-maintenance-1" id="toc-scenario-6-predictive-maintenance-1" class="nav-link" data-scroll-target="#scenario-6-predictive-maintenance-1">Scenario 6 – Predictive Maintenance</a></li>
+  <li><a href="#scenario-7-ad-click-prediction" id="toc-scenario-7-ad-click-prediction" class="nav-link" data-scroll-target="#scenario-7-ad-click-prediction">Scenario 7 – Ad Click Prediction</a></li>
+  <li><a href="#scenario-8-airport-threat-detection" id="toc-scenario-8-airport-threat-detection" class="nav-link" data-scroll-target="#scenario-8-airport-threat-detection">Scenario 8 – Airport Threat Detection</a></li>
+  <li><a href="#scenario-9-defect-detection" id="toc-scenario-9-defect-detection" class="nav-link" data-scroll-target="#scenario-9-defect-detection">Scenario 9 – Defect Detection</a></li>
+  <li><a href="#scenario-10-2fa-fraud-alert" id="toc-scenario-10-2fa-fraud-alert" class="nav-link" data-scroll-target="#scenario-10-2fa-fraud-alert">Scenario 10 – 2FA Fraud Alert</a></li>
+  <li><a href="#metric-formulas" id="toc-metric-formulas" class="nav-link" data-scroll-target="#metric-formulas">Metric Formulas</a></li>
+  </ul></li>
+  </ul>
+</nav>
+</div>
+<div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+</div>
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Binary Classification Model-Selection Scenarios</h1>
+<p class="subtitle lead">Confusion-Matrix Reasoning Practice</p>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>ISM4641 </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">April 21, 2025</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p>Below are <strong>ten stand-alone business scenarios</strong>.<br>
+For <strong>each scenario</strong> you receive the confusion matrices of <strong>Model A</strong> and <strong>Model B</strong> (validation data).</p>
+<blockquote class="blockquote">
+<p><strong>Student task</strong><br>
+1. Read the scenario introduction &amp; note <strong>what “positive” means</strong>.<br>
+2. Decide which error type (FP or FN) is costlier and choose the metric that should dominate (Precision, Recall, F1, Accuracy).<br>
+3. Pick the model you would deploy and justify the choice.</p>
+</blockquote>
+<hr>
+<section id="scenario-1-credit-card-fraud-detection" class="level2">
+<h2 class="anchored" data-anchor-id="scenario-1-credit-card-fraud-detection">Scenario 1 – Credit-Card Fraud Detection</h2>
+<p><strong>Context.</strong> A bank’s real-time fraud engine flags suspicious transactions for manual review.</p>
+<ul>
+<li><strong>Positive class (1)</strong> = “Transaction is fraudulent.”<br>
+</li>
+<li><strong>Negative class (0)</strong> = “Transaction is legitimate.”</li>
+</ul>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th></th>
+<th style="text-align: right;"><strong>Pred Fraud</strong></th>
+<th style="text-align: right;"><strong>Pred Legit</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Actual Fraud</strong></td>
+<td style="text-align: right;"><strong>TP = 80</strong></td>
+<td style="text-align: right;"><strong>FN = 20</strong></td>
+</tr>
+<tr class="even">
+<td><strong>Actual Legit</strong></td>
+<td style="text-align: right;">FP = 200</td>
+<td style="text-align: right;">TN = 8 800</td>
+</tr>
+</tbody>
+</table>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th></th>
+<th style="text-align: right;"><strong>Pred Fraud</strong></th>
+<th style="text-align: right;"><strong>Pred Legit</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Actual Fraud</strong></td>
+<td style="text-align: right;"><strong>TP = 60</strong></td>
+<td style="text-align: right;"><strong>FN = 40</strong></td>
+</tr>
+<tr class="even">
+<td><strong>Actual Legit</strong></td>
+<td style="text-align: right;">FP = 50</td>
+<td style="text-align: right;">TN = 8 950</td>
+</tr>
+</tbody>
+</table>
+<hr>
+</section>
+<section id="scenario-2-enterprise-e-mail-spam-filter" class="level2">
+<h2 class="anchored" data-anchor-id="scenario-2-enterprise-e-mail-spam-filter">Scenario 2 – Enterprise E-mail Spam Filter</h2>
+<p><strong>Context.</strong> An internal filter labels business e-mails as spam or not.</p>
+<ul>
+<li><strong>Positive</strong> = “E-mail is spam.”<br>
+</li>
+<li><strong>Negative</strong> = “E-mail is legitimate.”</li>
+</ul>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th></th>
+<th style="text-align: right;"><strong>Pred Spam</strong></th>
+<th style="text-align: right;"><strong>Pred Not</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Actual Spam</strong></td>
+<td style="text-align: right;"><strong>TP = 900</strong></td>
+<td style="text-align: right;"><strong>FN = 100</strong></td>
+</tr>
+<tr class="even">
+<td><strong>Actual Not Spam</strong></td>
+<td style="text-align: right;">FP = 50</td>
+<td style="text-align: right;">TN = 950</td>
+</tr>
+</tbody>
+</table>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th></th>
+<th style="text-align: right;"><strong>Pred Spam</strong></th>
+<th style="text-align: right;"><strong>Pred Not</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Actual Spam</strong></td>
+<td style="text-align: right;"><strong>TP = 850</strong></td>
+<td style="text-align: right;"><strong>FN = 150</strong></td>
+</tr>
+<tr class="even">
+<td><strong>Actual Not Spam</strong></td>
+<td style="text-align: right;">FP = 10</td>
+<td style="text-align: right;">TN = 990</td>
+</tr>
+</tbody>
+</table>
+<hr>
+</section>
+<section id="scenario-3-early-stage-cancer-screening" class="level2">
+<h2 class="anchored" data-anchor-id="scenario-3-early-stage-cancer-screening">Scenario 3 – Early-Stage Cancer Screening</h2>
+<p><strong>Context.</strong> A blood test screens patients; positives get further imaging.</p>
+<ul>
+<li><strong>Positive</strong> = “Patient has early-stage cancer.”<br>
+</li>
+<li><strong>Negative</strong> = “No cancer present.”</li>
+</ul>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th></th>
+<th style="text-align: right;"><strong>Pred Positive</strong></th>
+<th style="text-align: right;"><strong>Pred Negative</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Actual Cancer</strong></td>
+<td style="text-align: right;"><strong>TP = 45</strong></td>
+<td style="text-align: right;"><strong>FN = 5</strong></td>
+</tr>
+<tr class="even">
+<td><strong>Actual No Cancer</strong></td>
+<td style="text-align: right;">FP = 120</td>
+<td style="text-align: right;">TN = 9 830</td>
+</tr>
+</tbody>
+</table>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th></th>
+<th style="text-align: right;"><strong>Pred Positive</strong></th>
+<th style="text-align: right;"><strong>Pred Negative</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Actual Cancer</strong></td>
+<td style="text-align: right;"><strong>TP = 40</strong></td>
+<td style="text-align: right;"><strong>FN = 10</strong></td>
+</tr>
+<tr class="even">
+<td><strong>Actual No Cancer</strong></td>
+<td style="text-align: right;">FP = 40</td>
+<td style="text-align: right;">TN = 9 910</td>
+</tr>
+</tbody>
+</table>
+<hr>
+</section>
+<section id="scenario-4-instant-loan-approval" class="level2">
+<h2 class="anchored" data-anchor-id="scenario-4-instant-loan-approval">Scenario 4 – Instant-Loan Approval</h2>
+<p><strong>Context.</strong> An online lender auto-approves or rejects applications.</p>
+<ul>
+<li><strong>Positive</strong> = “Applicant will default.”<br>
+</li>
+<li><strong>Negative</strong> = “Applicant will repay.”</li>
+</ul>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th></th>
+<th style="text-align: right;"><strong>Pred Default</strong></th>
+<th style="text-align: right;"><strong>Pred No Default</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Actual Default</strong></td>
+<td style="text-align: right;"><strong>TP = 70</strong></td>
+<td style="text-align: right;"><strong>FN = 30</strong></td>
+</tr>
+<tr class="even">
+<td><strong>Actual Repay</strong></td>
+<td style="text-align: right;">FP = 90</td>
+<td style="text-align: right;">TN = 8 810</td>
+</tr>
+</tbody>
+</table>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th></th>
+<th style="text-align: right;"><strong>Pred Default</strong></th>
+<th style="text-align: right;"><strong>Pred No Default</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Actual Default</strong></td>
+<td style="text-align: right;"><strong>TP = 55</strong></td>
+<td style="text-align: right;"><strong>FN = 45</strong></td>
+</tr>
+<tr class="even">
+<td><strong>Actual Repay</strong></td>
+<td style="text-align: right;">FP = 20</td>
+<td style="text-align: right;">TN = 8 880</td>
+</tr>
+</tbody>
+</table>
+<hr>
+</section>
+<section id="scenario-5-subscription-customer-churn" class="level2">
+<h2 class="anchored" data-anchor-id="scenario-5-subscription-customer-churn">Scenario 5 – Subscription-Customer Churn</h2>
+<p><strong>Context.</strong> Marketing sends incentives to customers predicted to churn.</p>
+<ul>
+<li><strong>Positive</strong> = “Customer will churn.”<br>
+</li>
+<li><strong>Negative</strong> = “Customer will stay.”</li>
+</ul>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th></th>
+<th style="text-align: right;"><strong>Pred Churn</strong></th>
+<th style="text-align: right;"><strong>Pred Stay</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Actual Churn</strong></td>
+<td style="text-align: right;"><strong>TP = 300</strong></td>
+<td style="text-align: right;"><strong>FN = 200</strong></td>
+</tr>
+<tr class="even">
+<td><strong>Actual Stay</strong></td>
+<td style="text-align: right;">FP = 150</td>
+<td style="text-align: right;">TN = 3 350</td>
+</tr>
+</tbody>
+</table>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th></th>
+<th style="text-align: right;"><strong>Pred Churn</strong></th>
+<th style="text-align: right;"><strong>Pred Stay</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Actual Churn</strong></td>
+<td style="text-align: right;"><strong>TP = 220</strong></td>
+<td style="text-align: right;"><strong>FN = 280</strong></td>
+</tr>
+<tr class="even">
+<td><strong>Actual Stay</strong></td>
+<td style="text-align: right;">FP = 40</td>
+<td style="text-align: right;">TN = 3 460</td>
+</tr>
+</tbody>
+</table>
+<hr>
+</section>
+<section id="scenario-6-predictive-maintenance" class="level2">
+<h2 class="anchored" data-anchor-id="scenario-6-predictive-maintenance">Scenario 6 – Predictive Maintenance</h2>
+<p><strong>Context.</strong> Sensors predict imminent machine failure.</p>
+<ul>
+<li><strong>Positive</strong> = “Machine will fail soon.”<br>
+</li>
+<li><strong>Negative</strong> = “No imminent failure.”</li>
+</ul>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th></th>
+<th style="text-align: right;"><strong>Pred Fail</strong></th>
+<th style="text-align: right;"><strong>Pred No Fail</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Actual Fail</strong></td>
+<td style="text-align: right;"><strong>TP = 95</strong></td>
+<td style="text-align: right;"><strong>FN = 5</strong></td>
+</tr>
+<tr class="even">
+<td><strong>Actual No Fail</strong></td>
+<td style="text-align: right;">FP = 380</td>
+<td style="text-align: right;">TN = 5 520</td>
+</tr>
+</tbody>
+</table>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th></th>
+<th style="text-align: right;"><strong>Pred Fail</strong></th>
+<th style="text-align: right;"><strong>Pred No Fail</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Actual Fail</strong></td>
+<td style="text-align: right;"><strong>TP = 80</strong></td>
+<td style="text-align: right;"><strong>FN = 20</strong></td>
+</tr>
+<tr class="even">
+<td><strong>Actual No Fail</strong></td>
+<td style="text-align: right;">FP = 110</td>
+<td style="text-align: right;">TN = 5 790</td>
+</tr>
+</tbody>
+</table>
+<hr>
+</section>
+<section id="scenario-7-targeted-advertising-click-prediction" class="level2">
+<h2 class="anchored" data-anchor-id="scenario-7-targeted-advertising-click-prediction">Scenario 7 – Targeted-Advertising Click Prediction</h2>
+<p><strong>Context.</strong> Serving an ad costs money; only clicks generate revenue.</p>
+<ul>
+<li><strong>Positive</strong> = “User will click the ad.”<br>
+</li>
+<li><strong>Negative</strong> = “User will not click.”</li>
+</ul>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th></th>
+<th style="text-align: right;"><strong>Pred Click</strong></th>
+<th style="text-align: right;"><strong>Pred No Click</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Actual Click</strong></td>
+<td style="text-align: right;"><strong>TP = 1 500</strong></td>
+<td style="text-align: right;"><strong>FN = 1 000</strong></td>
+</tr>
+<tr class="even">
+<td><strong>Actual No Click</strong></td>
+<td style="text-align: right;">FP = 2 500</td>
+<td style="text-align: right;">TN = 45 000</td>
+</tr>
+</tbody>
+</table>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th></th>
+<th style="text-align: right;"><strong>Pred Click</strong></th>
+<th style="text-align: right;"><strong>Pred No Click</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Actual Click</strong></td>
+<td style="text-align: right;"><strong>TP = 900</strong></td>
+<td style="text-align: right;"><strong>FN = 1 600</strong></td>
+</tr>
+<tr class="even">
+<td><strong>Actual No Click</strong></td>
+<td style="text-align: right;">FP = 600</td>
+<td style="text-align: right;">TN = 46 900</td>
+</tr>
+</tbody>
+</table>
+<hr>
+</section>
+<section id="scenario-8-airport-security-threat-detection" class="level2">
+<h2 class="anchored" data-anchor-id="scenario-8-airport-security-threat-detection">Scenario 8 – Airport Security Threat Detection</h2>
+<p><strong>Context.</strong> AI flags baggage scans for secondary screening.</p>
+<ul>
+<li><strong>Positive</strong> = “Image shows a threat item.”<br>
+</li>
+<li><strong>Negative</strong> = “Image is safe.”</li>
+</ul>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th></th>
+<th style="text-align: right;"><strong>Pred Threat</strong></th>
+<th style="text-align: right;"><strong>Pred Safe</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Actual Threat</strong></td>
+<td style="text-align: right;"><strong>TP = 48</strong></td>
+<td style="text-align: right;"><strong>FN = 2</strong></td>
+</tr>
+<tr class="even">
+<td><strong>Actual Safe</strong></td>
+<td style="text-align: right;">FP = 190</td>
+<td style="text-align: right;">TN = 9 760</td>
+</tr>
+</tbody>
+</table>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th></th>
+<th style="text-align: right;"><strong>Pred Threat</strong></th>
+<th style="text-align: right;"><strong>Pred Safe</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Actual Threat</strong></td>
+<td style="text-align: right;"><strong>TP = 45</strong></td>
+<td style="text-align: right;"><strong>FN = 5</strong></td>
+</tr>
+<tr class="even">
+<td><strong>Actual Safe</strong></td>
+<td style="text-align: right;">FP = 60</td>
+<td style="text-align: right;">TN = 9 890</td>
+</tr>
+</tbody>
+</table>
+<hr>
+</section>
+<section id="scenario-9-defective-product-identification" class="level2">
+<h2 class="anchored" data-anchor-id="scenario-9-defective-product-identification">Scenario 9 – Defective-Product Identification</h2>
+<p><strong>Context.</strong> A vision system marks units for re-inspection.</p>
+<ul>
+<li><strong>Positive</strong> = “Unit is defective.”<br>
+</li>
+<li><strong>Negative</strong> = “Unit is good.”</li>
+</ul>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th></th>
+<th style="text-align: right;"><strong>Pred Defect</strong></th>
+<th style="text-align: right;"><strong>Pred Good</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Actual Defect</strong></td>
+<td style="text-align: right;"><strong>TP = 120</strong></td>
+<td style="text-align: right;"><strong>FN = 30</strong></td>
+</tr>
+<tr class="even">
+<td><strong>Actual Good</strong></td>
+<td style="text-align: right;">FP = 700</td>
+<td style="text-align: right;">TN = 28 150</td>
+</tr>
+</tbody>
+</table>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th></th>
+<th style="text-align: right;"><strong>Pred Defect</strong></th>
+<th style="text-align: right;"><strong>Pred Good</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Actual Defect</strong></td>
+<td style="text-align: right;"><strong>TP = 95</strong></td>
+<td style="text-align: right;"><strong>FN = 55</strong></td>
+</tr>
+<tr class="even">
+<td><strong>Actual Good</strong></td>
+<td style="text-align: right;">FP = 120</td>
+<td style="text-align: right;">TN = 28 730</td>
+</tr>
+</tbody>
+</table>
+<hr>
+</section>
+<section id="scenario-10-two-factor-authentication-fraud-alert" class="level2">
+<h2 class="anchored" data-anchor-id="scenario-10-two-factor-authentication-fraud-alert">Scenario 10 – Two-Factor Authentication Fraud Alert</h2>
+<p><strong>Context.</strong> A model decides whether to challenge a login with 2FA.</p>
+<ul>
+<li><strong>Positive</strong> = “Login is fraudulent.”<br>
+</li>
+<li><strong>Negative</strong> = “Login is legitimate.”</li>
+</ul>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th></th>
+<th style="text-align: right;"><strong>Pred Fraud</strong></th>
+<th style="text-align: right;"><strong>Pred Legit</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Actual Fraud</strong></td>
+<td style="text-align: right;"><strong>TP = 1 200</strong></td>
+<td style="text-align: right;"><strong>FN = 50</strong></td>
+</tr>
+<tr class="even">
+<td><strong>Actual Legit</strong></td>
+<td style="text-align: right;">FP = 900</td>
+<td style="text-align: right;">TN = 98 850</td>
+</tr>
+</tbody>
+</table>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th></th>
+<th style="text-align: right;"><strong>Pred Fraud</strong></th>
+<th style="text-align: right;"><strong>Pred Legit</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Actual Fraud</strong></td>
+<td style="text-align: right;"><strong>TP = 1 100</strong></td>
+<td style="text-align: right;"><strong>FN = 150</strong></td>
+</tr>
+<tr class="even">
+<td><strong>Actual Legit</strong></td>
+<td style="text-align: right;">FP = 200</td>
+<td style="text-align: right;">TN = 99 550</td>
+</tr>
+</tbody>
+</table>
+<hr>
+</section>
+<section id="appendix-suggested-answers-detailed-rationale" class="level2">
+<h2 class="anchored" data-anchor-id="appendix-suggested-answers-detailed-rationale">Appendix – Suggested Answers &amp; Detailed Rationale</h2>
+<blockquote class="blockquote">
+<p><strong>Cell interpretations</strong> shown up front for each scenario.</p>
+</blockquote>
+<section id="scenario-1-fraud-detection" class="level3">
+<h3 class="anchored" data-anchor-id="scenario-1-fraud-detection">Scenario 1 – Fraud Detection</h3>
+<ul>
+<li><strong>TP</strong> = Fraudulent transaction correctly flagged.<br>
+</li>
+<li><strong>FP</strong> = Legitimate transaction incorrectly flagged for fraud review.<br>
+</li>
+<li><strong>FN</strong> = Fraudulent transaction missed (processed as legitimate).<br>
+</li>
+<li><strong>TN</strong> = Legitimate transaction correctly left alone.</li>
+</ul>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Model</th>
+<th>Precision</th>
+<th>Recall</th>
+<th>F1</th>
+<th>Accuracy</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>A</strong></td>
+<td>.286</td>
+<td><strong>.800</strong></td>
+<td>.421</td>
+<td>.976</td>
+</tr>
+<tr class="even">
+<td>B</td>
+<td>.545</td>
+<td>.600</td>
+<td>.571</td>
+<td>.990</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Metric to favour:</strong> <strong>Recall</strong> – Missing fraud incurs direct loss.<br>
+<strong>Best model:</strong> <strong>A</strong> – Catches 80 % of fraud; extra reviews (FPs) are cheap.</p>
+<hr>
+</section>
+<section id="scenario-2-spam-filter" class="level3">
+<h3 class="anchored" data-anchor-id="scenario-2-spam-filter">Scenario 2 – Spam Filter</h3>
+<ul>
+<li><strong>TP</strong> = Spam correctly filtered.<br>
+</li>
+<li><strong>FP</strong> = Business e-mail wrongly sent to spam (critical).<br>
+</li>
+<li><strong>FN</strong> = Spam that slips through.<br>
+</li>
+<li><strong>TN</strong> = Legitimate e-mail delivered.</li>
+</ul>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Model</th>
+<th>Precision</th>
+<th>Recall</th>
+<th>F1</th>
+<th>Accuracy</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>A</td>
+<td>.947</td>
+<td>.900</td>
+<td><strong>.923</strong></td>
+<td>.925</td>
+</tr>
+<tr class="even">
+<td><strong>B</strong></td>
+<td><strong>.988</strong></td>
+<td>.850</td>
+<td>.914</td>
+<td>.920</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Metric to favour:</strong> <strong>Precision</strong> – FP hides important mail.<br>
+<strong>Best model:</strong> <strong>B</strong> – Almost every flagged e-mail really is spam.</p>
+<hr>
+</section>
+<section id="scenario-3-cancer-screening" class="level3">
+<h3 class="anchored" data-anchor-id="scenario-3-cancer-screening">Scenario 3 – Cancer Screening</h3>
+<ul>
+<li><strong>TP</strong> = Cancer correctly detected.<br>
+</li>
+<li><strong>FP</strong> = Healthy patient flagged (extra tests).<br>
+</li>
+<li><strong>FN</strong> = Cancer missed.<br>
+</li>
+<li><strong>TN</strong> = Healthy patient cleared.</li>
+</ul>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Model</th>
+<th>Precision</th>
+<th>Recall</th>
+<th>F1</th>
+<th>Accuracy</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>A</strong></td>
+<td>.273</td>
+<td><strong>.900</strong></td>
+<td>.419</td>
+<td>.988</td>
+</tr>
+<tr class="even">
+<td>B</td>
+<td>.500</td>
+<td>.800</td>
+<td><strong>.615</strong></td>
+<td>.995</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Metric to favour:</strong> <strong>Recall</strong> – FN threatens patient life.<br>
+<strong>Best model:</strong> <strong>A</strong> – Only 5 missed cancers out of 50.</p>
+<hr>
+</section>
+<section id="scenario-4-instant-loan" class="level3">
+<h3 class="anchored" data-anchor-id="scenario-4-instant-loan">Scenario 4 – Instant-Loan</h3>
+<ul>
+<li><strong>TP</strong> = Defaulter correctly denied.<br>
+</li>
+<li><strong>FP</strong> = Good borrower wrongly denied (lost revenue).<br>
+</li>
+<li><strong>FN</strong> = Defaulter wrongly approved (bad debt).<br>
+</li>
+<li><strong>TN</strong> = Good borrower approved.</li>
+</ul>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Model</th>
+<th>Precision</th>
+<th>Recall</th>
+<th>F1</th>
+<th>Accuracy</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>A</td>
+<td>.438</td>
+<td>.700</td>
+<td>.538</td>
+<td>.987</td>
+</tr>
+<tr class="even">
+<td><strong>B</strong></td>
+<td><strong>.733</strong></td>
+<td>.550</td>
+<td><strong>.629</strong></td>
+<td>.993</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Metric to favour:</strong> <strong>Precision</strong> – FP (good borrower denied) costs less than FN (bad debt).<br>
+<strong>Best model:</strong> <strong>B</strong> – High precision drastically lowers bad-debt risk.</p>
+<hr>
+</section>
+<section id="scenario-5-churn-incentives" class="level3">
+<h3 class="anchored" data-anchor-id="scenario-5-churn-incentives">Scenario 5 – Churn Incentives</h3>
+<ul>
+<li><strong>TP</strong> = At-risk customer correctly offered incentive.<br>
+</li>
+<li><strong>FP</strong> = Stable customer offered unnecessary incentive (cost).<br>
+</li>
+<li><strong>FN</strong> = At-risk customer not offered (lost revenue).<br>
+</li>
+<li><strong>TN</strong> = Stable customer not contacted.</li>
+</ul>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Model</th>
+<th>Precision</th>
+<th>Recall</th>
+<th>F1</th>
+<th>Accuracy</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>A</td>
+<td>.667</td>
+<td><strong>.600</strong></td>
+<td><strong>.632</strong></td>
+<td>.913</td>
+</tr>
+<tr class="even">
+<td><strong>B</strong></td>
+<td><strong>.846</strong></td>
+<td>.440</td>
+<td>.579</td>
+<td>.920</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Metric to favour:</strong> <strong>Precision</strong> – Incentives are expensive.<br>
+<strong>Best model:</strong> <strong>B</strong> – 85 % of offers go to true churn risks.</p>
+<hr>
+</section>
+<section id="scenario-6-predictive-maintenance-1" class="level3">
+<h3 class="anchored" data-anchor-id="scenario-6-predictive-maintenance-1">Scenario 6 – Predictive Maintenance</h3>
+<ul>
+<li><strong>TP</strong> = Impending failure correctly scheduled for maintenance.<br>
+</li>
+<li><strong>FP</strong> = Healthy machine serviced unnecessarily.<br>
+</li>
+<li><strong>FN</strong> = Failure missed (breakdown).<br>
+</li>
+<li><strong>TN</strong> = Healthy machine left running.</li>
+</ul>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Model</th>
+<th>Precision</th>
+<th>Recall</th>
+<th>F1</th>
+<th>Accuracy</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>A</strong></td>
+<td>.200</td>
+<td><strong>.950</strong></td>
+<td>.330</td>
+<td>.936</td>
+</tr>
+<tr class="even">
+<td>B</td>
+<td>.421</td>
+<td>.800</td>
+<td><strong>.552</strong></td>
+<td>.978</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Metric to favour:</strong> <strong>Recall</strong> – FN causes costly downtime.<br>
+<strong>Best model:</strong> <strong>A</strong> – Captures 95 % of failures; extra maintenance is cheap insurance.</p>
+<hr>
+</section>
+<section id="scenario-7-ad-click-prediction" class="level3">
+<h3 class="anchored" data-anchor-id="scenario-7-ad-click-prediction">Scenario 7 – Ad Click Prediction</h3>
+<ul>
+<li><strong>TP</strong> = User clicked and received ad.<br>
+</li>
+<li><strong>FP</strong> = Ad shown but user didn’t click (wasted cost).<br>
+</li>
+<li><strong>FN</strong> = No ad shown; user would have clicked (missed opportunity).<br>
+</li>
+<li><strong>TN</strong> = No ad and no click.</li>
+</ul>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Model</th>
+<th>Precision</th>
+<th>Recall</th>
+<th>F1</th>
+<th>Accuracy</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>A</td>
+<td>.375</td>
+<td><strong>.600</strong></td>
+<td><strong>.462</strong></td>
+<td>.930</td>
+</tr>
+<tr class="even">
+<td><strong>B</strong></td>
+<td><strong>.600</strong></td>
+<td>.360</td>
+<td>.450</td>
+<td>.956</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Metric to favour:</strong> <strong>Precision</strong> – Serving an ad is paid for.<br>
+<strong>Best model:</strong> <strong>B</strong> – Reduces wasted impressions and increases ROI.</p>
+<hr>
+</section>
+<section id="scenario-8-airport-threat-detection" class="level3">
+<h3 class="anchored" data-anchor-id="scenario-8-airport-threat-detection">Scenario 8 – Airport Threat Detection</h3>
+<ul>
+<li><strong>TP</strong> = Threat item flagged.<br>
+</li>
+<li><strong>FP</strong> = Safe bag flagged (delay).<br>
+</li>
+<li><strong>FN</strong> = Threat missed (danger).<br>
+</li>
+<li><strong>TN</strong> = Safe bag passed.</li>
+</ul>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Model</th>
+<th>Precision</th>
+<th>Recall</th>
+<th>F1</th>
+<th>Accuracy</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>A</strong></td>
+<td>.202</td>
+<td><strong>.960</strong></td>
+<td>.333</td>
+<td>.981</td>
+</tr>
+<tr class="even">
+<td>B</td>
+<td>.429</td>
+<td>.900</td>
+<td><strong>.583</strong></td>
+<td>.993</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Metric to favour:</strong> <strong>Recall</strong> – FN jeopardises safety.<br>
+<strong>Best model:</strong> <strong>A</strong> – Flags 96 % of threats; queues can absorb extra checks.</p>
+<hr>
+</section>
+<section id="scenario-9-defect-detection" class="level3">
+<h3 class="anchored" data-anchor-id="scenario-9-defect-detection">Scenario 9 – Defect Detection</h3>
+<ul>
+<li><strong>TP</strong> = Defective unit flagged.<br>
+</li>
+<li><strong>FP</strong> = Good unit flagged (re-inspect).<br>
+</li>
+<li><strong>FN</strong> = Defective unit shipped.<br>
+</li>
+<li><strong>TN</strong> = Good unit shipped.</li>
+</ul>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Model</th>
+<th>Precision</th>
+<th>Recall</th>
+<th>F1</th>
+<th>Accuracy</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>A</strong></td>
+<td>.146</td>
+<td><strong>.800</strong></td>
+<td>.247</td>
+<td>.975</td>
+</tr>
+<tr class="even">
+<td>B</td>
+<td>.442</td>
+<td>.633</td>
+<td><strong>.523</strong></td>
+<td>.994</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Metric to favour:</strong> <strong>Recall</strong> – FN triggers recalls/reputation damage.<br>
+<strong>Best model:</strong> <strong>A</strong> – Catches 80 % of defects; extra inspections are cheap.</p>
+<hr>
+</section>
+<section id="scenario-10-2fa-fraud-alert" class="level3">
+<h3 class="anchored" data-anchor-id="scenario-10-2fa-fraud-alert">Scenario 10 – 2FA Fraud Alert</h3>
+<ul>
+<li><strong>TP</strong> = Fraud login challenged.<br>
+</li>
+<li><strong>FP</strong> = Legitimate user challenged (UX hit).<br>
+</li>
+<li><strong>FN</strong> = Fraud login let through (breach).<br>
+</li>
+<li><strong>TN</strong> = Legitimate login allowed.</li>
+</ul>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Model</th>
+<th>Precision</th>
+<th>Recall</th>
+<th>F1</th>
+<th>Accuracy</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>A</strong></td>
+<td>.571</td>
+<td><strong>.960</strong></td>
+<td>.716</td>
+<td>.991</td>
+</tr>
+<tr class="even">
+<td>B</td>
+<td>.846</td>
+<td>.880</td>
+<td><strong>.863</strong></td>
+<td>.997</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Metric to favour:</strong> <strong>Recall</strong> – FN compromises security.<br>
+<strong>Best model:</strong> <strong>A</strong> – Blocks 96 % of fraud; extra prompts are acceptable.</p>
+<hr>
+</section>
+<section id="metric-formulas" class="level3">
+<h3 class="anchored" data-anchor-id="metric-formulas">Metric Formulas</h3>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 13%">
+<col style="width: 37%">
+<col style="width: 48%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Metric</th>
+<th>Formula</th>
+<th>Interpretation</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Precision</strong></td>
+<td>TP / (TP + FP)</td>
+<td>Of predicted positives, fraction correct.</td>
+</tr>
+<tr class="even">
+<td><strong>Recall</strong></td>
+<td>TP / (TP + FN)</td>
+<td>Of actual positives, fraction caught.</td>
+</tr>
+<tr class="odd">
+<td><strong>F1-score</strong></td>
+<td>2 × (P×R)/(P+R)</td>
+<td>Harmonic mean balancing Precision &amp; Recall.</td>
+</tr>
+<tr class="even">
+<td><strong>Accuracy</strong></td>
+<td>(TP + TN) / Total</td>
+<td>Overall correctness (can mislead if classes are imbalanced).</td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+
+</main>
+<!-- /main column -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+        const codeEl = trigger.previousElementSibling.cloneNode(true);
+        for (const childEl of codeEl.children) {
+          if (isCodeAnnotation(childEl)) {
+            childEl.remove();
+          }
+        }
+        return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>
