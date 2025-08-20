@@ -2395,19 +2395,22 @@ vertical-align: -.125em;
 <style>
 
 
+
 #quarto-content {
-max-width: 1050px !important; 
-width: 98% !important;
+max-width: 920px !important; 
+width: 95% !important;
 margin: 0 auto !important;
 padding: 0 10px !important;
 }
 #quarto-document-content {
-max-width: 800px !important; 
+max-width: 680px !important; 
 width: 100% !important;
+padding: 0 15px !important;
 }
-.sidebar.toc-left {
-width: 220px !important;
-font-size: 0.95em !important;
+.sidebar.toc-left, .toc-left {
+width: 200px !important; 
+font-size: 0.9em !important;
+margin-right: 15px !important;
 }
 
 #quarto-margin-sidebar {
@@ -2415,34 +2418,34 @@ display: none !important;
 }
 
 .page-columns {
-gap: 20px !important;
+gap: 15px !important;
 }
 
-@media (min-width: 1400px) {
+@media screen and (min-width: 1600px) {
 #quarto-content {
 max-width: 1200px !important;
-width: 90% !important;
 }
 #quarto-document-content {
 max-width: 900px !important;
 }
-.sidebar.toc-left {
+.sidebar.toc-left,
+.toc-left {
 width: 250px !important;
 font-size: 1em !important;
 }
 }
 
-.cell, .sourceCode {
+.cell, .sourceCode, pre, table {
 max-width: 100% !important;
-}
-pre {
-max-width: 100% !important;
-overflow-x: auto;
+overflow-x: auto !important;
 }
 table {
+display: block !important;
+}
+
+img {
 max-width: 100% !important;
-overflow-x: auto;
-display: block;
+height: auto !important;
 }
 </style>
 <section id="class-1-introduction-to-python-for-business" class="level2">
