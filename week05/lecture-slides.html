@@ -259,7 +259,7 @@ Dr.&nbsp;Smith
 </section>
 <section id="why-numpy-over-python-lists" class="slide level2">
 <h2>Why NumPy Over Python Lists?</h2>
-<div id="9464ccac" class="cell" data-execution_count="1">
+<div id="68336245" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href=""></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb1-2"><a href=""></a><span class="im">import</span> time</span>
 <span id="cb1-3"><a href=""></a></span>
@@ -297,9 +297,9 @@ Dr.&nbsp;Smith
 <pre><code>PERFORMANCE COMPARISON
 ==============================
 Data Size: 1,000,000 elements
-Python List Time: 0.0251 seconds
-NumPy Array Time: 0.0010 seconds
-NumPy is 25.2x faster!
+Python List Time: 0.0264 seconds
+NumPy Array Time: 0.0013 seconds
+NumPy is 21.0x faster!
 
 Memory Usage (first 1000 elements):
 Python List: 8,028,040 bytes
@@ -311,7 +311,7 @@ NumPy uses 1003.5x less memory</code></pre>
 <section id="array-creation" class="slide level2 smaller">
 <h2>Array Creation</h2>
 <h3 id="multiple-ways-to-create-arrays">Multiple Ways to Create Arrays</h3>
-<div id="d87fff53" class="cell" data-execution_count="2">
+<div id="6bcae735" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href=""></a><span class="co"># From Python lists - Business data</span></span>
 <span id="cb3-2"><a href=""></a>quarterly_sales <span class="op">=</span> np.array([<span class="dv">250000</span>, <span class="dv">280000</span>, <span class="dv">265000</span>, <span class="dv">310000</span>])</span>
 <span id="cb3-3"><a href=""></a><span class="bu">print</span>(<span class="ss">f"Quarterly Sales: </span><span class="sc">{</span>quarterly_sales<span class="sc">}</span><span class="ss">"</span>)</span>
@@ -365,7 +365,7 @@ Identity Matrix:
 <section id="array-properties" class="slide level2 smaller">
 <h2>Array Properties</h2>
 <h3 id="understanding-your-data-structure">Understanding Your Data Structure</h3>
-<div id="8047f6a2" class="cell" data-execution_count="3">
+<div id="a4d2a093" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href=""></a><span class="co"># Business sales data analysis</span></span>
 <span id="cb5-2"><a href=""></a>regional_sales <span class="op">=</span> np.array([</span>
 <span id="cb5-3"><a href=""></a>    [<span class="dv">85000</span>, <span class="dv">92000</span>, <span class="dv">78000</span>, <span class="dv">88000</span>],  <span class="co"># Q1 sales by month</span></span>
@@ -432,7 +432,7 @@ Average Monthly Revenue: $90,166.67</code></pre>
 </section>
 <section id="basic-indexing" class="slide level2">
 <h2>Basic Indexing</h2>
-<div id="b0cf84e7" class="cell" data-execution_count="4">
+<div id="73e12621" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href=""></a><span class="co"># Customer transaction data</span></span>
 <span id="cb7-2"><a href=""></a>customer_data <span class="op">=</span> np.array([</span>
 <span id="cb7-3"><a href=""></a>    [<span class="dv">1001</span>, <span class="dv">25</span>, <span class="fl">150.50</span>, <span class="dv">2023</span>],  <span class="co"># Customer ID, Age, Purchase Amount, Year</span></span>
@@ -501,7 +501,7 @@ Average Purchase: $201.99</code></pre>
 <section id="advanced-slicing" class="slide level2 smaller">
 <h2>Advanced Slicing</h2>
 <h3 id="extracting-business-insights">Extracting Business Insights</h3>
-<div id="68a2959d" class="cell" data-execution_count="5">
+<div id="92edc681" class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href=""></a><span class="co"># Multi-store sales data</span></span>
 <span id="cb9-2"><a href=""></a><span class="co"># Stores: [Store A, Store B, Store C, Store D]</span></span>
 <span id="cb9-3"><a href=""></a><span class="co"># Products: [Laptops, Tablets, Phones, Accessories]</span></span>
@@ -582,7 +582,7 @@ Number of stores: 4
 </section>
 <section id="mathematical-operations" class="slide level2">
 <h2>Mathematical Operations</h2>
-<div id="9f80fde0" class="cell" data-execution_count="6">
+<div id="d2bd2397" class="cell" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href=""></a><span class="co"># Sales performance data</span></span>
 <span id="cb11-2"><a href=""></a>current_sales <span class="op">=</span> np.array([<span class="dv">85000</span>, <span class="dv">92000</span>, <span class="dv">78000</span>, <span class="dv">88000</span>, <span class="dv">95000</span>])</span>
 <span id="cb11-3"><a href=""></a>previous_sales <span class="op">=</span> np.array([<span class="dv">80000</span>, <span class="dv">87000</span>, <span class="dv">82000</span>, <span class="dv">85000</span>, <span class="dv">90000</span>])</span>
@@ -639,7 +639,7 @@ Compound Growth Rate: 16.79%</code></pre>
 <section id="custom-functions-with-arrays" class="slide level2 smaller">
 <h2>Custom Functions with Arrays</h2>
 <h3 id="business-logic-applied-to-arrays">Business Logic Applied to Arrays</h3>
-<div id="c53a7f1e" class="cell" data-execution_count="7">
+<div id="70bd3c78" class="cell" data-execution_count="7">
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href=""></a><span class="co"># Pricing analysis with discount tiers</span></span>
 <span id="cb13-2"><a href=""></a>base_prices <span class="op">=</span> np.array([<span class="fl">999.99</span>, <span class="fl">1299.99</span>, <span class="fl">1599.99</span>, <span class="fl">1999.99</span>, <span class="fl">2499.99</span>])</span>
 <span id="cb13-3"><a href=""></a></span>
@@ -747,7 +747,7 @@ Total Savings: $1219.99</code></pre>
 </section>
 <section id="data-filtering-for-business-intelligence" class="slide level2">
 <h2>Data Filtering for Business Intelligence</h2>
-<div id="c6042d0a" class="cell" data-execution_count="8">
+<div id="c36d3a52" class="cell" data-execution_count="8">
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href=""></a><span class="co"># Employee performance data</span></span>
 <span id="cb15-2"><a href=""></a>employees <span class="op">=</span> np.array([</span>
 <span id="cb15-3"><a href=""></a>    [<span class="dv">101</span>, <span class="dv">25</span>, <span class="dv">55000</span>, <span class="dv">92</span>],   <span class="co"># ID, Age, Salary, Performance Score</span></span>
@@ -843,7 +843,7 @@ Low Performance Outliers (&lt;72.5): 0</code></pre>
 </section>
 <section id="business-analytics-with-numpy" class="slide level2">
 <h2>Business Analytics with NumPy</h2>
-<div id="24a91d91" class="cell" data-execution_count="9">
+<div id="d5bacece" class="cell" data-execution_count="9">
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href=""></a><span class="co"># Quarterly sales data for multiple product lines</span></span>
 <span id="cb17-2"><a href=""></a>product_sales <span class="op">=</span> np.array([</span>
 <span id="cb17-3"><a href=""></a>    [<span class="dv">125000</span>, <span class="dv">135000</span>, <span class="dv">128000</span>, <span class="dv">142000</span>],  <span class="co"># Product A</span></span>
@@ -946,7 +946,7 @@ Product E: 3.9% volatility</code></pre>
 </section>
 <section id="advanced-business-calculations" class="slide level2">
 <h2>Advanced Business Calculations</h2>
-<div id="7ea7db4f" class="cell" data-execution_count="10">
+<div id="52f2c4f9" class="cell" data-execution_count="10">
 <div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href=""></a><span class="co"># Regional sales performance data</span></span>
 <span id="cb19-2"><a href=""></a><span class="co"># Regions: North, South, East, West</span></span>
 <span id="cb19-3"><a href=""></a><span class="co"># Months: Jan through Dec</span></span>
@@ -1070,7 +1070,7 @@ Company Total: $4,781K</code></pre>
 </section>
 <section id="saving-and-loading-business-data" class="slide level2">
 <h2>Saving and Loading Business Data</h2>
-<div id="54e31c12" class="cell" data-execution_count="11">
+<div id="f7551e90" class="cell" data-execution_count="11">
 <div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href=""></a><span class="co"># Sample business data for demonstration</span></span>
 <span id="cb21-2"><a href=""></a>sales_data <span class="op">=</span> np.array([</span>
 <span id="cb21-3"><a href=""></a>    [<span class="dv">85000</span>, <span class="dv">92000</span>, <span class="dv">78000</span>],</span>
@@ -1106,7 +1106,7 @@ Company Total: $4,781K</code></pre>
 <span id="cb21-33"><a href=""></a><span class="bu">print</span>(<span class="ss">f"Loaded .csv shape: </span><span class="sc">{</span>loaded_csv<span class="sc">.</span>shape<span class="sc">}</span><span class="ss">"</span>)</span>
 <span id="cb21-34"><a href=""></a><span class="bu">print</span>(<span class="ss">f"Loaded .npz files: </span><span class="sc">{</span><span class="bu">list</span>(loaded_npz.files)<span class="sc">}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="22a2804c" class="cell" data-execution_count="12">
+<div id="63456a58" class="cell" data-execution_count="12">
 <div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href=""></a><span class="co"># Working with CSV-like data (simulated)</span></span>
 <span id="cb22-2"><a href=""></a><span class="co"># In practice, you'd use np.loadtxt() or pandas for real files</span></span>
 <span id="cb22-3"><a href=""></a></span>
@@ -1185,7 +1185,7 @@ Export-ready results: [544000.            770.            706.49350649]</code></
 </section>
 <section id="techtrends-sales-analysis-system" class="slide level2">
 <h2>TechTrends Sales Analysis System</h2>
-<div id="fd686f7a" class="cell" data-execution_count="13">
+<div id="48884c31" class="cell" data-execution_count="13">
 <div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href=""></a><span class="co"># Comprehensive business analytics using NumPy</span></span>
 <span id="cb24-2"><a href=""></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb24-3"><a href=""></a></span>
