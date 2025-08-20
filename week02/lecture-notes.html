@@ -1,0 +1,985 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.7.31">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>week02-lecture-notes</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="Week02-lecture-notes_files/libs/clipboard/clipboard.min.js"></script>
+<script src="Week02-lecture-notes_files/libs/quarto-html/quarto.js" type="module"></script>
+<script src="Week02-lecture-notes_files/libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="Week02-lecture-notes_files/libs/quarto-html/popper.min.js"></script>
+<script src="Week02-lecture-notes_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="Week02-lecture-notes_files/libs/quarto-html/anchor.min.js"></script>
+<link href="Week02-lecture-notes_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="Week02-lecture-notes_files/libs/quarto-html/quarto-syntax-highlighting-e1a5c8363afafaef2c763b6775fbf3ca.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="Week02-lecture-notes_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="Week02-lecture-notes_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="Week02-lecture-notes_files/libs/bootstrap/bootstrap-bc29b7a494c55474c6a8d56f75b3cb06.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+
+
+</head>
+
+<body class="fullcontent quarto-light">
+
+<div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
+
+<main class="content" id="quarto-document-content">
+
+
+
+
+<hr>
+<p>title: “Week 2: Control Flow and Data Structures” subtitle: “Lists, Dictionaries, and Control Structures” author: “Dr.&nbsp;Smith” institute: “University of South Florida” date-format: long execute: echo: true warning: false format: html: embed-resources: true page-layout: full grid: body-width: 1400px sidebar-width: 250px margin-width: 0px gutter-width: 1.5rem toc: true toc-location: left toc-depth: 2 number-sections: false highlight-style: github code-fold: false code-tools: false code-block-bg: “#f5f5f5” code-block-border-left: “#31BAE9” code-block-line-numbers: false code-overflow: scroll code-link: false theme: light: flatly dark: darkly callout-appearance: simple self-contained: true code-line-numbers: true —</p>
+<style>
+/* Canvas iframe optimization */
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  font-size: 16px;
+  line-height: 1.5;
+  color: #212529;
+}
+
+@media screen {
+  body.in-iframe {
+    margin: 0;
+    padding: 15px;
+    max-width: 100%;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    font-size: 16px;
+    line-height: 1.5;
+    color: #212529;
+  }
+  .in-iframe .quarto-container {
+    max-width: 100%;
+    padding: 0 15px;
+  }
+  .in-iframe #quarto-content {
+    max-width: 100%;
+  }
+  .in-iframe .page-layout-article {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .in-iframe .page-layout-full {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .in-iframe .sidebar {
+    width: 200px !important;
+    font-size: 0.9em;
+  }
+  .in-iframe .sidebar.toc-left {
+    width: 200px !important;
+    margin-right: 15px;
+  }
+  .in-iframe .column-body {
+    grid-column: 1;
+    max-width: 100%;
+  }
+  .in-iframe #quarto-document-content {
+    max-width: calc(100% - 220px);
+    padding: 0 15px;
+  }
+  .in-iframe pre {
+    overflow-x: auto;
+    max-width: 100%;
+    font-size: 0.9em;
+  }
+  .in-iframe code {
+    font-size: 0.9em;
+  }
+  .in-iframe table {
+    display: block;
+    overflow-x: auto;
+    max-width: 100%;
+    font-size: 0.9em;
+  }
+  .in-iframe img {
+    max-width: 100%;
+    height: auto;
+  }
+  .in-iframe .callout {
+    margin: 1em 0;
+    padding: 0.5em 1em;
+  }
+  .in-iframe .sourceCode {
+    max-width: 100%;
+    overflow-x: auto;
+  }
+  .in-iframe .cell {
+    max-width: 100%;
+  }
+  .in-iframe body {
+    font-size: 15px;
+  }
+  .in-iframe h1 {
+    font-size: 1.8em;
+  }
+  .in-iframe h2 {
+    font-size: 1.5em;
+  }
+  .in-iframe h3 {
+    font-size: 1.3em;
+  }
+  .in-iframe h4 {
+    font-size: 1.1em;
+  }
+  .in-iframe #quarto-margin-sidebar {
+    display: none !important;
+  }
+  .in-iframe .margin-sidebar {
+    display: none !important;
+  }
+  
+  /* Ensure proper paragraph spacing */
+  .in-iframe p {
+    margin-bottom: 1rem;
+  }
+  
+  /* Maintain list styling */
+  .in-iframe ul, .in-iframe ol {
+    margin-bottom: 1rem;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .in-iframe .sidebar {
+    display: none !important;
+  }
+  .in-iframe #quarto-document-content {
+    max-width: 100%;
+  }
+  .in-iframe body {
+    font-size: 14px;
+  }
+}
+</style>
+<script>
+if (window.self !== window.top) {
+  document.addEventListener("DOMContentLoaded", function() {
+    document.body.classList.add("in-iframe");
+  });
+}
+</script>
+<div style="page-break-after: always;"></div>
+<section id="review-control-flow-and-data-structures" class="level1">
+<h1>Review: Control Flow and Data Structures</h1>
+<section id="last-weeks-highlights" class="level2">
+<h2 class="anchored" data-anchor-id="last-weeks-highlights">Last Week’s Highlights</h2>
+<ul>
+<li><strong>Control Flow:</strong>
+<ul>
+<li><code>if</code>, <code>elif</code>, <code>else</code> statements</li>
+<li><code>for</code> loops</li>
+<li><code>while</code> loops</li>
+</ul></li>
+<li><strong>Data Structures:</strong>
+<ul>
+<li>Lists</li>
+<li>Dictionaries</li>
+</ul></li>
+</ul>
+<div style="font-size: 0.8em;">
+<p><strong>Example: Filtering Customers for a Promotion</strong></p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>customers <span class="op">=</span> {</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>    <span class="st">"C001"</span>: {<span class="st">"name"</span>: <span class="st">"Alice"</span>, <span class="st">"city"</span>: <span class="st">"New York"</span>, <span class="st">"spent"</span>: <span class="dv">120</span>},</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>    <span class="st">"C002"</span>: {<span class="st">"name"</span>: <span class="st">"Bob"</span>, <span class="st">"city"</span>: <span class="st">"Los Angeles"</span>, <span class="st">"spent"</span>: <span class="dv">80</span>},</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>    <span class="st">"C003"</span>: {<span class="st">"name"</span>: <span class="st">"Charlie"</span>, <span class="st">"city"</span>: <span class="st">"New York"</span>, <span class="st">"spent"</span>: <span class="dv">150</span>}</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> customer_id, data <span class="kw">in</span> customers.items():</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> data[<span class="st">"city"</span>] <span class="op">==</span> <span class="st">"New York"</span> <span class="kw">and</span> data[<span class="st">"spent"</span>] <span class="op">&gt;</span> <span class="dv">100</span>:</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="ss">f"Promotion Offer for </span><span class="sc">{</span>data[<span class="st">'name'</span>]<span class="sc">}</span><span class="ss"> (</span><span class="sc">{</span>customer_id<span class="sc">}</span><span class="ss">)"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<hr>
+</section>
+</section>
+<section id="todays-agenda" class="level1">
+<h1>Today’s Agenda</h1>
+<section id="what-well-cover" class="level2">
+<h2 class="anchored" data-anchor-id="what-well-cover">What We’ll Cover</h2>
+<ul>
+<li><strong>Tuples</strong>
+<ul>
+<li>What they are and why they’re useful.<br>
+</li>
+<li>Creating and accessing tuples.<br>
+</li>
+<li>The concept of immutability.</li>
+</ul></li>
+<li><strong>Sets</strong>
+<ul>
+<li>What they are and how they differ from lists and tuples.<br>
+</li>
+<li>Creating sets and performing operations (union, intersection, difference).</li>
+</ul></li>
+</ul>
+<p><em>(Functions have been moved to next week.)</em></p>
+<hr>
+</section>
+</section>
+<section id="tuples" class="level1">
+<h1>Tuples</h1>
+<section id="introduction-to-tuples" class="level2">
+<h2 class="anchored" data-anchor-id="introduction-to-tuples">Introduction to Tuples</h2>
+<ul>
+<li><strong>What are they?</strong><br>
+Tuples are ordered, immutable collections of items.</li>
+<li><strong>Why use them?</strong>
+<ul>
+<li><strong>Data Integrity:</strong> Protect data from accidental modification.<br>
+</li>
+<li><strong>Performance:</strong> Slightly faster than lists in certain scenarios.<br>
+</li>
+<li><strong>Dictionary Keys:</strong> Tuples can be used as dictionary keys (lists cannot).</li>
+</ul></li>
+</ul>
+</section>
+<section id="mutability-vs.-immutability" class="level2">
+<h2 class="anchored" data-anchor-id="mutability-vs.-immutability">Mutability vs.&nbsp;Immutability</h2>
+<ul>
+<li><strong>Mutable Data Structures:</strong>
+<ul>
+<li>Lists and Dictionaries</li>
+<li>Contents can be changed after creation (adding, removing, modifying elements).</li>
+</ul>
+<div class="sourceCode" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Example with a list (mutable)</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>my_list <span class="op">=</span> [<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>]</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>my_list.append(<span class="dv">4</span>)  <span class="co"># Add an element</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>my_list[<span class="dv">0</span>] <span class="op">=</span> <span class="dv">0</span>     <span class="co"># Modify an element</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(my_list)</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Example with a dictionary (mutable)</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>my_dict <span class="op">=</span> {<span class="st">"a"</span>: <span class="dv">1</span>, <span class="st">"b"</span>: <span class="dv">2</span>}</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>my_dict[<span class="st">"c"</span>] <span class="op">=</span> <span class="dv">3</span>  <span class="co"># Add a key-value pair</span></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>my_dict[<span class="st">"a"</span>] <span class="op">=</span> <span class="dv">0</span>  <span class="co"># Modify a value</span></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(my_dict)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<li><strong>Immutable Data Structures:</strong>
+<ul>
+<li>Tuples</li>
+<li>Contents cannot be changed once created.</li>
+</ul>
+<div class="sourceCode" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Example with a tuple (immutable)</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>my_tuple <span class="op">=</span> (<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>)</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="co"># my_tuple.append(4)  # Raises AttributeError</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="co"># my_tuple[0] = 0     # Raises TypeError</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(my_tuple)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+</ul>
+</section>
+<section id="creating-tuples" class="level2">
+<h2 class="anchored" data-anchor-id="creating-tuples">Creating Tuples</h2>
+<ul>
+<li>Use parentheses <code>()</code> to create tuples.</li>
+<li>Elements can be of different data types.</li>
+</ul>
+<div class="sourceCode" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># A tuple representing a product</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>product <span class="op">=</span> (<span class="st">"Laptop"</span>, <span class="st">"P001"</span>, <span class="fl">999.99</span>, <span class="va">True</span>)</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="co"># A tuple of coordinates</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>coordinates <span class="op">=</span> (<span class="dv">10</span>, <span class="dv">20</span>)</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="co"># An empty tuple</span></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>empty_tuple <span class="op">=</span> ()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="accessing-tuple-elements" class="level2">
+<h2 class="anchored" data-anchor-id="accessing-tuple-elements">Accessing Tuple Elements</h2>
+<ul>
+<li>Access elements by index (starting at 0), just like lists.<br>
+</li>
+<li>You cannot modify elements after creation.</li>
+</ul>
+<div class="sourceCode" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>product_name <span class="op">=</span> product[<span class="dv">0</span>]    <span class="co"># "Laptop"</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>product_price <span class="op">=</span> product[<span class="dv">2</span>]   <span class="co"># 999.99</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(product_name)</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(product_price)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="immutability-in-detail" class="level2">
+<h2 class="anchored" data-anchor-id="immutability-in-detail">Immutability (in Detail)</h2>
+<ul>
+<li><strong>Key Feature:</strong> You cannot add, remove, or modify tuple elements once created.<br>
+</li>
+<li><strong>Why is this useful?</strong>
+<ul>
+<li>Data consistency<br>
+</li>
+<li>Less prone to errors in large codebases<br>
+</li>
+<li>Hashable (can be used as dictionary keys)</li>
+</ul></li>
+</ul>
+<div class="sourceCode" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Attempting to modify a tuple leads to an error</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="co"># product[1] = "P002"  # TypeError</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="tuple-packing-and-unpacking" class="level2">
+<h2 class="anchored" data-anchor-id="tuple-packing-and-unpacking">Tuple Packing and Unpacking</h2>
+<ul>
+<li><strong>Packing:</strong> Creating a tuple from separate values.<br>
+</li>
+<li><strong>Unpacking:</strong> Assigning tuple elements to individual variables.</li>
+</ul>
+<div class="sourceCode" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Packing</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>employee <span class="op">=</span> (<span class="st">"John Doe"</span>, <span class="dv">35</span>, <span class="st">"Sales Manager"</span>)</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Unpacking</span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>name, age, position <span class="op">=</span> employee</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(name)</span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(age)</span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(position)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="common-tuple-use-cases" class="level2">
+<h2 class="anchored" data-anchor-id="common-tuple-use-cases">Common Tuple Use Cases</h2>
+<ul>
+<li>Data records that must remain unchanged<br>
+</li>
+<li>Coordinates or dimension data<br>
+</li>
+<li>Function returns (multiple values at once) — (will discuss next week)<br>
+</li>
+<li>As dictionary keys for fast lookups</li>
+</ul>
+</section>
+<section id="tuple-methods" class="level2">
+<h2 class="anchored" data-anchor-id="tuple-methods">Tuple Methods</h2>
+<ul>
+<li><code>count(x)</code>: Returns how many times <code>x</code> appears.<br>
+</li>
+<li><code>index(x)</code>: Returns the index of the first occurrence of <code>x</code>.</li>
+</ul>
+<div class="sourceCode" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>numbers <span class="op">=</span> (<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">2</span>, <span class="dv">4</span>, <span class="dv">2</span>)</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>count_of_twos <span class="op">=</span> numbers.count(<span class="dv">2</span>)   <span class="co"># 3</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>index_of_three <span class="op">=</span> numbers.index(<span class="dv">3</span>)  <span class="co"># 2</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(count_of_twos)</span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(index_of_three)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<hr>
+</section>
+</section>
+<section id="sets" class="level1">
+<h1>Sets</h1>
+<section id="what-are-sets" class="level2">
+<h2 class="anchored" data-anchor-id="what-are-sets">What are Sets?</h2>
+<ul>
+<li><strong>Unordered collections of unique elements.</strong><br>
+</li>
+<li>No duplicate values.<br>
+</li>
+<li>Efficient membership checks (<code>in</code> operation is very fast).<br>
+</li>
+<li>Support mathematical set operations like union, intersection, difference.</li>
+</ul>
+</section>
+<section id="creating-sets" class="level2">
+<h2 class="anchored" data-anchor-id="creating-sets">Creating Sets</h2>
+<ul>
+<li>Use curly braces <code>{}</code> or the <code>set()</code> function.</li>
+</ul>
+<div class="sourceCode" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Using curly braces</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>fruits <span class="op">=</span> {<span class="st">"apple"</span>, <span class="st">"banana"</span>, <span class="st">"orange"</span>, <span class="st">"apple"</span>}  </span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Duplicates removed automatically</span></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(fruits)</span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Creating a set from a list</span></span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>colors <span class="op">=</span> <span class="bu">set</span>([<span class="st">"red"</span>, <span class="st">"green"</span>, <span class="st">"blue"</span>, <span class="st">"red"</span>])</span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(colors)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="adding-and-removing-elements" class="level2">
+<h2 class="anchored" data-anchor-id="adding-and-removing-elements">Adding and Removing Elements</h2>
+<ul>
+<li><code>add(x)</code>: Adds an element <code>x</code>.<br>
+</li>
+<li><code>remove(x)</code>: Removes <code>x</code>, raises an error if <code>x</code> doesn’t exist.<br>
+</li>
+<li><code>discard(x)</code>: Removes <code>x</code> if present (no error otherwise).<br>
+</li>
+<li><code>pop()</code>: Removes and returns <em>an arbitrary</em> element.<br>
+</li>
+<li><code>clear()</code>: Empties the set.</li>
+</ul>
+<div class="sourceCode" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>fruits.add(<span class="st">"grape"</span>)</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>fruits.remove(<span class="st">"banana"</span>)</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>fruits.discard(<span class="st">"kiwi"</span>)  <span class="co"># No error even if "kiwi" is not present</span></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(fruits)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="set-operations" class="level2">
+<h2 class="anchored" data-anchor-id="set-operations">Set Operations</h2>
+<ul>
+<li><strong>Union (<code>|</code>):</strong> Elements in either set.<br>
+</li>
+<li><strong>Intersection (<code>&amp;</code>):</strong> Elements in both sets.<br>
+</li>
+<li><strong>Difference (<code>-</code>):</strong> Elements in the first set but not the second.<br>
+</li>
+<li><strong>Symmetric Difference (<code>^</code>):</strong> Elements in either set but not both.</li>
+</ul>
+<div class="sourceCode" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>set1 <span class="op">=</span> {<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>}</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>set2 <span class="op">=</span> {<span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>}</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>union_set <span class="op">=</span> set1 <span class="op">|</span> set2         <span class="co"># {1, 2, 3, 4, 5}</span></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>intersection_set <span class="op">=</span> set1 <span class="op">&amp;</span> set2  <span class="co"># {3}</span></span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>difference_set <span class="op">=</span> set1 <span class="op">-</span> set2    <span class="co"># {1, 2}</span></span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>sym_diff_set <span class="op">=</span> set1 <span class="op">^</span> set2      <span class="co"># {1, 2, 4, 5}</span></span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Union:"</span>, union_set)</span>
+<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Intersection:"</span>, intersection_set)</span>
+<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Difference:"</span>, difference_set)</span>
+<span id="cb11-12"><a href="#cb11-12" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Sym. Diff.:"</span>, sym_diff_set)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="common-set-use-cases" class="level2">
+<h2 class="anchored" data-anchor-id="common-set-use-cases">Common Set Use Cases</h2>
+<ul>
+<li>Removing duplicates (e.g., from a list).<br>
+</li>
+<li>Checking membership quickly.<br>
+</li>
+<li>Finding common elements between two lists or sets.<br>
+</li>
+<li>Simplifying “unique item” analyses.</li>
+</ul>
+<hr>
+</section>
+</section>
+<section id="your-turn" class="level1">
+<h1>Your Turn!</h1>
+<section id="practice-exercises" class="level2">
+<h2 class="anchored" data-anchor-id="practice-exercises">Practice Exercises</h2>
+<p>Open a new notebook in Google Colab and try these exercises.</p>
+<section id="exercise-1-tuple-creation-and-access" class="level3">
+<h3 class="anchored" data-anchor-id="exercise-1-tuple-creation-and-access">Exercise 1: Tuple Creation and Access</h3>
+<ol type="1">
+<li>Create a tuple named <code>customer</code> with the following information:
+<ul>
+<li>Customer ID: <code>"C010"</code></li>
+<li>Name: <code>"Alice Smith"</code></li>
+<li>Email: <code>"[email address removed]"</code> (or any placeholder)</li>
+<li>Is a loyalty member: <code>True</code></li>
+</ul></li>
+<li>Access and print the customer’s name and email from the tuple.</li>
+</ol>
+</section>
+<section id="exercise-2-set-operations" class="level3">
+<h3 class="anchored" data-anchor-id="exercise-2-set-operations">Exercise 2: Set Operations</h3>
+<ol type="1">
+<li>Create two sets:
+<ul>
+<li><code>products_a = {"Laptop", "Mouse", "Keyboard"}</code></li>
+<li><code>products_b = {"Monitor", "Keyboard", "Webcam"}</code></li>
+</ul></li>
+<li>Find and print:
+<ul>
+<li>The union of <code>products_a</code> and <code>products_b</code>.</li>
+<li>The intersection of <code>products_a</code> and <code>products_b</code>.</li>
+<li>The products in <code>products_a</code> but not in <code>products_b</code>.</li>
+</ul></li>
+</ol>
+<p><em>(Exercises on user-defined functions, scope, and lambda expressions will appear in next week’s notes.)</em></p>
+<hr>
+</section>
+</section>
+</section>
+<section id="conclusion" class="level1">
+<h1>Conclusion</h1>
+<p>You’ve learned two important data structures that expand your ability to manage data in Python:</p>
+<ul>
+<li><strong>Tuples:</strong> Ordered, immutable sequences that help preserve data integrity and can serve as dictionary keys.<br>
+</li>
+<li><strong>Sets:</strong> Unordered collections of unique items that excel at membership tests and mathematical set operations.</li>
+</ul>
+<p>These tools allow you to organize data in ways that best suit different analytical tasks. They will become even more powerful once you start combining them with more advanced features in Python.</p>
+<hr>
+</section>
+<section id="next-week" class="level1">
+<h1>Next Week</h1>
+<p>Dr.&nbsp;Smith, next week we will cover <strong>Functions</strong>—how to define them, call them, and pass data around your programs. Once you understand functions, you will be able to structure your code more efficiently and write reusable scripts for business analytics tasks.</p>
+<p>We will then proceed into <strong>libraries</strong> like NumPy in the following weeks, but our immediate focus will be to master how functions work so that your code is clean, modular, and easy to maintain.</p>
+<hr>
+</section>
+<section id="tasks-for-this-week" class="level1">
+<h1>Tasks for This Week</h1>
+<ol type="1">
+<li><strong>Practice</strong> with tuples and sets:
+<ul>
+<li>Experiment with the provided exercises.</li>
+<li>Play around with additional scenarios (e.g., set operations for marketing lists, tuple-based records, etc.).</li>
+</ul></li>
+<li><strong>Complete Assignment03</strong>:
+<ul>
+<li>This assignment focuses on tuples and sets.</li>
+</ul></li>
+<li><strong>Prepare for Quiz02</strong> next class:
+<ul>
+<li>The quiz will cover last week’s control flow, lists/dictionaries, plus this week’s content (tuples and sets).</li>
+</ul></li>
+</ol>
+<hr>
+</section>
+<section id="questions" class="level1">
+<h1>Questions?</h1>
+<ul>
+<li>Please reach out via email or drop by office hours if you need clarification. I will have multiple time slots available for office hours - I will send a link to where you can book time with me.</li>
+<li>Don’t hesitate to try your own examples. Practice remains the fastest way to build skill and confidence!</li>
+</ul>
+</section>
+
+</main>
+<!-- /main column -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+        const codeEl = trigger.previousElementSibling.cloneNode(true);
+        for (const childEl of codeEl.children) {
+          if (isCodeAnnotation(childEl)) {
+            childEl.remove();
+          }
+        }
+        return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>
