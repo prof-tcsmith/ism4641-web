@@ -2392,6 +2392,48 @@ vertical-align: -.125em;
 </header>
 
 
+<style>
+
+@media screen {
+
+.page-columns {
+grid-template-columns: [screen-start] 1fr [page-start] minmax(0, 1200px) [page-end] 1fr [screen-end] !important;
+}
+#quarto-content {
+max-width: 1400px !important;
+width: 95% !important;
+margin: 0 auto !important;
+}
+#quarto-document-content {
+max-width: 1200px !important;
+margin: 0 auto !important;
+}
+main.content {
+max-width: none !important;
+}
+
+@media (max-width: 1600px) {
+#quarto-content {
+width: 98% !important;
+padding: 0 1% !important;
+}
+.sidebar {
+width: 200px !important;
+}
+#quarto-document-content {
+max-width: calc(100% - 220px) !important;
+}
+}
+}
+
+.cell, .sourceCode {
+max-width: 100% !important;
+}
+pre {
+max-width: 100% !important;
+overflow-x: auto;
+}
+</style>
 <section id="class-1-introduction-to-python-for-business" class="level2">
 <h2 class="anchored" data-anchor-id="class-1-introduction-to-python-for-business">Class 1: Introduction to Python for Business</h2>
 <section id="welcome-to-the-world-of-data-driven-decision-making" class="level3">
