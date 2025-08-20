@@ -6,8 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Dr.&nbsp;Smith">
 
-<title>week02-lecture-notes</title>
+<title>Week 2: Control Flow and Data Structures</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -65,25 +66,264 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="Week02-lecture-notes_files/libs/quarto-html/tippy.umd.min.js"></script>
 <script src="Week02-lecture-notes_files/libs/quarto-html/anchor.min.js"></script>
 <link href="Week02-lecture-notes_files/libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="Week02-lecture-notes_files/libs/quarto-html/quarto-syntax-highlighting-e1a5c8363afafaef2c763b6775fbf3ca.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="Week02-lecture-notes_files/libs/quarto-html/quarto-syntax-highlighting-4a990d8dcb58f517c7c86712b8f2ac7c.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="Week02-lecture-notes_files/libs/quarto-html/quarto-syntax-highlighting-dark-46f4cc9626f044588a66931b604fc9c8.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="Week02-lecture-notes_files/libs/quarto-html/quarto-syntax-highlighting-4a990d8dcb58f517c7c86712b8f2ac7c.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="Week02-lecture-notes_files/libs/bootstrap/bootstrap.min.js"></script>
 <link href="Week02-lecture-notes_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="Week02-lecture-notes_files/libs/bootstrap/bootstrap-bc29b7a494c55474c6a8d56f75b3cb06.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="Week02-lecture-notes_files/libs/bootstrap/bootstrap-7fb405d50af379f6f99cb0e774c9922f.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="Week02-lecture-notes_files/libs/bootstrap/bootstrap-dark-d2c9d76e2ea35e59204fefcb7aa2b466.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="Week02-lecture-notes_files/libs/bootstrap/bootstrap-7fb405d50af379f6f99cb0e774c9922f.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 
 
 </head>
 
-<body class="fullcontent quarto-light">
+<body class="quarto-light"><script id="quarto-html-before-body" type="application/javascript">
+    const toggleBodyColorMode = (bsSheetEl) => {
+      const mode = bsSheetEl.getAttribute("data-mode");
+      const bodyEl = window.document.querySelector("body");
+      if (mode === "dark") {
+        bodyEl.classList.add("quarto-dark");
+        bodyEl.classList.remove("quarto-light");
+      } else {
+        bodyEl.classList.add("quarto-light");
+        bodyEl.classList.remove("quarto-dark");
+      }
+    }
+    const toggleBodyColorPrimary = () => {
+      const bsSheetEl = window.document.querySelector("link#quarto-bootstrap:not([rel=disabled-stylesheet])");
+      if (bsSheetEl) {
+        toggleBodyColorMode(bsSheetEl);
+      }
+    }
+    const setColorSchemeToggle = (alternate) => {
+      const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+      for (let i=0; i < toggles.length; i++) {
+        const toggle = toggles[i];
+        if (toggle) {
+          if (alternate) {
+            toggle.classList.add("alternate");
+          } else {
+            toggle.classList.remove("alternate");
+          }
+        }
+      }
+    };
+    const toggleColorMode = (alternate) => {
+      // Switch the stylesheets
+      const primaryStylesheets = window.document.querySelectorAll('link.quarto-color-scheme:not(.quarto-color-alternate)');
+      const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+      manageTransitions('#quarto-margin-sidebar .nav-link', false);
+      if (alternate) {
+        // note: dark is layered on light, we don't disable primary!
+        enableStylesheet(alternateStylesheets);
+        for (const sheetNode of alternateStylesheets) {
+          if (sheetNode.id === "quarto-bootstrap") {
+            toggleBodyColorMode(sheetNode);
+          }
+        }
+      } else {
+        disableStylesheet(alternateStylesheets);
+        enableStylesheet(primaryStylesheets)
+        toggleBodyColorPrimary();
+      }
+      manageTransitions('#quarto-margin-sidebar .nav-link', true);
+      // Switch the toggles
+      setColorSchemeToggle(alternate)
+      // Hack to workaround the fact that safari doesn't
+      // properly recolor the scrollbar when toggling (#1455)
+      if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+        manageTransitions("body", false);
+        window.scrollTo(0, 1);
+        setTimeout(() => {
+          window.scrollTo(0, 0);
+          manageTransitions("body", true);
+        }, 40);
+      }
+    }
+    const disableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        stylesheet.rel = 'disabled-stylesheet';
+      }
+    }
+    const enableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        if(stylesheet.rel !== 'stylesheet') { // for Chrome, which will still FOUC without this check
+          stylesheet.rel = 'stylesheet';
+        }
+      }
+    }
+    const manageTransitions = (selector, allowTransitions) => {
+      const els = window.document.querySelectorAll(selector);
+      for (let i=0; i < els.length; i++) {
+        const el = els[i];
+        if (allowTransitions) {
+          el.classList.remove('notransition');
+        } else {
+          el.classList.add('notransition');
+        }
+      }
+    }
+    const isFileUrl = () => {
+      return window.location.protocol === 'file:';
+    }
+    const hasAlternateSentinel = () => {
+      let styleSentinel = getColorSchemeSentinel();
+      if (styleSentinel !== null) {
+        return styleSentinel === "alternate";
+      } else {
+        return false;
+      }
+    }
+    const setStyleSentinel = (alternate) => {
+      const value = alternate ? "alternate" : "default";
+      if (!isFileUrl()) {
+        window.localStorage.setItem("quarto-color-scheme", value);
+      } else {
+        localAlternateSentinel = value;
+      }
+    }
+    const getColorSchemeSentinel = () => {
+      if (!isFileUrl()) {
+        const storageValue = window.localStorage.getItem("quarto-color-scheme");
+        return storageValue != null ? storageValue : localAlternateSentinel;
+      } else {
+        return localAlternateSentinel;
+      }
+    }
+    const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+      const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+      const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+      let newTheme = '';
+      if(authorPrefersDark) {
+        newTheme = isAlternate ? baseTheme : alternateTheme;
+      } else {
+        newTheme = isAlternate ? alternateTheme : baseTheme;
+      }
+      const changeGiscusTheme = () => {
+        // From: https://github.com/giscus/giscus/issues/336
+        const sendMessage = (message) => {
+          const iframe = document.querySelector('iframe.giscus-frame');
+          if (!iframe) return;
+          iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+        }
+        sendMessage({
+          setConfig: {
+            theme: newTheme
+          }
+        });
+      }
+      const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+      if (isGiscussLoaded) {
+        changeGiscusTheme();
+      }
+    };
+    const authorPrefersDark = false;
+    const darkModeDefault = authorPrefersDark;
+      document.querySelector('link#quarto-text-highlighting-styles.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+      document.querySelector('link#quarto-bootstrap.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+    let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+    // Dark / light mode switch
+    window.quartoToggleColorScheme = () => {
+      // Read the current dark / light value
+      let toAlternate = !hasAlternateSentinel();
+      toggleColorMode(toAlternate);
+      setStyleSentinel(toAlternate);
+      toggleGiscusIfUsed(toAlternate, darkModeDefault);
+      window.dispatchEvent(new Event('resize'));
+    };
+    // Switch to dark mode if need be
+    if (hasAlternateSentinel()) {
+      toggleColorMode(true);
+    } else {
+      toggleColorMode(false);
+    }
+  </script>
 
-<div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
+<div id="quarto-content" class="page-columns page-rows-contents page-layout-full toc-left">
+<div id="quarto-sidebar-toc-left" class="sidebar toc-left">
+  <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul class="collapse">
+  <li><a href="#review-control-flow-and-data-structures" id="toc-review-control-flow-and-data-structures" class="nav-link active" data-scroll-target="#review-control-flow-and-data-structures">Review: Control Flow and Data Structures</a>
+  <ul class="collapse">
+  <li><a href="#last-weeks-highlights" id="toc-last-weeks-highlights" class="nav-link" data-scroll-target="#last-weeks-highlights">Last Week’s Highlights</a></li>
+  </ul></li>
+  <li><a href="#todays-agenda" id="toc-todays-agenda" class="nav-link" data-scroll-target="#todays-agenda">Today’s Agenda</a>
+  <ul class="collapse">
+  <li><a href="#what-well-cover" id="toc-what-well-cover" class="nav-link" data-scroll-target="#what-well-cover">What We’ll Cover</a></li>
+  </ul></li>
+  <li><a href="#tuples" id="toc-tuples" class="nav-link" data-scroll-target="#tuples">Tuples</a>
+  <ul class="collapse">
+  <li><a href="#introduction-to-tuples" id="toc-introduction-to-tuples" class="nav-link" data-scroll-target="#introduction-to-tuples">Introduction to Tuples</a></li>
+  <li><a href="#mutability-vs.-immutability" id="toc-mutability-vs.-immutability" class="nav-link" data-scroll-target="#mutability-vs.-immutability">Mutability vs.&nbsp;Immutability</a></li>
+  <li><a href="#creating-tuples" id="toc-creating-tuples" class="nav-link" data-scroll-target="#creating-tuples">Creating Tuples</a></li>
+  <li><a href="#accessing-tuple-elements" id="toc-accessing-tuple-elements" class="nav-link" data-scroll-target="#accessing-tuple-elements">Accessing Tuple Elements</a></li>
+  <li><a href="#immutability-in-detail" id="toc-immutability-in-detail" class="nav-link" data-scroll-target="#immutability-in-detail">Immutability (in Detail)</a></li>
+  <li><a href="#tuple-packing-and-unpacking" id="toc-tuple-packing-and-unpacking" class="nav-link" data-scroll-target="#tuple-packing-and-unpacking">Tuple Packing and Unpacking</a></li>
+  <li><a href="#common-tuple-use-cases" id="toc-common-tuple-use-cases" class="nav-link" data-scroll-target="#common-tuple-use-cases">Common Tuple Use Cases</a></li>
+  <li><a href="#tuple-methods" id="toc-tuple-methods" class="nav-link" data-scroll-target="#tuple-methods">Tuple Methods</a></li>
+  </ul></li>
+  <li><a href="#sets" id="toc-sets" class="nav-link" data-scroll-target="#sets">Sets</a>
+  <ul class="collapse">
+  <li><a href="#what-are-sets" id="toc-what-are-sets" class="nav-link" data-scroll-target="#what-are-sets">What are Sets?</a></li>
+  <li><a href="#creating-sets" id="toc-creating-sets" class="nav-link" data-scroll-target="#creating-sets">Creating Sets</a></li>
+  <li><a href="#adding-and-removing-elements" id="toc-adding-and-removing-elements" class="nav-link" data-scroll-target="#adding-and-removing-elements">Adding and Removing Elements</a></li>
+  <li><a href="#set-operations" id="toc-set-operations" class="nav-link" data-scroll-target="#set-operations">Set Operations</a></li>
+  <li><a href="#common-set-use-cases" id="toc-common-set-use-cases" class="nav-link" data-scroll-target="#common-set-use-cases">Common Set Use Cases</a></li>
+  </ul></li>
+  <li><a href="#your-turn" id="toc-your-turn" class="nav-link" data-scroll-target="#your-turn">Your Turn!</a>
+  <ul class="collapse">
+  <li><a href="#practice-exercises" id="toc-practice-exercises" class="nav-link" data-scroll-target="#practice-exercises">Practice Exercises</a></li>
+  </ul></li>
+  <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion">Conclusion</a></li>
+  <li><a href="#next-week" id="toc-next-week" class="nav-link" data-scroll-target="#next-week">Next Week</a></li>
+  <li><a href="#tasks-for-this-week" id="toc-tasks-for-this-week" class="nav-link" data-scroll-target="#tasks-for-this-week">Tasks for This Week</a></li>
+  <li><a href="#questions" id="toc-questions" class="nav-link" data-scroll-target="#questions">Questions?</a></li>
+  </ul>
+</nav>
+</div>
+<div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+</div>
+<main class="content column-page-right" id="quarto-document-content">
 
-<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Week 2: Control Flow and Data Structures</h1>
+<p class="subtitle lead">Lists, Dictionaries, and Control Structures</p>
+</div>
 
 
+<div class="quarto-title-meta-author column-page-right">
+  <div class="quarto-title-meta-heading">Author</div>
+  <div class="quarto-title-meta-heading">Affiliation</div>
+  
+    <div class="quarto-title-meta-contents">
+    <p class="author">Dr.&nbsp;Smith </p>
+  </div>
+  <div class="quarto-title-meta-contents">
+        <p class="affiliation">
+            University of South Florida
+          </p>
+      </div>
+  </div>
+
+<div class="quarto-title-meta column-page-right">
+
+      
+  
+    
+  </div>
+  
 
 
-<hr>
-<p>title: “Week 2: Control Flow and Data Structures” subtitle: “Lists, Dictionaries, and Control Structures” author: “Dr.&nbsp;Smith” institute: “University of South Florida” date-format: long execute: echo: true warning: false format: html: embed-resources: true page-layout: full grid: body-width: 1400px sidebar-width: 250px margin-width: 0px gutter-width: 1.5rem toc: true toc-location: left toc-depth: 2 number-sections: false highlight-style: github code-fold: false code-tools: false code-block-bg: “#f5f5f5” code-block-border-left: “#31BAE9” code-block-line-numbers: false code-overflow: scroll code-link: false theme: light: flatly dark: darkly callout-appearance: simple self-contained: true code-line-numbers: true —</p>
+</header>
+
+
 <style>
 /* Canvas iframe optimization */
 body {
@@ -93,6 +333,24 @@ body {
   color: #212529;
 }
 
+/* When NOT in iframe - force 1400px width */
+@media screen {
+  body:not(.in-iframe) .content {
+    max-width: 1400px !important;
+    width: 1400px !important;
+    margin: 0 auto;
+  }
+  
+  body:not(.in-iframe) #quarto-content {
+    max-width: 1400px !important;
+  }
+  
+  body:not(.in-iframe) .page-layout-full {
+    max-width: 1400px !important;
+  }
+}
+
+/* When IN iframe - responsive width */
 @media screen {
   body.in-iframe {
     margin: 0;
@@ -233,15 +491,15 @@ if (window.self !== window.top) {
 </ul>
 <div style="font-size: 0.8em;">
 <p><strong>Example: Filtering Customers for a Promotion</strong></p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>customers <span class="op">=</span> {</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>    <span class="st">"C001"</span>: {<span class="st">"name"</span>: <span class="st">"Alice"</span>, <span class="st">"city"</span>: <span class="st">"New York"</span>, <span class="st">"spent"</span>: <span class="dv">120</span>},</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>    <span class="st">"C002"</span>: {<span class="st">"name"</span>: <span class="st">"Bob"</span>, <span class="st">"city"</span>: <span class="st">"Los Angeles"</span>, <span class="st">"spent"</span>: <span class="dv">80</span>},</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>    <span class="st">"C003"</span>: {<span class="st">"name"</span>: <span class="st">"Charlie"</span>, <span class="st">"city"</span>: <span class="st">"New York"</span>, <span class="st">"spent"</span>: <span class="dv">150</span>}</span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> customer_id, data <span class="kw">in</span> customers.items():</span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> data[<span class="st">"city"</span>] <span class="op">==</span> <span class="st">"New York"</span> <span class="kw">and</span> data[<span class="st">"spent"</span>] <span class="op">&gt;</span> <span class="dv">100</span>:</span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="ss">f"Promotion Offer for </span><span class="sc">{</span>data[<span class="st">'name'</span>]<span class="sc">}</span><span class="ss"> (</span><span class="sc">{</span>customer_id<span class="sc">}</span><span class="ss">)"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a>customers <span class="op">=</span> {</span>
+<span id="cb1-2"><a href="#cb1-2"></a>    <span class="st">"C001"</span>: {<span class="st">"name"</span>: <span class="st">"Alice"</span>, <span class="st">"city"</span>: <span class="st">"New York"</span>, <span class="st">"spent"</span>: <span class="dv">120</span>},</span>
+<span id="cb1-3"><a href="#cb1-3"></a>    <span class="st">"C002"</span>: {<span class="st">"name"</span>: <span class="st">"Bob"</span>, <span class="st">"city"</span>: <span class="st">"Los Angeles"</span>, <span class="st">"spent"</span>: <span class="dv">80</span>},</span>
+<span id="cb1-4"><a href="#cb1-4"></a>    <span class="st">"C003"</span>: {<span class="st">"name"</span>: <span class="st">"Charlie"</span>, <span class="st">"city"</span>: <span class="st">"New York"</span>, <span class="st">"spent"</span>: <span class="dv">150</span>}</span>
+<span id="cb1-5"><a href="#cb1-5"></a>}</span>
+<span id="cb1-6"><a href="#cb1-6"></a></span>
+<span id="cb1-7"><a href="#cb1-7"></a><span class="cf">for</span> customer_id, data <span class="kw">in</span> customers.items():</span>
+<span id="cb1-8"><a href="#cb1-8"></a>    <span class="cf">if</span> data[<span class="st">"city"</span>] <span class="op">==</span> <span class="st">"New York"</span> <span class="kw">and</span> data[<span class="st">"spent"</span>] <span class="op">&gt;</span> <span class="dv">100</span>:</span>
+<span id="cb1-9"><a href="#cb1-9"></a>        <span class="bu">print</span>(<span class="ss">f"Promotion Offer for </span><span class="sc">{</span>data[<span class="st">'name'</span>]<span class="sc">}</span><span class="ss"> (</span><span class="sc">{</span>customer_id<span class="sc">}</span><span class="ss">)"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <hr>
 </section>
@@ -295,27 +553,27 @@ Tuples are ordered, immutable collections of items.</li>
 <li>Lists and Dictionaries</li>
 <li>Contents can be changed after creation (adding, removing, modifying elements).</li>
 </ul>
-<div class="sourceCode" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Example with a list (mutable)</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>my_list <span class="op">=</span> [<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>]</span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>my_list.append(<span class="dv">4</span>)  <span class="co"># Add an element</span></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>my_list[<span class="dv">0</span>] <span class="op">=</span> <span class="dv">0</span>     <span class="co"># Modify an element</span></span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(my_list)</span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Example with a dictionary (mutable)</span></span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>my_dict <span class="op">=</span> {<span class="st">"a"</span>: <span class="dv">1</span>, <span class="st">"b"</span>: <span class="dv">2</span>}</span>
-<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>my_dict[<span class="st">"c"</span>] <span class="op">=</span> <span class="dv">3</span>  <span class="co"># Add a key-value pair</span></span>
-<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>my_dict[<span class="st">"a"</span>] <span class="op">=</span> <span class="dv">0</span>  <span class="co"># Modify a value</span></span>
-<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(my_dict)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<div class="sourceCode" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1"></a><span class="co"># Example with a list (mutable)</span></span>
+<span id="cb2-2"><a href="#cb2-2"></a>my_list <span class="op">=</span> [<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>]</span>
+<span id="cb2-3"><a href="#cb2-3"></a>my_list.append(<span class="dv">4</span>)  <span class="co"># Add an element</span></span>
+<span id="cb2-4"><a href="#cb2-4"></a>my_list[<span class="dv">0</span>] <span class="op">=</span> <span class="dv">0</span>     <span class="co"># Modify an element</span></span>
+<span id="cb2-5"><a href="#cb2-5"></a><span class="bu">print</span>(my_list)</span>
+<span id="cb2-6"><a href="#cb2-6"></a></span>
+<span id="cb2-7"><a href="#cb2-7"></a><span class="co"># Example with a dictionary (mutable)</span></span>
+<span id="cb2-8"><a href="#cb2-8"></a>my_dict <span class="op">=</span> {<span class="st">"a"</span>: <span class="dv">1</span>, <span class="st">"b"</span>: <span class="dv">2</span>}</span>
+<span id="cb2-9"><a href="#cb2-9"></a>my_dict[<span class="st">"c"</span>] <span class="op">=</span> <span class="dv">3</span>  <span class="co"># Add a key-value pair</span></span>
+<span id="cb2-10"><a href="#cb2-10"></a>my_dict[<span class="st">"a"</span>] <span class="op">=</span> <span class="dv">0</span>  <span class="co"># Modify a value</span></span>
+<span id="cb2-11"><a href="#cb2-11"></a><span class="bu">print</span>(my_dict)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
 <li><strong>Immutable Data Structures:</strong>
 <ul>
 <li>Tuples</li>
 <li>Contents cannot be changed once created.</li>
 </ul>
-<div class="sourceCode" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Example with a tuple (immutable)</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>my_tuple <span class="op">=</span> (<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>)</span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="co"># my_tuple.append(4)  # Raises AttributeError</span></span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="co"># my_tuple[0] = 0     # Raises TypeError</span></span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(my_tuple)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<div class="sourceCode" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1"></a><span class="co"># Example with a tuple (immutable)</span></span>
+<span id="cb3-2"><a href="#cb3-2"></a>my_tuple <span class="op">=</span> (<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>)</span>
+<span id="cb3-3"><a href="#cb3-3"></a><span class="co"># my_tuple.append(4)  # Raises AttributeError</span></span>
+<span id="cb3-4"><a href="#cb3-4"></a><span class="co"># my_tuple[0] = 0     # Raises TypeError</span></span>
+<span id="cb3-5"><a href="#cb3-5"></a><span class="bu">print</span>(my_tuple)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
 </ul>
 </section>
 <section id="creating-tuples" class="level2">
@@ -324,14 +582,14 @@ Tuples are ordered, immutable collections of items.</li>
 <li>Use parentheses <code>()</code> to create tuples.</li>
 <li>Elements can be of different data types.</li>
 </ul>
-<div class="sourceCode" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># A tuple representing a product</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>product <span class="op">=</span> (<span class="st">"Laptop"</span>, <span class="st">"P001"</span>, <span class="fl">999.99</span>, <span class="va">True</span>)</span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="co"># A tuple of coordinates</span></span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>coordinates <span class="op">=</span> (<span class="dv">10</span>, <span class="dv">20</span>)</span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="co"># An empty tuple</span></span>
-<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>empty_tuple <span class="op">=</span> ()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1"></a><span class="co"># A tuple representing a product</span></span>
+<span id="cb4-2"><a href="#cb4-2"></a>product <span class="op">=</span> (<span class="st">"Laptop"</span>, <span class="st">"P001"</span>, <span class="fl">999.99</span>, <span class="va">True</span>)</span>
+<span id="cb4-3"><a href="#cb4-3"></a></span>
+<span id="cb4-4"><a href="#cb4-4"></a><span class="co"># A tuple of coordinates</span></span>
+<span id="cb4-5"><a href="#cb4-5"></a>coordinates <span class="op">=</span> (<span class="dv">10</span>, <span class="dv">20</span>)</span>
+<span id="cb4-6"><a href="#cb4-6"></a></span>
+<span id="cb4-7"><a href="#cb4-7"></a><span class="co"># An empty tuple</span></span>
+<span id="cb4-8"><a href="#cb4-8"></a>empty_tuple <span class="op">=</span> ()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="accessing-tuple-elements" class="level2">
 <h2 class="anchored" data-anchor-id="accessing-tuple-elements">Accessing Tuple Elements</h2>
@@ -340,11 +598,11 @@ Tuples are ordered, immutable collections of items.</li>
 </li>
 <li>You cannot modify elements after creation.</li>
 </ul>
-<div class="sourceCode" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>product_name <span class="op">=</span> product[<span class="dv">0</span>]    <span class="co"># "Laptop"</span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>product_price <span class="op">=</span> product[<span class="dv">2</span>]   <span class="co"># 999.99</span></span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(product_name)</span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(product_price)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1"></a>product_name <span class="op">=</span> product[<span class="dv">0</span>]    <span class="co"># "Laptop"</span></span>
+<span id="cb5-2"><a href="#cb5-2"></a>product_price <span class="op">=</span> product[<span class="dv">2</span>]   <span class="co"># 999.99</span></span>
+<span id="cb5-3"><a href="#cb5-3"></a></span>
+<span id="cb5-4"><a href="#cb5-4"></a><span class="bu">print</span>(product_name)</span>
+<span id="cb5-5"><a href="#cb5-5"></a><span class="bu">print</span>(product_price)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="immutability-in-detail" class="level2">
 <h2 class="anchored" data-anchor-id="immutability-in-detail">Immutability (in Detail)</h2>
@@ -360,8 +618,8 @@ Tuples are ordered, immutable collections of items.</li>
 <li>Hashable (can be used as dictionary keys)</li>
 </ul></li>
 </ul>
-<div class="sourceCode" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Attempting to modify a tuple leads to an error</span></span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="co"># product[1] = "P002"  # TypeError</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1"></a><span class="co"># Attempting to modify a tuple leads to an error</span></span>
+<span id="cb6-2"><a href="#cb6-2"></a><span class="co"># product[1] = "P002"  # TypeError</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="tuple-packing-and-unpacking" class="level2">
 <h2 class="anchored" data-anchor-id="tuple-packing-and-unpacking">Tuple Packing and Unpacking</h2>
@@ -370,15 +628,15 @@ Tuples are ordered, immutable collections of items.</li>
 </li>
 <li><strong>Unpacking:</strong> Assigning tuple elements to individual variables.</li>
 </ul>
-<div class="sourceCode" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Packing</span></span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>employee <span class="op">=</span> (<span class="st">"John Doe"</span>, <span class="dv">35</span>, <span class="st">"Sales Manager"</span>)</span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Unpacking</span></span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>name, age, position <span class="op">=</span> employee</span>
-<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(name)</span>
-<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(age)</span>
-<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(position)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1"></a><span class="co"># Packing</span></span>
+<span id="cb7-2"><a href="#cb7-2"></a>employee <span class="op">=</span> (<span class="st">"John Doe"</span>, <span class="dv">35</span>, <span class="st">"Sales Manager"</span>)</span>
+<span id="cb7-3"><a href="#cb7-3"></a></span>
+<span id="cb7-4"><a href="#cb7-4"></a><span class="co"># Unpacking</span></span>
+<span id="cb7-5"><a href="#cb7-5"></a>name, age, position <span class="op">=</span> employee</span>
+<span id="cb7-6"><a href="#cb7-6"></a></span>
+<span id="cb7-7"><a href="#cb7-7"></a><span class="bu">print</span>(name)</span>
+<span id="cb7-8"><a href="#cb7-8"></a><span class="bu">print</span>(age)</span>
+<span id="cb7-9"><a href="#cb7-9"></a><span class="bu">print</span>(position)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="common-tuple-use-cases" class="level2">
 <h2 class="anchored" data-anchor-id="common-tuple-use-cases">Common Tuple Use Cases</h2>
@@ -399,12 +657,12 @@ Tuples are ordered, immutable collections of items.</li>
 </li>
 <li><code>index(x)</code>: Returns the index of the first occurrence of <code>x</code>.</li>
 </ul>
-<div class="sourceCode" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>numbers <span class="op">=</span> (<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">2</span>, <span class="dv">4</span>, <span class="dv">2</span>)</span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>count_of_twos <span class="op">=</span> numbers.count(<span class="dv">2</span>)   <span class="co"># 3</span></span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>index_of_three <span class="op">=</span> numbers.index(<span class="dv">3</span>)  <span class="co"># 2</span></span>
-<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(count_of_twos)</span>
-<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(index_of_three)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1"></a>numbers <span class="op">=</span> (<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">2</span>, <span class="dv">4</span>, <span class="dv">2</span>)</span>
+<span id="cb8-2"><a href="#cb8-2"></a>count_of_twos <span class="op">=</span> numbers.count(<span class="dv">2</span>)   <span class="co"># 3</span></span>
+<span id="cb8-3"><a href="#cb8-3"></a>index_of_three <span class="op">=</span> numbers.index(<span class="dv">3</span>)  <span class="co"># 2</span></span>
+<span id="cb8-4"><a href="#cb8-4"></a></span>
+<span id="cb8-5"><a href="#cb8-5"></a><span class="bu">print</span>(count_of_twos)</span>
+<span id="cb8-6"><a href="#cb8-6"></a><span class="bu">print</span>(index_of_three)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <hr>
 </section>
 </section>
@@ -427,15 +685,15 @@ Tuples are ordered, immutable collections of items.</li>
 <ul>
 <li>Use curly braces <code>{}</code> or the <code>set()</code> function.</li>
 </ul>
-<div class="sourceCode" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Using curly braces</span></span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>fruits <span class="op">=</span> {<span class="st">"apple"</span>, <span class="st">"banana"</span>, <span class="st">"orange"</span>, <span class="st">"apple"</span>}  </span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Duplicates removed automatically</span></span>
-<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(fruits)</span>
-<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Creating a set from a list</span></span>
-<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>colors <span class="op">=</span> <span class="bu">set</span>([<span class="st">"red"</span>, <span class="st">"green"</span>, <span class="st">"blue"</span>, <span class="st">"red"</span>])</span>
-<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(colors)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1"></a><span class="co"># Using curly braces</span></span>
+<span id="cb9-2"><a href="#cb9-2"></a>fruits <span class="op">=</span> {<span class="st">"apple"</span>, <span class="st">"banana"</span>, <span class="st">"orange"</span>, <span class="st">"apple"</span>}  </span>
+<span id="cb9-3"><a href="#cb9-3"></a><span class="co"># Duplicates removed automatically</span></span>
+<span id="cb9-4"><a href="#cb9-4"></a></span>
+<span id="cb9-5"><a href="#cb9-5"></a><span class="bu">print</span>(fruits)</span>
+<span id="cb9-6"><a href="#cb9-6"></a></span>
+<span id="cb9-7"><a href="#cb9-7"></a><span class="co"># Creating a set from a list</span></span>
+<span id="cb9-8"><a href="#cb9-8"></a>colors <span class="op">=</span> <span class="bu">set</span>([<span class="st">"red"</span>, <span class="st">"green"</span>, <span class="st">"blue"</span>, <span class="st">"red"</span>])</span>
+<span id="cb9-9"><a href="#cb9-9"></a><span class="bu">print</span>(colors)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="adding-and-removing-elements" class="level2">
 <h2 class="anchored" data-anchor-id="adding-and-removing-elements">Adding and Removing Elements</h2>
@@ -450,11 +708,11 @@ Tuples are ordered, immutable collections of items.</li>
 </li>
 <li><code>clear()</code>: Empties the set.</li>
 </ul>
-<div class="sourceCode" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>fruits.add(<span class="st">"grape"</span>)</span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>fruits.remove(<span class="st">"banana"</span>)</span>
-<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>fruits.discard(<span class="st">"kiwi"</span>)  <span class="co"># No error even if "kiwi" is not present</span></span>
-<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(fruits)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1"></a>fruits.add(<span class="st">"grape"</span>)</span>
+<span id="cb10-2"><a href="#cb10-2"></a>fruits.remove(<span class="st">"banana"</span>)</span>
+<span id="cb10-3"><a href="#cb10-3"></a>fruits.discard(<span class="st">"kiwi"</span>)  <span class="co"># No error even if "kiwi" is not present</span></span>
+<span id="cb10-4"><a href="#cb10-4"></a></span>
+<span id="cb10-5"><a href="#cb10-5"></a><span class="bu">print</span>(fruits)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="set-operations" class="level2">
 <h2 class="anchored" data-anchor-id="set-operations">Set Operations</h2>
@@ -467,18 +725,18 @@ Tuples are ordered, immutable collections of items.</li>
 </li>
 <li><strong>Symmetric Difference (<code>^</code>):</strong> Elements in either set but not both.</li>
 </ul>
-<div class="sourceCode" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>set1 <span class="op">=</span> {<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>}</span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>set2 <span class="op">=</span> {<span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>}</span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>union_set <span class="op">=</span> set1 <span class="op">|</span> set2         <span class="co"># {1, 2, 3, 4, 5}</span></span>
-<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>intersection_set <span class="op">=</span> set1 <span class="op">&amp;</span> set2  <span class="co"># {3}</span></span>
-<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>difference_set <span class="op">=</span> set1 <span class="op">-</span> set2    <span class="co"># {1, 2}</span></span>
-<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>sym_diff_set <span class="op">=</span> set1 <span class="op">^</span> set2      <span class="co"># {1, 2, 4, 5}</span></span>
-<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Union:"</span>, union_set)</span>
-<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Intersection:"</span>, intersection_set)</span>
-<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Difference:"</span>, difference_set)</span>
-<span id="cb11-12"><a href="#cb11-12" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Sym. Diff.:"</span>, sym_diff_set)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1"></a>set1 <span class="op">=</span> {<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>}</span>
+<span id="cb11-2"><a href="#cb11-2"></a>set2 <span class="op">=</span> {<span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>}</span>
+<span id="cb11-3"><a href="#cb11-3"></a></span>
+<span id="cb11-4"><a href="#cb11-4"></a>union_set <span class="op">=</span> set1 <span class="op">|</span> set2         <span class="co"># {1, 2, 3, 4, 5}</span></span>
+<span id="cb11-5"><a href="#cb11-5"></a>intersection_set <span class="op">=</span> set1 <span class="op">&amp;</span> set2  <span class="co"># {3}</span></span>
+<span id="cb11-6"><a href="#cb11-6"></a>difference_set <span class="op">=</span> set1 <span class="op">-</span> set2    <span class="co"># {1, 2}</span></span>
+<span id="cb11-7"><a href="#cb11-7"></a>sym_diff_set <span class="op">=</span> set1 <span class="op">^</span> set2      <span class="co"># {1, 2, 4, 5}</span></span>
+<span id="cb11-8"><a href="#cb11-8"></a></span>
+<span id="cb11-9"><a href="#cb11-9"></a><span class="bu">print</span>(<span class="st">"Union:"</span>, union_set)</span>
+<span id="cb11-10"><a href="#cb11-10"></a><span class="bu">print</span>(<span class="st">"Intersection:"</span>, intersection_set)</span>
+<span id="cb11-11"><a href="#cb11-11"></a><span class="bu">print</span>(<span class="st">"Difference:"</span>, difference_set)</span>
+<span id="cb11-12"><a href="#cb11-12"></a><span class="bu">print</span>(<span class="st">"Sym. Diff.:"</span>, sym_diff_set)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="common-set-use-cases" class="level2">
 <h2 class="anchored" data-anchor-id="common-set-use-cases">Common Set Use Cases</h2>
@@ -580,6 +838,19 @@ Tuples are ordered, immutable collections of items.</li>
 <!-- /main column -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
+    // Ensure there is a toggle, if there isn't float one in the top right
+    if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+      const a = window.document.createElement('a');
+      a.classList.add('top-right');
+      a.classList.add('quarto-color-scheme-toggle');
+      a.href = "";
+      a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+      const i = window.document.createElement("i");
+      i.classList.add('bi');
+      a.appendChild(i);
+      window.document.body.appendChild(a);
+    }
+    setColorSchemeToggle(hasAlternateSentinel())
     const icon = "";
     const anchorJS = new window.AnchorJS();
     anchorJS.options = {
