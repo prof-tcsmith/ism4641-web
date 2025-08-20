@@ -86,11 +86,22 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>title: “Week 4: Functions, Libraries, and Modules” subtitle: “Advanced Functions and Modular Programming” author: “Dr.&nbsp;Smith” institute: “University of South Florida” date-format: long jupyter: python3 execute: echo: true warning: false format: html: embed-resources: true page-layout: full grid: body-width: 1400px sidebar-width: 250px margin-width: 0px gutter-width: 1.5rem toc: true toc-location: left toc-depth: 2 number-sections: false highlight-style: github code-fold: false code-tools: false code-block-bg: “#f5f5f5” code-block-border-left: “#31BAE9” code-block-line-numbers: false code-overflow: scroll code-link: false theme: light: flatly dark: darkly callout-appearance: simple self-contained: true code-line-numbers: true —</p>
 <style>
 /* Canvas iframe optimization */
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  font-size: 16px;
+  line-height: 1.5;
+  color: #212529;
+}
+
 @media screen {
   body.in-iframe {
     margin: 0;
     padding: 15px;
     max-width: 100%;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    font-size: 16px;
+    line-height: 1.5;
+    color: #212529;
   }
   .in-iframe .quarto-container {
     max-width: 100%;
@@ -171,7 +182,18 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   .in-iframe .margin-sidebar {
     display: none !important;
   }
+  
+  /* Ensure proper paragraph spacing */
+  .in-iframe p {
+    margin-bottom: 1rem;
+  }
+  
+  /* Maintain list styling */
+  .in-iframe ul, .in-iframe ol {
+    margin-bottom: 1rem;
+  }
 }
+
 @media screen and (max-width: 768px) {
   .in-iframe .sidebar {
     display: none !important;
@@ -218,7 +240,7 @@ if (window.self !== window.top) {
 <h2 class="anchored" data-anchor-id="defining-and-calling-functions">Defining and Calling Functions</h2>
 <p>To define a function, use the <code>def</code> keyword, followed by the function name and parentheses that can include parameters. The function body is indented.</p>
 <p><strong>Example: A Simple Greeting Function</strong></p>
-<div id="e8c159f2" class="cell" data-execution_count="1">
+<div id="29064c96" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> greet(name):</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Greets a person by name."""</span></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"Hello, </span><span class="sc">{</span>name<span class="sc">}</span><span class="ss">! Welcome to Python for Business Analytics."</span>)</span>
@@ -234,7 +256,7 @@ if (window.self !== window.top) {
 <h2 class="anchored" data-anchor-id="return-values">Return Values</h2>
 <p>Functions can return a value using the <code>return</code> statement, which allows the calling code to capture the result.</p>
 <p><strong>Example: Calculating a Discounted Price</strong></p>
-<div id="2c3880f3" class="cell" data-execution_count="2">
+<div id="4dce8ccb" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> calculate_discounted_price(price, discount_percentage):</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""</span></span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="co">    Calculate the final price after applying a discount.</span></span>
@@ -264,7 +286,7 @@ if (window.self !== window.top) {
 <h2 class="anchored" data-anchor-id="default-and-keyword-arguments">Default and Keyword Arguments</h2>
 <p>Functions can have default parameter values, making certain arguments optional when the function is called. You can also use keyword arguments to specify parameters by name.</p>
 <p><strong>Example: Greeting with a Default Greeting</strong></p>
-<div id="c3ac3878" class="cell" data-execution_count="3">
+<div id="ed1b2006" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> greet_customer(name, greeting<span class="op">=</span><span class="st">"Hello"</span>):</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Greets a customer with a default or custom greeting."""</span></span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"</span><span class="sc">{</span>greeting<span class="sc">}</span><span class="ss">, </span><span class="sc">{</span>name<span class="sc">}</span><span class="ss">!"</span>)</span>
@@ -284,7 +306,7 @@ Good day, Bob!</code></pre>
 <h3 class="anchored" data-anchor-id="using-args">Using *args</h3>
 <p><code>*args</code> allows a function to accept any number of positional arguments. Inside the function, these arguments are accessible as a tuple.</p>
 <p><strong>Example: Summing an Arbitrary Number of Sales Figures</strong></p>
-<div id="70d9cb09" class="cell" data-execution_count="4">
+<div id="149fcf2b" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> total_sales(<span class="op">*</span>sales):</span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""</span></span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="co">    Calculate the total sales from an arbitrary number of sales figures.</span></span>
@@ -308,7 +330,7 @@ Good day, Bob!</code></pre>
 <h3 class="anchored" data-anchor-id="using-kwargs">Using **kwargs</h3>
 <p><code>**kwargs</code> allows a function to accept any number of keyword arguments. These arguments are accessible as a dictionary inside the function.</p>
 <p><strong>Example: Analyzing Business Metrics</strong></p>
-<div id="46244507" class="cell" data-execution_count="5">
+<div id="f6c2a116" class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> report_metrics(<span class="op">**</span>metrics):</span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""</span></span>
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="co">    Print a report of various business metrics provided as keyword arguments.</span></span>
@@ -332,7 +354,7 @@ Growth: 15%</code></pre>
 <h3 class="anchored" data-anchor-id="combining-args-and-kwargs">Combining *args and **kwargs</h3>
 <p>You can combine both *args and **kwargs in the same function definition to handle both types of arguments simultaneously. The conventional order is: 1. Regular parameters 2. *args 3. Default parameters 4. **kwargs</p>
 <p><strong>Example: A Flexible Function for Business Reporting</strong></p>
-<div id="8408255c" class="cell" data-execution_count="6">
+<div id="76fbe392" class="cell" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> business_report(title, <span class="op">*</span>args, report_date<span class="op">=</span><span class="st">"Unknown"</span>, <span class="op">**</span>kwargs):</span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""</span></span>
 <span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="co">    Generate a flexible business report.</span></span>
@@ -386,7 +408,7 @@ Additional Metrics:
 <li><strong>Global Variables:</strong> Declared outside any function and accessible anywhere in the program.</li>
 </ul>
 <p><strong>Example:</strong></p>
-<div id="92d225c1" class="cell" data-execution_count="7">
+<div id="57ce5542" class="cell" data-execution_count="7">
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>global_message <span class="op">=</span> <span class="st">"Welcome to our analytics platform."</span></span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> display_message():</span>
@@ -419,7 +441,7 @@ Enjoy your learning experience!</code></pre>
 <p>There are several ways to import modules:</p>
 <ul>
 <li><p><strong>Import the entire module:</strong></p>
-<div id="a35031ff" class="cell" data-execution_count="8">
+<div id="84cde845" class="cell" data-execution_count="8">
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> math</span>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(math.sqrt(<span class="dv">16</span>))  <span class="co"># Outputs: 4.0</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -427,7 +449,7 @@ Enjoy your learning experience!</code></pre>
 </div>
 </div></li>
 <li><p><strong>Import specific functions or variables:</strong></p>
-<div id="30a1bfec" class="cell" data-execution_count="9">
+<div id="b09c4354" class="cell" data-execution_count="9">
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> math <span class="im">import</span> ceil, floor</span>
 <span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(ceil(<span class="fl">4.2</span>))   <span class="co"># Outputs: 5</span></span>
 <span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(floor(<span class="fl">4.2</span>))  <span class="co"># Outputs: 4</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -437,7 +459,7 @@ Enjoy your learning experience!</code></pre>
 </div>
 </div></li>
 <li><p><strong>Import with an alias:</strong></p>
-<div id="e5cee2ab" class="cell" data-execution_count="10">
+<div id="ea2b51b6" class="cell" data-execution_count="10">
 <div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>array <span class="op">=</span> np.array([<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>])</span>
 <span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(array)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -451,7 +473,7 @@ Enjoy your learning experience!</code></pre>
 <h2 class="anchored" data-anchor-id="standard-libraries-for-business-analytics">Standard Libraries for Business Analytics</h2>
 <p>Python’s standard library includes several modules that are useful for business analytics: - <strong>math:</strong> Mathematical functions. - <strong>datetime:</strong> Working with dates and times. - <strong>statistics:</strong> Calculating statistical measures like mean, median, and variance. - <strong>os:</strong> Interacting with the operating system.</p>
 <p><strong>Example: Using the <code>statistics</code> Module</strong></p>
-<div id="fb075cf8" class="cell" data-execution_count="11">
+<div id="0759452f" class="cell" data-execution_count="11">
 <div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> statistics</span>
 <span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>data <span class="op">=</span> [<span class="dv">23</span>, <span class="dv">45</span>, <span class="dv">67</span>, <span class="dv">89</span>, <span class="dv">12</span>, <span class="dv">45</span>, <span class="dv">67</span>]</span>
@@ -485,7 +507,7 @@ Median: 45</code></pre>
 <ol type="1">
 <li><strong>Create a File:</strong> For example, create a file named <code>financial_tools.py</code>.</li>
 </ol>
-<div id="afacf9d3" class="cell" data-execution_count="12">
+<div id="39928fa8" class="cell" data-execution_count="12">
 <div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="co"># financial_tools.py</span></span>
 <span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> calculate_roi(initial_investment, final_value):</span>
@@ -505,7 +527,7 @@ Median: 45</code></pre>
 <ol start="2" type="1">
 <li><strong>Import and Use the Module:</strong></li>
 </ol>
-<div id="ad255004" class="cell" data-execution_count="13">
+<div id="f510bcf4" class="cell" data-execution_count="13">
 <div class="sourceCode cell-code" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="co"># In your main program or another notebook cell:</span></span>
 <span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a><span class="co">#import financial_tools</span></span>
@@ -559,12 +581,12 @@ Median: 45</code></pre>
 <ul>
 <li><p><strong>Task:</strong> Use the <code>datetime</code> module to print the current date and time in a human-readable format.</p>
 <p><strong>Hint:</strong></p>
-<div id="bc4a08ba" class="cell" data-execution_count="14">
+<div id="e3b005b5" class="cell" data-execution_count="14">
 <div class="sourceCode cell-code" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> datetime</span>
 <span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>now <span class="op">=</span> datetime.datetime.now()</span>
 <span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(now.strftime(<span class="st">"%Y-%m-</span><span class="sc">%d</span><span class="st"> %H:%M:%S"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>2025-08-20 08:41:47</code></pre>
+<pre><code>2025-08-20 08:57:01</code></pre>
 </div>
 </div></li>
 </ul>

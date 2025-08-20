@@ -86,11 +86,22 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>title: “Week 6: Pandas Practice Problem Set” subtitle: “Practice Problems for DataFrames, Data Manipulation, and More” author: “Dr.&nbsp;Smith” institute: “University of South Florida” date-format: long execute: echo: true warning: false format: html: embed-resources: true page-layout: full grid: body-width: 1400px sidebar-width: 250px margin-width: 0px gutter-width: 1.5rem toc: true toc-location: left toc-depth: 2 number-sections: false highlight-style: github code-fold: false code-tools: false code-block-bg: “#f5f5f5” code-block-border-left: “#31BAE9” code-block-line-numbers: false code-overflow: scroll code-link: false theme: light: flatly dark: darkly callout-appearance: simple self-contained: true code-line-numbers: true —</p>
 <style>
 /* Canvas iframe optimization */
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  font-size: 16px;
+  line-height: 1.5;
+  color: #212529;
+}
+
 @media screen {
   body.in-iframe {
     margin: 0;
     padding: 15px;
     max-width: 100%;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    font-size: 16px;
+    line-height: 1.5;
+    color: #212529;
   }
   .in-iframe .quarto-container {
     max-width: 100%;
@@ -171,7 +182,18 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   .in-iframe .margin-sidebar {
     display: none !important;
   }
+  
+  /* Ensure proper paragraph spacing */
+  .in-iframe p {
+    margin-bottom: 1rem;
+  }
+  
+  /* Maintain list styling */
+  .in-iframe ul, .in-iframe ol {
+    margin-bottom: 1rem;
+  }
 }
+
 @media screen and (max-width: 768px) {
   .in-iframe .sidebar {
     display: none !important;
@@ -275,7 +297,7 @@ Load the CSV file <code>"products.csv"</code> into a DataFrame and print it.</p>
 Load the Excel file <code>"products.xlsx"</code> (sheet <code>"Products"</code>) into a DataFrame and print it.</p></li>
 <li><p><strong>Multi-step Data Transformation:</strong><br>
 Given the following DataFrame:</p>
-<div id="7c0a0c7c" class="cell" data-execution_count="1">
+<div id="af333956" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>data <span class="op">=</span> {</span>
@@ -302,7 +324,7 @@ Given the following DataFrame:</p>
 <p>Below are the sample solutions with step-by-step explanations for each problem.</p>
 <section id="creating-a-series" class="level2">
 <h2 class="anchored" data-anchor-id="creating-a-series">1. Creating a Series</h2>
-<div id="2d4bad81" class="cell" data-execution_count="2">
+<div id="66151237" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a Series from a list</span></span>
@@ -323,7 +345,7 @@ We import Pandas and use <code>pd.Series()</code> to create a Series from a list
 </section>
 <section id="custom-indices-in-series" class="level2">
 <h2 class="anchored" data-anchor-id="custom-indices-in-series">2. Custom Indices in Series</h2>
-<div id="4cccc18d" class="cell" data-execution_count="3">
+<div id="1cd7d192" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a Series with custom indices</span></span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>series_custom <span class="op">=</span> pd.Series([<span class="dv">100</span>, <span class="dv">200</span>, <span class="dv">300</span>, <span class="dv">400</span>], index<span class="op">=</span>[<span class="st">'Q1'</span>, <span class="st">'Q2'</span>, <span class="st">'Q3'</span>, <span class="st">'Q4'</span>])</span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(series_custom)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -341,7 +363,7 @@ By passing the <code>index</code> parameter, we assign custom labels (<code>Q1</
 </section>
 <section id="creating-a-dataframe-from-a-dictionary" class="level2">
 <h2 class="anchored" data-anchor-id="creating-a-dataframe-from-a-dictionary">3. Creating a DataFrame from a Dictionary</h2>
-<div id="de6d28b9" class="cell" data-execution_count="4">
+<div id="63b0a92b" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>data_dict <span class="op">=</span> {</span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>    <span class="st">'Product'</span>: [<span class="st">'Tablet'</span>, <span class="st">'Smartphone'</span>, <span class="st">'Laptop'</span>],</span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>    <span class="st">'Price'</span>: [<span class="fl">299.99</span>, <span class="fl">499.99</span>, <span class="fl">999.99</span>],</span>
@@ -362,7 +384,7 @@ A dictionary with keys as column names and values as lists is passed to <code>pd
 </section>
 <section id="creating-a-dataframe-from-a-list-of-dictionaries" class="level2">
 <h2 class="anchored" data-anchor-id="creating-a-dataframe-from-a-list-of-dictionaries">4. Creating a DataFrame from a List of Dictionaries</h2>
-<div id="f04ffe85" class="cell" data-execution_count="5">
+<div id="691600d7" class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>data_list <span class="op">=</span> [</span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>    {<span class="st">'Product'</span>: <span class="st">'Tablet'</span>, <span class="st">'Price'</span>: <span class="fl">299.99</span>, <span class="st">'Stock'</span>: <span class="dv">100</span>},</span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>    {<span class="st">'Product'</span>: <span class="st">'Smartphone'</span>, <span class="st">'Price'</span>: <span class="fl">499.99</span>, <span class="st">'Stock'</span>: <span class="dv">150</span>},</span>
@@ -383,7 +405,7 @@ Each dictionary in the list represents a row. Pandas automatically constructs th
 </section>
 <section id="selecting-a-column" class="level2">
 <h2 class="anchored" data-anchor-id="selecting-a-column">5. Selecting a Column</h2>
-<div id="f7eb8ada" class="cell" data-execution_count="6">
+<div id="fa786336" class="cell" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Using df1 from Problem 3</span></span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>prices_col <span class="op">=</span> df1[<span class="st">'Price'</span>]</span>
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(prices_col)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -400,7 +422,7 @@ Using square brackets and the column name, we extract the <code>"Price"</code> c
 </section>
 <section id="selecting-a-row-with-.loc-and-.iloc" class="level2">
 <h2 class="anchored" data-anchor-id="selecting-a-row-with-.loc-and-.iloc">6. Selecting a Row with .loc and .iloc</h2>
-<div id="11157895" class="cell" data-execution_count="7">
+<div id="903629b7" class="cell" data-execution_count="7">
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Using df1 from Problem 3</span></span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>row_loc <span class="op">=</span> df1.loc[<span class="dv">0</span>]</span>
 <span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>row_iloc <span class="op">=</span> df1.iloc[<span class="dv">0</span>]</span>
@@ -425,7 +447,7 @@ Name: 0, dtype: object</code></pre>
 </section>
 <section id="filtering-numeric-data" class="level2">
 <h2 class="anchored" data-anchor-id="filtering-numeric-data">7. Filtering Numeric Data</h2>
-<div id="126bd353" class="cell" data-execution_count="8">
+<div id="50df58e4" class="cell" data-execution_count="8">
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Filter products with Price &gt; 300 in df1</span></span>
 <span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>expensive_products <span class="op">=</span> df1[df1[<span class="st">'Price'</span>] <span class="op">&gt;</span> <span class="dv">300</span>]</span>
 <span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(expensive_products)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -441,7 +463,7 @@ The condition <code>df1['Price'] &gt; 300</code> returns a boolean Series. We th
 </section>
 <section id="filtering-with-string-methods" class="level2">
 <h2 class="anchored" data-anchor-id="filtering-with-string-methods">8. Filtering with String Methods</h2>
-<div id="cd6c4738" class="cell" data-execution_count="9">
+<div id="4329dbb2" class="cell" data-execution_count="9">
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Filter products with names containing the letter 'a' (case-insensitive)</span></span>
 <span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>products_with_a <span class="op">=</span> df1[df1[<span class="st">'Product'</span>].<span class="bu">str</span>.contains(<span class="st">"a"</span>, case<span class="op">=</span><span class="va">False</span>)]</span>
 <span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(products_with_a)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -458,7 +480,7 @@ Using <code>.str.contains()</code>, we filter the <code>"Product"</code> column 
 </section>
 <section id="identifying-missing-values" class="level2">
 <h2 class="anchored" data-anchor-id="identifying-missing-values">9. Identifying Missing Values</h2>
-<div id="0433d3da" class="cell" data-execution_count="10">
+<div id="11341195" class="cell" data-execution_count="10">
 <div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>data_nan <span class="op">=</span> {</span>
 <span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>    <span class="st">'Product'</span>: [<span class="st">'TV'</span>, <span class="st">'Radio'</span>, <span class="st">'Speaker'</span>],</span>
 <span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>    <span class="st">'Price'</span>: [<span class="fl">499.99</span>, <span class="va">None</span>, <span class="fl">199.99</span>],</span>
@@ -479,7 +501,7 @@ This DataFrame contains <code>None</code> values which are interpreted as missin
 </section>
 <section id="filling-missing-values" class="level2">
 <h2 class="anchored" data-anchor-id="filling-missing-values">10. Filling Missing Values</h2>
-<div id="929c9f09" class="cell" data-execution_count="11">
+<div id="d6c0caeb" class="cell" data-execution_count="11">
 <div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Fill missing Price with mean and Stock with 0 in df_nan</span></span>
 <span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>df_nan[<span class="st">'Price'</span>].fillna(df_nan[<span class="st">'Price'</span>].mean(), inplace<span class="op">=</span><span class="va">True</span>)</span>
 <span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>df_nan[<span class="st">'Stock'</span>].fillna(<span class="dv">0</span>, inplace<span class="op">=</span><span class="va">True</span>)</span>
@@ -491,14 +513,14 @@ This DataFrame contains <code>None</code> values which are interpreted as missin
 2  Speaker  199.99    0.0</code></pre>
 </div>
 <div class="cell-output cell-output-stderr">
-<pre><code>/tmp/ipykernel_758024/1398187088.py:2: FutureWarning: A value is trying to be set on a copy of a DataFrame or Series through chained assignment using an inplace method.
+<pre><code>/tmp/ipykernel_774310/1398187088.py:2: FutureWarning: A value is trying to be set on a copy of a DataFrame or Series through chained assignment using an inplace method.
 The behavior will change in pandas 3.0. This inplace method will never work because the intermediate object on which we are setting values always behaves as a copy.
 
 For example, when doing 'df[col].method(value, inplace=True)', try using 'df.method({col: value}, inplace=True)' or df[col] = df[col].method(value) instead, to perform the operation inplace on the original object.
 
 
   df_nan['Price'].fillna(df_nan['Price'].mean(), inplace=True)
-/tmp/ipykernel_758024/1398187088.py:3: FutureWarning: A value is trying to be set on a copy of a DataFrame or Series through chained assignment using an inplace method.
+/tmp/ipykernel_774310/1398187088.py:3: FutureWarning: A value is trying to be set on a copy of a DataFrame or Series through chained assignment using an inplace method.
 The behavior will change in pandas 3.0. This inplace method will never work because the intermediate object on which we are setting values always behaves as a copy.
 
 For example, when doing 'df[col].method(value, inplace=True)', try using 'df.method({col: value}, inplace=True)' or df[col] = df[col].method(value) instead, to perform the operation inplace on the original object.
@@ -513,7 +535,7 @@ We use <code>.fillna()</code> to replace missing values. For <code>"Price"</code
 </section>
 <section id="dropping-missing-values" class="level2">
 <h2 class="anchored" data-anchor-id="dropping-missing-values">11. Dropping Missing Values</h2>
-<div id="8bfe2e76" class="cell" data-execution_count="12">
+<div id="2bd98204" class="cell" data-execution_count="12">
 <div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Drop rows with any missing values from the original df_nan</span></span>
 <span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>df_drop <span class="op">=</span> df_nan.dropna()</span>
 <span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(df_drop)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -530,7 +552,7 @@ We use <code>.fillna()</code> to replace missing values. For <code>"Price"</code
 </section>
 <section id="adding-a-calculated-column" class="level2">
 <h2 class="anchored" data-anchor-id="adding-a-calculated-column">12. Adding a Calculated Column</h2>
-<div id="09c70258" class="cell" data-execution_count="13">
+<div id="7c9b25c0" class="cell" data-execution_count="13">
 <div class="sourceCode cell-code" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Using df1 from Problem 3: add 'Total Value' as Price * Stock</span></span>
 <span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>df1[<span class="st">'Total Value'</span>] <span class="op">=</span> df1[<span class="st">'Price'</span>] <span class="op">*</span> df1[<span class="st">'Stock'</span>]</span>
 <span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(df1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -547,7 +569,7 @@ A new column is created by performing element-wise multiplication of the <code>"
 </section>
 <section id="applying-a-discount" class="level2">
 <h2 class="anchored" data-anchor-id="applying-a-discount">13. Applying a Discount</h2>
-<div id="cce9a11a" class="cell" data-execution_count="14">
+<div id="5936df41" class="cell" data-execution_count="14">
 <div class="sourceCode cell-code" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Add 'Discounted Price' as 10% off Price in df1</span></span>
 <span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>df1[<span class="st">'Discounted Price'</span>] <span class="op">=</span> df1[<span class="st">'Price'</span>] <span class="op">*</span> <span class="fl">0.90</span></span>
 <span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(df1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -564,7 +586,7 @@ The new column applies a 10% discount (multiplies Price by 0.90) to each product
 </section>
 <section id="renaming-columns" class="level2">
 <h2 class="anchored" data-anchor-id="renaming-columns">14. Renaming Columns</h2>
-<div id="98206751" class="cell" data-execution_count="15">
+<div id="9f6bbb9e" class="cell" data-execution_count="15">
 <div class="sourceCode cell-code" id="cb29"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Rename columns in df1</span></span>
 <span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>df1.rename(columns<span class="op">=</span>{<span class="st">'Product'</span>: <span class="st">'Item'</span>, <span class="st">'Price'</span>: <span class="st">'Unit Price'</span>, <span class="st">'Stock'</span>: <span class="st">'Inventory'</span>}, inplace<span class="op">=</span><span class="va">True</span>)</span>
 <span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(df1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -581,7 +603,7 @@ Using <code>.rename()</code>, we update the column names for clarity.</p>
 </section>
 <section id="data-type-conversion" class="level2">
 <h2 class="anchored" data-anchor-id="data-type-conversion">15. Data Type Conversion</h2>
-<div id="72c64afc" class="cell" data-execution_count="16">
+<div id="73d0e64d" class="cell" data-execution_count="16">
 <div class="sourceCode cell-code" id="cb31"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Convert 'Unit Price' in df1 to integer (rounding down)</span></span>
 <span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>df1[<span class="st">'Price_Int'</span>] <span class="op">=</span> df1[<span class="st">'Unit Price'</span>].astype(<span class="bu">int</span>)</span>
 <span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(df1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -598,7 +620,7 @@ Using <code>.rename()</code>, we update the column names for clarity.</p>
 </section>
 <section id="grouping-and-summing" class="level2">
 <h2 class="anchored" data-anchor-id="grouping-and-summing">16. Grouping and Summing</h2>
-<div id="7caa8745" class="cell" data-execution_count="17">
+<div id="01f5261c" class="cell" data-execution_count="17">
 <div class="sourceCode cell-code" id="cb33"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a>sales_data <span class="op">=</span> {</span>
 <span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a>    <span class="st">'Region'</span>: [<span class="st">'North'</span>, <span class="st">'South'</span>, <span class="st">'East'</span>, <span class="st">'North'</span>, <span class="st">'South'</span>],</span>
 <span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a>    <span class="st">'Sales'</span>: [<span class="dv">300</span>, <span class="dv">400</span>, <span class="dv">500</span>, <span class="dv">200</span>, <span class="dv">300</span>]</span>
@@ -620,7 +642,7 @@ Grouping by <code>"Region"</code> and using <code>.sum()</code> computes total s
 </section>
 <section id="multiple-aggregations" class="level2">
 <h2 class="anchored" data-anchor-id="multiple-aggregations">17. Multiple Aggregations</h2>
-<div id="f2b79a2b" class="cell" data-execution_count="18">
+<div id="bf86f980" class="cell" data-execution_count="18">
 <div class="sourceCode cell-code" id="cb35"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a>aggregated <span class="op">=</span> df_sales.groupby(<span class="st">'Region'</span>).agg({<span class="st">'Sales'</span>: [<span class="st">'sum'</span>, <span class="st">'mean'</span>]})</span>
 <span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(aggregated)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -638,7 +660,7 @@ The <code>.agg()</code> function allows multiple aggregation functions (here, su
 </section>
 <section id="merging-dataframes" class="level2">
 <h2 class="anchored" data-anchor-id="merging-dataframes">18. Merging DataFrames</h2>
-<div id="dccef650" class="cell" data-execution_count="19">
+<div id="25f03ff9" class="cell" data-execution_count="19">
 <div class="sourceCode cell-code" id="cb37"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a>df_customers <span class="op">=</span> pd.DataFrame({</span>
 <span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a>    <span class="st">'CustomerID'</span>: [<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>],</span>
 <span id="cb37-3"><a href="#cb37-3" aria-hidden="true" tabindex="-1"></a>    <span class="st">'Name'</span>: [<span class="st">'Alice'</span>, <span class="st">'Bob'</span>, <span class="st">'Charlie'</span>]</span>
@@ -663,7 +685,7 @@ Using <code>pd.merge()</code>, we join the customer and order DataFrames on the 
 </section>
 <section id="left-join-merge" class="level2">
 <h2 class="anchored" data-anchor-id="left-join-merge">19. Left Join Merge</h2>
-<div id="5b85e749" class="cell" data-execution_count="20">
+<div id="3691af6d" class="cell" data-execution_count="20">
 <div class="sourceCode cell-code" id="cb39"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a>left_join <span class="op">=</span> pd.merge(df_customers, df_orders, on<span class="op">=</span><span class="st">'CustomerID'</span>, how<span class="op">=</span><span class="st">'left'</span>)</span>
 <span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(left_join)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -680,7 +702,7 @@ A left join keeps all rows from <code>df_customers</code> while merging matching
 </section>
 <section id="creating-a-pivot-table" class="level2">
 <h2 class="anchored" data-anchor-id="creating-a-pivot-table">20. Creating a Pivot Table</h2>
-<div id="34322883" class="cell" data-execution_count="21">
+<div id="156d0010" class="cell" data-execution_count="21">
 <div class="sourceCode cell-code" id="cb41"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a>pivot <span class="op">=</span> pd.pivot_table(df_sales, values<span class="op">=</span><span class="st">'Sales'</span>, index<span class="op">=</span><span class="st">'Region'</span>, aggfunc<span class="op">=</span><span class="st">'sum'</span>)</span>
 <span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(pivot)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -697,7 +719,7 @@ South     700</code></pre>
 </section>
 <section id="saving-to-csv" class="level2">
 <h2 class="anchored" data-anchor-id="saving-to-csv">21. Saving to CSV</h2>
-<div id="1812231d" class="cell" data-execution_count="22">
+<div id="7e1f95d7" class="cell" data-execution_count="22">
 <div class="sourceCode cell-code" id="cb43"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a>df1.to_csv(<span class="st">"products.csv"</span>, index<span class="op">=</span><span class="va">False</span>)</span>
 <span id="cb43-2"><a href="#cb43-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Saved to products.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -710,7 +732,7 @@ The DataFrame is written to a CSV file without including the index column.</p>
 </section>
 <section id="saving-to-excel" class="level2">
 <h2 class="anchored" data-anchor-id="saving-to-excel">22. Saving to Excel</h2>
-<div id="09cefbba" class="cell" data-execution_count="23">
+<div id="61660a84" class="cell" data-execution_count="23">
 <div class="sourceCode cell-code" id="cb45"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a>df1.to_excel(<span class="st">"products.xlsx"</span>, index<span class="op">=</span><span class="va">False</span>, sheet_name<span class="op">=</span><span class="st">"Products"</span>)</span>
 <span id="cb45-2"><a href="#cb45-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Saved to products.xlsx"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -723,7 +745,7 @@ The DataFrame is saved as an Excel file with a specified sheet name. (Requires t
 </section>
 <section id="loading-from-csv" class="level2">
 <h2 class="anchored" data-anchor-id="loading-from-csv">23. Loading from CSV</h2>
-<div id="f5ad4ba5" class="cell" data-execution_count="24">
+<div id="e8d21fd6" class="cell" data-execution_count="24">
 <div class="sourceCode cell-code" id="cb47"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a>df_from_csv <span class="op">=</span> pd.read_csv(<span class="st">"products.csv"</span>)</span>
 <span id="cb47-2"><a href="#cb47-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(df_from_csv)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -739,7 +761,7 @@ Using <code>pd.read_csv()</code>, we load the CSV file back into a DataFrame.</p
 </section>
 <section id="loading-from-excel" class="level2">
 <h2 class="anchored" data-anchor-id="loading-from-excel">24. Loading from Excel</h2>
-<div id="771b9ffc" class="cell" data-execution_count="25">
+<div id="2734afd3" class="cell" data-execution_count="25">
 <div class="sourceCode cell-code" id="cb49"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a>df_from_excel <span class="op">=</span> pd.read_excel(<span class="st">"products.xlsx"</span>, sheet_name<span class="op">=</span><span class="st">"Products"</span>)</span>
 <span id="cb49-2"><a href="#cb49-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(df_from_excel)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -755,7 +777,7 @@ Using <code>pd.read_excel()</code>, we load the Excel file and specify the sheet
 </section>
 <section id="multi-step-data-transformation" class="level2">
 <h2 class="anchored" data-anchor-id="multi-step-data-transformation">25. Multi-step Data Transformation</h2>
-<div id="3768691b" class="cell" data-execution_count="26">
+<div id="4d452697" class="cell" data-execution_count="26">
 <div class="sourceCode cell-code" id="cb51"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb51-1"><a href="#cb51-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create the DataFrame</span></span>
 <span id="cb51-2"><a href="#cb51-2" aria-hidden="true" tabindex="-1"></a>data_multi <span class="op">=</span> {</span>
 <span id="cb51-3"><a href="#cb51-3" aria-hidden="true" tabindex="-1"></a>    <span class="st">'Product'</span>: [<span class="st">'Monitor'</span>, <span class="st">'Keyboard'</span>, <span class="st">'Mouse'</span>, <span class="st">'Speaker'</span>, <span class="st">'Webcam'</span>],</span>
@@ -785,14 +807,14 @@ Using <code>pd.read_excel()</code>, we load the Excel file and specify the sheet
 2    Webcam      8799.20</code></pre>
 </div>
 <div class="cell-output cell-output-stderr">
-<pre><code>/tmp/ipykernel_758024/2410459172.py:10: FutureWarning: A value is trying to be set on a copy of a DataFrame or Series through chained assignment using an inplace method.
+<pre><code>/tmp/ipykernel_774310/2410459172.py:10: FutureWarning: A value is trying to be set on a copy of a DataFrame or Series through chained assignment using an inplace method.
 The behavior will change in pandas 3.0. This inplace method will never work because the intermediate object on which we are setting values always behaves as a copy.
 
 For example, when doing 'df[col].method(value, inplace=True)', try using 'df.method({col: value}, inplace=True)' or df[col] = df[col].method(value) instead, to perform the operation inplace on the original object.
 
 
   df_multi['Price'].fillna(df_multi['Price'].mean(), inplace=True)
-/tmp/ipykernel_758024/2410459172.py:11: FutureWarning: A value is trying to be set on a copy of a DataFrame or Series through chained assignment using an inplace method.
+/tmp/ipykernel_774310/2410459172.py:11: FutureWarning: A value is trying to be set on a copy of a DataFrame or Series through chained assignment using an inplace method.
 The behavior will change in pandas 3.0. This inplace method will never work because the intermediate object on which we are setting values always behaves as a copy.
 
 For example, when doing 'df[col].method(value, inplace=True)', try using 'df.method({col: value}, inplace=True)' or df[col] = df[col].method(value) instead, to perform the operation inplace on the original object.

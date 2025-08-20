@@ -86,11 +86,22 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>title: “Week 2: Control Flow and Data Structures” subtitle: “Lists, Dictionaries, and Control Structures” author: “Dr.&nbsp;Smith” institute: “University of South Florida” date-format: long execute: echo: true warning: false format: html: embed-resources: true page-layout: full grid: body-width: 1400px sidebar-width: 250px margin-width: 0px gutter-width: 1.5rem toc: true toc-location: left toc-depth: 2 number-sections: false highlight-style: github code-fold: false code-tools: false code-block-bg: “#f5f5f5” code-block-border-left: “#31BAE9” code-block-line-numbers: false code-overflow: scroll code-link: false theme: light: flatly dark: darkly callout-appearance: simple self-contained: true code-line-numbers: true —</p>
 <style>
 /* Canvas iframe optimization */
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  font-size: 16px;
+  line-height: 1.5;
+  color: #212529;
+}
+
 @media screen {
   body.in-iframe {
     margin: 0;
     padding: 15px;
     max-width: 100%;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    font-size: 16px;
+    line-height: 1.5;
+    color: #212529;
   }
   .in-iframe .quarto-container {
     max-width: 100%;
@@ -171,7 +182,18 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   .in-iframe .margin-sidebar {
     display: none !important;
   }
+  
+  /* Ensure proper paragraph spacing */
+  .in-iframe p {
+    margin-bottom: 1rem;
+  }
+  
+  /* Maintain list styling */
+  .in-iframe ul, .in-iframe ol {
+    margin-bottom: 1rem;
+  }
 }
+
 @media screen and (max-width: 768px) {
   .in-iframe .sidebar {
     display: none !important;

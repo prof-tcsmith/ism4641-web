@@ -2450,11 +2450,21 @@ margin-bottom: 0;
 
 <style>
 
+body {
+font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+font-size: 16px;
+line-height: 1.5;
+color: #212529;
+}
 @media screen {
 body.in-iframe {
 margin: 0;
 padding: 15px;
 max-width: 100%;
+font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+font-size: 16px;
+line-height: 1.5;
+color: #212529;
 }
 .in-iframe .quarto-container {
 max-width: 100%;
@@ -2534,6 +2544,14 @@ display: none !important;
 }
 .in-iframe .margin-sidebar {
 display: none !important;
+}
+
+.in-iframe p {
+margin-bottom: 1rem;
+}
+
+.in-iframe ul, .in-iframe ol {
+margin-bottom: 1rem;
 }
 }
 @media screen and (max-width: 768px) {
@@ -2636,7 +2654,7 @@ Sort the array <code>[3, 1, 4, 1, 5, 9, 2]</code> using <code>np.sort</code> and
 <hr>
 <section id="creating-arrays-from-lists" class="level2">
 <h2 class="anchored" data-anchor-id="creating-arrays-from-lists">1. Creating Arrays from Lists</h2>
-<div id="9d97334b" class="cell" data-execution_count="1">
+<div id="bc394993" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb2-2"><a href="#cb2-2"></a></span>
 <span id="cb2-3"><a href="#cb2-3"></a><span class="co"># Convert a list to a NumPy array and print the array and its type.</span></span>
@@ -2652,7 +2670,7 @@ Data type: &lt;class &#39;numpy.ndarray&#39;&gt;</code></pre>
 </section>
 <section id="creating-arrays-from-tuples" class="level2">
 <h2 class="anchored" data-anchor-id="creating-arrays-from-tuples">2. Creating Arrays from Tuples</h2>
-<div id="1e86bba5" class="cell" data-execution_count="2">
+<div id="1f1dfd75" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1"></a>tup <span class="op">=</span> (<span class="dv">10</span>, <span class="dv">20</span>, <span class="dv">30</span>, <span class="dv">40</span>)</span>
 <span id="cb4-2"><a href="#cb4-2"></a>arr_from_tuple <span class="op">=</span> np.array(tup)</span>
 <span id="cb4-3"><a href="#cb4-3"></a><span class="bu">print</span>(<span class="st">&quot;Array from tuple:&quot;</span>, arr_from_tuple)</span>
@@ -2665,7 +2683,7 @@ Sum of elements: 100</code></pre>
 </section>
 <section id="using-np.arange" class="level2">
 <h2 class="anchored" data-anchor-id="using-np.arange">3. Using <code>np.arange</code></h2>
-<div id="9c1b536b" class="cell" data-execution_count="3">
+<div id="7fd6e910" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1"></a>arr_arange <span class="op">=</span> np.arange(<span class="dv">0</span>, <span class="dv">20</span>, <span class="dv">2</span>)</span>
 <span id="cb6-2"><a href="#cb6-2"></a><span class="bu">print</span>(<span class="st">&quot;np.arange result:&quot;</span>, arr_arange)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -2675,7 +2693,7 @@ Sum of elements: 100</code></pre>
 </section>
 <section id="using-np.linspace" class="level2">
 <h2 class="anchored" data-anchor-id="using-np.linspace">4. Using <code>np.linspace</code></h2>
-<div id="503911dc" class="cell" data-execution_count="4">
+<div id="14c6b171" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1"></a>arr_linspace <span class="op">=</span> np.linspace(<span class="dv">5</span>, <span class="dv">100</span>, <span class="dv">15</span>)</span>
 <span id="cb8-2"><a href="#cb8-2"></a><span class="bu">print</span>(<span class="st">&quot;np.linspace result:&quot;</span>, arr_linspace)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -2687,7 +2705,7 @@ Sum of elements: 100</code></pre>
 </section>
 <section id="advanced-slicing-in-1d-arrays" class="level2">
 <h2 class="anchored" data-anchor-id="advanced-slicing-in-1d-arrays">5. Advanced Slicing in 1D Arrays</h2>
-<div id="be23b4a4" class="cell" data-execution_count="5">
+<div id="8b0986da" class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1"></a><span class="co"># Given a 1D array, extract every second element.</span></span>
 <span id="cb10-2"><a href="#cb10-2"></a>arr <span class="op">=</span> np.array([<span class="dv">10</span>, <span class="dv">20</span>, <span class="dv">30</span>, <span class="dv">40</span>, <span class="dv">50</span>, <span class="dv">60</span>])</span>
 <span id="cb10-3"><a href="#cb10-3"></a>sliced_arr <span class="op">=</span> arr[::<span class="dv">2</span>]  <span class="co"># starting at index 0, take every second element</span></span>
@@ -2699,7 +2717,7 @@ Sum of elements: 100</code></pre>
 </section>
 <section id="advanced-slicing-in-2d-arrays" class="level2">
 <h2 class="anchored" data-anchor-id="advanced-slicing-in-2d-arrays">6. Advanced Slicing in 2D Arrays</h2>
-<div id="c5088eb3" class="cell" data-execution_count="6">
+<div id="e2e7e042" class="cell" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1"></a><span class="co"># Given a 2D array, extract a submatrix.</span></span>
 <span id="cb12-2"><a href="#cb12-2"></a>A <span class="op">=</span> np.array([</span>
 <span id="cb12-3"><a href="#cb12-3"></a>    [<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>],</span>
@@ -2718,7 +2736,7 @@ Sum of elements: 100</code></pre>
 </section>
 <section id="indexing-in-1d-arrays" class="level2">
 <h2 class="anchored" data-anchor-id="indexing-in-1d-arrays">7. Indexing in 1D Arrays</h2>
-<div id="68ee7a24" class="cell" data-execution_count="7">
+<div id="92ea8bf6" class="cell" data-execution_count="7">
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1"></a>arr <span class="op">=</span> np.array([<span class="dv">10</span>, <span class="dv">20</span>, <span class="dv">30</span>, <span class="dv">40</span>, <span class="dv">50</span>])</span>
 <span id="cb14-2"><a href="#cb14-2"></a><span class="bu">print</span>(<span class="st">&quot;First element:&quot;</span>, arr[<span class="dv">0</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -2728,7 +2746,7 @@ Sum of elements: 100</code></pre>
 </section>
 <section id="slicing-in-1d-arrays" class="level2">
 <h2 class="anchored" data-anchor-id="slicing-in-1d-arrays">8. Slicing in 1D Arrays</h2>
-<div id="53cb97af" class="cell" data-execution_count="8">
+<div id="be980d76" class="cell" data-execution_count="8">
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1"></a>arr <span class="op">=</span> np.array([<span class="dv">5</span>, <span class="dv">15</span>, <span class="dv">25</span>, <span class="dv">35</span>, <span class="dv">45</span>, <span class="dv">55</span>])</span>
 <span id="cb16-2"><a href="#cb16-2"></a><span class="bu">print</span>(<span class="st">&quot;Elements from index 2 to 4:&quot;</span>, arr[<span class="dv">2</span>:<span class="dv">5</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -2738,7 +2756,7 @@ Sum of elements: 100</code></pre>
 </section>
 <section id="negative-indexing-in-1d-arrays" class="level2">
 <h2 class="anchored" data-anchor-id="negative-indexing-in-1d-arrays">9. Negative Indexing in 1D Arrays</h2>
-<div id="031801fb" class="cell" data-execution_count="9">
+<div id="d29b8357" class="cell" data-execution_count="9">
 <div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1"></a>arr <span class="op">=</span> np.array([<span class="dv">3</span>, <span class="dv">6</span>, <span class="dv">9</span>, <span class="dv">12</span>, <span class="dv">15</span>])</span>
 <span id="cb18-2"><a href="#cb18-2"></a><span class="bu">print</span>(<span class="st">&quot;Last element (using negative indexing):&quot;</span>, arr[<span class="op">-</span><span class="dv">1</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -2748,7 +2766,7 @@ Sum of elements: 100</code></pre>
 </section>
 <section id="indexing-in-2d-arrays" class="level2">
 <h2 class="anchored" data-anchor-id="indexing-in-2d-arrays">10. Indexing in 2D Arrays</h2>
-<div id="5158aaf6" class="cell" data-execution_count="10">
+<div id="da4aebe4" class="cell" data-execution_count="10">
 <div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1"></a>matrix <span class="op">=</span> np.array([[<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>],</span>
 <span id="cb20-2"><a href="#cb20-2"></a>                   [<span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>],</span>
 <span id="cb20-3"><a href="#cb20-3"></a>                   [<span class="dv">7</span>, <span class="dv">8</span>, <span class="dv">9</span>]])</span>
@@ -2760,7 +2778,7 @@ Sum of elements: 100</code></pre>
 </section>
 <section id="slicing-rows-in-2d-arrays" class="level2">
 <h2 class="anchored" data-anchor-id="slicing-rows-in-2d-arrays">11. Slicing Rows in 2D Arrays</h2>
-<div id="7ec43ad2" class="cell" data-execution_count="11">
+<div id="201238f5" class="cell" data-execution_count="11">
 <div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1"></a><span class="bu">print</span>(<span class="st">&quot;First two rows of the matrix:</span><span class="ch">\n</span><span class="st">&quot;</span>, matrix[:<span class="dv">2</span>, :])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>First two rows of the matrix:
@@ -2771,7 +2789,7 @@ Sum of elements: 100</code></pre>
 </section>
 <section id="extracting-a-column-from-a-2d-array" class="level2">
 <h2 class="anchored" data-anchor-id="extracting-a-column-from-a-2d-array">12. Extracting a Column from a 2D Array</h2>
-<div id="dea33f3e" class="cell" data-execution_count="12">
+<div id="8f0eddf5" class="cell" data-execution_count="12">
 <div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1"></a>second_column <span class="op">=</span> matrix[:, <span class="dv">1</span>]</span>
 <span id="cb24-2"><a href="#cb24-2"></a><span class="bu">print</span>(<span class="st">&quot;Extracted second column as 1D array:&quot;</span>, second_column)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -2781,7 +2799,7 @@ Sum of elements: 100</code></pre>
 </section>
 <section id="vectorized-operations-multiplication" class="level2">
 <h2 class="anchored" data-anchor-id="vectorized-operations-multiplication">13. Vectorized Operations – Multiplication</h2>
-<div id="90538d11" class="cell" data-execution_count="13">
+<div id="64f16584" class="cell" data-execution_count="13">
 <div class="sourceCode cell-code" id="cb26"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1"></a>sales <span class="op">=</span> np.array([<span class="dv">100</span>, <span class="dv">150</span>, <span class="dv">200</span>, <span class="dv">250</span>, <span class="dv">300</span>])</span>
 <span id="cb26-2"><a href="#cb26-2"></a>discounted_sales <span class="op">=</span> sales <span class="op">*</span> <span class="fl">0.90</span></span>
 <span id="cb26-3"><a href="#cb26-3"></a><span class="bu">print</span>(<span class="st">&quot;Sales after 10</span><span class="sc">% d</span><span class="st">iscount:&quot;</span>, discounted_sales)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -2792,7 +2810,7 @@ Sum of elements: 100</code></pre>
 </section>
 <section id="vectorized-operations-addition" class="level2">
 <h2 class="anchored" data-anchor-id="vectorized-operations-addition">14. Vectorized Operations – Addition</h2>
-<div id="2c5677e6" class="cell" data-execution_count="14">
+<div id="f64b31fb" class="cell" data-execution_count="14">
 <div class="sourceCode cell-code" id="cb28"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1"></a>a <span class="op">=</span> np.array([<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>])</span>
 <span id="cb28-2"><a href="#cb28-2"></a>b <span class="op">=</span> np.array([<span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>])</span>
 <span id="cb28-3"><a href="#cb28-3"></a>sum_array <span class="op">=</span> a <span class="op">+</span> b</span>
@@ -2804,7 +2822,7 @@ Sum of elements: 100</code></pre>
 </section>
 <section id="looping-through-a-1d-array-with-a-for-loop" class="level2">
 <h2 class="anchored" data-anchor-id="looping-through-a-1d-array-with-a-for-loop">15. Looping Through a 1D Array with a For Loop</h2>
-<div id="39da778f" class="cell" data-execution_count="15">
+<div id="25cf8ce6" class="cell" data-execution_count="15">
 <div class="sourceCode cell-code" id="cb30"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1"></a>sales <span class="op">=</span> np.array([<span class="dv">10</span>, <span class="dv">20</span>, <span class="dv">30</span>, <span class="dv">40</span>, <span class="dv">50</span>])</span>
 <span id="cb30-2"><a href="#cb30-2"></a>new_sales <span class="op">=</span> np.empty_like(sales)</span>
 <span id="cb30-3"><a href="#cb30-3"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="bu">len</span>(sales)):</span>
@@ -2817,7 +2835,7 @@ Sum of elements: 100</code></pre>
 </section>
 <section id="looping-with-np.nditer" class="level2">
 <h2 class="anchored" data-anchor-id="looping-with-np.nditer">16. Looping with <code>np.nditer</code></h2>
-<div id="9c3f34c2" class="cell" data-execution_count="16">
+<div id="b66bd179" class="cell" data-execution_count="16">
 <div class="sourceCode cell-code" id="cb32"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1"></a>sales_small <span class="op">=</span> np.array([<span class="dv">100</span>, <span class="dv">200</span>, <span class="dv">300</span>])</span>
 <span id="cb32-2"><a href="#cb32-2"></a><span class="bu">print</span>(<span class="st">&quot;Traversing sales using np.nditer:&quot;</span>)</span>
 <span id="cb32-3"><a href="#cb32-3"></a><span class="cf">for</span> val <span class="kw">in</span> np.nditer(sales_small):</span>
@@ -2832,7 +2850,7 @@ Sum of elements: 100</code></pre>
 </section>
 <section id="using-np.vectorize-with-a-lambda-function" class="level2">
 <h2 class="anchored" data-anchor-id="using-np.vectorize-with-a-lambda-function">17. Using <code>np.vectorize</code> with a Lambda Function</h2>
-<div id="817fd1ba" class="cell" data-execution_count="17">
+<div id="a0f55431" class="cell" data-execution_count="17">
 <div class="sourceCode cell-code" id="cb34"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1"></a>square <span class="op">=</span> <span class="kw">lambda</span> x: x <span class="op">**</span> <span class="dv">2</span></span>
 <span id="cb34-2"><a href="#cb34-2"></a>vectorized_square <span class="op">=</span> np.vectorize(square)</span>
 <span id="cb34-3"><a href="#cb34-3"></a>result <span class="op">=</span> vectorized_square(np.array([<span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>]))</span>
@@ -2844,7 +2862,7 @@ Sum of elements: 100</code></pre>
 </section>
 <section id="using-np.apply_along_axis" class="level2">
 <h2 class="anchored" data-anchor-id="using-np.apply_along_axis">18. Using <code>np.apply_along_axis</code></h2>
-<div id="15f1c24b" class="cell" data-execution_count="18">
+<div id="c2399fe2" class="cell" data-execution_count="18">
 <div class="sourceCode cell-code" id="cb36"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a href="#cb36-1"></a>regional_sales <span class="op">=</span> np.array([</span>
 <span id="cb36-2"><a href="#cb36-2"></a>    [<span class="dv">100</span>, <span class="dv">200</span>, <span class="dv">150</span>],</span>
 <span id="cb36-3"><a href="#cb36-3"></a>    [<span class="dv">250</span>, <span class="dv">300</span>, <span class="dv">350</span>],</span>
@@ -2860,7 +2878,7 @@ Sum of elements: 100</code></pre>
 </section>
 <section id="filtering-with-boolean-indexing-single-condition" class="level2">
 <h2 class="anchored" data-anchor-id="filtering-with-boolean-indexing-single-condition">19. Filtering with Boolean Indexing (Single Condition)</h2>
-<div id="a9a9ed9b" class="cell" data-execution_count="19">
+<div id="51958dd4" class="cell" data-execution_count="19">
 <div class="sourceCode cell-code" id="cb38"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb38-1"><a href="#cb38-1"></a>sales <span class="op">=</span> np.array([<span class="dv">100</span>, <span class="dv">150</span>, <span class="dv">200</span>, <span class="dv">250</span>, <span class="dv">300</span>, <span class="dv">350</span>, <span class="dv">400</span>])</span>
 <span id="cb38-2"><a href="#cb38-2"></a>high_sales <span class="op">=</span> sales[sales <span class="op">&gt;</span> <span class="dv">200</span>]</span>
 <span id="cb38-3"><a href="#cb38-3"></a><span class="bu">print</span>(<span class="st">&quot;Sales greater than 200:&quot;</span>, high_sales)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -2871,7 +2889,7 @@ Sum of elements: 100</code></pre>
 </section>
 <section id="filtering-with-boolean-indexing-range-condition" class="level2">
 <h2 class="anchored" data-anchor-id="filtering-with-boolean-indexing-range-condition">20. Filtering with Boolean Indexing (Range Condition)</h2>
-<div id="9e11373e" class="cell" data-execution_count="20">
+<div id="545a9f74" class="cell" data-execution_count="20">
 <div class="sourceCode cell-code" id="cb40"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb40-1"><a href="#cb40-1"></a>sales_range <span class="op">=</span> sales[(sales <span class="op">&gt;=</span> <span class="dv">150</span>) <span class="op">&amp;</span> (sales <span class="op">&lt;=</span> <span class="dv">350</span>)]</span>
 <span id="cb40-2"><a href="#cb40-2"></a><span class="bu">print</span>(<span class="st">&quot;Sales between 150 and 350:&quot;</span>, sales_range)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -2881,7 +2899,7 @@ Sum of elements: 100</code></pre>
 </section>
 <section id="filtering-with-np.logical_or" class="level2">
 <h2 class="anchored" data-anchor-id="filtering-with-np.logical_or">21. Filtering with <code>np.logical_or</code></h2>
-<div id="0723b90e" class="cell" data-execution_count="21">
+<div id="717a7764" class="cell" data-execution_count="21">
 <div class="sourceCode cell-code" id="cb42"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb42-1"><a href="#cb42-1"></a>extreme_sales <span class="op">=</span> sales[np.logical_or(sales <span class="op">&lt;</span> <span class="dv">150</span>, sales <span class="op">&gt;</span> <span class="dv">350</span>)]</span>
 <span id="cb42-2"><a href="#cb42-2"></a><span class="bu">print</span>(<span class="st">&quot;Sales less than 150 or greater than 350:&quot;</span>, extreme_sales)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -2891,7 +2909,7 @@ Sum of elements: 100</code></pre>
 </section>
 <section id="filtering-with-np.where" class="level2">
 <h2 class="anchored" data-anchor-id="filtering-with-np.where">22. Filtering with <code>np.where</code></h2>
-<div id="28a7c97c" class="cell" data-execution_count="22">
+<div id="73649cab" class="cell" data-execution_count="22">
 <div class="sourceCode cell-code" id="cb44"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb44-1"><a href="#cb44-1"></a>indices <span class="op">=</span> np.where(sales <span class="op">&gt;</span> <span class="dv">250</span>)</span>
 <span id="cb44-2"><a href="#cb44-2"></a><span class="bu">print</span>(<span class="st">&quot;Indices where sales &gt; 250:&quot;</span>, indices)</span>
 <span id="cb44-3"><a href="#cb44-3"></a><span class="bu">print</span>(<span class="st">&quot;Sales values at these indices:&quot;</span>, sales[indices])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -2903,7 +2921,7 @@ Sales values at these indices: [300 350 400]</code></pre>
 </section>
 <section id="filtering-with-np.extract" class="level2">
 <h2 class="anchored" data-anchor-id="filtering-with-np.extract">23. Filtering with <code>np.extract</code></h2>
-<div id="3025a38a" class="cell" data-execution_count="23">
+<div id="9363b55f" class="cell" data-execution_count="23">
 <div class="sourceCode cell-code" id="cb46"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb46-1"><a href="#cb46-1"></a>extracted_sales <span class="op">=</span> np.extract(sales <span class="op">&gt;</span> <span class="dv">250</span>, sales)</span>
 <span id="cb46-2"><a href="#cb46-2"></a><span class="bu">print</span>(<span class="st">&quot;Extracted sales (values &gt; 250):&quot;</span>, extracted_sales)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -2913,7 +2931,7 @@ Sales values at these indices: [300 350 400]</code></pre>
 </section>
 <section id="aggregation-sum" class="level2">
 <h2 class="anchored" data-anchor-id="aggregation-sum">24. Aggregation – Sum</h2>
-<div id="a778ad9c" class="cell" data-execution_count="24">
+<div id="1cfdb73f" class="cell" data-execution_count="24">
 <div class="sourceCode cell-code" id="cb48"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb48-1"><a href="#cb48-1"></a>arr_sum <span class="op">=</span> np.array([<span class="dv">5</span>, <span class="dv">10</span>, <span class="dv">15</span>, <span class="dv">20</span>, <span class="dv">25</span>])</span>
 <span id="cb48-2"><a href="#cb48-2"></a>total <span class="op">=</span> np.<span class="bu">sum</span>(arr_sum)</span>
 <span id="cb48-3"><a href="#cb48-3"></a><span class="bu">print</span>(<span class="st">&quot;Sum of array elements:&quot;</span>, total)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -2924,7 +2942,7 @@ Sales values at these indices: [300 350 400]</code></pre>
 </section>
 <section id="aggregation-mean-and-standard-deviation" class="level2">
 <h2 class="anchored" data-anchor-id="aggregation-mean-and-standard-deviation">25. Aggregation – Mean and Standard Deviation</h2>
-<div id="eb9cf7ad" class="cell" data-execution_count="25">
+<div id="5a05a04e" class="cell" data-execution_count="25">
 <div class="sourceCode cell-code" id="cb50"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb50-1"><a href="#cb50-1"></a>arr_stats <span class="op">=</span> np.array([<span class="dv">2</span>, <span class="dv">4</span>, <span class="dv">6</span>, <span class="dv">8</span>, <span class="dv">10</span>])</span>
 <span id="cb50-2"><a href="#cb50-2"></a>mean_val <span class="op">=</span> np.mean(arr_stats)</span>
 <span id="cb50-3"><a href="#cb50-3"></a>std_val <span class="op">=</span> np.std(arr_stats)</span>
@@ -2936,7 +2954,7 @@ Sales values at these indices: [300 350 400]</code></pre>
 </section>
 <section id="aggregation-min-max-and-median" class="level2">
 <h2 class="anchored" data-anchor-id="aggregation-min-max-and-median">26. Aggregation – Min, Max, and Median</h2>
-<div id="1986445f" class="cell" data-execution_count="26">
+<div id="8b3d9b09" class="cell" data-execution_count="26">
 <div class="sourceCode cell-code" id="cb52"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb52-1"><a href="#cb52-1"></a>arr_agg <span class="op">=</span> np.array([<span class="dv">1</span>, <span class="dv">3</span>, <span class="dv">5</span>, <span class="dv">7</span>, <span class="dv">9</span>])</span>
 <span id="cb52-2"><a href="#cb52-2"></a><span class="bu">print</span>(<span class="st">&quot;Minimum:&quot;</span>, np.<span class="bu">min</span>(arr_agg))</span>
 <span id="cb52-3"><a href="#cb52-3"></a><span class="bu">print</span>(<span class="st">&quot;Maximum:&quot;</span>, np.<span class="bu">max</span>(arr_agg))</span>
@@ -2950,7 +2968,7 @@ Median: 5.0</code></pre>
 </section>
 <section id="aggregation-product" class="level2">
 <h2 class="anchored" data-anchor-id="aggregation-product">27. Aggregation – Product</h2>
-<div id="4655667b" class="cell" data-execution_count="27">
+<div id="7a4437fb" class="cell" data-execution_count="27">
 <div class="sourceCode cell-code" id="cb54"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb54-1"><a href="#cb54-1"></a>arr_prod <span class="op">=</span> np.array([<span class="dv">2</span>, <span class="dv">4</span>, <span class="dv">6</span>, <span class="dv">8</span>, <span class="dv">10</span>])</span>
 <span id="cb54-2"><a href="#cb54-2"></a>product <span class="op">=</span> np.prod(arr_prod)</span>
 <span id="cb54-3"><a href="#cb54-3"></a><span class="bu">print</span>(<span class="st">&quot;Product of array elements:&quot;</span>, product)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -2961,7 +2979,7 @@ Median: 5.0</code></pre>
 </section>
 <section id="difference-calculation-with-np.diff" class="level2">
 <h2 class="anchored" data-anchor-id="difference-calculation-with-np.diff">28. Difference Calculation with <code>np.diff</code></h2>
-<div id="a8ec6042" class="cell" data-execution_count="28">
+<div id="ea7c28c7" class="cell" data-execution_count="28">
 <div class="sourceCode cell-code" id="cb56"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb56-1"><a href="#cb56-1"></a>arr_diff <span class="op">=</span> np.array([<span class="dv">10</span>, <span class="dv">15</span>, <span class="dv">20</span>, <span class="dv">25</span>, <span class="dv">30</span>])</span>
 <span id="cb56-2"><a href="#cb56-2"></a>differences <span class="op">=</span> np.diff(arr_diff)</span>
 <span id="cb56-3"><a href="#cb56-3"></a><span class="bu">print</span>(<span class="st">&quot;Differences between consecutive elements:&quot;</span>, differences)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -2972,7 +2990,7 @@ Median: 5.0</code></pre>
 </section>
 <section id="cumulative-sum-with-np.cumsum" class="level2">
 <h2 class="anchored" data-anchor-id="cumulative-sum-with-np.cumsum">29. Cumulative Sum with <code>np.cumsum</code></h2>
-<div id="8890d497" class="cell" data-execution_count="29">
+<div id="91713b56" class="cell" data-execution_count="29">
 <div class="sourceCode cell-code" id="cb58"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb58-1"><a href="#cb58-1"></a>arr_cumsum <span class="op">=</span> np.array([<span class="dv">10</span>, <span class="dv">15</span>, <span class="dv">20</span>, <span class="dv">25</span>, <span class="dv">30</span>])</span>
 <span id="cb58-2"><a href="#cb58-2"></a>cumulative <span class="op">=</span> np.cumsum(arr_cumsum)</span>
 <span id="cb58-3"><a href="#cb58-3"></a><span class="bu">print</span>(<span class="st">&quot;Cumulative sum of array:&quot;</span>, cumulative)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -2983,7 +3001,7 @@ Median: 5.0</code></pre>
 </section>
 <section id="sorting-arrays-with-np.sort" class="level2">
 <h2 class="anchored" data-anchor-id="sorting-arrays-with-np.sort">30. Sorting Arrays with <code>np.sort</code></h2>
-<div id="0361d64e" class="cell" data-execution_count="30">
+<div id="33121dc7" class="cell" data-execution_count="30">
 <div class="sourceCode cell-code" id="cb60"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb60-1"><a href="#cb60-1"></a>unsorted <span class="op">=</span> np.array([<span class="dv">3</span>, <span class="dv">1</span>, <span class="dv">4</span>, <span class="dv">1</span>, <span class="dv">5</span>, <span class="dv">9</span>, <span class="dv">2</span>])</span>
 <span id="cb60-2"><a href="#cb60-2"></a>sorted_arr <span class="op">=</span> np.sort(unsorted)</span>
 <span id="cb60-3"><a href="#cb60-3"></a><span class="bu">print</span>(<span class="st">&quot;Sorted array:&quot;</span>, sorted_arr)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>

@@ -6,10 +6,8 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Dr.&nbsp;Smith">
-<meta name="dcterms.date" content="2024-01-20">
 
-<title>ISM4641: Python for Business Analytics</title>
+<title>week02-problem-set</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -67,54 +65,156 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="Week02-problem-set_files/libs/quarto-html/tippy.umd.min.js"></script>
 <script src="Week02-problem-set_files/libs/quarto-html/anchor.min.js"></script>
 <link href="Week02-problem-set_files/libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="Week02-problem-set_files/libs/quarto-html/quarto-syntax-highlighting-af5ec82acda093b5ee751184164e9432.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="Week02-problem-set_files/libs/quarto-html/quarto-syntax-highlighting-e1a5c8363afafaef2c763b6775fbf3ca.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="Week02-problem-set_files/libs/bootstrap/bootstrap.min.js"></script>
 <link href="Week02-problem-set_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="Week02-problem-set_files/libs/bootstrap/bootstrap-1f8043d50c91bbeffefd1c1c1743f768.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="Week02-problem-set_files/libs/bootstrap/bootstrap-bc29b7a494c55474c6a8d56f75b3cb06.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 
 
-<link rel="stylesheet" href="style.css">
 </head>
 
-<body class="quarto-light">
+<body class="fullcontent quarto-light">
 
 <div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
-<div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-<div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="../../practice-problems.html"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></div>
+
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title">
-<h1 class="title">ISM4641: Python for Business Analytics</h1>
-<p class="subtitle lead">Week 2 Practice Problems: Control Flow and Data Structures</p>
-</div>
 
 
 
-<div class="quarto-title-meta">
+<hr>
+<p>title: “ISM4641: Python for Business Analytics” subtitle: “Week 2 Practice Problems: Control Flow and Data Structures” author: “Dr.&nbsp;Smith” institution: “University of South Florida” date: “2024-01-20” date-format: long footer: “ISM4641 Python for Business Analytics” header: “Dr.&nbsp;Tim C. Smith ©️2025”</p>
+<p>css: style.css highlight-style: tango # arrow, pygments, tango, espresso, zenburn, kate, monochrome, breezedark, haddock, atom-one, ayu, breeze, dracula, github, gruvbox, monokai, nord, oblivion, printing, radical, solarized, and vim</p>
+<p>execute: echo: true format: html: embed-resources: true page-layout: full grid: body-width: 1400px sidebar-width: 250px margin-width: 0px gutter-width: 1.5rem toc: true toc-location: left toc-depth: 2 number-sections: false highlight-style: github code-fold: false code-tools: false code-block-bg: “#f5f5f5” code-block-border-left: “#31BAE9” code-block-line-numbers: false code-overflow: scroll code-link: false theme: light: flatly dark: darkly callout-appearance: simple self-contained: true code-line-numbers: true —</p>
+<style>
+/* Canvas iframe optimization */
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  font-size: 16px;
+  line-height: 1.5;
+  color: #212529;
+}
 
-    <div>
-    <div class="quarto-title-meta-heading">Author</div>
-    <div class="quarto-title-meta-contents">
-             <p>Dr.&nbsp;Smith </p>
-          </div>
-  </div>
-    
-    <div>
-    <div class="quarto-title-meta-heading">Published</div>
-    <div class="quarto-title-meta-contents">
-      <p class="date">January 20, 2024</p>
-    </div>
-  </div>
+@media screen {
+  body.in-iframe {
+    margin: 0;
+    padding: 15px;
+    max-width: 100%;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    font-size: 16px;
+    line-height: 1.5;
+    color: #212529;
+  }
+  .in-iframe .quarto-container {
+    max-width: 100%;
+    padding: 0 15px;
+  }
+  .in-iframe #quarto-content {
+    max-width: 100%;
+  }
+  .in-iframe .page-layout-article {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .in-iframe .page-layout-full {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .in-iframe .sidebar {
+    width: 200px !important;
+    font-size: 0.9em;
+  }
+  .in-iframe .sidebar.toc-left {
+    width: 200px !important;
+    margin-right: 15px;
+  }
+  .in-iframe .column-body {
+    grid-column: 1;
+    max-width: 100%;
+  }
+  .in-iframe #quarto-document-content {
+    max-width: calc(100% - 220px);
+    padding: 0 15px;
+  }
+  .in-iframe pre {
+    overflow-x: auto;
+    max-width: 100%;
+    font-size: 0.9em;
+  }
+  .in-iframe code {
+    font-size: 0.9em;
+  }
+  .in-iframe table {
+    display: block;
+    overflow-x: auto;
+    max-width: 100%;
+    font-size: 0.9em;
+  }
+  .in-iframe img {
+    max-width: 100%;
+    height: auto;
+  }
+  .in-iframe .callout {
+    margin: 1em 0;
+    padding: 0.5em 1em;
+  }
+  .in-iframe .sourceCode {
+    max-width: 100%;
+    overflow-x: auto;
+  }
+  .in-iframe .cell {
+    max-width: 100%;
+  }
+  .in-iframe body {
+    font-size: 15px;
+  }
+  .in-iframe h1 {
+    font-size: 1.8em;
+  }
+  .in-iframe h2 {
+    font-size: 1.5em;
+  }
+  .in-iframe h3 {
+    font-size: 1.3em;
+  }
+  .in-iframe h4 {
+    font-size: 1.1em;
+  }
+  .in-iframe #quarto-margin-sidebar {
+    display: none !important;
+  }
+  .in-iframe .margin-sidebar {
+    display: none !important;
+  }
   
-    
-  </div>
+  /* Ensure proper paragraph spacing */
+  .in-iframe p {
+    margin-bottom: 1rem;
+  }
   
+  /* Maintain list styling */
+  .in-iframe ul, .in-iframe ol {
+    margin-bottom: 1rem;
+  }
+}
 
-
-</header>
-
-
+@media screen and (max-width: 768px) {
+  .in-iframe .sidebar {
+    display: none !important;
+  }
+  .in-iframe #quarto-document-content {
+    max-width: 100%;
+  }
+  .in-iframe body {
+    font-size: 14px;
+  }
+}
+</style>
+<script>
+if (window.self !== window.top) {
+  document.addEventListener("DOMContentLoaded", function() {
+    document.body.classList.add("in-iframe");
+  });
+}
+</script>
 <section id="control-flow-and-data-structures-practice-problems" class="level1">
 <h1>Control Flow and Data Structures: Practice Problems</h1>
 <p>This problem set is designed to reinforce your understanding of control flow (conditional statements and loops) and data structures (lists and dictionaries) in Python, as covered in Week 2 of ISM4641.</p>

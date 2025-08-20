@@ -2406,11 +2406,21 @@ vertical-align: -.125em;
 
 <style>
 
+body {
+font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+font-size: 16px;
+line-height: 1.5;
+color: #212529;
+}
 @media screen {
 body.in-iframe {
 margin: 0;
 padding: 15px;
 max-width: 100%;
+font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+font-size: 16px;
+line-height: 1.5;
+color: #212529;
 }
 .in-iframe .quarto-container {
 max-width: 100%;
@@ -2490,6 +2500,14 @@ display: none !important;
 }
 .in-iframe .margin-sidebar {
 display: none !important;
+}
+
+.in-iframe p {
+margin-bottom: 1rem;
+}
+
+.in-iframe ul, .in-iframe ol {
+margin-bottom: 1rem;
 }
 }
 @media screen and (max-width: 768px) {

@@ -2537,11 +2537,21 @@ window.Quarto = {
 
 <style>
 
+body {
+font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+font-size: 16px;
+line-height: 1.5;
+color: #212529;
+}
 @media screen {
 body.in-iframe {
 margin: 0;
 padding: 15px;
 max-width: 100%;
+font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+font-size: 16px;
+line-height: 1.5;
+color: #212529;
 }
 .in-iframe .quarto-container {
 max-width: 100%;
@@ -2622,6 +2632,14 @@ display: none !important;
 .in-iframe .margin-sidebar {
 display: none !important;
 }
+
+.in-iframe p {
+margin-bottom: 1rem;
+}
+
+.in-iframe ul, .in-iframe ol {
+margin-bottom: 1rem;
+}
 }
 @media screen and (max-width: 768px) {
 .in-iframe .sidebar {
@@ -2668,7 +2686,7 @@ Session Overview:
 <section id="descriptive-statistics-with-pandas" class="level3">
 <h3 class="anchored" data-anchor-id="descriptive-statistics-with-pandas">Descriptive Statistics with pandas</h3>
 <p>Descriptive statistics provide a quick overview of the central tendencies and variability in your data. The following example demonstrates how to compute measures such as mean, median, mode, variance, and standard deviation using pandas.</p>
-<div id="f899de54" class="cell" data-execution_count="1">
+<div id="a0d6b193" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb1-2"><a href="#cb1-2"></a></span>
 <span id="cb1-3"><a href="#cb1-3"></a><span class="co"># Sample sales data</span></span>
@@ -2706,7 +2724,7 @@ Note:
 <section id="visualizing-data-distributions" class="level3">
 <h3 class="anchored" data-anchor-id="visualizing-data-distributions">Visualizing Data Distributions</h3>
 <p>Visualization enhances your understanding of how data points are spread. Histograms and box plots are useful to quickly grasp data distributions and identify outliers.</p>
-<div id="4d6fbb82" class="cell" data-execution_count="2">
+<div id="32d2fc5a" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
 <span id="cb3-2"><a href="#cb3-2"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
 <span id="cb3-3"><a href="#cb3-3"></a></span>
@@ -2912,7 +2930,7 @@ t = \frac{\bar{d}}{s_d/\sqrt{n}}
 </div>
 <p><strong>Business Example 1: Customer Satisfaction Rating</strong></p>
 <p><em>Question: Is the average customer satisfaction rating significantly different from our target rating of 4.0?</em></p>
-<div id="9edf79d8" class="cell" data-execution_count="3">
+<div id="b88da009" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb4-2"><a href="#cb4-2"></a><span class="im">from</span> scipy <span class="im">import</span> stats</span>
 <span id="cb4-3"><a href="#cb4-3"></a></span>
@@ -2936,7 +2954,7 @@ P-value: 0.2563154589158218</code></pre>
 <hr>
 <p><strong>Business Example 2: Production Cost Benchmark</strong></p>
 <p><em>Question: Does the average production cost per unit significantly differ from the industry standard of $50?</em></p>
-<div id="5cc01874" class="cell" data-execution_count="4">
+<div id="6a8c9912" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1"></a><span class="co"># Sample production costs per unit (in dollars)</span></span>
 <span id="cb6-2"><a href="#cb6-2"></a>production_costs <span class="op">=</span> np.array([<span class="dv">48</span>, <span class="dv">52</span>, <span class="dv">47</span>, <span class="dv">53</span>, <span class="dv">50</span>, <span class="dv">49</span>, <span class="dv">51</span>])</span>
 <span id="cb6-3"><a href="#cb6-3"></a>industry_standard <span class="op">=</span> <span class="dv">50</span></span>
@@ -2958,7 +2976,7 @@ P-value: 1.0</code></pre>
 <hr>
 <p><strong>Business Example 3: Average Delivery Time</strong></p>
 <p><em>Question: Is the average delivery time significantly different from our promised delivery time of 3 days?</em></p>
-<div id="e90ace0a" class="cell" data-execution_count="5">
+<div id="19efea31" class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1"></a><span class="co"># Sample delivery times (in days)</span></span>
 <span id="cb8-2"><a href="#cb8-2"></a>delivery_times <span class="op">=</span> np.array([<span class="fl">2.8</span>, <span class="fl">3.1</span>, <span class="fl">3.0</span>, <span class="fl">2.9</span>, <span class="fl">3.2</span>, <span class="fl">2.7</span>, <span class="fl">3.0</span>])</span>
 <span id="cb8-3"><a href="#cb8-3"></a>promised_time <span class="op">=</span> <span class="fl">3.0</span></span>
@@ -2994,7 +3012,7 @@ P-value: 0.5338076803004532</code></pre>
 </div>
 <p><strong>Business Example 1: Marketing Campaign Performance</strong></p>
 <p><em>Question: Does Campaign A generate higher sales than Campaign B?</em></p>
-<div id="35635bb2" class="cell" data-execution_count="6">
+<div id="bc6f335d" class="cell" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1"></a><span class="co"># Sample sales data for two marketing campaigns</span></span>
 <span id="cb10-2"><a href="#cb10-2"></a>campaign_A <span class="op">=</span> np.array([<span class="dv">100</span>, <span class="dv">102</span>, <span class="dv">98</span>, <span class="dv">105</span>, <span class="dv">110</span>, <span class="dv">95</span>, <span class="dv">103</span>])</span>
 <span id="cb10-3"><a href="#cb10-3"></a>campaign_B <span class="op">=</span> np.array([<span class="dv">95</span>, <span class="dv">97</span>, <span class="dv">96</span>, <span class="dv">92</span>, <span class="dv">90</span>, <span class="dv">98</span>, <span class="dv">94</span>])</span>
@@ -3016,7 +3034,7 @@ P-value: 0.005075487486088886</code></pre>
 <hr>
 <p><strong>Business Example 2: Branch Revenue Comparison</strong></p>
 <p><em>Question: Do two different branches of your retail chain show a significant difference in average monthly revenue?</em></p>
-<div id="ca8adde4" class="cell" data-execution_count="7">
+<div id="cc91e11b" class="cell" data-execution_count="7">
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1"></a><span class="co"># Sample monthly revenue data (in thousands) for two branches</span></span>
 <span id="cb12-2"><a href="#cb12-2"></a>branch_X <span class="op">=</span> np.array([<span class="dv">150</span>, <span class="dv">155</span>, <span class="dv">148</span>, <span class="dv">160</span>, <span class="dv">158</span>, <span class="dv">152</span>, <span class="dv">157</span>])</span>
 <span id="cb12-3"><a href="#cb12-3"></a>branch_Y <span class="op">=</span> np.array([<span class="dv">145</span>, <span class="dv">148</span>, <span class="dv">150</span>, <span class="dv">142</span>, <span class="dv">147</span>, <span class="dv">149</span>, <span class="dv">151</span>])</span>
@@ -3038,7 +3056,7 @@ P-value: 0.005695961373319701</code></pre>
 <hr>
 <p><strong>Business Example 3: Employee Productivity Comparison</strong></p>
 <p><em>Question: Do the Sales and Customer Support departments differ significantly in average daily productivity (e.g., number of resolved cases or sales calls)?</em></p>
-<div id="a5cece2f" class="cell" data-execution_count="8">
+<div id="f1d14f55" class="cell" data-execution_count="8">
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1"></a><span class="co"># Sample productivity data (e.g., resolved cases per day)</span></span>
 <span id="cb14-2"><a href="#cb14-2"></a>sales_department <span class="op">=</span> np.array([<span class="dv">30</span>, <span class="dv">32</span>, <span class="dv">28</span>, <span class="dv">35</span>, <span class="dv">33</span>, <span class="dv">31</span>, <span class="dv">29</span>])</span>
 <span id="cb14-3"><a href="#cb14-3"></a>support_department <span class="op">=</span> np.array([<span class="dv">25</span>, <span class="dv">27</span>, <span class="dv">26</span>, <span class="dv">24</span>, <span class="dv">28</span>, <span class="dv">26</span>, <span class="dv">27</span>])</span>
@@ -3074,7 +3092,7 @@ P-value: 0.0004390528365190285</code></pre>
 </div>
 <p><strong>Business Example 1: Impact of a New Pricing Strategy</strong></p>
 <p><em>Question: Does the implementation of a new pricing strategy lead to an increase in sales?</em></p>
-<div id="52b9a684" class="cell" data-execution_count="9">
+<div id="27471b4d" class="cell" data-execution_count="9">
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1"></a><span class="co"># Sales data before and after a new pricing strategy (paired observations)</span></span>
 <span id="cb16-2"><a href="#cb16-2"></a>sales_before <span class="op">=</span> np.array([<span class="dv">100</span>, <span class="dv">102</span>, <span class="dv">98</span>, <span class="dv">105</span>, <span class="dv">110</span>, <span class="dv">95</span>, <span class="dv">103</span>])</span>
 <span id="cb16-3"><a href="#cb16-3"></a>sales_after  <span class="op">=</span> np.array([<span class="dv">105</span>, <span class="dv">107</span>, <span class="dv">100</span>, <span class="dv">108</span>, <span class="dv">115</span>, <span class="dv">98</span>, <span class="dv">105</span>])</span>
@@ -3096,7 +3114,7 @@ P-value: 0.0005103778947558961</code></pre>
 <hr>
 <p><strong>Business Example 2: Customer Support Training Effectiveness</strong></p>
 <p><em>Question: Has a customer support training program reduced the average response time?</em></p>
-<div id="4c3b86e5" class="cell" data-execution_count="10">
+<div id="432a89fd" class="cell" data-execution_count="10">
 <div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1"></a><span class="co"># Average response times (in minutes) before and after a training program (paired observations)</span></span>
 <span id="cb18-2"><a href="#cb18-2"></a>response_before <span class="op">=</span> np.array([<span class="dv">10</span>, <span class="dv">12</span>, <span class="dv">11</span>, <span class="dv">9</span>, <span class="dv">13</span>, <span class="dv">10</span>, <span class="dv">11</span>])</span>
 <span id="cb18-3"><a href="#cb18-3"></a>response_after  <span class="op">=</span> np.array([<span class="dv">8</span>, <span class="dv">9</span>, <span class="dv">7</span>, <span class="dv">8</span>, <span class="dv">10</span>, <span class="dv">8</span>, <span class="dv">9</span>])</span>
@@ -3118,7 +3136,7 @@ P-value: 0.0005892669340900919</code></pre>
 <hr>
 <p><strong>Business Example 3: Website Redesign Impact</strong></p>
 <p><em>Question: Has a website redesign led to a change in the average session duration for users?</em></p>
-<div id="0b7506e8" class="cell" data-execution_count="11">
+<div id="828a08ab" class="cell" data-execution_count="11">
 <div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1"></a><span class="co"># Average session durations (in minutes) before and after a website redesign (paired observations)</span></span>
 <span id="cb20-2"><a href="#cb20-2"></a>session_before <span class="op">=</span> np.array([<span class="fl">5.5</span>, <span class="fl">6.0</span>, <span class="fl">5.8</span>, <span class="fl">6.2</span>, <span class="fl">5.9</span>, <span class="fl">6.1</span>, <span class="fl">5.7</span>])</span>
 <span id="cb20-3"><a href="#cb20-3"></a>session_after  <span class="op">=</span> np.array([<span class="fl">6.0</span>, <span class="fl">6.5</span>, <span class="fl">6.3</span>, <span class="fl">6.7</span>, <span class="fl">6.4</span>, <span class="fl">6.6</span>, <span class="fl">6.2</span>])</span>
@@ -3148,7 +3166,7 @@ P-value: 0.0</code></pre>
 <section id="correlation-analysis-with-pandas" class="level3">
 <h3 class="anchored" data-anchor-id="correlation-analysis-with-pandas">Correlation Analysis with pandas</h3>
 <p>Correlation analysis quantifies the degree of association between variables. The following example computes the Pearson correlation between sales, marketing spend, and customer satisfaction.</p>
-<div id="4b35d5c6" class="cell" data-execution_count="12">
+<div id="89e217f3" class="cell" data-execution_count="12">
 <div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb22-2"><a href="#cb22-2"></a></span>
 <span id="cb22-3"><a href="#cb22-3"></a><span class="co"># Create sample data for correlation analysis</span></span>
