@@ -519,7 +519,7 @@ When to Use Pandas:
 <p>Before you start, ensure Pandas is installed. In many environments, including Google Colab, it’s pre-installed. If working locally, install it using:</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1"></a><span class="ex">pip</span> install pandas</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Then, import Pandas in your script or notebook:</p>
-<div id="f12f51b4" class="cell" data-execution_count="1">
+<div id="b4764c0e" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="callout callout-style-simple callout-tip callout-titled" title="Quick Tip:">
@@ -545,7 +545,7 @@ Quick Tip:
 <p>A <strong>Series</strong> is a one-dimensional array with labels (indices). It is similar to a single column in a spreadsheet.</p>
 <section id="example-creating-a-series" class="level4">
 <h4 class="anchored" data-anchor-id="example-creating-a-series">Example: Creating a Series</h4>
-<div id="e592dfdb" class="cell" data-execution_count="2">
+<div id="3c736553" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1"></a><span class="co"># Creating a Series from a list of sales figures</span></span>
 <span id="cb3-2"><a href="#cb3-2"></a>sales_series <span class="op">=</span> pd.Series([<span class="dv">100</span>, <span class="dv">150</span>, <span class="dv">200</span>, <span class="dv">250</span>, <span class="dv">300</span>])</span>
 <span id="cb3-3"><a href="#cb3-3"></a><span class="bu">print</span>(<span class="st">"Sales Series:"</span>)</span>
@@ -574,7 +574,7 @@ Understanding Indices:
 <div class="sourceCode" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1"></a>custom_sales <span class="op">=</span> pd.Series([<span class="dv">100</span>, <span class="dv">150</span>, <span class="dv">200</span>, <span class="dv">250</span>, <span class="dv">300</span>], index<span class="op">=</span>[<span class="st">'Mon'</span>, <span class="st">'Tue'</span>, <span class="st">'Wed'</span>, <span class="st">'Thu'</span>, <span class="st">'Fri'</span>])</span>
 <span id="cb5-2"><a href="#cb5-2"></a><span class="bu">print</span>(custom_sales)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Or do the same by using a dictionary:</p>
-<div id="c94514bd" class="cell" data-execution_count="3">
+<div id="88633c7c" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1"></a><span class="co"># Creating a Series from a list of sales figures</span></span>
 <span id="cb6-2"><a href="#cb6-2"></a>sales_series <span class="op">=</span> pd.Series({<span class="st">"Monday"</span>:<span class="dv">100</span>, <span class="st">"Tuesday"</span>:<span class="dv">150</span>, <span class="st">"Wednesday"</span>:<span class="dv">200</span>, <span class="st">"Thursday"</span>:<span class="dv">250</span>, <span class="st">"Friday"</span>:<span class="dv">300</span>})</span>
 <span id="cb6-3"><a href="#cb6-3"></a><span class="bu">print</span>(<span class="st">"Sales Series:"</span>)</span>
@@ -598,7 +598,7 @@ dtype: int64</code></pre>
 <p>A <strong>DataFrame</strong> is a two-dimensional table with rows and columns.</p>
 <section id="example-creating-a-dataframe" class="level4">
 <h4 class="anchored" data-anchor-id="example-creating-a-dataframe">Example: Creating a DataFrame</h4>
-<div id="7722ca95" class="cell" data-execution_count="4">
+<div id="5623e9fa" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1"></a><span class="co"># Creating a DataFrame from a dictionary</span></span>
 <span id="cb8-2"><a href="#cb8-2"></a>data <span class="op">=</span> {</span>
 <span id="cb8-3"><a href="#cb8-3"></a>  <span class="st">'Product'</span>: [<span class="st">'Laptop'</span>, <span class="st">'Mouse'</span>, <span class="st">'Keyboard'</span>, <span class="st">'Monitor'</span>],</span>
@@ -632,7 +632,7 @@ When to Use DataFrames:
 </div>
 <p><strong>Additional Example:</strong><br>
 You can also create a DataFrame from a list of dictionaries:</p>
-<div id="8c571ea2" class="cell" data-execution_count="5">
+<div id="4852c20b" class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1"></a>data_list <span class="op">=</span> [</span>
 <span id="cb10-2"><a href="#cb10-2"></a>    {<span class="st">'Product'</span>: <span class="st">'Laptop'</span>, <span class="st">'Price'</span>: <span class="fl">999.99</span>, <span class="st">'Stock'</span>: <span class="dv">50</span>},</span>
 <span id="cb10-3"><a href="#cb10-3"></a>    {<span class="st">'Product'</span>: <span class="st">'Mouse'</span>, <span class="st">'Price'</span>: <span class="fl">29.99</span>, <span class="st">'Stock'</span>: <span class="dv">150</span>},</span>
@@ -650,7 +650,7 @@ You can also create a DataFrame from a list of dictionaries:</p>
 </div>
 </div>
 <p>Just in case the above examples that contrast iloc and loc are confusing, let’s look at another example where the index for the dataframe is not like regular numeric indices.</p>
-<div id="c73d2c16" class="cell" data-execution_count="6">
+<div id="1437fb9a" class="cell" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb12-2"><a href="#cb12-2"></a></span>
 <span id="cb12-3"><a href="#cb12-3"></a><span class="co"># Creating a DataFrame with custom row labels</span></span>
@@ -722,7 +722,7 @@ K1  Keyboard  49.99    100</code></pre>
 <h3 class="anchored" data-anchor-id="accessing-columns-and-rows">4.1 Accessing Columns and Rows</h3>
 <section id="selecting-columns" class="level4">
 <h4 class="anchored" data-anchor-id="selecting-columns">Selecting Columns</h4>
-<div id="878e1d24" class="cell" data-execution_count="7">
+<div id="3a49b850" class="cell" data-execution_count="7">
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1"></a><span class="co"># Selecting the 'Price' column from the DataFrame</span></span>
 <span id="cb14-2"><a href="#cb14-2"></a>prices <span class="op">=</span> df[<span class="st">'Price'</span>]</span>
 <span id="cb14-3"><a href="#cb14-3"></a><span class="bu">print</span>(<span class="st">"Prices:"</span>)</span>
@@ -740,7 +740,7 @@ Name: Price, dtype: float64</code></pre>
 <section id="selecting-rows" class="level4">
 <h4 class="anchored" data-anchor-id="selecting-rows">Selecting Rows</h4>
 <p>Pandas provides two primary methods for selecting rows: - <strong><code>.loc</code>:</strong> For label-based indexing. - <strong><code>.iloc</code>:</strong> For position-based indexing.</p>
-<div id="77f8c972" class="cell" data-execution_count="8">
+<div id="76158831" class="cell" data-execution_count="8">
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1"></a><span class="co"># Using .loc to select the first row by its label</span></span>
 <span id="cb16-2"><a href="#cb16-2"></a>first_row <span class="op">=</span> df.loc[<span class="dv">0</span>]</span>
 <span id="cb16-3"><a href="#cb16-3"></a><span class="bu">print</span>(<span class="st">"First row using .loc:"</span>)</span>
@@ -765,7 +765,7 @@ Name: 0, dtype: object</code></pre>
 </div>
 <p><strong>Additional Example:</strong><br>
 Selecting multiple rows using <code>.iloc</code>:</p>
-<div id="3719c4d2" class="cell" data-execution_count="9">
+<div id="beac5e7b" class="cell" data-execution_count="9">
 <div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1"></a>first_two_rows <span class="op">=</span> df.iloc[<span class="dv">0</span>:<span class="dv">2</span>]</span>
 <span id="cb18-2"><a href="#cb18-2"></a><span class="bu">print</span>(<span class="st">"First two rows:"</span>)</span>
 <span id="cb18-3"><a href="#cb18-3"></a><span class="bu">print</span>(first_two_rows)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -783,7 +783,7 @@ Selecting multiple rows using <code>.iloc</code>:</p>
 <p>Filtering extracts rows that meet a specific condition.</p>
 <section id="example-filtering-rows-by-condition" class="level4">
 <h4 class="anchored" data-anchor-id="example-filtering-rows-by-condition">Example: Filtering Rows by Condition</h4>
-<div id="09150846" class="cell" data-execution_count="10">
+<div id="ece2631c" class="cell" data-execution_count="10">
 <div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1"></a><span class="co"># Filter products with a Price greater than 50</span></span>
 <span id="cb20-2"><a href="#cb20-2"></a>expensive_products <span class="op">=</span> df[df[<span class="st">'Price'</span>] <span class="op">&gt;</span> <span class="dv">50</span>]</span>
 <span id="cb20-3"><a href="#cb20-3"></a><span class="bu">print</span>(<span class="st">"Products with Price &gt; 50:"</span>)</span>
@@ -795,7 +795,7 @@ Selecting multiple rows using <code>.iloc</code>:</p>
 3  Monitor  199.99     75</code></pre>
 </div>
 </div>
-<div id="e62682eb" class="cell" data-execution_count="11">
+<div id="03ca6720" class="cell" data-execution_count="11">
 <div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1"></a><span class="co"># Filter products with Price &gt; 30 and Price &lt; 200</span></span>
 <span id="cb22-2"><a href="#cb22-2"></a>mid_range_products <span class="op">=</span> df[(df[<span class="st">'Price'</span>] <span class="op">&gt;</span> <span class="dv">30</span>) <span class="op">&amp;</span> (df[<span class="st">'Price'</span>] <span class="op">&lt;</span> <span class="dv">200</span>)]</span>
 <span id="cb22-3"><a href="#cb22-3"></a><span class="bu">print</span>(<span class="st">"Products with Price &gt; 30 and &lt; 200:"</span>)</span>
@@ -851,7 +851,7 @@ Operator Differences: <code>and</code> vs <code>&amp;</code>
 <h3 class="anchored" data-anchor-id="handling-missing-data">5.1 Handling Missing Data</h3>
 <section id="identifying-missing-values" class="level4">
 <h4 class="anchored" data-anchor-id="identifying-missing-values">Identifying Missing Values</h4>
-<div id="d5f251bb" class="cell" data-execution_count="12">
+<div id="2124a3e6" class="cell" data-execution_count="12">
 <div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1"></a><span class="co"># Creating a DataFrame with missing values</span></span>
 <span id="cb25-2"><a href="#cb25-2"></a>data_with_nan <span class="op">=</span> {</span>
 <span id="cb25-3"><a href="#cb25-3"></a>  <span class="st">'Product'</span>: [<span class="st">'Laptop'</span>, <span class="st">'Mouse'</span>, <span class="st">'Keyboard'</span>, <span class="st">'Monitor'</span>],</span>
@@ -873,7 +873,7 @@ Operator Differences: <code>and</code> vs <code>&amp;</code>
 </section>
 <section id="filling-missing-values" class="level4">
 <h4 class="anchored" data-anchor-id="filling-missing-values">Filling Missing Values</h4>
-<div id="f5e04f2c" class="cell" data-execution_count="13">
+<div id="46e0708b" class="cell" data-execution_count="13">
 <div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1"></a><span class="co"># Fill missing values: fill Price with the mean and Stock with 0</span></span>
 <span id="cb27-2"><a href="#cb27-2"></a>df_nan[<span class="st">'Price'</span>].fillna(df_nan[<span class="st">'Price'</span>].mean(), inplace<span class="op">=</span><span class="va">True</span>)</span>
 <span id="cb27-3"><a href="#cb27-3"></a>df_nan[<span class="st">'Stock'</span>].fillna(<span class="dv">0</span>, inplace<span class="op">=</span><span class="va">True</span>)</span>
@@ -891,7 +891,7 @@ Operator Differences: <code>and</code> vs <code>&amp;</code>
 </section>
 <section id="dropping-missing-values" class="level4">
 <h4 class="anchored" data-anchor-id="dropping-missing-values">Dropping Missing Values</h4>
-<div id="f1a18321" class="cell" data-execution_count="14">
+<div id="a0f80b9f" class="cell" data-execution_count="14">
 <div class="sourceCode cell-code" id="cb29"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1"></a><span class="co"># Creating a DataFrame with missing values</span></span>
 <span id="cb29-2"><a href="#cb29-2"></a>data_with_nan <span class="op">=</span> pd.DataFrame(</span>
 <span id="cb29-3"><a href="#cb29-3"></a>  {</span>
@@ -942,7 +942,7 @@ Best Practice:
 <p>Data transformation might include adding new columns, renaming, or modifying existing data.</p>
 <section id="example-adding-a-calculated-column" class="level4">
 <h4 class="anchored" data-anchor-id="example-adding-a-calculated-column">Example: Adding a Calculated Column</h4>
-<div id="d1eccc3d" class="cell" data-execution_count="15">
+<div id="d3b63d0b" class="cell" data-execution_count="15">
 <div class="sourceCode cell-code" id="cb31"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1"></a><span class="co"># Add a new column for Total Value: Price multiplied by Stock</span></span>
 <span id="cb31-2"><a href="#cb31-2"></a>df[<span class="st">'Total Value'</span>] <span class="op">=</span> df[<span class="st">'Price'</span>] <span class="op">*</span> df[<span class="st">'Stock'</span>]</span>
 <span id="cb31-3"><a href="#cb31-3"></a><span class="bu">print</span>(<span class="st">"DataFrame with Total Value Column:"</span>)</span>
@@ -959,7 +959,7 @@ Best Practice:
 </section>
 <section id="example-applying-a-discount" class="level4">
 <h4 class="anchored" data-anchor-id="example-applying-a-discount">Example: Applying a Discount</h4>
-<div id="6e6af221" class="cell" data-execution_count="16">
+<div id="a98f0593" class="cell" data-execution_count="16">
 <div class="sourceCode cell-code" id="cb33"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1"></a><span class="co"># Create a new column for Discounted Price with a 10% discount applied</span></span>
 <span id="cb33-2"><a href="#cb33-2"></a>df[<span class="st">'Discounted Price'</span>] <span class="op">=</span> df[<span class="st">'Price'</span>] <span class="op">*</span> <span class="fl">0.90</span></span>
 <span id="cb33-3"><a href="#cb33-3"></a><span class="bu">print</span>(<span class="st">"DataFrame with Discounted Price:"</span>)</span>
@@ -976,7 +976,7 @@ Best Practice:
 </section>
 <section id="example-renaming-columns" class="level4">
 <h4 class="anchored" data-anchor-id="example-renaming-columns">Example: Renaming Columns</h4>
-<div id="b1ddd8a0" class="cell" data-execution_count="17">
+<div id="2296ad43" class="cell" data-execution_count="17">
 <div class="sourceCode cell-code" id="cb35"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a href="#cb35-1"></a><span class="co"># Rename columns for clarity</span></span>
 <span id="cb35-2"><a href="#cb35-2"></a>df.rename(columns<span class="op">=</span>{<span class="st">'Product'</span>: <span class="st">'Item'</span>, <span class="st">'Stock'</span>: <span class="st">'Inventory'</span>}, inplace<span class="op">=</span><span class="va">True</span>)</span>
 <span id="cb35-3"><a href="#cb35-3"></a><span class="bu">print</span>(<span class="st">"DataFrame with Renamed Columns:"</span>)</span>
@@ -1020,7 +1020,7 @@ Real-World Use:
 <p>Grouping lets you summarize data based on specific keys.</p>
 <section id="example-grouping-sales-data" class="level4">
 <h4 class="anchored" data-anchor-id="example-grouping-sales-data">Example: Grouping Sales Data</h4>
-<div id="e55ad1df" class="cell" data-execution_count="18">
+<div id="b349ec63" class="cell" data-execution_count="18">
 <div class="sourceCode cell-code" id="cb38"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb38-1"><a href="#cb38-1"></a><span class="co"># Create a sample DataFrame of sales data</span></span>
 <span id="cb38-2"><a href="#cb38-2"></a>sales_data <span class="op">=</span> {</span>
 <span id="cb38-3"><a href="#cb38-3"></a>  <span class="st">'Region'</span>: [<span class="st">'North'</span>, <span class="st">'South'</span>, <span class="st">'East'</span>, <span class="st">'West'</span>, <span class="st">'North'</span>, <span class="st">'South'</span>],</span>
@@ -1055,7 +1055,7 @@ West      500</code></pre>
 </section>
 <section id="example-multiple-aggregations" class="level4">
 <h4 class="anchored" data-anchor-id="example-multiple-aggregations">Example: Multiple Aggregations</h4>
-<div id="942cac65" class="cell" data-execution_count="19">
+<div id="ec3b90ff" class="cell" data-execution_count="19">
 <div class="sourceCode cell-code" id="cb40"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb40-1"><a href="#cb40-1"></a><span class="co"># Calculate both total and average sales per region</span></span>
 <span id="cb40-2"><a href="#cb40-2"></a>aggregated_sales <span class="op">=</span> df_sales.groupby(<span class="st">'Region'</span>).agg({<span class="st">'Sales'</span>: [<span class="st">'sum'</span>, <span class="st">'mean'</span>]})</span>
 <span id="cb40-3"><a href="#cb40-3"></a><span class="bu">print</span>(<span class="st">"Aggregated Sales (Sum and Mean) by Region:"</span>)</span>
@@ -1091,7 +1091,7 @@ Aggregation Functions:
 <p>Merging combines datasets based on common keys—similar to SQL joins.</p>
 <section id="example-merging-customer-and-order-data" class="level4">
 <h4 class="anchored" data-anchor-id="example-merging-customer-and-order-data">Example: Merging Customer and Order Data</h4>
-<div id="248ed528" class="cell" data-execution_count="20">
+<div id="57a175e0" class="cell" data-execution_count="20">
 <div class="sourceCode cell-code" id="cb42"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb42-1"><a href="#cb42-1"></a><span class="co"># Sample customer DataFrame</span></span>
 <span id="cb42-2"><a href="#cb42-2"></a>df_customers <span class="op">=</span> pd.DataFrame({</span>
 <span id="cb42-3"><a href="#cb42-3"></a>  <span class="st">'CustomerID'</span>: [<span class="dv">101</span>, <span class="dv">102</span>, <span class="dv">103</span>],</span>
@@ -1134,7 +1134,7 @@ Merged Customer-Order DataFrame:
 </section>
 <section id="example-left-join-vs.-inner-join" class="level4">
 <h4 class="anchored" data-anchor-id="example-left-join-vs.-inner-join">Example: Left Join vs.&nbsp;Inner Join</h4>
-<div id="3c32ca82" class="cell" data-execution_count="21">
+<div id="852eaa90" class="cell" data-execution_count="21">
 <div class="sourceCode cell-code" id="cb44"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb44-1"><a href="#cb44-1"></a><span class="co"># Left join: retains all customers, even if they have no matching orders</span></span>
 <span id="cb44-2"><a href="#cb44-2"></a>left_join_df <span class="op">=</span> pd.merge(df_customers, df_orders, on<span class="op">=</span><span class="st">'CustomerID'</span>, how<span class="op">=</span><span class="st">'left'</span>)</span>
 <span id="cb44-3"><a href="#cb44-3"></a><span class="bu">print</span>(<span class="st">"Left Join (All Customers):"</span>)</span>
@@ -1174,7 +1174,7 @@ Joining Data:
 </section>
 <section id="example-concatenating-two-dataframes" class="level4">
 <h4 class="anchored" data-anchor-id="example-concatenating-two-dataframes">Example: Concatenating two DataFrames</h4>
-<div id="0274f8d4" class="cell" data-execution_count="22">
+<div id="71741049" class="cell" data-execution_count="22">
 <div class="sourceCode cell-code" id="cb46"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb46-1"><a href="#cb46-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb46-2"><a href="#cb46-2"></a></span>
 <span id="cb46-3"><a href="#cb46-3"></a><span class="co"># Sample DataFrame Part 1</span></span>
@@ -1228,7 +1228,7 @@ Concatenated DataFrame (joined by rows):
 </section>
 <section id="additional-example-pivot-table-with-multiple-aggregations" class="level4">
 <h4 class="anchored" data-anchor-id="additional-example-pivot-table-with-multiple-aggregations">Additional Example: Pivot Table with Multiple Aggregations</h4>
-<div id="c4b32c51" class="cell" data-execution_count="23">
+<div id="8317e1bf" class="cell" data-execution_count="23">
 <div class="sourceCode cell-code" id="cb49"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb49-1"><a href="#cb49-1"></a><span class="co"># Detailed sales data with additional metrics</span></span>
 <span id="cb49-2"><a href="#cb49-2"></a>detailed_sales <span class="op">=</span> {</span>
 <span id="cb49-3"><a href="#cb49-3"></a>  <span class="st">'Region'</span>: [<span class="st">'North'</span>, <span class="st">'South'</span>, <span class="st">'North'</span>, <span class="st">'East'</span>, <span class="st">'South'</span>, <span class="st">'West'</span>],</span>
@@ -1253,7 +1253,7 @@ West      500   25.0</code></pre>
 </section>
 <section id="additional-example-pivot-table-with-count-and-mean-aggregations" class="level4">
 <h4 class="anchored" data-anchor-id="additional-example-pivot-table-with-count-and-mean-aggregations">Additional Example: Pivot Table with Count and Mean Aggregations</h4>
-<div id="0c0cb07c" class="cell" data-execution_count="24">
+<div id="98816bd1" class="cell" data-execution_count="24">
 <div class="sourceCode cell-code" id="cb51"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb51-1"><a href="#cb51-1"></a><span class="co"># Using the detailed sales DataFrame, create a pivot table that calculates </span></span>
 <span id="cb51-2"><a href="#cb51-2"></a><span class="co"># the number of sales records (count) and the average sales per region.</span></span>
 <span id="cb51-3"><a href="#cb51-3"></a>pivot_count_mean <span class="op">=</span> pd.pivot_table(df_detailed, values<span class="op">=</span><span class="st">'Sales'</span>, index<span class="op">=</span><span class="st">'Region'</span>, </span>
@@ -1303,7 +1303,7 @@ Insight Generation:
 </ul>
 <p>Additionally, you can also pass custom functions or a list of these functions to perform multiple aggregations simultaneously.</p>
 <p>Here is an example where we use a custom function (Note: You will not be tested on this; it’s included for completeness of covered of the topic - and for students that want more advanced material):</p>
-<div id="9d2d4dba" class="cell" data-execution_count="25">
+<div id="e622b8e3" class="cell" data-execution_count="25">
 <div class="sourceCode cell-code" id="cb53"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb53-1"><a href="#cb53-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb53-2"><a href="#cb53-2"></a></span>
 <span id="cb53-3"><a href="#cb53-3"></a><span class="co"># Define a custom function to calculate the range (max - min)</span></span>
@@ -1342,7 +1342,7 @@ West        0</code></pre>
 <h3 class="anchored" data-anchor-id="saving-data-to-files">7.1 Saving Data to Files</h3>
 <section id="saving-to-csv" class="level4">
 <h4 class="anchored" data-anchor-id="saving-to-csv">Saving to CSV</h4>
-<div id="c589fb61" class="cell" data-execution_count="26">
+<div id="8ed5bfdb" class="cell" data-execution_count="26">
 <div class="sourceCode cell-code" id="cb55"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb55-1"><a href="#cb55-1"></a><span class="co"># Save the products DataFrame to a CSV file</span></span>
 <span id="cb55-2"><a href="#cb55-2"></a>df.to_csv(<span class="st">"products.csv"</span>, index<span class="op">=</span><span class="va">False</span>)</span>
 <span id="cb55-3"><a href="#cb55-3"></a><span class="bu">print</span>(<span class="st">"DataFrame saved to 'products.csv'."</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -1353,7 +1353,7 @@ West        0</code></pre>
 </section>
 <section id="saving-to-excel" class="level4">
 <h4 class="anchored" data-anchor-id="saving-to-excel">Saving to Excel</h4>
-<div id="c17ad5d0" class="cell" data-execution_count="27">
+<div id="fb3de307" class="cell" data-execution_count="27">
 <div class="sourceCode cell-code" id="cb57"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb57-1"><a href="#cb57-1"></a><span class="co"># Save the products DataFrame to an Excel file (requires openpyxl)</span></span>
 <span id="cb57-2"><a href="#cb57-2"></a>df.to_excel(<span class="st">"products.xlsx"</span>, index<span class="op">=</span><span class="va">False</span>, sheet_name<span class="op">=</span><span class="st">"Products"</span>)</span>
 <span id="cb57-3"><a href="#cb57-3"></a><span class="bu">print</span>(<span class="st">"DataFrame saved to 'products.xlsx'."</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -1367,7 +1367,7 @@ West        0</code></pre>
 <h3 class="anchored" data-anchor-id="loading-data-from-files">7.2 Loading Data from Files</h3>
 <section id="reading-from-csv" class="level4">
 <h4 class="anchored" data-anchor-id="reading-from-csv">Reading from CSV</h4>
-<div id="d0430bbd" class="cell" data-execution_count="28">
+<div id="393f5ba1" class="cell" data-execution_count="28">
 <div class="sourceCode cell-code" id="cb59"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb59-1"><a href="#cb59-1"></a>df_loaded <span class="op">=</span> pd.read_csv(<span class="st">"products.csv"</span>)</span>
 <span id="cb59-2"><a href="#cb59-2"></a><span class="bu">print</span>(<span class="st">"DataFrame loaded from CSV:"</span>)</span>
 <span id="cb59-3"><a href="#cb59-3"></a><span class="bu">print</span>(df_loaded)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -1383,7 +1383,7 @@ West        0</code></pre>
 </section>
 <section id="reading-from-excel" class="level4">
 <h4 class="anchored" data-anchor-id="reading-from-excel">Reading from Excel</h4>
-<div id="3a02f36b" class="cell" data-execution_count="29">
+<div id="3dd77ac9" class="cell" data-execution_count="29">
 <div class="sourceCode cell-code" id="cb61"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb61-1"><a href="#cb61-1"></a>df_loaded_excel <span class="op">=</span> pd.read_excel(<span class="st">"products.xlsx"</span>, sheet_name<span class="op">=</span><span class="st">"Products"</span>)</span>
 <span id="cb61-2"><a href="#cb61-2"></a><span class="bu">print</span>(<span class="st">"DataFrame loaded from Excel:"</span>)</span>
 <span id="cb61-3"><a href="#cb61-3"></a><span class="bu">print</span>(df_loaded_excel)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -1420,7 +1420,7 @@ Tip: Loading Data Directly from the Web
 </div>
 <div class="callout-body-container callout-body">
 <p>You can load data from a URL using Pandas’ <code>read_csv()</code> function. This allows you to work with datasets hosted on the internet without manually downloading them first.</p>
-<div id="af95bac7" class="cell" data-execution_count="30">
+<div id="89d3f758" class="cell" data-execution_count="30">
 <div class="sourceCode cell-code" id="cb63"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb63-1"><a href="#cb63-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb63-2"><a href="#cb63-2"></a></span>
 <span id="cb63-3"><a href="#cb63-3"></a><span class="co"># URL for the BostonHousing dataset hosted on GitHub</span></span>
@@ -1462,7 +1462,7 @@ Tip: Loading Data Directly from the Web
 <section id="sales-performance-analysis" class="level3">
 <h3 class="anchored" data-anchor-id="sales-performance-analysis">8.1 Sales Performance Analysis</h3>
 <p>Imagine you have daily sales data and need to compute trends like moving averages.</p>
-<div id="8e307f81" class="cell" data-execution_count="31">
+<div id="2025b924" class="cell" data-execution_count="31">
 <div class="sourceCode cell-code" id="cb65"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb65-1"><a href="#cb65-1"></a><span class="co"># Sample daily sales data with dates</span></span>
 <span id="cb65-2"><a href="#cb65-2"></a>daily_sales <span class="op">=</span> {</span>
 <span id="cb65-3"><a href="#cb65-3"></a>  <span class="st">'Date'</span>: pd.date_range(start<span class="op">=</span><span class="st">'2025-01-01'</span>, periods<span class="op">=</span><span class="dv">7</span>),</span>
@@ -1503,7 +1503,7 @@ Practical Application:
 <section id="customer-segmentation" class="level3">
 <h3 class="anchored" data-anchor-id="customer-segmentation">8.2 Customer Segmentation</h3>
 <p>By merging customer information with order history, you can identify high-value customers.</p>
-<div id="23230e54" class="cell" data-execution_count="32">
+<div id="4e874703" class="cell" data-execution_count="32">
 <div class="sourceCode cell-code" id="cb67"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb67-1"><a href="#cb67-1"></a><span class="co"># Merge customer and order data from earlier</span></span>
 <span id="cb67-2"><a href="#cb67-2"></a>customer_orders <span class="op">=</span> pd.merge(df_customers, df_orders, on<span class="op">=</span><span class="st">'CustomerID'</span>)</span>
 <span id="cb67-3"><a href="#cb67-3"></a><span class="co"># Group by customer name and calculate the total spending</span></span>
@@ -1535,7 +1535,7 @@ Business Insight:
 <section id="inventory-management-analysis" class="level3">
 <h3 class="anchored" data-anchor-id="inventory-management-analysis">8.3 Inventory Management Analysis</h3>
 <p>In business, maintaining optimal inventory levels is critical. Pandas can help analyze inventory data across multiple warehouses or product lines.</p>
-<div id="176a946b" class="cell" data-execution_count="33">
+<div id="3620dcc3" class="cell" data-execution_count="33">
 <div class="sourceCode cell-code" id="cb69"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb69-1"><a href="#cb69-1"></a><span class="co"># Sample inventory data for different products across multiple stores</span></span>
 <span id="cb69-2"><a href="#cb69-2"></a>inventory_data <span class="op">=</span> {</span>
 <span id="cb69-3"><a href="#cb69-3"></a>  <span class="st">'Store'</span>: [<span class="st">'Store A'</span>, <span class="st">'Store A'</span>, <span class="st">'Store B'</span>, <span class="st">'Store B'</span>, <span class="st">'Store C'</span>, <span class="st">'Store C'</span>],</span>
@@ -1561,7 +1561,7 @@ Business Insight:
 <p><strong>Example Analysis:</strong><br>
 Identify products with stock below the reorder level:</p>
 </blockquote>
-<div id="b8b1a122" class="cell" data-execution_count="34">
+<div id="da5057a6" class="cell" data-execution_count="34">
 <div class="sourceCode cell-code" id="cb71"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb71-1"><a href="#cb71-1"></a><span class="co"># Filter items where Stock is below Reorder Level</span></span>
 <span id="cb71-2"><a href="#cb71-2"></a>low_stock <span class="op">=</span> df_inventory[df_inventory[<span class="st">'Stock'</span>] <span class="op">&lt;</span> df_inventory[<span class="st">'Reorder Level'</span>]]</span>
 <span id="cb71-3"><a href="#cb71-3"></a><span class="bu">print</span>(<span class="st">"Products below Reorder Level:"</span>)</span>
@@ -1577,7 +1577,7 @@ Index: []</code></pre>
 <p><strong>Additional Aggregation:</strong><br>
 Group by product to see overall inventory across all stores:</p>
 </blockquote>
-<div id="ea010391" class="cell" data-execution_count="35">
+<div id="187ba474" class="cell" data-execution_count="35">
 <div class="sourceCode cell-code" id="cb73"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb73-1"><a href="#cb73-1"></a>inventory_summary <span class="op">=</span> df_inventory.groupby(<span class="st">'Product'</span>).agg({<span class="st">'Stock'</span>: <span class="st">'sum'</span>})</span>
 <span id="cb73-2"><a href="#cb73-2"></a><span class="bu">print</span>(<span class="st">"Total Stock by Product:"</span>)</span>
 <span id="cb73-3"><a href="#cb73-3"></a><span class="bu">print</span>(inventory_summary)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -1606,7 +1606,7 @@ Real-World Use:
 <section id="financial-performance-analysis" class="level3">
 <h3 class="anchored" data-anchor-id="financial-performance-analysis">8.4 Financial Performance Analysis</h3>
 <p>Financial data analysis is key to assessing business health. Use Pandas to analyze revenue, cost, and profit data over time.</p>
-<div id="bafffed9" class="cell" data-execution_count="36">
+<div id="62a99f42" class="cell" data-execution_count="36">
 <div class="sourceCode cell-code" id="cb75"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb75-1"><a href="#cb75-1"></a><span class="co"># Sample financial data for a business over several months</span></span>
 <span id="cb75-2"><a href="#cb75-2"></a>financial_data <span class="op">=</span> {</span>
 <span id="cb75-3"><a href="#cb75-3"></a>  <span class="st">'Month'</span>: [<span class="st">'Jan'</span>, <span class="st">'Feb'</span>, <span class="st">'Mar'</span>, <span class="st">'Apr'</span>, <span class="st">'May'</span>, <span class="st">'Jun'</span>],</span>
