@@ -2598,7 +2598,7 @@ if (window.self !== window.top) {
 <section id="mini-case-1-advertising-spend-vs.-sales" class="level3">
 <h3 class="anchored" data-anchor-id="mini-case-1-advertising-spend-vs.-sales">Mini-Case 1: Advertising Spend vs. Sales</h3>
 <p>Let’s revisit our retail company example. They want to predict monthly sales based on advertising spending.</p>
-<div id="811b7d0c" class="cell" data-execution_count="1">
+<div id="d33c23a8" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a><span class="co"># Setup: Import necessary libraries</span></span>
 <span id="cb1-2"><a href="#cb1-2"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb1-3"><a href="#cb1-3"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
@@ -2651,7 +2651,7 @@ if (window.self !== window.top) {
 </section>
 <section id="preparing-data-features-x-target-y" class="level3">
 <h3 class="anchored" data-anchor-id="preparing-data-features-x-target-y">Preparing Data (Features X, Target y)</h3>
-<div id="ea85e067" class="cell" data-execution_count="2">
+<div id="5a8f9890" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1"></a>X_sales <span class="op">=</span> df_sales[[<span class="st">&#39;AdvertisingSpend&#39;</span>]] <span class="co"># Feature DataFrame (2D)</span></span>
 <span id="cb3-2"><a href="#cb3-2"></a>y_sales <span class="op">=</span> df_sales[<span class="st">&#39;Sales&#39;</span>]           <span class="co"># Target Series (1D)</span></span>
 <span id="cb3-3"><a href="#cb3-3"></a></span>
@@ -2676,7 +2676,7 @@ Shape of y_sales: (100,)</code></pre>
 </ol>
 <p><strong>How do we split the data?</strong></p>
 <p>We use the <code>train_test_split</code> function from <code>scikit-learn</code>.</p>
-<div id="ec9006b1" class="cell" data-execution_count="3">
+<div id="0fe562af" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1"></a><span class="co"># Splitting the Sales data</span></span>
 <span id="cb5-2"><a href="#cb5-2"></a>X_sales_train, X_sales_test, y_sales_train, y_sales_test <span class="op">=</span> train_test_split(</span>
 <span id="cb5-3"><a href="#cb5-3"></a>    X_sales, y_sales,  <span class="co"># The features and target variables</span></span>
@@ -2709,7 +2709,7 @@ Test set size (y): 20</code></pre>
 </section>
 <section id="training-the-slr-model" class="level3">
 <h3 class="anchored" data-anchor-id="training-the-slr-model">Training the SLR Model</h3>
-<div id="c888ed96" class="cell" data-execution_count="4">
+<div id="f32e54d4" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1"></a><span class="co"># Create and train the Simple Linear Regression model</span></span>
 <span id="cb7-2"><a href="#cb7-2"></a>slr_model <span class="op">=</span> LinearRegression()</span>
 <span id="cb7-3"><a href="#cb7-3"></a>slr_model.fit(X_sales_train, y_sales_train) <span class="co"># Train ONLY on the training data</span></span>
@@ -2723,7 +2723,7 @@ SLR Model trained successfully.</code></pre>
 </section>
 <section id="interpreting-slr-coefficients" class="level3">
 <h3 class="anchored" data-anchor-id="interpreting-slr-coefficients">Interpreting SLR Coefficients</h3>
-<div id="b998bf6e" class="cell" data-execution_count="5">
+<div id="ebe92e32" class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1"></a><span class="co"># Get the intercept and coefficient</span></span>
 <span id="cb9-2"><a href="#cb9-2"></a>slr_intercept <span class="op">=</span> slr_model.intercept_</span>
 <span id="cb9-3"><a href="#cb9-3"></a>slr_coefficient <span class="op">=</span> slr_model.coef_[<span class="dv">0</span>]</span>
@@ -2754,7 +2754,7 @@ Interpretation:
 <section id="evaluating-the-slr-model" class="level3">
 <h3 class="anchored" data-anchor-id="evaluating-the-slr-model">Evaluating the SLR Model</h3>
 <p>We evaluate using the <strong>test set</strong> to see how well it generalizes.</p>
-<div id="81fbc911" class="cell" data-execution_count="6">
+<div id="8a025bbc" class="cell" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1"></a><span class="co"># Make predictions on the </span><span class="al">TEST</span><span class="co"> set</span></span>
 <span id="cb11-2"><a href="#cb11-2"></a>y_sales_pred_test <span class="op">=</span> slr_model.predict(X_sales_test)</span>
 <span id="cb11-3"><a href="#cb11-3"></a></span>
@@ -2789,7 +2789,7 @@ Mean Absolute Error (MAE): 2614798.05</code></pre>
 </section>
 <section id="making-predictions-with-slr" class="level3">
 <h3 class="anchored" data-anchor-id="making-predictions-with-slr">Making Predictions with SLR</h3>
-<div id="1ab454a8" class="cell" data-execution_count="7">
+<div id="dfd7f02c" class="cell" data-execution_count="7">
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1"></a><span class="co"># Predict sales for a new advertising spend value, e.g., $1300</span></span>
 <span id="cb13-2"><a href="#cb13-2"></a>new_ad_spend_slr <span class="op">=</span> pd.DataFrame({<span class="st">&#39;AdvertisingSpend&#39;</span>: [<span class="dv">1300</span>]})</span>
 <span id="cb13-3"><a href="#cb13-3"></a>predicted_sales_slr <span class="op">=</span> slr_model.predict(new_ad_spend_slr)</span>
@@ -2805,7 +2805,7 @@ Predicted Sales for $1,300 Ad Spend: $8,793.66</code></pre>
 </section>
 <section id="visualizing-the-slr-fit" class="level3">
 <h3 class="anchored" data-anchor-id="visualizing-the-slr-fit">Visualizing the SLR Fit</h3>
-<div id="8fbd16df" class="cell" data-execution_count="8">
+<div id="68a8e4bd" class="cell" data-execution_count="8">
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">6</span>))</span>
 <span id="cb15-2"><a href="#cb15-2"></a><span class="co"># Scatter plot of test data</span></span>
 <span id="cb15-3"><a href="#cb15-3"></a>sns.scatterplot(x<span class="op">=</span>X_sales_test[<span class="st">&#39;AdvertisingSpend&#39;</span>], y<span class="op">=</span>y_sales_test, label<span class="op">=</span><span class="st">&#39;Actual Test Data&#39;</span>, alpha<span class="op">=</span><span class="fl">0.7</span>)</span>
@@ -2848,7 +2848,7 @@ Predicted Sales for $1,300 Ad Spend: $8,793.66</code></pre>
 <li><code>PagesPerVisit</code> (average number of pages viewed per session).</li>
 <li><code>BounceRate</code> (percentage of visitors who leave after viewing only one page).</li>
 </ul>
-<div id="06148a2b" class="cell" data-execution_count="9">
+<div id="afc7185b" class="cell" data-execution_count="9">
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1"></a><span class="co"># Generate sample data for MLR</span></span>
 <span id="cb16-2"><a href="#cb16-2"></a>np.random.seed(<span class="dv">123</span>)</span>
 <span id="cb16-3"><a href="#cb16-3"></a>n_samples <span class="op">=</span> <span class="dv">200</span></span>
@@ -2893,7 +2893,7 @@ Predicted Sales for $1,300 Ad Spend: $8,793.66</code></pre>
 </section>
 <section id="preparing-data-for-mlr" class="level3">
 <h3 class="anchored" data-anchor-id="preparing-data-for-mlr">Preparing Data for MLR</h3>
-<div id="3467a53f" class="cell" data-execution_count="10">
+<div id="377f0ed0" class="cell" data-execution_count="10">
 <div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1"></a><span class="co"># Define features (X) and target (y)</span></span>
 <span id="cb18-2"><a href="#cb18-2"></a>X_conv <span class="op">=</span> df_conversion[[<span class="st">&#39;AvgSessionDuration&#39;</span>, <span class="st">&#39;PagesPerVisit&#39;</span>, <span class="st">&#39;BounceRate&#39;</span>]] <span class="co"># Multiple columns now</span></span>
 <span id="cb18-3"><a href="#cb18-3"></a>y_conv <span class="op">=</span> df_conversion[<span class="st">&#39;ConversionRate&#39;</span>]</span>
@@ -2909,7 +2909,7 @@ Shape of y_conv: (200,)</code></pre>
 </section>
 <section id="train-test-split-for-mlr-data" class="level3">
 <h3 class="anchored" data-anchor-id="train-test-split-for-mlr-data">Train-Test Split for MLR Data</h3>
-<div id="6413bc00" class="cell" data-execution_count="11">
+<div id="359dc31e" class="cell" data-execution_count="11">
 <div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1"></a>X_conv_train, X_conv_test, y_conv_train, y_conv_test <span class="op">=</span> train_test_split(</span>
 <span id="cb20-2"><a href="#cb20-2"></a>    X_conv, y_conv, test_size<span class="op">=</span><span class="fl">0.25</span>, random_state<span class="op">=</span><span class="dv">123</span> <span class="co"># Using 75/25 split here</span></span>
 <span id="cb20-3"><a href="#cb20-3"></a>)</span>
@@ -2928,7 +2928,7 @@ Test set size: 50</code></pre>
 <section id="training-the-mlr-model" class="level3">
 <h3 class="anchored" data-anchor-id="training-the-mlr-model">Training the MLR Model</h3>
 <p>The process is identical to SLR, just using the multi-feature <code>X_conv_train</code>.</p>
-<div id="51add9ec" class="cell" data-execution_count="12">
+<div id="a1b47612" class="cell" data-execution_count="12">
 <div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1"></a><span class="co"># Create and train the Multiple Linear Regression model</span></span>
 <span id="cb22-2"><a href="#cb22-2"></a>mlr_model <span class="op">=</span> LinearRegression()</span>
 <span id="cb22-3"><a href="#cb22-3"></a>mlr_model.fit(X_conv_train, y_conv_train)</span>
@@ -2942,7 +2942,7 @@ MLR Model trained successfully.</code></pre>
 </section>
 <section id="interpreting-mlr-coefficients" class="level3">
 <h3 class="anchored" data-anchor-id="interpreting-mlr-coefficients">Interpreting MLR Coefficients</h3>
-<div id="baac344b" class="cell" data-execution_count="13">
+<div id="24e7e916" class="cell" data-execution_count="13">
 <div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1"></a><span class="co"># Get intercept and coefficients</span></span>
 <span id="cb24-2"><a href="#cb24-2"></a>mlr_intercept <span class="op">=</span> mlr_model.intercept_</span>
 <span id="cb24-3"><a href="#cb24-3"></a>mlr_coefficients <span class="op">=</span> mlr_model.coef_</span>
@@ -2980,7 +2980,7 @@ Interpretation:
 </section>
 <section id="evaluating-the-mlr-model" class="level3">
 <h3 class="anchored" data-anchor-id="evaluating-the-mlr-model">Evaluating the MLR Model</h3>
-<div id="1dba540d" class="cell" data-execution_count="14">
+<div id="fc86c7a7" class="cell" data-execution_count="14">
 <div class="sourceCode cell-code" id="cb26"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1"></a><span class="co"># Make predictions on the </span><span class="al">TEST</span><span class="co"> set</span></span>
 <span id="cb26-2"><a href="#cb26-2"></a>y_conv_pred_test <span class="op">=</span> mlr_model.predict(X_conv_test)</span>
 <span id="cb26-3"><a href="#cb26-3"></a></span>
@@ -3005,7 +3005,7 @@ Mean Absolute Error (MAE): 0.195</code></pre>
 </section>
 <section id="making-predictions-with-mlr" class="level3">
 <h3 class="anchored" data-anchor-id="making-predictions-with-mlr">Making Predictions with MLR</h3>
-<div id="2aa34dbd" class="cell" data-execution_count="15">
+<div id="09d36d9e" class="cell" data-execution_count="15">
 <div class="sourceCode cell-code" id="cb28"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1"></a><span class="co"># Predict conversion rate for a new visitor profile</span></span>
 <span id="cb28-2"><a href="#cb28-2"></a>new_visitor_profile <span class="op">=</span> pd.DataFrame({</span>
 <span id="cb28-3"><a href="#cb28-3"></a>    <span class="st">&#39;AvgSessionDuration&#39;</span>: [<span class="fl">7.5</span>],  <span class="co"># 7.5 minutes</span></span>
@@ -3069,7 +3069,7 @@ Visualizing Model Fit: Underfitting vs. Overfitting
 </ol>
 <p><strong>Our Goal:</strong> Find a model that achieves a good balance – complex enough to capture the trend (avoiding underfitting) but simple enough to avoid fitting noise and generalize well (avoiding overfitting). Techniques like train-test split help us <em>diagnose</em> these issues by evaluating performance on unseen data.</p>
 <p>The plots below demonstrate these concepts using polynomial regression on synthetic data. Notice how the overfit model (high-degree polynomial) hugs the <em>training</em> points but would likely perform poorly on the <em>test</em> points, while the underfit model (linear) fails to capture the curve in either set.</p>
-<div id="9f30a07f" class="cell" data-fig-height="4" data-fig-layout="grid" data-fig-width="5" data-execution_count="16">
+<div id="e6e8a6bb" class="cell" data-fig-height="4" data-fig-layout="grid" data-fig-width="5" data-execution_count="16">
 <div class="cell-output cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">

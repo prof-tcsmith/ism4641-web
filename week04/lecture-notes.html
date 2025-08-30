@@ -2595,7 +2595,7 @@ padding: 0.5rem 1rem;
 <h2 class="anchored" data-anchor-id="defining-and-calling-functions">Defining and Calling Functions</h2>
 <p>To define a function, use the <code>def</code> keyword, followed by the function name and parentheses that can include parameters. The function body is indented.</p>
 <p><strong>Example: A Simple Greeting Function</strong></p>
-<div id="a9784b10" class="cell" data-execution_count="1">
+<div id="c0bcd595" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a><span class="kw">def</span> greet(name):</span>
 <span id="cb1-2"><a href="#cb1-2"></a>    <span class="co">&quot;&quot;&quot;Greets a person by name.&quot;&quot;&quot;</span></span>
 <span id="cb1-3"><a href="#cb1-3"></a>    <span class="bu">print</span>(<span class="ss">f&quot;Hello, </span><span class="sc">{</span>name<span class="sc">}</span><span class="ss">! Welcome to Python for Business Analytics.&quot;</span>)</span>
@@ -2611,7 +2611,7 @@ padding: 0.5rem 1rem;
 <h2 class="anchored" data-anchor-id="return-values">Return Values</h2>
 <p>Functions can return a value using the <code>return</code> statement, which allows the calling code to capture the result.</p>
 <p><strong>Example: Calculating a Discounted Price</strong></p>
-<div id="1bfcf520" class="cell" data-execution_count="2">
+<div id="1caa2b55" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1"></a><span class="kw">def</span> calculate_discounted_price(price, discount_percentage):</span>
 <span id="cb3-2"><a href="#cb3-2"></a>    <span class="co">&quot;&quot;&quot;</span></span>
 <span id="cb3-3"><a href="#cb3-3"></a><span class="co">    Calculate the final price after applying a discount.</span></span>
@@ -2641,7 +2641,7 @@ padding: 0.5rem 1rem;
 <h2 class="anchored" data-anchor-id="default-and-keyword-arguments">Default and Keyword Arguments</h2>
 <p>Functions can have default parameter values, making certain arguments optional when the function is called. You can also use keyword arguments to specify parameters by name.</p>
 <p><strong>Example: Greeting with a Default Greeting</strong></p>
-<div id="a2b1d09b" class="cell" data-execution_count="3">
+<div id="24c3f1f6" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1"></a><span class="kw">def</span> greet_customer(name, greeting<span class="op">=</span><span class="st">&quot;Hello&quot;</span>):</span>
 <span id="cb5-2"><a href="#cb5-2"></a>    <span class="co">&quot;&quot;&quot;Greets a customer with a default or custom greeting.&quot;&quot;&quot;</span></span>
 <span id="cb5-3"><a href="#cb5-3"></a>    <span class="bu">print</span>(<span class="ss">f&quot;</span><span class="sc">{</span>greeting<span class="sc">}</span><span class="ss">, </span><span class="sc">{</span>name<span class="sc">}</span><span class="ss">!&quot;</span>)</span>
@@ -2661,7 +2661,7 @@ Good day, Bob!</code></pre>
 <h3 class="anchored" data-anchor-id="using-args">Using *args</h3>
 <p><code>*args</code> allows a function to accept any number of positional arguments. Inside the function, these arguments are accessible as a tuple.</p>
 <p><strong>Example: Summing an Arbitrary Number of Sales Figures</strong></p>
-<div id="8b3ecf75" class="cell" data-execution_count="4">
+<div id="ae13a71d" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1"></a><span class="kw">def</span> total_sales(<span class="op">*</span>sales):</span>
 <span id="cb7-2"><a href="#cb7-2"></a>    <span class="co">&quot;&quot;&quot;</span></span>
 <span id="cb7-3"><a href="#cb7-3"></a><span class="co">    Calculate the total sales from an arbitrary number of sales figures.</span></span>
@@ -2685,7 +2685,7 @@ Good day, Bob!</code></pre>
 <h3 class="anchored" data-anchor-id="using-kwargs">Using **kwargs</h3>
 <p><code>**kwargs</code> allows a function to accept any number of keyword arguments. These arguments are accessible as a dictionary inside the function.</p>
 <p><strong>Example: Analyzing Business Metrics</strong></p>
-<div id="5214b68b" class="cell" data-execution_count="5">
+<div id="94c55bd3" class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1"></a><span class="kw">def</span> report_metrics(<span class="op">**</span>metrics):</span>
 <span id="cb9-2"><a href="#cb9-2"></a>    <span class="co">&quot;&quot;&quot;</span></span>
 <span id="cb9-3"><a href="#cb9-3"></a><span class="co">    Print a report of various business metrics provided as keyword arguments.</span></span>
@@ -2709,7 +2709,7 @@ Growth: 15%</code></pre>
 <h3 class="anchored" data-anchor-id="combining-args-and-kwargs">Combining *args and **kwargs</h3>
 <p>You can combine both *args and **kwargs in the same function definition to handle both types of arguments simultaneously. The conventional order is: 1. Regular parameters 2. *args 3. Default parameters 4. **kwargs</p>
 <p><strong>Example: A Flexible Function for Business Reporting</strong></p>
-<div id="cd7b6a55" class="cell" data-execution_count="6">
+<div id="35a9ce7c" class="cell" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1"></a><span class="kw">def</span> business_report(title, <span class="op">*</span>args, report_date<span class="op">=</span><span class="st">&quot;Unknown&quot;</span>, <span class="op">**</span>kwargs):</span>
 <span id="cb11-2"><a href="#cb11-2"></a>    <span class="co">&quot;&quot;&quot;</span></span>
 <span id="cb11-3"><a href="#cb11-3"></a><span class="co">    Generate a flexible business report.</span></span>
@@ -2763,7 +2763,7 @@ Additional Metrics:
 <li><strong>Global Variables:</strong> Declared outside any function and accessible anywhere in the program.</li>
 </ul>
 <p><strong>Example:</strong></p>
-<div id="04b6e15e" class="cell" data-execution_count="7">
+<div id="28796bc2" class="cell" data-execution_count="7">
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1"></a>global_message <span class="op">=</span> <span class="st">&quot;Welcome to our analytics platform.&quot;</span></span>
 <span id="cb13-2"><a href="#cb13-2"></a></span>
 <span id="cb13-3"><a href="#cb13-3"></a><span class="kw">def</span> display_message():</span>
@@ -2796,7 +2796,7 @@ Enjoy your learning experience!</code></pre>
 <p>There are several ways to import modules:</p>
 <ul>
 <li><p><strong>Import the entire module:</strong></p>
-<div id="330db35c" class="cell" data-execution_count="8">
+<div id="1ab01bbf" class="cell" data-execution_count="8">
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1"></a><span class="im">import</span> math</span>
 <span id="cb15-2"><a href="#cb15-2"></a><span class="bu">print</span>(math.sqrt(<span class="dv">16</span>))  <span class="co"># Outputs: 4.0</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -2804,7 +2804,7 @@ Enjoy your learning experience!</code></pre>
 </div>
 </div></li>
 <li><p><strong>Import specific functions or variables:</strong></p>
-<div id="1379234a" class="cell" data-execution_count="9">
+<div id="caaca49e" class="cell" data-execution_count="9">
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1"></a><span class="im">from</span> math <span class="im">import</span> ceil, floor</span>
 <span id="cb17-2"><a href="#cb17-2"></a><span class="bu">print</span>(ceil(<span class="fl">4.2</span>))   <span class="co"># Outputs: 5</span></span>
 <span id="cb17-3"><a href="#cb17-3"></a><span class="bu">print</span>(floor(<span class="fl">4.2</span>))  <span class="co"># Outputs: 4</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -2814,7 +2814,7 @@ Enjoy your learning experience!</code></pre>
 </div>
 </div></li>
 <li><p><strong>Import with an alias:</strong></p>
-<div id="c907bfb0" class="cell" data-execution_count="10">
+<div id="a606ab54" class="cell" data-execution_count="10">
 <div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb19-2"><a href="#cb19-2"></a>array <span class="op">=</span> np.array([<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>])</span>
 <span id="cb19-3"><a href="#cb19-3"></a><span class="bu">print</span>(array)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -2828,7 +2828,7 @@ Enjoy your learning experience!</code></pre>
 <h2 class="anchored" data-anchor-id="standard-libraries-for-business-analytics">Standard Libraries for Business Analytics</h2>
 <p>Python’s standard library includes several modules that are useful for business analytics: - <strong>math:</strong> Mathematical functions. - <strong>datetime:</strong> Working with dates and times. - <strong>statistics:</strong> Calculating statistical measures like mean, median, and variance. - <strong>os:</strong> Interacting with the operating system.</p>
 <p><strong>Example: Using the <code>statistics</code> Module</strong></p>
-<div id="4960523e" class="cell" data-execution_count="11">
+<div id="cecaba37" class="cell" data-execution_count="11">
 <div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1"></a><span class="im">import</span> statistics</span>
 <span id="cb21-2"><a href="#cb21-2"></a></span>
 <span id="cb21-3"><a href="#cb21-3"></a>data <span class="op">=</span> [<span class="dv">23</span>, <span class="dv">45</span>, <span class="dv">67</span>, <span class="dv">89</span>, <span class="dv">12</span>, <span class="dv">45</span>, <span class="dv">67</span>]</span>
@@ -2862,7 +2862,7 @@ Median: 45</code></pre>
 <ol type="1">
 <li><strong>Create a File:</strong> For example, create a file named <code>financial_tools.py</code>.</li>
 </ol>
-<div id="8285c428" class="cell" data-execution_count="12">
+<div id="5d38998d" class="cell" data-execution_count="12">
 <div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1"></a><span class="co"># financial_tools.py</span></span>
 <span id="cb23-2"><a href="#cb23-2"></a></span>
 <span id="cb23-3"><a href="#cb23-3"></a><span class="kw">def</span> calculate_roi(initial_investment, final_value):</span>
@@ -2882,7 +2882,7 @@ Median: 45</code></pre>
 <ol start="2" type="1">
 <li><strong>Import and Use the Module:</strong></li>
 </ol>
-<div id="ea353eb8" class="cell" data-execution_count="13">
+<div id="d5fde3a4" class="cell" data-execution_count="13">
 <div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1"></a><span class="co"># In your main program or another notebook cell:</span></span>
 <span id="cb24-2"><a href="#cb24-2"></a></span>
 <span id="cb24-3"><a href="#cb24-3"></a><span class="co">#import financial_tools</span></span>
@@ -2936,12 +2936,12 @@ Median: 45</code></pre>
 <ul>
 <li><p><strong>Task:</strong> Use the <code>datetime</code> module to print the current date and time in a human-readable format.</p>
 <p><strong>Hint:</strong></p>
-<div id="7f508a19" class="cell" data-execution_count="14">
+<div id="5dd1f0ee" class="cell" data-execution_count="14">
 <div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1"></a><span class="im">import</span> datetime</span>
 <span id="cb25-2"><a href="#cb25-2"></a>now <span class="op">=</span> datetime.datetime.now()</span>
 <span id="cb25-3"><a href="#cb25-3"></a><span class="bu">print</span>(now.strftime(<span class="st">&quot;%Y-%m-</span><span class="sc">%d</span><span class="st"> %H:%M:%S&quot;</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>2025-08-30 14:02:44</code></pre>
+<pre><code>2025-08-30 14:14:11</code></pre>
 </div>
 </div></li>
 </ul>
