@@ -2396,7 +2396,7 @@ if (window.self !== window.top) {
   <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">Introduction</a></li>
   <li><a href="#the-summit-exports-scenario" id="toc-the-summit-exports-scenario" class="nav-link" data-scroll-target="#the-summit-exports-scenario">The Summit Exports Scenario</a></li>
   <li><a href="#task-1-container-data-with-tuples" id="toc-task-1-container-data-with-tuples" class="nav-link" data-scroll-target="#task-1-container-data-with-tuples">Task 1: Container Data with Tuples</a></li>
-  <li><a href="#task-2-managing-destinations-with-sets" id="toc-task-2-managing-destinations-with-sets" class="nav-link" data-scroll-target="#task-2-managing-destinations-with-sets">Task 2: Managing Destinations with Sets</a></li>
+  <li><a href="#task-2-processing-container-data-with-functions" id="toc-task-2-processing-container-data-with-functions" class="nav-link" data-scroll-target="#task-2-processing-container-data-with-functions">Task 2: Processing Container Data with Functions</a></li>
   <li><a href="#task-3-bringing-it-all-together" id="toc-task-3-bringing-it-all-together" class="nav-link" data-scroll-target="#task-3-bringing-it-all-together">Task 3: Bringing It All Together</a></li>
   <li><a href="#example-simplified-output" id="toc-example-simplified-output" class="nav-link" data-scroll-target="#example-simplified-output">Example (Simplified) Output</a></li>
   <li><a href="#submission" id="toc-submission" class="nav-link" data-scroll-target="#submission">Submission</a></li>
@@ -2419,7 +2419,7 @@ if (window.self !== window.top) {
       <div class="course-header-info">
         <div class="course-meta-row">
           <span class="course-label">Course:</span>
-          <span class="course-value">ISM2411 Python for Business</span>
+          <span class="course-value">ISM4641 Python for Business Analytics</span>
         </div>
         
         <div class="author-meta-row">
@@ -2552,7 +2552,7 @@ padding: 0.5rem 1rem;
 
 <section id="introduction" class="level2">
 <h2 class="anchored" data-anchor-id="introduction">Introduction</h2>
-<p>Welcome to the <strong>Week 03</strong> assignment in ISM4641! We will focus on <strong>Tuples</strong> (for storing fixed data that shouldn’t be changed) and <strong>Sets</strong> (for managing unique collections of items). You can also apply any of the concepts learned so far (loops, conditional statements, etc.)—but <strong>do not</strong> define or use any custom functions yet, since that material will come in Week 4.</p>
+<p>Welcome to the <strong>Week 03</strong> assignment in ISM4641! We will focus on <strong>Tuples</strong> (for storing fixed data that shouldn’t be changed) and <strong>Functions</strong> (for creating reusable code blocks). You will also apply concepts learned so far (loops, conditional statements, etc.).</p>
 <hr>
 </section>
 <section id="the-summit-exports-scenario" class="level2">
@@ -2611,87 +2611,84 @@ padding: 0.5rem 1rem;
 <p><strong>Goal:</strong> Demonstrate you understand how to define tuples, that they’re immutable, and that you can unpack them into separate variables for clarity.</p>
 <hr>
 </section>
-<section id="task-2-managing-destinations-with-sets" class="level2">
-<h2 class="anchored" data-anchor-id="task-2-managing-destinations-with-sets">Task 2: Managing Destinations with Sets</h2>
+<section id="task-2-processing-container-data-with-functions" class="level2">
+<h2 class="anchored" data-anchor-id="task-2-processing-container-data-with-functions">Task 2: Processing Container Data with Functions</h2>
 <ol type="1">
-<li><strong>Create a Set of Destinations</strong>
+<li><strong>Create a Function to Calculate Shipping Cost</strong>
 <ul>
-<li><p>For example:</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1"></a>destinations <span class="op">=</span> {<span class="st">&quot;New York&quot;</span>, <span class="st">&quot;Los Angeles&quot;</span>, <span class="st">&quot;Dallas&quot;</span>, <span class="st">&quot;Chicago&quot;</span>, <span class="st">&quot;Miami&quot;</span>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
-<li><p>Print the set. (Remember, sets may appear in any order.)</p></li>
+<li><p>Define a function <code>calculate_shipping_cost(distance, weight, is_fragile)</code>:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1"></a><span class="kw">def</span> calculate_shipping_cost(distance, weight, is_fragile):</span>
+<span id="cb4-2"><a href="#cb4-2"></a>    base_cost <span class="op">=</span> distance <span class="op">*</span> <span class="fl">0.5</span> <span class="op">+</span> weight <span class="op">*</span> <span class="fl">0.1</span></span>
+<span id="cb4-3"><a href="#cb4-3"></a>    <span class="cf">if</span> is_fragile:</span>
+<span id="cb4-4"><a href="#cb4-4"></a>        base_cost <span class="op">*=</span> <span class="fl">1.5</span>  <span class="co"># 50% surcharge for fragile items</span></span>
+<span id="cb4-5"><a href="#cb4-5"></a>    <span class="cf">return</span> base_cost</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<li><p>Test the function with different inputs and print the results.</p></li>
 </ul></li>
-<li><strong>Modify and Check Membership</strong>
+<li><strong>Create a Function to Display Container Information</strong>
 <ul>
-<li><strong>Add</strong> a new city to the set (e.g., <code>&quot;Seattle&quot;</code>) using <code>.add()</code>.<br>
-</li>
-<li><strong>Remove</strong> a city (e.g., <code>&quot;Dallas&quot;</code>) using <code>.remove()</code>. Print the set after each operation.<br>
-</li>
-<li>Check membership for a city that might not be in the set (e.g., <code>&quot;Boston&quot;</code>) using <code>&quot;Boston&quot; in destinations</code>, and print a statement like <code>Boston is in the set: False/True</code>.</li>
+<li><p>Define a function <code>display_container(container_tuple)</code>:</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1"></a><span class="kw">def</span> display_container(container_tuple):</span>
+<span id="cb5-2"><a href="#cb5-2"></a>    cont_id, lat, lng, is_fragile <span class="op">=</span> container_tuple</span>
+<span id="cb5-3"><a href="#cb5-3"></a>    <span class="bu">print</span>(<span class="ss">f&quot;Container </span><span class="sc">{</span>cont_id<span class="sc">}</span><span class="ss">:&quot;</span>)</span>
+<span id="cb5-4"><a href="#cb5-4"></a>    <span class="bu">print</span>(<span class="ss">f&quot;  Location: (</span><span class="sc">{</span>lat<span class="sc">}</span><span class="ss">, </span><span class="sc">{</span>lng<span class="sc">}</span><span class="ss">)&quot;</span>)</span>
+<span id="cb5-5"><a href="#cb5-5"></a>    <span class="bu">print</span>(<span class="ss">f&quot;  Fragile: </span><span class="sc">{</span>is_fragile<span class="sc">}</span><span class="ss">&quot;</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<li><p>Call this function for each of your container tuples from Task 1.</p></li>
 </ul></li>
-<li><strong>Remove vs. Discard</strong>
+<li><strong>Create a Function to Calculate Distance</strong>
 <ul>
-<li><p>Demonstrate the difference between <code>.remove()</code> and <code>.discard()</code> by calling them on a city that does <strong>not</strong> exist. For example:</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1"></a><span class="co"># Attempt remove()</span></span>
-<span id="cb5-2"><a href="#cb5-2"></a>destinations.remove(<span class="st">&quot;Paris&quot;</span>)  <span class="co"># Should raise an error if not in the set</span></span>
-<span id="cb5-3"><a href="#cb5-3"></a></span>
-<span id="cb5-4"><a href="#cb5-4"></a><span class="co"># Attempt discard()</span></span>
-<span id="cb5-5"><a href="#cb5-5"></a>destinations.discard(<span class="st">&quot;Paris&quot;</span>)  <span class="co"># Should not raise an error</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
-<li><p>Print appropriate messages indicating the outcome.</p></li>
+<li><p>Define a simple distance calculation function:</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1"></a><span class="kw">def</span> calculate_distance(lat1, lng1, lat2, lng2):</span>
+<span id="cb6-2"><a href="#cb6-2"></a>    <span class="co"># Simplified distance calculation</span></span>
+<span id="cb6-3"><a href="#cb6-3"></a>    distance <span class="op">=</span> ((lat2 <span class="op">-</span> lat1)<span class="op">**</span><span class="dv">2</span> <span class="op">+</span> (lng2 <span class="op">-</span> lng1)<span class="op">**</span><span class="dv">2</span>)<span class="op">**</span><span class="fl">0.5</span></span>
+<span id="cb6-4"><a href="#cb6-4"></a>    <span class="cf">return</span> distance <span class="op">*</span> <span class="dv">100</span>  <span class="co"># Scale up for realistic distances</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<li><p>Use this to calculate distances between container locations.</p></li>
 </ul></li>
-<li><strong>Basic Set Operations</strong>
+<li><strong>Create a Function with Default Parameters</strong>
 <ul>
-<li><p>Create two additional sets, for instance:</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1"></a>west_coast <span class="op">=</span> {<span class="st">&quot;Los Angeles&quot;</span>, <span class="st">&quot;Seattle&quot;</span>}</span>
-<span id="cb6-2"><a href="#cb6-2"></a>east_coast <span class="op">=</span> {<span class="st">&quot;New York&quot;</span>, <span class="st">&quot;Miami&quot;</span>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
-<li><p>Print the results of:</p>
-<ul>
-<li><strong>Union</strong> of <code>west_coast</code> and <code>east_coast</code><br>
-</li>
-<li><strong>Intersection</strong> of <code>destinations</code> and <code>east_coast</code><br>
-</li>
-<li><strong>Difference</strong> between <code>destinations</code> and <code>west_coast</code><br>
-</li>
-<li><strong>Symmetric difference</strong> between <code>west_coast</code> and <code>east_coast</code></li>
-</ul></li>
+<li><p>Define a function with default values:</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1"></a><span class="kw">def</span> generate_tracking_code(container_id, prefix<span class="op">=</span><span class="st">&quot;TRK&quot;</span>, year<span class="op">=</span><span class="dv">2025</span>):</span>
+<span id="cb7-2"><a href="#cb7-2"></a>    <span class="cf">return</span> <span class="ss">f&quot;</span><span class="sc">{</span>prefix<span class="sc">}</span><span class="ss">-</span><span class="sc">{</span>year<span class="sc">}</span><span class="ss">-</span><span class="sc">{</span>container_id<span class="sc">}</span><span class="ss">&quot;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<li><p>Call it with different combinations of arguments to show how defaults work.</p></li>
 </ul></li>
 </ol>
-<p><strong>Goal:</strong> Confirm your ability to manipulate sets, remove duplicates, check membership, and perform set operations.</p>
+<p><strong>Goal:</strong> Demonstrate your ability to define functions, use parameters (including defaults), return values, and call functions with different arguments.</p>
 <hr>
 </section>
 <section id="task-3-bringing-it-all-together" class="level2">
 <h2 class="anchored" data-anchor-id="task-3-bringing-it-all-together">Task 3: Bringing It All Together</h2>
-<p>Summit Exports needs a <strong>combined view</strong> of these container tuples and the shipping destinations.</p>
+<p>Summit Exports needs a <strong>combined view</strong> of container processing and shipping calculations.</p>
 <ol type="1">
-<li><strong>Display Container Details</strong>
+<li><strong>Process All Containers</strong>
 <ul>
-<li><p>Print each container’s info in a user-friendly format. For example:</p>
-<pre><code>Container A:
-  ID: CONT-101
-  Coordinates: (40.7128, -74.0060)
-  Fragile: True</code></pre></li>
-<li><p>Use f-strings for clarity.</p></li>
+<li><p>Create a list of your three container tuples:</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1"></a>containers <span class="op">=</span> [container_a, container_b, container_c]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<li><p>Loop through them and use your <code>display_container()</code> function to show each one.</p></li>
 </ul></li>
-<li><strong>Count Unique Destinations</strong>
+<li><strong>Calculate Total Shipping Costs</strong>
 <ul>
-<li><p>Print how many unique destinations are in your <code>destinations</code> set using <code>len(destinations)</code>.<br>
-</p></li>
-<li><p>To see them in alphabetical order, convert to a list and sort:</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1"></a>sorted_destinations <span class="op">=</span> <span class="bu">sorted</span>(destinations)</span>
-<span id="cb8-2"><a href="#cb8-2"></a><span class="bu">print</span>(<span class="st">&quot;All destinations (sorted):&quot;</span>, sorted_destinations)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<li><p>Define destination coordinates (as a tuple):</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1"></a>destination <span class="op">=</span> (<span class="fl">37.7749</span>, <span class="op">-</span><span class="fl">122.4194</span>)  <span class="co"># San Francisco</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<li><p>For each container:</p>
+<ul>
+<li>Calculate distance to destination using your function</li>
+<li>Assume a weight (e.g., 1000 kg)</li>
+<li>Calculate shipping cost using your function</li>
+<li>Print the results</li>
 </ul></li>
-<li><strong>Optional Looping / Condition</strong>
+</ul></li>
+<li><strong>Generate Tracking Codes</strong>
 <ul>
-<li><p>(Optional) Add a small loop that iterates over each destination in <code>destinations</code>. Print a statement like:</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1"></a><span class="cf">for</span> city <span class="kw">in</span> destinations:</span>
-<span id="cb9-2"><a href="#cb9-2"></a>    <span class="cf">if</span> city <span class="kw">in</span> east_coast:</span>
-<span id="cb9-3"><a href="#cb9-3"></a>        <span class="bu">print</span>(<span class="ss">f&quot;</span><span class="sc">{</span>city<span class="sc">}</span><span class="ss"> is on the East Coast.&quot;</span>)</span>
-<span id="cb9-4"><a href="#cb9-4"></a>    <span class="cf">elif</span> city <span class="kw">in</span> west_coast:</span>
-<span id="cb9-5"><a href="#cb9-5"></a>        <span class="bu">print</span>(<span class="ss">f&quot;</span><span class="sc">{</span>city<span class="sc">}</span><span class="ss"> is on the West Coast.&quot;</span>)</span>
-<span id="cb9-6"><a href="#cb9-6"></a>    <span class="cf">else</span>:</span>
-<span id="cb9-7"><a href="#cb9-7"></a>        <span class="bu">print</span>(<span class="ss">f&quot;</span><span class="sc">{</span>city<span class="sc">}</span><span class="ss"> is neither East nor West Coast, or is unclassified.&quot;</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<li><p>Use your <code>generate_tracking_code()</code> function to create tracking codes for all containers.</p></li>
+<li><p>Show examples with and without default parameters:</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1"></a><span class="co"># Using defaults</span></span>
+<span id="cb10-2"><a href="#cb10-2"></a>code1 <span class="op">=</span> generate_tracking_code(<span class="st">&quot;CONT-101&quot;</span>)</span>
+<span id="cb10-3"><a href="#cb10-3"></a><span class="co"># Custom prefix</span></span>
+<span id="cb10-4"><a href="#cb10-4"></a>code2 <span class="op">=</span> generate_tracking_code(<span class="st">&quot;CONT-102&quot;</span>, prefix<span class="op">=</span><span class="st">&quot;EXP&quot;</span>)</span>
+<span id="cb10-5"><a href="#cb10-5"></a><span class="co"># All custom</span></span>
+<span id="cb10-6"><a href="#cb10-6"></a>code3 <span class="op">=</span> generate_tracking_code(<span class="st">&quot;CONT-103&quot;</span>, <span class="st">&quot;RUSH&quot;</span>, <span class="dv">2024</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
 </ul></li>
 </ol>
-<p><strong>Goal:</strong> Show that you can combine everything into one scenario, referencing your container tuples and sets of destinations to provide a final summary.</p>
+<p><strong>Goal:</strong> Show that you can combine tuples and functions effectively, using loops to process multiple containers and functions to perform calculations.</p>
 <hr>
 </section>
 <section id="example-simplified-output" class="level2">
@@ -2702,41 +2699,54 @@ Click to expand sample output
 </summary>
 <pre><code>--- Task 1: Tuples ---
 Container A: (&#39;CONT-101&#39;, 40.7128, -74.006, True)
+Container B: (&#39;CONT-102&#39;, 34.0522, -118.2437, False)
+Container C: (&#39;CONT-103&#39;, 41.8781, -87.6298, True)
+
 Attempting to modify container_a:
 Error: &#39;tuple&#39; object does not support item assignment
+
 Unpacked Container B -&gt; 
    ID: CONT-102
    Lat: 34.0522
    Lng: -118.2437
    Fragile: False
 
---- Task 2: Sets ---
-Initial destinations: {&#39;Chicago&#39;, &#39;Miami&#39;, &#39;Dallas&#39;, &#39;Los Angeles&#39;, &#39;New York&#39;}
-After adding Seattle: {&#39;Seattle&#39;, &#39;Miami&#39;, &#39;Dallas&#39;, &#39;Los Angeles&#39;, &#39;New York&#39;, &#39;Chicago&#39;}
-Removing &#39;Dallas&#39;...
-destinations = {&#39;Seattle&#39;, &#39;Miami&#39;, &#39;Los Angeles&#39;, &#39;New York&#39;, &#39;Chicago&#39;}
-Is &#39;Boston&#39; in destinations? False
-Trying remove(&#39;Paris&#39;): KeyError encountered
-Trying discard(&#39;Paris&#39;): No error
-Union West+East: {&#39;Los Angeles&#39;, &#39;Seattle&#39;, &#39;New York&#39;, &#39;Miami&#39;}
-Intersection with east_coast: {&#39;New York&#39;, &#39;Miami&#39;}
-Difference from west_coast: {&#39;New York&#39;, &#39;Miami&#39;, &#39;Chicago&#39;}
+--- Task 2: Functions ---
+Shipping cost for 100km, 500kg, fragile: $112.50
+Shipping cost for 200km, 1000kg, not fragile: $200.00
 
---- Task 3: Combined View ---
-Container A:
-  ID: CONT-101
-  Coordinates: (40.7128, -74.006)
+Container CONT-101:
+  Location: (40.7128, -74.006)
   Fragile: True
-...
-Number of unique destinations: 5
-All destinations (sorted): [&#39;Chicago&#39;, &#39;Los Angeles&#39;, &#39;Miami&#39;, &#39;New York&#39;, &#39;Seattle&#39;]
 
-Checking if each city is East or West Coast...
-Seattle is on the West Coast.
-Miami is on the East Coast.
-Los Angeles is on the West Coast.
-New York is on the East Coast.
-Chicago is neither East nor West Coast, or is unclassified.</code></pre>
+Distance from NYC to LA: 392.74 km
+
+Tracking codes:
+  Default: TRK-2025-CONT-101
+  Custom prefix: EXP-2025-CONT-102
+  All custom: RUSH-2024-CONT-103
+
+--- Task 3: Combined Analysis ---
+Processing all containers:
+Container CONT-101:
+  Location: (40.7128, -74.006)
+  Fragile: True
+  Distance to destination: 415.23 km
+  Shipping cost: $311.42
+
+Container CONT-102:
+  Location: (34.0522, -118.2437)
+  Fragile: False
+  Distance to destination: 56.78 km
+  Shipping cost: $128.39
+
+Container CONT-103:
+  Location: (41.8781, -87.6298)
+  Fragile: True
+  Distance to destination: 238.91 km
+  Shipping cost: $279.46
+
+Total shipping cost for all containers: $719.27</code></pre>
 </details>
 <hr>
 </section>
@@ -2777,19 +2787,19 @@ Chicago is neither East nor West Coast, or is unclassified.</code></pre>
 <td style="text-align: center;">25</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;"><strong>Sets</strong>: creation, add/remove vs. discard, membership checks, set ops</td>
+<td style="text-align: left;"><strong>Functions</strong>: proper definition, parameters, return values, defaults</td>
 <td style="text-align: center;">35</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;"><strong>Scenario Completion</strong>: clarity of container data + destinations</td>
+<td style="text-align: left;"><strong>Scenario Completion</strong>: container processing with functions</td>
 <td style="text-align: center;">20</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;"><strong>Code Readability</strong>: loops/branching used effectively, f-strings, Markdown organization</td>
+<td style="text-align: left;"><strong>Code Readability</strong>: loops used effectively, f-strings, clear documentation</td>
 <td style="text-align: center;">10</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;"><strong>Execution &amp; Testing</strong>: runs without error, demonstrates scenario variety</td>
+<td style="text-align: left;"><strong>Execution &amp; Testing</strong>: runs without error, demonstrates variety</td>
 <td style="text-align: center;">10</td>
 </tr>
 <tr class="even">
@@ -2798,7 +2808,7 @@ Chicago is neither East nor West Coast, or is unclassified.</code></pre>
 </tr>
 </tbody>
 </table>
-<p><strong>Note:</strong> Provide explanatory comments and/or Markdown cells so it’s clear what each block of code does. Good luck exploring <strong>tuples</strong> and <strong>sets</strong>—two essential data structures for business analytics in Python!</p>
+<p><strong>Note:</strong> Provide explanatory comments and/or Markdown cells so it’s clear what each block of code does. Good luck exploring <strong>tuples</strong> and <strong>functions</strong>—essential concepts for business analytics in Python!</p>
 </section>
 
 </main>
