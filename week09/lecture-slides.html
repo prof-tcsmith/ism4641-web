@@ -259,7 +259,7 @@ Dr.&nbsp;Smith
 </section>
 <section id="understanding-your-datas-center" class="slide level2">
 <h2>Understanding Your Data’s Center</h2>
-<div id="3e43f0a8" class="cell" data-execution_count="1">
+<div id="1f47da5c" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href=""></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb1-2"><a href=""></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb1-3"><a href=""></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
@@ -339,22 +339,7 @@ Dr.&nbsp;Smith
 <span id="cb1-77"><a href=""></a><span class="bu">print</span>(<span class="ss">f"</span><span class="ch">\n</span><span class="ss">Business Insights:"</span>)</span>
 <span id="cb1-78"><a href=""></a><span class="bu">print</span>(<span class="ss">f"  50% of customers spend less than $</span><span class="sc">{</span>median_spend<span class="sc">:,.2f}</span><span class="ss"> annually"</span>)</span>
 <span id="cb1-79"><a href=""></a><span class="bu">print</span>(<span class="ss">f"  Average customer value: $</span><span class="sc">{</span>mean_spend<span class="sc">:,.2f}</span><span class="ss">"</span>)</span>
-<span id="cb1-80"><a href=""></a><span class="bu">print</span>(<span class="ss">f"  Spending spread (IQR): $</span><span class="sc">{</span>iqr<span class="sc">:,.2f}</span><span class="ss">"</span>)</span>
-<span id="cb1-81"><a href=""></a></span>
-<span id="cb1-82"><a href=""></a><span class="co"># Skewness analysis</span></span>
-<span id="cb1-83"><a href=""></a><span class="im">from</span> scipy <span class="im">import</span> stats</span>
-<span id="cb1-84"><a href=""></a>skewness <span class="op">=</span> stats.skew(spend_data)</span>
-<span id="cb1-85"><a href=""></a><span class="bu">print</span>(<span class="ss">f"  Distribution skewness: </span><span class="sc">{</span>skewness<span class="sc">:.3f}</span><span class="ss">"</span>, end<span class="op">=</span><span class="st">""</span>)</span>
-<span id="cb1-86"><a href=""></a><span class="cf">if</span> skewness <span class="op">&gt;</span> <span class="dv">1</span>:</span>
-<span id="cb1-87"><a href=""></a>    <span class="bu">print</span>(<span class="st">" (Highly right-skewed - few high spenders)"</span>)</span>
-<span id="cb1-88"><a href=""></a><span class="cf">elif</span> skewness <span class="op">&gt;</span> <span class="fl">0.5</span>:</span>
-<span id="cb1-89"><a href=""></a>    <span class="bu">print</span>(<span class="st">" (Moderately right-skewed)"</span>)</span>
-<span id="cb1-90"><a href=""></a><span class="cf">elif</span> skewness <span class="op">&lt;</span> <span class="op">-</span><span class="dv">1</span>:</span>
-<span id="cb1-91"><a href=""></a>    <span class="bu">print</span>(<span class="st">" (Highly left-skewed)"</span>)</span>
-<span id="cb1-92"><a href=""></a><span class="cf">elif</span> skewness <span class="op">&lt;</span> <span class="op">-</span><span class="fl">0.5</span>:</span>
-<span id="cb1-93"><a href=""></a>    <span class="bu">print</span>(<span class="st">" (Moderately left-skewed)"</span>)</span>
-<span id="cb1-94"><a href=""></a><span class="cf">else</span>:</span>
-<span id="cb1-95"><a href=""></a>    <span class="bu">print</span>(<span class="st">" (Approximately symmetric)"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-80"><a href=""></a><span class="bu">print</span>(<span class="ss">f"  Spending spread (IQR): $</span><span class="sc">{</span>iqr<span class="sc">:,.2f}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>CENTRAL TENDENCY ANALYSIS
 ==============================
@@ -371,14 +356,13 @@ Customer Annual Spending Analysis:
 Business Insights:
   50% of customers spend less than $3,011.63 annually
   Average customer value: $4,128.55
-  Spending spread (IQR): $3,259.02
-  Distribution skewness: 4.509 (Highly right-skewed - few high spenders)</code></pre>
+  Spending spread (IQR): $3,259.02</code></pre>
 </div>
 </div>
 <img data-src="Week09-lecture-slides_files/figure-revealjs/cell-2-output-2.png" class="r-stretch"></section>
 <section id="central-tendency-by-business-segments" class="slide level2 smaller">
 <h2>Central Tendency by Business Segments</h2>
-<div id="f133b9de" class="cell" data-execution_count="2">
+<div id="083dd8a0" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href=""></a><span class="co"># Analyze central tendency across different business segments</span></span>
 <span id="cb4-2"><a href=""></a><span class="bu">print</span>(<span class="st">"SEGMENTED CENTRAL TENDENCY ANALYSIS"</span>)</span>
 <span id="cb4-3"><a href=""></a><span class="bu">print</span>(<span class="st">"="</span> <span class="op">*</span> <span class="dv">45</span>)</span>
@@ -534,7 +518,7 @@ Segmentation Insights:
 </section>
 <section id="understanding-data-spread" class="slide level2">
 <h2>Understanding Data Spread</h2>
-<div id="7727e949" class="cell" data-execution_count="3">
+<div id="88ebb72c" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href=""></a><span class="co"># Analyze variability in business metrics</span></span>
 <span id="cb7-2"><a href=""></a><span class="bu">print</span>(<span class="st">"VARIABILITY ANALYSIS"</span>)</span>
 <span id="cb7-3"><a href=""></a><span class="bu">print</span>(<span class="st">"="</span> <span class="op">*</span> <span class="dv">25</span>)</span>
@@ -667,7 +651,7 @@ Worst_Case_Loss              1643.0           5078.0           3029.0</code></pr
 </section>
 <section id="understanding-data-shapes-and-patterns" class="slide level2">
 <h2>Understanding Data Shapes and Patterns</h2>
-<div id="efc09511" class="cell" data-execution_count="4">
+<div id="091fb726" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href=""></a><span class="co"># Employee salary analysis across departments</span></span>
 <span id="cb10-2"><a href=""></a><span class="bu">print</span>(<span class="st">"DISTRIBUTION ANALYSIS - EMPLOYEE SALARIES"</span>)</span>
 <span id="cb10-3"><a href=""></a><span class="bu">print</span>(<span class="st">"="</span> <span class="op">*</span> <span class="dv">45</span>)</span>
@@ -708,128 +692,120 @@ Worst_Case_Loss              1643.0           5078.0           3029.0</code></pr
 <span id="cb10-38"><a href=""></a>        <span class="st">'Mean'</span>: np.mean(dept_salaries),</span>
 <span id="cb10-39"><a href=""></a>        <span class="st">'Median'</span>: np.median(dept_salaries),</span>
 <span id="cb10-40"><a href=""></a>        <span class="st">'Std_Dev'</span>: np.std(dept_salaries),</span>
-<span id="cb10-41"><a href=""></a>        <span class="st">'Skewness'</span>: stats.skew(dept_salaries),</span>
-<span id="cb10-42"><a href=""></a>        <span class="st">'Kurtosis'</span>: stats.kurtosis(dept_salaries),</span>
-<span id="cb10-43"><a href=""></a>        <span class="st">'Min'</span>: np.<span class="bu">min</span>(dept_salaries),</span>
-<span id="cb10-44"><a href=""></a>        <span class="st">'Max'</span>: np.<span class="bu">max</span>(dept_salaries)</span>
-<span id="cb10-45"><a href=""></a>    }</span>
-<span id="cb10-46"><a href=""></a></span>
-<span id="cb10-47"><a href=""></a>dist_stats <span class="op">=</span> dist_stats.<span class="bu">round</span>(<span class="dv">2</span>)</span>
-<span id="cb10-48"><a href=""></a><span class="bu">print</span>(<span class="st">"Distribution Statistics by Department:"</span>)</span>
-<span id="cb10-49"><a href=""></a><span class="bu">print</span>(dist_stats)</span>
-<span id="cb10-50"><a href=""></a></span>
-<span id="cb10-51"><a href=""></a><span class="co"># Comprehensive visualization of distributions</span></span>
-<span id="cb10-52"><a href=""></a>fig, axes <span class="op">=</span> plt.subplots(<span class="dv">3</span>, <span class="dv">2</span>, figsize<span class="op">=</span>(<span class="dv">16</span>, <span class="dv">14</span>))</span>
-<span id="cb10-53"><a href=""></a></span>
-<span id="cb10-54"><a href=""></a><span class="co"># 1. Histograms with KDE</span></span>
-<span id="cb10-55"><a href=""></a>colors <span class="op">=</span> [<span class="st">'blue'</span>, <span class="st">'red'</span>, <span class="st">'green'</span>, <span class="st">'orange'</span>, <span class="st">'purple'</span>]</span>
-<span id="cb10-56"><a href=""></a><span class="cf">for</span> i, (dept, color) <span class="kw">in</span> <span class="bu">enumerate</span>(<span class="bu">zip</span>(departments, colors)):</span>
-<span id="cb10-57"><a href=""></a>    row, col <span class="op">=</span> i <span class="op">//</span> <span class="dv">2</span>, i <span class="op">%</span> <span class="dv">2</span></span>
-<span id="cb10-58"><a href=""></a>    <span class="cf">if</span> row <span class="op">&lt;</span> <span class="dv">3</span>:</span>
-<span id="cb10-59"><a href=""></a>        ax <span class="op">=</span> axes[row, col]</span>
-<span id="cb10-60"><a href=""></a>        </span>
-<span id="cb10-61"><a href=""></a>        <span class="co"># Histogram with KDE overlay</span></span>
-<span id="cb10-62"><a href=""></a>        ax.hist(salary_data[dept], bins<span class="op">=</span><span class="dv">20</span>, alpha<span class="op">=</span><span class="fl">0.7</span>, color<span class="op">=</span>color, density<span class="op">=</span><span class="va">True</span>, edgecolor<span class="op">=</span><span class="st">'black'</span>)</span>
-<span id="cb10-63"><a href=""></a>        </span>
-<span id="cb10-64"><a href=""></a>        <span class="co"># Add KDE line</span></span>
-<span id="cb10-65"><a href=""></a>        <span class="im">from</span> scipy.stats <span class="im">import</span> gaussian_kde</span>
-<span id="cb10-66"><a href=""></a>        kde <span class="op">=</span> gaussian_kde(salary_data[dept])</span>
-<span id="cb10-67"><a href=""></a>        x_range <span class="op">=</span> np.linspace(salary_data[dept].<span class="bu">min</span>(), salary_data[dept].<span class="bu">max</span>(), <span class="dv">100</span>)</span>
-<span id="cb10-68"><a href=""></a>        ax.plot(x_range, kde(x_range), color<span class="op">=</span><span class="st">'black'</span>, linewidth<span class="op">=</span><span class="dv">2</span>, label<span class="op">=</span><span class="st">'KDE'</span>)</span>
-<span id="cb10-69"><a href=""></a>        </span>
-<span id="cb10-70"><a href=""></a>        <span class="co"># Add mean and median lines</span></span>
-<span id="cb10-71"><a href=""></a>        mean_val <span class="op">=</span> np.mean(salary_data[dept])</span>
-<span id="cb10-72"><a href=""></a>        median_val <span class="op">=</span> np.median(salary_data[dept])</span>
-<span id="cb10-73"><a href=""></a>        ax.axvline(mean_val, color<span class="op">=</span><span class="st">'red'</span>, linestyle<span class="op">=</span><span class="st">'--'</span>, linewidth<span class="op">=</span><span class="dv">2</span>, label<span class="op">=</span><span class="ss">f'Mean: $</span><span class="sc">{</span>mean_val<span class="sc">:,.0f}</span><span class="ss">'</span>)</span>
-<span id="cb10-74"><a href=""></a>        ax.axvline(median_val, color<span class="op">=</span><span class="st">'green'</span>, linestyle<span class="op">=</span><span class="st">'--'</span>, linewidth<span class="op">=</span><span class="dv">2</span>, label<span class="op">=</span><span class="ss">f'Median: $</span><span class="sc">{</span>median_val<span class="sc">:,.0f}</span><span class="ss">'</span>)</span>
-<span id="cb10-75"><a href=""></a>        </span>
-<span id="cb10-76"><a href=""></a>        ax.set_title(<span class="ss">f'</span><span class="sc">{</span>dept<span class="sc">}</span><span class="ss"> Salary Distribution</span><span class="ch">\n</span><span class="ss">Skewness: </span><span class="sc">{</span>dist_stats<span class="sc">.</span>loc[<span class="st">"Skewness"</span>, dept]<span class="sc">:.2f}</span><span class="ss">'</span>, </span>
-<span id="cb10-77"><a href=""></a>                    fontweight<span class="op">=</span><span class="st">'bold'</span>)</span>
-<span id="cb10-78"><a href=""></a>        ax.set_xlabel(<span class="st">'Annual Salary ($)'</span>)</span>
-<span id="cb10-79"><a href=""></a>        ax.set_ylabel(<span class="st">'Density'</span>)</span>
-<span id="cb10-80"><a href=""></a>        ax.legend()</span>
-<span id="cb10-81"><a href=""></a>        ax.grid(<span class="va">True</span>, alpha<span class="op">=</span><span class="fl">0.3</span>)</span>
-<span id="cb10-82"><a href=""></a></span>
-<span id="cb10-83"><a href=""></a><span class="co"># Box plot comparison (using the empty subplot)</span></span>
-<span id="cb10-84"><a href=""></a>axes[<span class="dv">2</span>, <span class="dv">1</span>].boxplot([salary_data[dept] <span class="cf">for</span> dept <span class="kw">in</span> departments], </span>
-<span id="cb10-85"><a href=""></a>                  labels<span class="op">=</span>departments, patch_artist<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb10-86"><a href=""></a>axes[<span class="dv">2</span>, <span class="dv">1</span>].set_title(<span class="st">'Salary Distribution Comparison (Box Plots)'</span>, fontweight<span class="op">=</span><span class="st">'bold'</span>)</span>
-<span id="cb10-87"><a href=""></a>axes[<span class="dv">2</span>, <span class="dv">1</span>].set_ylabel(<span class="st">'Annual Salary ($)'</span>)</span>
-<span id="cb10-88"><a href=""></a>axes[<span class="dv">2</span>, <span class="dv">1</span>].tick_params(axis<span class="op">=</span><span class="st">'x'</span>, rotation<span class="op">=</span><span class="dv">45</span>)</span>
-<span id="cb10-89"><a href=""></a>axes[<span class="dv">2</span>, <span class="dv">1</span>].grid(<span class="va">True</span>, alpha<span class="op">=</span><span class="fl">0.3</span>)</span>
-<span id="cb10-90"><a href=""></a></span>
-<span id="cb10-91"><a href=""></a><span class="co"># Color the boxes</span></span>
-<span id="cb10-92"><a href=""></a>box_colors <span class="op">=</span> [<span class="st">'lightblue'</span>, <span class="st">'lightcoral'</span>, <span class="st">'lightgreen'</span>, <span class="st">'lightyellow'</span>, <span class="st">'lightpink'</span>]</span>
-<span id="cb10-93"><a href=""></a><span class="cf">for</span> patch, color <span class="kw">in</span> <span class="bu">zip</span>(axes[<span class="dv">2</span>, <span class="dv">1</span>].artists, box_colors):</span>
-<span id="cb10-94"><a href=""></a>    patch.set_facecolor(color)</span>
-<span id="cb10-95"><a href=""></a>    patch.set_alpha(<span class="fl">0.7</span>)</span>
-<span id="cb10-96"><a href=""></a></span>
-<span id="cb10-97"><a href=""></a>plt.tight_layout()</span>
-<span id="cb10-98"><a href=""></a>plt.show()</span>
-<span id="cb10-99"><a href=""></a></span>
-<span id="cb10-100"><a href=""></a><span class="co"># Business insights from distribution analysis</span></span>
-<span id="cb10-101"><a href=""></a><span class="bu">print</span>(<span class="ss">f"</span><span class="ch">\n</span><span class="ss">Distribution Analysis Insights:"</span>)</span>
-<span id="cb10-102"><a href=""></a></span>
-<span id="cb10-103"><a href=""></a><span class="co"># Identify distribution characteristics</span></span>
-<span id="cb10-104"><a href=""></a><span class="cf">for</span> dept <span class="kw">in</span> departments:</span>
-<span id="cb10-105"><a href=""></a>    skew <span class="op">=</span> dist_stats.loc[<span class="st">'Skewness'</span>, dept]</span>
-<span id="cb10-106"><a href=""></a>    mean_sal <span class="op">=</span> dist_stats.loc[<span class="st">'Mean'</span>, dept]</span>
-<span id="cb10-107"><a href=""></a>    median_sal <span class="op">=</span> dist_stats.loc[<span class="st">'Median'</span>, dept]</span>
-<span id="cb10-108"><a href=""></a>    </span>
-<span id="cb10-109"><a href=""></a>    <span class="cf">if</span> <span class="bu">abs</span>(skew) <span class="op">&lt;</span> <span class="fl">0.5</span>:</span>
-<span id="cb10-110"><a href=""></a>        shape <span class="op">=</span> <span class="st">"approximately normal"</span></span>
-<span id="cb10-111"><a href=""></a>    <span class="cf">elif</span> skew <span class="op">&gt;</span> <span class="dv">1</span>:</span>
-<span id="cb10-112"><a href=""></a>        shape <span class="op">=</span> <span class="st">"highly right-skewed (few high earners)"</span></span>
-<span id="cb10-113"><a href=""></a>    <span class="cf">elif</span> skew <span class="op">&gt;</span> <span class="fl">0.5</span>:</span>
-<span id="cb10-114"><a href=""></a>        shape <span class="op">=</span> <span class="st">"moderately right-skewed"</span></span>
-<span id="cb10-115"><a href=""></a>    <span class="cf">elif</span> skew <span class="op">&lt;</span> <span class="op">-</span><span class="dv">1</span>:</span>
-<span id="cb10-116"><a href=""></a>        shape <span class="op">=</span> <span class="st">"highly left-skewed"</span></span>
-<span id="cb10-117"><a href=""></a>    <span class="cf">else</span>:</span>
-<span id="cb10-118"><a href=""></a>        shape <span class="op">=</span> <span class="st">"moderately left-skewed"</span></span>
-<span id="cb10-119"><a href=""></a>    </span>
-<span id="cb10-120"><a href=""></a>    <span class="bu">print</span>(<span class="ss">f"  </span><span class="sc">{</span>dept<span class="sc">}</span><span class="ss">: Mean $</span><span class="sc">{</span>mean_sal<span class="sc">:,.0f}</span><span class="ss">, Median $</span><span class="sc">{</span>median_sal<span class="sc">:,.0f}</span><span class="ss"> - </span><span class="sc">{</span>shape<span class="sc">}</span><span class="ss">"</span>)</span>
-<span id="cb10-121"><a href=""></a></span>
-<span id="cb10-122"><a href=""></a><span class="co"># Pay equity analysis</span></span>
-<span id="cb10-123"><a href=""></a><span class="bu">print</span>(<span class="ss">f"</span><span class="ch">\n</span><span class="ss">Pay Equity Analysis:"</span>)</span>
-<span id="cb10-124"><a href=""></a>overall_mean <span class="op">=</span> salary_df[<span class="st">'Salary'</span>].mean()</span>
-<span id="cb10-125"><a href=""></a><span class="cf">for</span> dept <span class="kw">in</span> departments:</span>
-<span id="cb10-126"><a href=""></a>    dept_mean <span class="op">=</span> dist_stats.loc[<span class="st">'Mean'</span>, dept]</span>
-<span id="cb10-127"><a href=""></a>    deviation <span class="op">=</span> ((dept_mean <span class="op">-</span> overall_mean) <span class="op">/</span> overall_mean) <span class="op">*</span> <span class="dv">100</span></span>
-<span id="cb10-128"><a href=""></a>    <span class="bu">print</span>(<span class="ss">f"  </span><span class="sc">{</span>dept<span class="sc">}</span><span class="ss">: </span><span class="sc">{</span>deviation<span class="sc">:+.1f}</span><span class="ss">% vs company average"</span>)</span>
-<span id="cb10-129"><a href=""></a></span>
-<span id="cb10-130"><a href=""></a><span class="co"># Identify departments needing attention</span></span>
-<span id="cb10-131"><a href=""></a>high_inequality <span class="op">=</span> []</span>
-<span id="cb10-132"><a href=""></a><span class="cf">for</span> dept <span class="kw">in</span> departments:</span>
-<span id="cb10-133"><a href=""></a>    cv <span class="op">=</span> (dist_stats.loc[<span class="st">'Std_Dev'</span>, dept] <span class="op">/</span> dist_stats.loc[<span class="st">'Mean'</span>, dept]) <span class="op">*</span> <span class="dv">100</span></span>
-<span id="cb10-134"><a href=""></a>    <span class="cf">if</span> cv <span class="op">&gt;</span> <span class="dv">20</span>:  <span class="co"># Coefficient of variation &gt; 20%</span></span>
-<span id="cb10-135"><a href=""></a>        high_inequality.append(dept)</span>
-<span id="cb10-136"><a href=""></a></span>
-<span id="cb10-137"><a href=""></a><span class="cf">if</span> high_inequality:</span>
-<span id="cb10-138"><a href=""></a>    <span class="bu">print</span>(<span class="ss">f"</span><span class="ch">\n</span><span class="ss">Departments with High Salary Inequality: </span><span class="sc">{</span><span class="st">', '</span><span class="sc">.</span>join(high_inequality)<span class="sc">}</span><span class="ss">"</span>)</span>
-<span id="cb10-139"><a href=""></a><span class="cf">else</span>:</span>
-<span id="cb10-140"><a href=""></a>    <span class="bu">print</span>(<span class="ss">f"</span><span class="ch">\n</span><span class="ss">All departments show reasonable salary equality"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb10-41"><a href=""></a>        <span class="st">'Min'</span>: np.<span class="bu">min</span>(dept_salaries),</span>
+<span id="cb10-42"><a href=""></a>        <span class="st">'Max'</span>: np.<span class="bu">max</span>(dept_salaries)</span>
+<span id="cb10-43"><a href=""></a>    }</span>
+<span id="cb10-44"><a href=""></a></span>
+<span id="cb10-45"><a href=""></a>dist_stats <span class="op">=</span> dist_stats.<span class="bu">round</span>(<span class="dv">2</span>)</span>
+<span id="cb10-46"><a href=""></a><span class="bu">print</span>(<span class="st">"Distribution Statistics by Department:"</span>)</span>
+<span id="cb10-47"><a href=""></a><span class="bu">print</span>(dist_stats)</span>
+<span id="cb10-48"><a href=""></a></span>
+<span id="cb10-49"><a href=""></a><span class="co"># Comprehensive visualization of distributions</span></span>
+<span id="cb10-50"><a href=""></a>fig, axes <span class="op">=</span> plt.subplots(<span class="dv">3</span>, <span class="dv">2</span>, figsize<span class="op">=</span>(<span class="dv">16</span>, <span class="dv">14</span>))</span>
+<span id="cb10-51"><a href=""></a></span>
+<span id="cb10-52"><a href=""></a><span class="co"># 1. Histograms with KDE</span></span>
+<span id="cb10-53"><a href=""></a>colors <span class="op">=</span> [<span class="st">'blue'</span>, <span class="st">'red'</span>, <span class="st">'green'</span>, <span class="st">'orange'</span>, <span class="st">'purple'</span>]</span>
+<span id="cb10-54"><a href=""></a><span class="cf">for</span> i, (dept, color) <span class="kw">in</span> <span class="bu">enumerate</span>(<span class="bu">zip</span>(departments, colors)):</span>
+<span id="cb10-55"><a href=""></a>    row, col <span class="op">=</span> i <span class="op">//</span> <span class="dv">2</span>, i <span class="op">%</span> <span class="dv">2</span></span>
+<span id="cb10-56"><a href=""></a>    <span class="cf">if</span> row <span class="op">&lt;</span> <span class="dv">3</span>:</span>
+<span id="cb10-57"><a href=""></a>        ax <span class="op">=</span> axes[row, col]</span>
+<span id="cb10-58"><a href=""></a>        </span>
+<span id="cb10-59"><a href=""></a>        <span class="co"># Histogram with KDE overlay</span></span>
+<span id="cb10-60"><a href=""></a>        ax.hist(salary_data[dept], bins<span class="op">=</span><span class="dv">20</span>, alpha<span class="op">=</span><span class="fl">0.7</span>, color<span class="op">=</span>color, density<span class="op">=</span><span class="va">True</span>, edgecolor<span class="op">=</span><span class="st">'black'</span>)</span>
+<span id="cb10-61"><a href=""></a>        </span>
+<span id="cb10-62"><a href=""></a>        <span class="co"># Add KDE line</span></span>
+<span id="cb10-63"><a href=""></a>        <span class="im">from</span> scipy.stats <span class="im">import</span> gaussian_kde</span>
+<span id="cb10-64"><a href=""></a>        kde <span class="op">=</span> gaussian_kde(salary_data[dept])</span>
+<span id="cb10-65"><a href=""></a>        x_range <span class="op">=</span> np.linspace(salary_data[dept].<span class="bu">min</span>(), salary_data[dept].<span class="bu">max</span>(), <span class="dv">100</span>)</span>
+<span id="cb10-66"><a href=""></a>        ax.plot(x_range, kde(x_range), color<span class="op">=</span><span class="st">'black'</span>, linewidth<span class="op">=</span><span class="dv">2</span>, label<span class="op">=</span><span class="st">'KDE'</span>)</span>
+<span id="cb10-67"><a href=""></a>        </span>
+<span id="cb10-68"><a href=""></a>        <span class="co"># Add mean and median lines</span></span>
+<span id="cb10-69"><a href=""></a>        mean_val <span class="op">=</span> np.mean(salary_data[dept])</span>
+<span id="cb10-70"><a href=""></a>        median_val <span class="op">=</span> np.median(salary_data[dept])</span>
+<span id="cb10-71"><a href=""></a>        ax.axvline(mean_val, color<span class="op">=</span><span class="st">'red'</span>, linestyle<span class="op">=</span><span class="st">'--'</span>, linewidth<span class="op">=</span><span class="dv">2</span>, label<span class="op">=</span><span class="ss">f'Mean: $</span><span class="sc">{</span>mean_val<span class="sc">:,.0f}</span><span class="ss">'</span>)</span>
+<span id="cb10-72"><a href=""></a>        ax.axvline(median_val, color<span class="op">=</span><span class="st">'green'</span>, linestyle<span class="op">=</span><span class="st">'--'</span>, linewidth<span class="op">=</span><span class="dv">2</span>, label<span class="op">=</span><span class="ss">f'Median: $</span><span class="sc">{</span>median_val<span class="sc">:,.0f}</span><span class="ss">'</span>)</span>
+<span id="cb10-73"><a href=""></a>        </span>
+<span id="cb10-74"><a href=""></a>        ax.set_title(<span class="ss">f'</span><span class="sc">{</span>dept<span class="sc">}</span><span class="ss"> Salary Distribution'</span>,</span>
+<span id="cb10-75"><a href=""></a>                    fontweight<span class="op">=</span><span class="st">'bold'</span>)</span>
+<span id="cb10-76"><a href=""></a>        ax.set_xlabel(<span class="st">'Annual Salary ($)'</span>)</span>
+<span id="cb10-77"><a href=""></a>        ax.set_ylabel(<span class="st">'Density'</span>)</span>
+<span id="cb10-78"><a href=""></a>        ax.legend()</span>
+<span id="cb10-79"><a href=""></a>        ax.grid(<span class="va">True</span>, alpha<span class="op">=</span><span class="fl">0.3</span>)</span>
+<span id="cb10-80"><a href=""></a></span>
+<span id="cb10-81"><a href=""></a><span class="co"># Box plot comparison (using the empty subplot)</span></span>
+<span id="cb10-82"><a href=""></a>axes[<span class="dv">2</span>, <span class="dv">1</span>].boxplot([salary_data[dept] <span class="cf">for</span> dept <span class="kw">in</span> departments], </span>
+<span id="cb10-83"><a href=""></a>                  labels<span class="op">=</span>departments, patch_artist<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb10-84"><a href=""></a>axes[<span class="dv">2</span>, <span class="dv">1</span>].set_title(<span class="st">'Salary Distribution Comparison (Box Plots)'</span>, fontweight<span class="op">=</span><span class="st">'bold'</span>)</span>
+<span id="cb10-85"><a href=""></a>axes[<span class="dv">2</span>, <span class="dv">1</span>].set_ylabel(<span class="st">'Annual Salary ($)'</span>)</span>
+<span id="cb10-86"><a href=""></a>axes[<span class="dv">2</span>, <span class="dv">1</span>].tick_params(axis<span class="op">=</span><span class="st">'x'</span>, rotation<span class="op">=</span><span class="dv">45</span>)</span>
+<span id="cb10-87"><a href=""></a>axes[<span class="dv">2</span>, <span class="dv">1</span>].grid(<span class="va">True</span>, alpha<span class="op">=</span><span class="fl">0.3</span>)</span>
+<span id="cb10-88"><a href=""></a></span>
+<span id="cb10-89"><a href=""></a><span class="co"># Color the boxes</span></span>
+<span id="cb10-90"><a href=""></a>box_colors <span class="op">=</span> [<span class="st">'lightblue'</span>, <span class="st">'lightcoral'</span>, <span class="st">'lightgreen'</span>, <span class="st">'lightyellow'</span>, <span class="st">'lightpink'</span>]</span>
+<span id="cb10-91"><a href=""></a><span class="cf">for</span> patch, color <span class="kw">in</span> <span class="bu">zip</span>(axes[<span class="dv">2</span>, <span class="dv">1</span>].artists, box_colors):</span>
+<span id="cb10-92"><a href=""></a>    patch.set_facecolor(color)</span>
+<span id="cb10-93"><a href=""></a>    patch.set_alpha(<span class="fl">0.7</span>)</span>
+<span id="cb10-94"><a href=""></a></span>
+<span id="cb10-95"><a href=""></a>plt.tight_layout()</span>
+<span id="cb10-96"><a href=""></a>plt.show()</span>
+<span id="cb10-97"><a href=""></a></span>
+<span id="cb10-98"><a href=""></a><span class="co"># Business insights from distribution analysis</span></span>
+<span id="cb10-99"><a href=""></a><span class="bu">print</span>(<span class="ss">f"</span><span class="ch">\n</span><span class="ss">Distribution Analysis Insights:"</span>)</span>
+<span id="cb10-100"><a href=""></a></span>
+<span id="cb10-101"><a href=""></a><span class="co"># Identify distribution characteristics</span></span>
+<span id="cb10-102"><a href=""></a><span class="cf">for</span> dept <span class="kw">in</span> departments:</span>
+<span id="cb10-103"><a href=""></a>    mean_sal <span class="op">=</span> dist_stats.loc[<span class="st">'Mean'</span>, dept]</span>
+<span id="cb10-104"><a href=""></a>    median_sal <span class="op">=</span> dist_stats.loc[<span class="st">'Median'</span>, dept]</span>
+<span id="cb10-105"><a href=""></a>    mean_median_diff <span class="op">=</span> <span class="bu">abs</span>(mean_sal <span class="op">-</span> median_sal)</span>
+<span id="cb10-106"><a href=""></a></span>
+<span id="cb10-107"><a href=""></a>    <span class="cf">if</span> mean_median_diff <span class="op">/</span> mean_sal <span class="op">&lt;</span> <span class="fl">0.05</span>:</span>
+<span id="cb10-108"><a href=""></a>        shape <span class="op">=</span> <span class="st">"approximately symmetric"</span></span>
+<span id="cb10-109"><a href=""></a>    <span class="cf">elif</span> mean_sal <span class="op">&gt;</span> median_sal:</span>
+<span id="cb10-110"><a href=""></a>        shape <span class="op">=</span> <span class="st">"right-skewed (few high earners)"</span></span>
+<span id="cb10-111"><a href=""></a>    <span class="cf">else</span>:</span>
+<span id="cb10-112"><a href=""></a>        shape <span class="op">=</span> <span class="st">"left-skewed (few low earners)"</span></span>
+<span id="cb10-113"><a href=""></a></span>
+<span id="cb10-114"><a href=""></a>    <span class="bu">print</span>(<span class="ss">f"  </span><span class="sc">{</span>dept<span class="sc">}</span><span class="ss">: Mean $</span><span class="sc">{</span>mean_sal<span class="sc">:,.0f}</span><span class="ss">, Median $</span><span class="sc">{</span>median_sal<span class="sc">:,.0f}</span><span class="ss"> - </span><span class="sc">{</span>shape<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb10-115"><a href=""></a></span>
+<span id="cb10-116"><a href=""></a><span class="co"># Pay equity analysis</span></span>
+<span id="cb10-117"><a href=""></a><span class="bu">print</span>(<span class="ss">f"</span><span class="ch">\n</span><span class="ss">Pay Equity Analysis:"</span>)</span>
+<span id="cb10-118"><a href=""></a>overall_mean <span class="op">=</span> salary_df[<span class="st">'Salary'</span>].mean()</span>
+<span id="cb10-119"><a href=""></a><span class="cf">for</span> dept <span class="kw">in</span> departments:</span>
+<span id="cb10-120"><a href=""></a>    dept_mean <span class="op">=</span> dist_stats.loc[<span class="st">'Mean'</span>, dept]</span>
+<span id="cb10-121"><a href=""></a>    deviation <span class="op">=</span> ((dept_mean <span class="op">-</span> overall_mean) <span class="op">/</span> overall_mean) <span class="op">*</span> <span class="dv">100</span></span>
+<span id="cb10-122"><a href=""></a>    <span class="bu">print</span>(<span class="ss">f"  </span><span class="sc">{</span>dept<span class="sc">}</span><span class="ss">: </span><span class="sc">{</span>deviation<span class="sc">:+.1f}</span><span class="ss">% vs company average"</span>)</span>
+<span id="cb10-123"><a href=""></a></span>
+<span id="cb10-124"><a href=""></a><span class="co"># Identify departments needing attention</span></span>
+<span id="cb10-125"><a href=""></a>high_inequality <span class="op">=</span> []</span>
+<span id="cb10-126"><a href=""></a><span class="cf">for</span> dept <span class="kw">in</span> departments:</span>
+<span id="cb10-127"><a href=""></a>    cv <span class="op">=</span> (dist_stats.loc[<span class="st">'Std_Dev'</span>, dept] <span class="op">/</span> dist_stats.loc[<span class="st">'Mean'</span>, dept]) <span class="op">*</span> <span class="dv">100</span></span>
+<span id="cb10-128"><a href=""></a>    <span class="cf">if</span> cv <span class="op">&gt;</span> <span class="dv">20</span>:  <span class="co"># Coefficient of variation &gt; 20%</span></span>
+<span id="cb10-129"><a href=""></a>        high_inequality.append(dept)</span>
+<span id="cb10-130"><a href=""></a></span>
+<span id="cb10-131"><a href=""></a><span class="cf">if</span> high_inequality:</span>
+<span id="cb10-132"><a href=""></a>    <span class="bu">print</span>(<span class="ss">f"</span><span class="ch">\n</span><span class="ss">Departments with High Salary Inequality: </span><span class="sc">{</span><span class="st">', '</span><span class="sc">.</span>join(high_inequality)<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb10-133"><a href=""></a><span class="cf">else</span>:</span>
+<span id="cb10-134"><a href=""></a>    <span class="bu">print</span>(<span class="ss">f"</span><span class="ch">\n</span><span class="ss">All departments show reasonable salary equality"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>DISTRIBUTION ANALYSIS - EMPLOYEE SALARIES
 =============================================
 Distribution Statistics by Department:
-              Sales  Engineering  Marketing         HR    Finance
-Mean       50853.80     95809.87   56143.71   53867.36   85351.23
-Median     48959.38     96092.05   54611.77   46990.70   87036.02
-Std_Dev    13939.07     14786.61    9901.04   23244.85   10962.89
-Skewness       1.25         0.20       0.76       1.35      -0.59
-Kurtosis       2.07         1.16       0.11       1.12       0.81
-Min        35000.00     46380.99   41638.85   35000.00   43230.29
-Max       110863.03    152790.97   83436.70  128932.68  113288.52</code></pre>
+             Sales  Engineering  Marketing         HR    Finance
+Mean      50853.80     95809.87   56143.71   53867.36   85351.23
+Median    48959.38     96092.05   54611.77   46990.70   87036.02
+Std_Dev   13939.07     14786.61    9901.04   23244.85   10962.89
+Min       35000.00     46380.99   41638.85   35000.00   43230.29
+Max      110863.03    152790.97   83436.70  128932.68  113288.52</code></pre>
 </div>
 
 <div class="cell-output cell-output-stdout">
 <pre><code>
 Distribution Analysis Insights:
-  Sales: Mean $50,854, Median $48,959 - highly right-skewed (few high earners)
-  Engineering: Mean $95,810, Median $96,092 - approximately normal
-  Marketing: Mean $56,144, Median $54,612 - moderately right-skewed
-  HR: Mean $53,867, Median $46,991 - highly right-skewed (few high earners)
-  Finance: Mean $85,351, Median $87,036 - moderately left-skewed
+  Sales: Mean $50,854, Median $48,959 - approximately symmetric
+  Engineering: Mean $95,810, Median $96,092 - approximately symmetric
+  Marketing: Mean $56,144, Median $54,612 - approximately symmetric
+  HR: Mean $53,867, Median $46,991 - right-skewed (few high earners)
+  Finance: Mean $85,351, Median $87,036 - approximately symmetric
 
 Pay Equity Analysis:
   Sales: -26.1% vs company average
@@ -852,7 +828,7 @@ Departments with High Salary Inequality: Sales, HR</code></pre>
 </section>
 <section id="understanding-relationships-between-variables" class="slide level2">
 <h2>Understanding Relationships Between Variables</h2>
-<div id="37a84a8b" class="cell" data-execution_count="5">
+<div id="657f20c0" class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href=""></a><span class="co"># Business metrics correlation analysis</span></span>
 <span id="cb13-2"><a href=""></a><span class="bu">print</span>(<span class="st">"BUSINESS METRICS CORRELATION ANALYSIS"</span>)</span>
 <span id="cb13-3"><a href=""></a><span class="bu">print</span>(<span class="st">"="</span> <span class="op">*</span> <span class="dv">45</span>)</span>
@@ -1110,7 +1086,7 @@ Correlation Insights:
 <h3 id="key-principles-for-professional-analysis">Key Principles for Professional Analysis</h3>
 <ul>
 <li class="fragment"><strong>Context Matters</strong>: Always interpret statistics within business context</li>
-<li class="fragment"><strong>Distribution Shape</strong>: Check for skewness and outliers before analysis</li>
+<li class="fragment"><strong>Distribution Shape</strong>: Check distribution patterns and outliers before analysis</li>
 <li class="fragment"><strong>Correlation ≠ Causation</strong>: Strong relationships don’t imply cause-and-effect</li>
 <li class="fragment"><strong>Variability Insights</strong>: High variability often indicates risk or opportunity</li>
 <li class="fragment"><strong>Segment Comparisons</strong>: Different groups may show different patterns</li>
